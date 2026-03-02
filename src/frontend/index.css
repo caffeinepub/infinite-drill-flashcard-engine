@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────── */
+/* Self-hosted fonts (pre-bundled when available) */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2"),
+       local("Bricolage Grotesque");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2"),
+       local("Outfit");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono[wght].woff2") format("woff2"),
+       local("JetBrains Mono");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design Tokens ──────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Light mode: clean white with warm tones */
+    --background: 0.98 0.004 250;
+    --foreground: 0.12 0.025 265;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.025 265;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.025 265;
+    --primary: 0.52 0.24 283;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.95 0.012 265;
+    --secondary-foreground: 0.12 0.025 265;
+    --muted: 0.94 0.008 265;
+    --muted-foreground: 0.45 0.025 265;
+    --accent: 0.55 0.22 262;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.58 0.22 27;
+    --destructive-foreground: 1 0 0;
+    --border: 0.88 0.015 265;
+    --input: 0.88 0.015 265;
+    --ring: 0.52 0.24 283;
+
+    /* Semantic accent colors */
+    --neon-purple: 0.52 0.24 283;
+    --neon-blue: 0.55 0.2 240;
+    --neon-green: 0.56 0.18 162;
+    --neon-red: 0.58 0.22 27;
+    --neon-amber: 0.7 0.18 75;
+
+    /* Chart */
+    --chart-1: 0.52 0.24 283;
+    --chart-2: 0.55 0.2 240;
+    --chart-3: 0.56 0.18 162;
+    --chart-4: 0.7 0.18 75;
+    --chart-5: 0.58 0.22 27;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.006 265;
+    --sidebar-foreground: 0.12 0.025 265;
+    --sidebar-primary: 0.52 0.24 283;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.94 0.008 265;
+    --sidebar-accent-foreground: 0.12 0.025 265;
+    --sidebar-border: 0.88 0.015 265;
+    --sidebar-ring: 0.52 0.24 283;
+  }
+
+  .dark {
+    /* Dark mode: deep void purple-black */
+    --background: 0.095 0.025 272;
+    --foreground: 0.95 0.01 265;
+    --card: 0.13 0.03 272;
+    --card-foreground: 0.95 0.01 265;
+    --popover: 0.16 0.035 272;
+    --popover-foreground: 0.95 0.01 265;
+    --primary: 0.6 0.24 283;
+    --primary-foreground: 0.095 0.025 272;
+    --secondary: 0.18 0.04 272;
+    --secondary-foreground: 0.95 0.01 265;
+    --muted: 0.2 0.04 272;
+    --muted-foreground: 0.55 0.025 265;
+    --accent: 0.6 0.24 283;
+    --accent-foreground: 0.095 0.025 272;
+    --destructive: 0.62 0.22 27;
+    --destructive-foreground: 1 0 0;
+    --border: 0.95 0 0 / 8%;
+    --input: 0.95 0 0 / 10%;
+    --ring: 0.6 0.24 283;
+
+    /* Neon accents - slightly brighter in dark mode */
+    --neon-purple: 0.62 0.26 283;
+    --neon-blue: 0.62 0.22 240;
+    --neon-green: 0.62 0.2 162;
+    --neon-red: 0.65 0.24 27;
+    --neon-amber: 0.75 0.19 75;
+
+    /* Chart */
+    --chart-1: 0.62 0.26 283;
+    --chart-2: 0.62 0.22 240;
+    --chart-3: 0.62 0.2 162;
+    --chart-4: 0.75 0.19 75;
+    --chart-5: 0.65 0.24 27;
+
+    /* Sidebar */
+    --sidebar: 0.12 0.03 272;
+    --sidebar-foreground: 0.95 0.01 265;
+    --sidebar-primary: 0.62 0.26 283;
+    --sidebar-primary-foreground: 0.095 0.025 272;
+    --sidebar-accent: 0.18 0.04 272;
+    --sidebar-accent-foreground: 0.95 0.01 265;
+    --sidebar-border: 0.95 0 0 / 8%;
+    --sidebar-ring: 0.62 0.26 283;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Custom Utilities ───────────────────────────────── */
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    background: oklch(var(--card) / 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid oklch(var(--border));
+  }
+
+  .glass-dark {
+    background: oklch(var(--card) / 0.4);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid oklch(1 0 0 / 8%);
+  }
+
+  /* Neon glow effects */
+  .glow-purple {
+    box-shadow: 0 0 20px oklch(var(--neon-purple) / 0.4), 0 0 40px oklch(var(--neon-purple) / 0.15);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px oklch(var(--neon-green) / 0.4), 0 0 40px oklch(var(--neon-green) / 0.15);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px oklch(var(--neon-red) / 0.4), 0 0 40px oklch(var(--neon-red) / 0.15);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px oklch(var(--neon-blue) / 0.4), 0 0 40px oklch(var(--neon-blue) / 0.15);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 20px oklch(var(--neon-amber) / 0.4), 0 0 40px oklch(var(--neon-amber) / 0.15);
+  }
+
+  /* Text gradients */
+  .text-gradient-purple {
+    background: linear-gradient(135deg, oklch(var(--neon-purple)), oklch(var(--neon-blue)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-fire {
+    background: linear-gradient(135deg, oklch(var(--neon-amber)), oklch(var(--neon-red)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Mesh gradient backgrounds */
+  .bg-mesh-dark {
+    background-color: oklch(0.095 0.025 272);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, oklch(0.62 0.26 283 / 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.62 0.22 240 / 0.1) 0%, transparent 55%),
+      radial-gradient(ellipse at 60% 80%, oklch(0.62 0.2 162 / 0.06) 0%, transparent 50%);
+  }
+
+  .bg-mesh-light {
+    background-color: oklch(0.98 0.004 250);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, oklch(0.52 0.24 283 / 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.55 0.2 240 / 0.05) 0%, transparent 55%),
+      radial-gradient(ellipse at 60% 80%, oklch(0.56 0.18 162 / 0.04) 0%, transparent 50%);
+  }
+
+  /* Display font */
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  /* Mono font */
+  .font-mono-custom {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(var(--muted-foreground) / 0.3);
+    border-radius: 2px;
+  }
+}
+
+/* ── Flashcard 3D Flip ─────────────────────────────── */
+.flashcard-scene {
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Timer Ring ─────────────────────────────────────── */
+.timer-ring-circle {
+  transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* ── XP Popup ───────────────────────────────────────── */
+@keyframes xp-float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.3);
+  }
+}
+
+.xp-popup {
+  animation: xp-float-up 1.5s ease-out forwards;
+}
+
+/* ── Pulse dot (for stats) ──────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px oklch(var(--neon-green) / 0.6); }
+  50% { opacity: 0.5; box-shadow: 0 0 12px oklch(var(--neon-green) / 0.9); }
+}
+
+.pulse-dot {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Streak fire ─────────────────────────────────────── */
+@keyframes fire-flicker {
+  0%, 100% { transform: scale(1) rotate(-2deg); }
+  25% { transform: scale(1.1) rotate(2deg); }
+  50% { transform: scale(0.95) rotate(-1deg); }
+  75% { transform: scale(1.05) rotate(1deg); }
+}
+
+.fire-anim {
+  animation: fire-flicker 0.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* ── Print styles ─────────────────────────────────────── */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ── Ad zone ─────────────────────────────────────────── */
+.ad-zone {
+  background: repeating-linear-gradient(
+    45deg,
+    oklch(0.88 0 0) 0px,
+    oklch(0.88 0 0) 10px,
+    oklch(0.92 0 0) 10px,
+    oklch(0.92 0 0) 20px
+  );
+}
+
+.dark .ad-zone {
+  background: repeating-linear-gradient(
+    45deg,
+    oklch(0.18 0 0) 0px,
+    oklch(0.18 0 0) 10px,
+    oklch(0.22 0 0) 10px,
+    oklch(0.22 0 0) 20px
+  );
+}
+
+/* ── Progress bar animation ─────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.progress-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(var(--neon-purple)) 0%,
+    oklch(var(--neon-blue)) 50%,
+    oklch(var(--neon-purple)) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 2s linear infinite;
+}
