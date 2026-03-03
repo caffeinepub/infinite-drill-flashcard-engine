@@ -7244,6 +7244,530 @@ const class9: NCERTClass = {
           ],
           videoKeyword: "newton",
         },
+        {
+          id: "9-sci-3",
+          number: 3,
+          name: "Atoms and Molecules",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "Atoms are the smallest particles of an element that retain its chemical identity. John Dalton proposed that matter is made of indivisible atoms, each element has identical atoms, and compounds form by combining atoms in fixed ratios. The Law of Conservation of Mass states mass is neither created nor destroyed in a chemical reaction.",
+            "The Law of Definite Proportions states that a compound always contains the same elements in the same ratio by mass. For example, water always has hydrogen and oxygen in a 1:8 ratio by mass. The Law of Multiple Proportions states when two elements form more than one compound, the ratio of the second element's mass that combines with a fixed mass of the first is a simple whole number ratio.",
+            "Molecules are groups of atoms bonded together. Atomicity refers to the number of atoms in a molecule: monoatomic (He, Ne), diatomic (H₂, O₂, N₂), triatomic (O₃, H₂O), polyatomic (P₄, S₈). The mole concept: 1 mole = 6.022 × 10²³ particles (Avogadro's number). Molar mass equals the atomic/molecular mass in grams. This allows chemists to count particles by weighing.",
+          ],
+          keyConcepts: [
+            {
+              title: "Laws of Chemical Combination",
+              description: "Conservation of mass and definite proportions",
+            },
+            {
+              title: "Atomic Mass",
+              description: "Relative mass of an atom compared to C-12 standard",
+            },
+            {
+              title: "Mole Concept",
+              description: "1 mole = 6.022×10²³ particles; molar mass in grams",
+            },
+            {
+              title: "Molecular Formula",
+              description: "Exact number of each atom type in a molecule",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Atom",
+              definition:
+                "Smallest particle of an element that retains its chemical properties",
+            },
+            {
+              term: "Molecule",
+              definition:
+                "Smallest particle of a substance that exists independently",
+            },
+            {
+              term: "Mole",
+              definition: "Amount of substance containing 6.022×10²³ particles",
+            },
+            {
+              term: "Avogadro's Number",
+              definition: "6.022×10²³, the number of particles in one mole",
+            },
+          ],
+          videoKeyword: "chemistry",
+        },
+        {
+          id: "9-sci-4",
+          number: 4,
+          name: "Structure of the Atom",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "The atom has a complex internal structure discovered through experiments. Thomson's model proposed a positive sphere with electrons embedded (plum pudding model). Rutherford's gold foil experiment (1911) disproved this — most alpha particles passed through, a few deflected, and very few bounced back, proving the atom has a tiny, dense, positively charged nucleus with electrons orbiting outside.",
+            "Bohr's model improved on Rutherford's by proposing that electrons move in fixed circular orbits (shells) at specific energy levels. Electrons can jump between orbits by absorbing or emitting energy. The shells are labeled K, L, M, N with maximum electron capacity 2n² (K: 2, L: 8, M: 18). The outermost shell can hold maximum 8 electrons (octet rule).",
+            "The three subatomic particles are: Protons (positive charge, mass ≈ 1 amu, in nucleus), Neutrons (no charge, mass ≈ 1 amu, in nucleus — stabilize the nucleus), Electrons (negative charge, negligible mass, in orbits). Atomic number (Z) = number of protons. Mass number (A) = protons + neutrons. Isotopes are atoms of the same element with different neutron numbers (C-12, C-14; H, D, T).",
+          ],
+          keyConcepts: [
+            {
+              title: "Rutherford's Nuclear Model",
+              description: "Tiny dense nucleus; electrons orbit outside",
+            },
+            {
+              title: "Bohr's Model",
+              description: "Electrons in fixed energy shells K, L, M, N",
+            },
+            {
+              title: "Atomic Number and Mass Number",
+              description: "Z = protons; A = protons + neutrons",
+            },
+            {
+              title: "Isotopes",
+              description: "Same element, different neutron count",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Atomic Number",
+              definition: "Number of protons in the nucleus of an atom",
+            },
+            {
+              term: "Mass Number",
+              definition: "Total number of protons and neutrons in the nucleus",
+            },
+            {
+              term: "Isotope",
+              definition:
+                "Atoms of the same element with different numbers of neutrons",
+            },
+            {
+              term: "Valence Electrons",
+              definition:
+                "Electrons in the outermost shell; determine chemical properties",
+            },
+          ],
+          videoKeyword: "atom",
+        },
+        {
+          id: "9-sci-6",
+          number: 6,
+          name: "Tissues",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "A tissue is a group of similar cells performing the same function. Plants have two main tissue systems: Meristematic tissues (actively dividing cells found at growing tips — apical, lateral, intercalary) and Permanent tissues (differentiated, stopped dividing). Permanent tissues include Simple tissues (parenchyma — thin-walled, food storage; collenchyma — flexible support; sclerenchyma — hard/dead, support) and Complex tissues (xylem — water transport; phloem — food transport).",
+            "Animal tissues are categorized into four types: Epithelial tissue lines body surfaces and organs (squamous, cuboidal, columnar, ciliated, glandular). Connective tissue connects and supports (blood, bone, cartilage, adipose, ligament, tendon). Muscular tissue contracts for movement (striated/skeletal — voluntary; smooth/visceral — involuntary; cardiac — in heart). Nervous tissue conducts electrical signals (neurons and glial cells).",
+            "The neuron is the structural and functional unit of the nervous system. It has a cell body (containing nucleus), dendrites (receive signals), and axon (transmit signals to next neuron or muscle). Myelin sheath insulates the axon and speeds up transmission. Nerve impulses travel as electrical signals. Connective tissues like blood consist of plasma (liquid) and blood cells (RBC, WBC, platelets).",
+          ],
+          keyConcepts: [
+            {
+              title: "Plant Tissues",
+              description:
+                "Meristematic (dividing) and Permanent (differentiated)",
+            },
+            {
+              title: "Animal Tissue Types",
+              description: "Epithelial, Connective, Muscular, Nervous",
+            },
+            {
+              title: "Xylem and Phloem",
+              description: "Water transport and food transport in plants",
+            },
+            {
+              title: "Neuron Structure",
+              description:
+                "Cell body, dendrites, axon — conducts nerve impulses",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tissue",
+              definition: "Group of similar cells performing the same function",
+            },
+            {
+              term: "Meristematic Tissue",
+              definition:
+                "Actively dividing plant cells found at growing regions",
+            },
+            {
+              term: "Neuron",
+              definition:
+                "Structural and functional unit of the nervous system",
+            },
+            {
+              term: "Xylem",
+              definition:
+                "Plant tissue that transports water from roots to leaves",
+            },
+          ],
+          videoKeyword: "cell",
+        },
+        {
+          id: "9-sci-7",
+          number: 7,
+          name: "Diversity in Living Organisms",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "There are millions of species on Earth. Classification helps us organize this diversity into manageable groups based on shared characteristics. Aristotle first classified organisms as plants and animals. Whittaker proposed the Five Kingdom classification: Monera (bacteria), Protista (unicellular eukaryotes), Fungi, Plantae, Animalia. Linnaeus introduced binomial nomenclature — each organism has two Latin names: genus and species (e.g., Homo sapiens).",
+            "The Plant Kingdom (Plantae) is divided into: Thallophyta (algae — no true root/stem/leaf: Spirogyra); Bryophyta (mosses — no vascular tissue: Funaria, Marchantia); Pteridophyta (ferns — vascular but no seeds: Fern, Horstetail); Gymnosperms (naked seeds — cone-bearing: Pinus, Cycas); Angiosperms (enclosed seeds — flowering plants — most evolved). Angiosperms are further divided into Monocots (one cotyledon: wheat, rice) and Dicots (two cotyledons: pea, mango).",
+            "The Animal Kingdom (Animalia) includes: Porifera (sponges, pores); Coelenterata (jellyfish, corals — hollow body cavity); Platyhelminthes (flatworms); Nematoda (roundworms); Annelida (earthworms — segmented); Arthropoda (insects, crabs — jointed legs, largest phylum); Mollusca (snails, octopus); Echinodermata (starfish — spiny skin); Chordata (notochord present — includes fish, amphibians, reptiles, birds, mammals). Mammals are most evolved with warm blood, hair, and nourishing young with milk.",
+          ],
+          keyConcepts: [
+            {
+              title: "Five Kingdom Classification",
+              description: "Monera, Protista, Fungi, Plantae, Animalia",
+            },
+            {
+              title: "Plant Kingdom Divisions",
+              description:
+                "Thallophyta → Bryophyta → Pteridophyta → Gymnosperms → Angiosperms",
+            },
+            {
+              title: "Binomial Nomenclature",
+              description: "Two-part scientific name: Genus + species",
+            },
+            {
+              title: "Animal Phyla",
+              description:
+                "Porifera, Coelenterata, Annelida, Arthropoda, Chordata",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Taxonomy",
+              definition: "Science of classifying living organisms",
+            },
+            {
+              term: "Binomial Nomenclature",
+              definition:
+                "System of two-part Latin names for organisms (Genus + species)",
+            },
+            {
+              term: "Phylum",
+              definition: "Classification rank below Kingdom and above Class",
+            },
+            {
+              term: "Gymnosperms",
+              definition:
+                "Plants with naked (uncovered) seeds; e.g., Pine, Cycas",
+            },
+          ],
+          videoKeyword: "cell",
+        },
+        {
+          id: "9-sci-10",
+          number: 10,
+          name: "Gravitation",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "Newton's Law of Universal Gravitation states every object with mass attracts every other object. The gravitational force F = Gm₁m₂/r², where G = 6.674 × 10⁻¹¹ Nm²/kg² (universal gravitational constant), m₁ and m₂ are masses, and r is the distance between centers. The force decreases as the square of distance (inverse square law) — doubling distance reduces force to 1/4.",
+            "On Earth, the acceleration due to gravity g = GM/R² ≈ 9.8 m/s². This acceleration is the same for all objects regardless of mass (Galileo's experiment). Weight (W = mg) is the gravitational force on an object — it varies with location (less on Moon: g_moon ≈ 1.6 m/s²). Mass is constant everywhere; weight changes with gravitational field.",
+            "Buoyancy is the upward force exerted by a fluid on an immersed object (Archimedes' Principle: buoyant force = weight of displaced fluid). Objects float when buoyant force ≥ weight; sink when buoyant force < weight. Relative density = density of substance / density of water. Pressure = Force/Area (Pascal); Atmospheric pressure is caused by the weight of air above us.",
+          ],
+          keyConcepts: [
+            {
+              title: "Law of Gravitation",
+              description: "F = Gm₁m₂/r²; inverse square law",
+            },
+            {
+              title: "Acceleration due to Gravity",
+              description: "g = 9.8 m/s² on Earth; same for all masses",
+            },
+            {
+              title: "Mass vs Weight",
+              description: "Mass is constant; weight varies with gravity",
+            },
+            {
+              title: "Archimedes' Principle",
+              description: "Buoyant force equals weight of displaced fluid",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Gravitational Constant (G)",
+              definition: "Universal constant G = 6.674×10⁻¹¹ Nm²/kg²",
+            },
+            {
+              term: "Weight",
+              definition: "Force of gravity on an object; W = mg",
+            },
+            {
+              term: "Buoyancy",
+              definition:
+                "Upward force exerted by a fluid on a submerged object",
+            },
+            {
+              term: "Relative Density",
+              definition: "Ratio of density of a substance to density of water",
+            },
+          ],
+          videoKeyword: "newton",
+        },
+        {
+          id: "9-sci-11",
+          number: 11,
+          name: "Work and Energy",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "In physics, work is done only when a force causes displacement in the direction of the force. W = F × d × cosθ, where θ is the angle between force and displacement. No work is done if: there is no displacement (pushing a wall), displacement is perpendicular to force (carrying books horizontally), or the force is zero. Work is measured in Joules (J = N·m).",
+            "Energy is the capacity to do work. Types: Kinetic energy (KE = ½mv²) — energy of motion; Potential energy — stored energy. Gravitational PE = mgh (depends on height). Elastic PE is stored in stretched/compressed springs. The Work-Energy Theorem states the net work done on an object equals the change in its kinetic energy: W_net = ΔKE.",
+            "Law of Conservation of Energy: Energy can neither be created nor destroyed, only converted from one form to another. In a falling object, PE converts to KE (total mechanical energy remains constant if no friction). Power is the rate of doing work: P = W/t, measured in Watts (W = J/s). Commercial unit of energy: 1 kWh (kilowatt-hour) = 3.6 × 10⁶ J.",
+          ],
+          keyConcepts: [
+            {
+              title: "Work Definition",
+              description: "W = F × d × cosθ; force must cause displacement",
+            },
+            {
+              title: "Kinetic and Potential Energy",
+              description: "KE = ½mv²; PE = mgh",
+            },
+            {
+              title: "Work-Energy Theorem",
+              description: "Net work = change in kinetic energy",
+            },
+            {
+              title: "Conservation of Energy",
+              description: "Energy transforms but total remains constant",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Work",
+              definition:
+                "Product of force and displacement in direction of force (Joules)",
+            },
+            {
+              term: "Power",
+              definition: "Rate of doing work; P = W/t; measured in Watts",
+            },
+            {
+              term: "Kinetic Energy",
+              definition: "Energy due to motion; KE = ½mv²",
+            },
+            {
+              term: "1 kWh",
+              definition: "Commercial unit of energy = 3.6 × 10⁶ Joules",
+            },
+          ],
+          videoKeyword: "newton",
+        },
+        {
+          id: "9-sci-12",
+          number: 12,
+          name: "Sound",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "Sound is a mechanical longitudinal wave that requires a material medium to travel. It cannot travel in vacuum (unlike light). Sound travels as compressions (high pressure) and rarefactions (low pressure). Speed of sound: 343 m/s in air at 25°C; faster in liquids and solids (because molecules are closer). Speed increases with temperature. Sound waves are characterized by frequency (Hz), amplitude, wavelength, and time period.",
+            "Frequency determines pitch — high frequency = high pitch (shrill), low frequency = low pitch (deep). Amplitude determines loudness — greater amplitude = louder sound. Loudness is measured in decibels (dB). The human ear hears sounds between 20 Hz and 20,000 Hz (audible range). Sounds below 20 Hz are infrasonic (elephants use these); above 20,000 Hz are ultrasonic (bats, dolphins use these for echolocation).",
+            "Echo is the reflection of sound. For a distinct echo, the reflecting surface must be at least 17.2 m away (sound takes 0.1 seconds minimum to distinguish). Reverberation is the persistence of sound due to multiple reflections. SONAR (Sound Navigation And Ranging) uses ultrasound to detect underwater objects. Ultrasound is also used in medical imaging (sonography) and cleaning delicate instruments.",
+          ],
+          keyConcepts: [
+            {
+              title: "Sound as a Wave",
+              description: "Longitudinal mechanical wave needing medium",
+            },
+            {
+              title: "Frequency and Pitch",
+              description:
+                "High frequency = high pitch; measured in Hertz (Hz)",
+            },
+            {
+              title: "Amplitude and Loudness",
+              description: "Greater amplitude = louder sound; measured in dB",
+            },
+            {
+              title: "Echo and Ultrasound",
+              description:
+                "Sound reflection; ultrasound applications in SONAR, medical",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Frequency",
+              definition: "Number of vibrations per second; unit Hertz (Hz)",
+            },
+            {
+              term: "Amplitude",
+              definition:
+                "Maximum displacement of a wave from its rest position",
+            },
+            {
+              term: "Ultrasound",
+              definition:
+                "Sound with frequency above 20,000 Hz; used in SONAR and medicine",
+            },
+            {
+              term: "Echo",
+              definition:
+                "Reflected sound heard distinctly after the original sound",
+            },
+          ],
+          videoKeyword: "sound",
+        },
+        {
+          id: "9-sci-13",
+          number: 13,
+          name: "Why Do We Fall Ill",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "Health is a state of complete physical, mental, and social well-being, not merely absence of disease. Community health depends on public services (sanitation, clean water, nutrition). Disease means the body is not functioning normally. Diseases can be acute (short duration, like cold, cholera) or chronic (long duration, like tuberculosis, diabetes). They can be infectious (spread from person to person) or non-infectious.",
+            "Infectious diseases are caused by pathogens: bacteria (TB, cholera, typhoid — treatable with antibiotics), viruses (cold, flu, HIV, hepatitis — antibiotics don't work; antivirals and vaccines help), fungi (skin infections, ringworm), protozoa (malaria caused by Plasmodium via Anopheles mosquito; amoebic dysentery), worms (tapeworm, elephantiasis). Diseases spread through air, water, direct contact, sexual contact, vectors (mosquitoes), and food.",
+            "Prevention is better than cure. Immunization (vaccination) creates immunity against specific diseases. The immune system uses antibodies to fight pathogens. Vaccines introduce weakened/killed pathogens or their antigens to stimulate antibody production. Antibiotics block bacterial processes — they don't work on viruses. Completing the full course prevents antibiotic resistance. General prevention includes proper nutrition, clean environment, and hygiene.",
+          ],
+          keyConcepts: [
+            {
+              title: "Infectious vs Non-Infectious",
+              description:
+                "Pathogens spread disease; non-infectious include genetic disorders",
+            },
+            {
+              title: "Types of Pathogens",
+              description: "Bacteria, viruses, fungi, protozoa, worms",
+            },
+            {
+              title: "Immunization",
+              description:
+                "Vaccines stimulate antibody production for immunity",
+            },
+            {
+              title: "Antibiotics",
+              description: "Kill bacteria but have no effect on viruses",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Pathogen",
+              definition:
+                "Disease-causing microorganism (bacteria, virus, fungus, protozoan)",
+            },
+            {
+              term: "Immunity",
+              definition: "Body's ability to resist or fight disease",
+            },
+            {
+              term: "Antibiotic",
+              definition: "Medicine that kills or inhibits bacterial growth",
+            },
+            {
+              term: "Vaccine",
+              definition:
+                "Preparation of weakened/killed pathogen to stimulate immunity",
+            },
+          ],
+          videoKeyword: "cell",
+        },
+        {
+          id: "9-sci-14",
+          number: 14,
+          name: "Natural Resources",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "Natural resources are materials from nature that humans use. They include air, water, soil, minerals, plants, and animals. The biosphere is the narrow zone of Earth where life exists (lithosphere, hydrosphere, atmosphere interact). Life on Earth depends on the cycling of nutrients: Carbon cycle (CO₂ ↔ photosynthesis ↔ respiration ↔ combustion), Nitrogen cycle (N₂ → bacteria → soil nitrates → plants → animals → decomposers → N₂), Water cycle (evaporation → clouds → precipitation → run-off → evaporation).",
+            "Soil is formed by weathering of rocks over thousands of years. It contains minerals, humus (decomposed organic matter), water, and air. Soil supports plant life and is a non-renewable resource (takes 1000 years to form 1 cm). Top soil is most fertile. Deforestation and over-farming cause soil erosion and degradation.",
+            "Biogeochemical cycles maintain the balance of elements in nature. Human activities disturb these cycles: burning fossil fuels increases CO₂ (greenhouse effect → global warming); industrial pollution releases pollutants into air, water, soil. The greenhouse effect (CO₂, CH₄, H₂O trap heat) is natural and essential, but enhanced greenhouse effect causes climate change. Ozone layer in the stratosphere blocks harmful UV radiation; CFCs destroy it.",
+          ],
+          keyConcepts: [
+            {
+              title: "Biogeochemical Cycles",
+              description: "Carbon, nitrogen, and water cycles in nature",
+            },
+            {
+              title: "Soil Formation",
+              description: "Weathering of rocks over thousands of years",
+            },
+            {
+              title: "Greenhouse Effect",
+              description:
+                "CO₂ and CH₄ trap heat; enhanced effect causes warming",
+            },
+            {
+              title: "Ozone Layer",
+              description:
+                "Protects Earth from UV radiation; destroyed by CFCs",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Biosphere",
+              definition: "The zone of Earth where all life exists",
+            },
+            {
+              term: "Humus",
+              definition:
+                "Decomposed organic matter in soil that increases fertility",
+            },
+            {
+              term: "Greenhouse Effect",
+              definition:
+                "Trapping of heat by atmospheric gases like CO₂ and CH₄",
+            },
+            {
+              term: "Ozone",
+              definition:
+                "O₃ molecule; stratospheric layer protecting Earth from UV rays",
+            },
+          ],
+          videoKeyword: "photosynthesis",
+        },
+        {
+          id: "9-sci-15",
+          number: 15,
+          name: "Improvement in Food Resources",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "India must feed over 1.4 billion people. Food resources come from crop plants and animals. Crops are classified by season: Kharif crops (June-November, monsoon season: rice, maize, soybean, groundnut, cotton) and Rabi crops (November-April, winter season: wheat, gram, pea, mustard, linseed). Nutrients needed by crops: Macronutrients (C, H, O, N, P, K, Ca, Mg, S) and Micronutrients (Fe, Mn, B, Zn, Cu, Mo, Cl). Deficiency causes diseases in plants.",
+            "Crop improvement techniques: Hybridization (crossing different varieties for better traits); Introduction of new varieties; Genetic engineering (modifying genes for pest resistance, higher yield). Good agricultural practices: crop rotation (alternating crops to maintain soil fertility), intercropping (growing two+ crops together), integrated pest management (reducing pesticide use). Irrigation methods include wells, canals, rivers, tanks, drip irrigation, and sprinkler systems.",
+            "Animal husbandry involves caring for farm animals. Cattle farming (dairy/draught animals) requires good feed, shelter, and disease prevention. Common cattle diseases: Foot and Mouth disease, Mastitis. Poultry farming (broilers for meat, layers for eggs) needs proper nutrition and disease management. Fisheries include marine (sea) and inland (freshwater) fishing. Aquaculture is farming fish and other aquatic organisms. Beekeeping (apiculture) produces honey and aids pollination.",
+          ],
+          keyConcepts: [
+            {
+              title: "Kharif and Rabi Crops",
+              description:
+                "Monsoon crops (rice, cotton) and winter crops (wheat, mustard)",
+            },
+            {
+              title: "Crop Improvement",
+              description: "Hybridization, new varieties, genetic engineering",
+            },
+            {
+              title: "Animal Husbandry",
+              description: "Scientific management of farm animals for food",
+            },
+            {
+              title: "Aquaculture",
+              description: "Farming of fish and aquatic organisms",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Hybridization",
+              definition:
+                "Crossing two different varieties to produce offspring with desired traits",
+            },
+            {
+              term: "Crop Rotation",
+              definition:
+                "Growing different crops in sequence to maintain soil fertility",
+            },
+            {
+              term: "Aquaculture",
+              definition:
+                "Cultivation of aquatic organisms like fish, shellfish, and seaweed",
+            },
+            {
+              term: "Intercropping",
+              definition:
+                "Growing two or more crops simultaneously in the same field",
+            },
+          ],
+          videoKeyword: "photosynthesis",
+        },
       ],
     },
     {
@@ -7258,8 +7782,8 @@ const class9: NCERTClass = {
           classNum: 9,
           explanation: [
             "This chapter introduces students to the full system of real numbers. Natural numbers (1, 2, 3...) are used for counting; Whole numbers include 0; Integers include negative numbers; Rational numbers (p/q form) include all fractions; Irrational numbers cannot be expressed as fractions (√2, π).",
-            "Irrational numbers are non-terminating and non-repeating decimals. The ancient Greeks discovered that √2 cannot be written as a fraction, which was a revolutionary mathematical insight. The real number line includes both rational and irrational numbers.",
-            "Laws of exponents for real numbers include: aᵐ × aⁿ = aᵐ⁺ⁿ, aᵐ/aⁿ = aᵐ⁻ⁿ, and (aᵐ)ⁿ = aᵐⁿ. Students also learn to rationalize denominators containing irrational numbers, a technique useful throughout higher mathematics.",
+            "Irrational numbers are non-terminating and non-repeating decimals. The ancient Greeks discovered that √2 cannot be written as a fraction. The real number line includes both rational and irrational numbers and every point on the line corresponds to exactly one real number.",
+            "Laws of exponents for real numbers: aᵐ × aⁿ = aᵐ⁺ⁿ, aᵐ/aⁿ = aᵐ⁻ⁿ, and (aᵐ)ⁿ = aᵐⁿ. Students learn to rationalize denominators containing irrational numbers — multiplying numerator and denominator by the conjugate.",
           ],
           keyConcepts: [
             {
@@ -7277,14 +7801,14 @@ const class9: NCERTClass = {
             },
             {
               title: "Laws of Exponents",
-              description: "Rules for operations with powers",
+              description: "Rules for operations with powers of real numbers",
             },
           ],
           importantTerms: [
             {
               term: "Rational Number",
               definition:
-                "A number that can be written as p/q where p,q are integers and q≠0",
+                "A number expressible as p/q where p,q are integers and q≠0",
             },
             {
               term: "Irrational Number",
@@ -7304,22 +7828,23 @@ const class9: NCERTClass = {
           subject: "Mathematics",
           classNum: 9,
           explanation: [
-            "A polynomial is an algebraic expression with one or more terms involving variables raised to non-negative integer powers. Examples: 2x + 3 (linear, degree 1), x² - 5x + 6 (quadratic, degree 2), x³ + 2x² - x - 2 (cubic, degree 3). The degree is the highest power of the variable. The coefficient of the highest degree term is the leading coefficient.",
-            "Key theorems: The Remainder Theorem states that when a polynomial p(x) is divided by (x - a), the remainder is p(a). This allows us to find remainders without long division. The Factor Theorem states (x - a) is a factor of p(x) if and only if p(a) = 0. These theorems are powerful tools for factoring polynomials.",
-            "Algebraic identities are essential shortcuts: (a+b)² = a² + 2ab + b²; (a-b)² = a² - 2ab + b²; (a+b)(a-b) = a² - b²; (a+b)³ = a³ + 3a²b + 3ab² + b³; a³ + b³ = (a+b)(a² - ab + b²). These identities reduce complex calculations to simple substitutions.",
+            "A polynomial is an algebraic expression with one or more terms involving variables raised to non-negative integer powers. Examples: 2x+3 (linear, degree 1), x²-5x+6 (quadratic, degree 2), x³+2x²-x-2 (cubic, degree 3). The degree is the highest power of the variable.",
+            "The Remainder Theorem states that when p(x) is divided by (x-a), the remainder is p(a). The Factor Theorem states (x-a) is a factor of p(x) if and only if p(a)=0. These theorems allow factoring without long division.",
+            "Key algebraic identities: (a+b)²=a²+2ab+b²; (a-b)²=a²-2ab+b²; (a+b)(a-b)=a²-b²; (a+b)³=a³+3a²b+3ab²+b³; a³+b³=(a+b)(a²-ab+b²). These identities are used to expand and factorise expressions quickly.",
           ],
           keyConcepts: [
             {
               title: "Degree of Polynomial",
-              description: "Highest power of variable; determines type",
+              description:
+                "Highest power of variable; determines type (linear, quadratic, cubic)",
             },
             {
               title: "Remainder Theorem",
-              description: "Remainder when divided by (x-a) equals p(a)",
+              description: "Remainder when p(x) divided by (x-a) equals p(a)",
             },
             {
               title: "Factor Theorem",
-              description: "(x-a) is factor if p(a) = 0",
+              description: "(x-a) is factor of p(x) if p(a) = 0",
             },
             {
               title: "Algebraic Identities",
@@ -7330,7 +7855,7 @@ const class9: NCERTClass = {
             {
               term: "Polynomial",
               definition:
-                "Algebraic expression with non-negative integer powers",
+                "Algebraic expression with non-negative integer powers of variables",
             },
             {
               term: "Zero of a Polynomial",
@@ -7343,49 +7868,534 @@ const class9: NCERTClass = {
           ],
         },
         {
+          id: "9-math-3",
+          number: 3,
+          name: "Coordinate Geometry",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Coordinate geometry (or analytic geometry) uses a number line system to describe geometric figures algebraically. The Cartesian plane is formed by two perpendicular number lines — the horizontal x-axis and the vertical y-axis — intersecting at the origin (0,0). Any point in the plane is represented as an ordered pair (x, y).",
+            "The plane is divided into four quadrants: Quadrant I (+x, +y), Quadrant II (-x, +y), Quadrant III (-x, -y), Quadrant IV (+x, -y). The x-coordinate (abscissa) gives horizontal distance from origin; the y-coordinate (ordinate) gives vertical distance. Points on axes have one coordinate equal to zero.",
+            "This chapter lays the foundation for Class 10 topics like distance formula, section formula, and Class 11 straight lines. Plotting points accurately requires understanding the sign conventions for each quadrant.",
+          ],
+          keyConcepts: [
+            {
+              title: "Cartesian Plane",
+              description:
+                "Two perpendicular axes dividing plane into four quadrants",
+            },
+            {
+              title: "Ordered Pair",
+              description: "(x, y) representing a unique point in the plane",
+            },
+            {
+              title: "Quadrants",
+              description:
+                "Four regions formed by x and y axes with sign conventions",
+            },
+            {
+              title: "Origin",
+              description: "The point (0, 0) where both axes intersect",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Abscissa",
+              definition: "The x-coordinate (horizontal distance from origin)",
+            },
+            {
+              term: "Ordinate",
+              definition: "The y-coordinate (vertical distance from origin)",
+            },
+            {
+              term: "Cartesian System",
+              definition: "The coordinate system invented by René Descartes",
+            },
+          ],
+        },
+        {
+          id: "9-math-4",
+          number: 4,
+          name: "Linear Equations in Two Variables",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "A linear equation in two variables has the form ax + by + c = 0, where a and b are not both zero. Unlike single-variable equations with one solution, these equations have infinitely many solutions — each solution is an ordered pair (x, y) that satisfies the equation.",
+            "The graph of a linear equation in two variables is always a straight line. Every point on this line is a solution of the equation, and every solution corresponds to a point on the line. To draw the graph, we need at least two solutions (points) and connect them.",
+            "Linear equations model real-world relationships perfectly: distance = speed × time; cost = price × quantity. Any two quantities with a constant rate of change form a linear relationship. This chapter builds towards simultaneous equations in Class 10.",
+          ],
+          keyConcepts: [
+            {
+              title: "General Form",
+              description: "ax + by + c = 0 where a and b are not both zero",
+            },
+            {
+              title: "Infinite Solutions",
+              description:
+                "Every linear equation in two variables has infinitely many solutions",
+            },
+            {
+              title: "Graph as Straight Line",
+              description:
+                "Every solution is a point on the line and vice versa",
+            },
+            {
+              title: "Real-World Applications",
+              description:
+                "Modeling distance-time, cost-quantity relationships",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Linear Equation",
+              definition:
+                "Equation where variables have degree 1 (no x², x³ etc.)",
+            },
+            {
+              term: "Solution",
+              definition: "An ordered pair (x, y) that satisfies the equation",
+            },
+            {
+              term: "Graph",
+              definition:
+                "Visual representation of all solutions forming a straight line",
+            },
+          ],
+        },
+        {
+          id: "9-math-5",
+          number: 5,
+          name: "Introduction to Euclid's Geometry",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Euclid (around 300 BC) was a Greek mathematician who wrote 'Elements', one of the most influential works in history. He organized all known geometry into a logical system starting from a few basic assumptions. This axiomatic approach — deriving complex results from simple assumptions — is the foundation of modern mathematics.",
+            "Euclid's five postulates: (1) A straight line can be drawn between any two points; (2) A finite line can be extended indefinitely; (3) A circle can be drawn with any center and radius; (4) All right angles are equal; (5) The Parallel Postulate — through a point not on a line, exactly one parallel line can be drawn (this led to non-Euclidean geometries).",
+            "Key definitions: A point has no dimension (no length, width, height). A line has length but no width and extends infinitely in both directions. A line segment has two endpoints. An axiom is a self-evident truth; a theorem is a statement proved from axioms.",
+          ],
+          keyConcepts: [
+            {
+              title: "Axioms vs Postulates",
+              description:
+                "Axioms are universal truths; postulates are geometry-specific assumptions",
+            },
+            {
+              title: "Euclid's 5 Postulates",
+              description: "The foundation of Euclidean geometry",
+            },
+            {
+              title: "Theorems",
+              description:
+                "Statements proved logically from axioms and postulates",
+            },
+            {
+              title: "Undefined Terms",
+              description: "Point, line, and plane cannot be defined formally",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Axiom",
+              definition: "A self-evident statement accepted without proof",
+            },
+            {
+              term: "Postulate",
+              definition:
+                "A basic assumption specific to a branch of mathematics",
+            },
+            {
+              term: "Theorem",
+              definition: "A mathematical statement that has been proved",
+            },
+            {
+              term: "Corollary",
+              definition: "A result that follows directly from a theorem",
+            },
+          ],
+        },
+        {
+          id: "9-math-6",
+          number: 6,
+          name: "Lines and Angles",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "When two lines intersect, they form two pairs of vertically opposite angles which are always equal. Adjacent angles on a straight line are supplementary (sum = 180°). Complementary angles sum to 90°. A transversal cutting two parallel lines creates several pairs of equal angles: corresponding angles, alternate interior angles, and alternate exterior angles.",
+            "Types of angles: Acute (< 90°), Right (= 90°), Obtuse (90°-180°), Straight (= 180°), Reflex (180°-360°). Types of lines: Parallel lines never meet; perpendicular lines meet at 90°; a transversal intersects two or more lines. The angle sum property of a triangle states that all three angles add to 180°.",
+            "Parallel lines are recognized by equal corresponding angles, equal alternate interior angles, or co-interior angles summing to 180°. These properties are used to prove geometric theorems and solve problems involving parallel lines cut by transversals.",
+          ],
+          keyConcepts: [
+            {
+              title: "Vertically Opposite Angles",
+              description: "Equal angles formed when two lines intersect",
+            },
+            {
+              title: "Parallel Lines & Transversal",
+              description:
+                "Creates corresponding, alternate, and co-interior angles",
+            },
+            {
+              title: "Angle Sum of Triangle",
+              description: "All three angles in any triangle sum to 180°",
+            },
+            {
+              title: "Supplementary & Complementary",
+              description: "Sum to 180° and 90° respectively",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Transversal",
+              definition:
+                "A line that intersects two or more lines at distinct points",
+            },
+            {
+              term: "Alternate Interior Angles",
+              definition:
+                "Equal angles on opposite sides of a transversal between parallel lines",
+            },
+            {
+              term: "Corresponding Angles",
+              definition:
+                "Equal angles in matching positions when a transversal cuts parallel lines",
+            },
+          ],
+        },
+        {
           id: "9-math-7",
           number: 7,
           name: "Triangles",
           subject: "Mathematics",
           classNum: 9,
           explanation: [
-            "Congruent triangles are exactly the same in shape and size — one can be superimposed on the other. Congruence conditions: SSS (all three sides equal), SAS (two sides and included angle), ASA (two angles and included side), AAS (two angles and non-included side), RHS (right angle, hypotenuse, side for right triangles). Only these specific combinations guarantee congruence.",
-            "Properties of triangles: Sum of all angles = 180°; Exterior angle = sum of two non-adjacent interior angles; The side opposite the largest angle is the longest; Triangle inequality: sum of any two sides > third side. The Pythagorean theorem (a² + b² = c² for right triangles) is one of mathematics' most important relationships.",
-            "Similar triangles have the same shape but different sizes — corresponding angles are equal and corresponding sides are proportional. Similarity conditions: AA (two pairs of equal angles), SSS (sides in same ratio), SAS (two sides in ratio with included angle). Applications include finding heights of tall buildings and distances across rivers.",
+            "Congruent triangles are identical in shape and size — one can be superimposed on the other. Congruence criteria: SSS (all three sides equal), SAS (two sides and included angle equal), ASA (two angles and included side equal), AAS (two angles and non-included side equal), RHS (right angle, hypotenuse, one side for right triangles).",
+            "Key theorems: Angles opposite equal sides are equal (isosceles triangle property). The side opposite the larger angle is longer. Sum of any two sides > third side (triangle inequality). The exterior angle equals the sum of two non-adjacent interior angles.",
+            "Inequalities in triangles: If two sides of a triangle are unequal, the angle opposite the longer side is larger. The sum of any two sides is always greater than the third side. These properties help in comparing triangles and solving problems about distances.",
           ],
           keyConcepts: [
             {
               title: "Congruence Criteria",
-              description: "SSS, SAS, ASA, AAS, RHS conditions",
+              description:
+                "SSS, SAS, ASA, AAS, RHS — five ways to prove triangle congruence",
             },
             {
-              title: "Triangle Properties",
-              description: "Angle sum = 180°, triangle inequality",
+              title: "Isosceles Triangle",
+              description: "Two equal sides imply two equal base angles",
             },
             {
-              title: "Pythagoras Theorem",
-              description: "a² + b² = c² for right triangles",
+              title: "Triangle Inequality",
+              description:
+                "Sum of any two sides is greater than the third side",
             },
             {
-              title: "Similar Triangles",
-              description: "Same shape, proportional sides",
+              title: "Exterior Angle Theorem",
+              description:
+                "Exterior angle = sum of two non-adjacent interior angles",
             },
           ],
           importantTerms: [
             {
               term: "Congruent",
               definition:
-                "Identical in shape and size; can be superimposed exactly",
+                "Identical in shape and size; corresponding parts are equal",
             },
             {
-              term: "Similar",
+              term: "CPCT",
               definition:
-                "Same shape but different size; corresponding angles equal",
+                "Corresponding Parts of Congruent Triangles are equal",
             },
             {
-              term: "Hypotenuse",
+              term: "Isosceles Triangle",
+              definition: "A triangle with two equal sides",
+            },
+          ],
+        },
+        {
+          id: "9-math-8",
+          number: 8,
+          name: "Quadrilaterals",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "A quadrilateral is a polygon with four sides, four angles, and four vertices. The sum of interior angles of any quadrilateral is 360°. Types: Parallelogram (opposite sides parallel and equal), Rectangle (parallelogram with all right angles), Rhombus (parallelogram with all equal sides), Square (rectangle with equal sides), Trapezium (one pair of parallel sides), Kite (two pairs of adjacent equal sides).",
+            "Properties of parallelograms: opposite sides are equal; opposite angles are equal; diagonals bisect each other. A parallelogram is a rectangle if diagonals are equal; a rhombus if diagonals are perpendicular; a square if diagonals are both equal and perpendicular.",
+            "The Mid-point Theorem: the segment joining mid-points of two sides of a triangle is parallel to and half of the third side. This theorem has applications in construction, architecture, and proving other geometric results.",
+          ],
+          keyConcepts: [
+            {
+              title: "Angle Sum of Quadrilateral",
+              description: "Sum of all interior angles = 360°",
+            },
+            {
+              title: "Properties of Parallelogram",
+              description:
+                "Opposite sides equal and parallel, diagonals bisect each other",
+            },
+            {
+              title: "Special Quadrilaterals",
+              description:
+                "Rectangle, rhombus, square, trapezium, kite and their properties",
+            },
+            {
+              title: "Mid-Point Theorem",
+              description:
+                "Line joining midpoints of two sides is parallel to third side",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Parallelogram",
               definition:
-                "Longest side of a right triangle, opposite the right angle",
+                "Quadrilateral with both pairs of opposite sides parallel",
+            },
+            {
+              term: "Diagonal",
+              definition:
+                "Line segment joining two non-adjacent vertices of a polygon",
+            },
+            {
+              term: "Mid-Point Theorem",
+              definition:
+                "Segment joining midpoints of two sides of a triangle is half the third side",
+            },
+          ],
+        },
+        {
+          id: "9-math-9",
+          number: 9,
+          name: "Circles",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "A circle is the set of all points equidistant from a fixed point (centre). Key terms: radius (centre to circle), diameter (chord through centre = 2r), chord (line segment with both ends on circle), arc (part of circle), sector (region between two radii and arc), segment (region between chord and arc).",
+            "Important theorems: Equal chords are equidistant from the centre. The perpendicular from the centre to a chord bisects the chord. The angle subtended by a chord at the centre is double the angle subtended at any point on the remaining arc. Angles in the same segment are equal. Angle in a semicircle = 90°.",
+            "Cyclic quadrilateral: a quadrilateral whose vertices all lie on a circle. The sum of opposite angles of a cyclic quadrilateral = 180°. These properties are extensively used in competitive mathematics and higher geometry.",
+          ],
+          keyConcepts: [
+            {
+              title: "Circle Terminology",
+              description: "Radius, diameter, chord, arc, sector, segment",
+            },
+            {
+              title: "Chord Properties",
+              description:
+                "Equal chords equidistant from centre; perpendicular bisects chord",
+            },
+            {
+              title: "Angle Theorems",
+              description:
+                "Central angle = 2 × inscribed angle; angles in same segment equal",
+            },
+            {
+              title: "Cyclic Quadrilateral",
+              description: "Opposite angles sum to 180°",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Chord",
+              definition: "A line segment with both endpoints on the circle",
+            },
+            {
+              term: "Inscribed Angle",
+              definition:
+                "Angle formed by two chords meeting at a point on the circle",
+            },
+            {
+              term: "Cyclic Quadrilateral",
+              definition: "Quadrilateral with all four vertices on a circle",
+            },
+          ],
+        },
+        {
+          id: "9-math-10",
+          number: 10,
+          name: "Heron's Formula",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Heron's Formula (named after Hero of Alexandria) calculates the area of a triangle when all three sides are known, without needing the height. For a triangle with sides a, b, c: first find semi-perimeter s = (a+b+c)/2, then Area = √[s(s-a)(s-b)(s-c)].",
+            "This formula is especially useful for scalene triangles where finding the height is not straightforward. It works for all types of triangles — equilateral, isosceles, and scalene. For equilateral triangles with side a, the formula simplifies to Area = (√3/4)a².",
+            "Applications: Heron's formula is used in land surveying to find areas of irregular plots. Complex quadrilaterals can be divided into triangles and Heron's formula applied to each. It is also used in coordinate geometry problems.",
+          ],
+          keyConcepts: [
+            {
+              title: "Semi-Perimeter",
+              description: "s = (a+b+c)/2, half the total perimeter",
+            },
+            {
+              title: "Heron's Formula",
+              description:
+                "Area = √[s(s-a)(s-b)(s-c)] for triangle with sides a, b, c",
+            },
+            {
+              title: "Application to Quadrilaterals",
+              description: "Divide into triangles and apply formula to each",
+            },
+            {
+              title: "Equilateral Triangle Area",
+              description: "Area = (√3/4)a² derived from Heron's formula",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Semi-Perimeter",
+              definition: "Half the perimeter of a triangle, denoted s",
+            },
+            {
+              term: "Scalene Triangle",
+              definition: "Triangle with all three sides of different lengths",
+            },
+            {
+              term: "Heron's Formula",
+              definition:
+                "Formula to find area of triangle using only its three sides",
+            },
+          ],
+        },
+        {
+          id: "9-math-11",
+          number: 11,
+          name: "Surface Areas and Volumes",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Surface area is the total area of all faces of a 3D solid. Volume is the amount of space inside a 3D solid. For a cuboid (length l, breadth b, height h): Lateral Surface Area = 2h(l+b), Total Surface Area = 2(lb+bh+hl), Volume = lbh. For a cube of side a: TSA = 6a², Volume = a³.",
+            "For a right circular cylinder (radius r, height h): Curved Surface Area = 2πrh, Total Surface Area = 2πr(r+h), Volume = πr²h. For a right circular cone (radius r, height h, slant height l): CSA = πrl, TSA = πr(r+l), Volume = (1/3)πr²h. For a sphere of radius r: SA = 4πr², Volume = (4/3)πr³.",
+            "For a hemisphere (half sphere, radius r): Curved SA = 2πr², Total SA = 3πr², Volume = (2/3)πr³. These formulas have practical applications in calculating paint needed for walls, water in tanks, capacity of containers, and material needed for manufacturing.",
+          ],
+          keyConcepts: [
+            {
+              title: "Cuboid and Cube",
+              description:
+                "TSA = 2(lb+bh+hl), Volume = lbh; Cube TSA = 6a², V = a³",
+            },
+            {
+              title: "Cylinder",
+              description: "CSA = 2πrh, TSA = 2πr(r+h), Volume = πr²h",
+            },
+            {
+              title: "Cone",
+              description: "CSA = πrl, TSA = πr(r+l), Volume = (1/3)πr²h",
+            },
+            {
+              title: "Sphere and Hemisphere",
+              description:
+                "Sphere SA = 4πr², V = (4/3)πr³; Hemisphere V = (2/3)πr³",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Slant Height",
+              definition:
+                "Length of the slant side of a cone from apex to base circle edge",
+            },
+            {
+              term: "Lateral Surface Area",
+              definition:
+                "Area of only the side surfaces, excluding top and bottom",
+            },
+            {
+              term: "Volume",
+              definition: "Amount of 3D space occupied by a solid",
+            },
+          ],
+        },
+        {
+          id: "9-math-12",
+          number: 12,
+          name: "Statistics",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Statistics is the science of collecting, organizing, analyzing, and interpreting numerical data. Data can be presented in various ways: ungrouped (raw data), frequency distribution tables, bar graphs, histograms, frequency polygons, and pie charts. The choice of representation depends on the type and amount of data.",
+            "Measures of central tendency summarize a dataset with a single representative value: Mean (arithmetic average = sum of observations / number of observations), Median (middle value when data is arranged in order), and Mode (most frequently occurring value). For grouped data, mean is calculated using the formula Mean = Σfx/Σf where f is frequency and x is class mark.",
+            "Histograms look like bar graphs but are used for continuous data in class intervals. The frequency polygon is drawn by joining midpoints of tops of histogram bars. These graphical representations help visualize data distributions, identify patterns, and compare datasets.",
+          ],
+          keyConcepts: [
+            {
+              title: "Mean",
+              description: "Sum of all values divided by number of values",
+            },
+            {
+              title: "Median",
+              description:
+                "Middle value when data is arranged in ascending order",
+            },
+            {
+              title: "Mode",
+              description: "The value that occurs most frequently in data",
+            },
+            {
+              title: "Histogram",
+              description:
+                "Bar graph for continuous data showing frequency distribution",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Frequency",
+              definition: "Number of times a particular value occurs in data",
+            },
+            {
+              term: "Class Interval",
+              definition:
+                "Range of values grouped together in a frequency table",
+            },
+            {
+              term: "Class Mark",
+              definition:
+                "Midpoint of a class interval; (upper limit + lower limit)/2",
+            },
+            { term: "Mean", definition: "Arithmetic average of a data set" },
+          ],
+        },
+        {
+          id: "9-math-13",
+          number: 13,
+          name: "Probability",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Probability measures the likelihood of an event occurring, expressed as a number between 0 and 1 (or 0% to 100%). P(event) = Number of favourable outcomes / Total number of possible outcomes. P=0 means impossible; P=1 means certain. A probability value between 0 and 1 indicates how likely the event is.",
+            "Key terms: Experiment is an activity with observable outcomes (tossing a coin). Sample Space (S) is the set of all possible outcomes. An event is a subset of the sample space. Complementary event: P(not A) = 1 - P(A). Equally likely outcomes: each outcome has the same probability.",
+            "Empirical (experimental) probability is based on actual experiments: P(E) = Number of times event occurred / Total number of trials. As the number of trials increases, the experimental probability approaches the theoretical probability. This forms the basis for statistical inference.",
+          ],
+          keyConcepts: [
+            {
+              title: "Probability Formula",
+              description:
+                "P(E) = Favourable outcomes / Total outcomes (0 ≤ P ≤ 1)",
+            },
+            {
+              title: "Sample Space",
+              description: "Set of all possible outcomes of an experiment",
+            },
+            {
+              title: "Complementary Events",
+              description: "P(not A) = 1 - P(A)",
+            },
+            {
+              title: "Empirical Probability",
+              description:
+                "Based on actual observations; approaches theoretical with more trials",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Sample Space",
+              definition:
+                "The complete set of all possible outcomes of a random experiment",
+            },
+            {
+              term: "Event",
+              definition:
+                "A subset of the sample space; specific outcomes we are interested in",
+            },
+            {
+              term: "Complementary Event",
+              definition:
+                "The event consisting of all outcomes NOT in a given event",
             },
           ],
         },
@@ -7402,9 +8412,9 @@ const class9: NCERTClass = {
           subject: "Social Science",
           classNum: 9,
           explanation: [
-            "The French Revolution (1789-1799) was one of history's most transformative events. France was a monarchy under Louis XVI where society was divided into three estates: the Clergy (First Estate), the Nobility (Second Estate), and everyone else (Third Estate). The Third Estate paid all the taxes while the privileged classes were exempt, creating deep resentment.",
-            "The revolution began in 1789 driven by financial crisis (France was bankrupt from wars), Enlightenment ideas (Voltaire, Rousseau, Montesquieu promoted liberty and equality), food shortages, and social inequality. The storming of the Bastille on July 14, 1789 became the symbol of revolution against tyranny.",
-            "The Revolution's ideals — Liberty, Equality, Fraternity — fundamentally changed the world. The Declaration of Rights of Man proclaimed universal human rights. However, the radical Reign of Terror (1793-94) under Robespierre led to thousands of executions. Napoleon eventually emerged from the chaos to build a new French Empire, carrying revolutionary ideas across Europe.",
+            "The French Revolution (1789-1799) was one of history's most transformative events. France was a monarchy under Louis XVI where society was divided into three estates: Clergy (First Estate), Nobility (Second Estate), and everyone else (Third Estate). The Third Estate paid all taxes while privileged classes were exempt, creating deep resentment.",
+            "The revolution began in 1789 driven by financial crisis, Enlightenment ideas (Voltaire, Rousseau, Montesquieu), food shortages, and social inequality. The storming of the Bastille on July 14, 1789 became the symbol of revolution against tyranny.",
+            "The Revolution's ideals — Liberty, Equality, Fraternity — fundamentally changed the world. However, the radical Reign of Terror (1793-94) under Robespierre led to thousands of executions. Napoleon eventually emerged to build a new French Empire, spreading revolutionary ideas across Europe.",
           ],
           keyConcepts: [
             {
@@ -7418,7 +8428,8 @@ const class9: NCERTClass = {
             },
             {
               title: "Reign of Terror",
-              description: "Radical phase 1793-94 with mass executions",
+              description:
+                "Radical phase 1793-94 with mass executions under Robespierre",
             },
             {
               title: "Impact on Europe",
@@ -7438,10 +8449,254 @@ const class9: NCERTClass = {
             },
             {
               term: "Directory",
-              definition: "The government (1795-1799) before Napoleon's coup",
+              definition:
+                "The French government (1795-1799) before Napoleon's coup",
             },
           ],
           videoKeyword: "french-revolution",
+        },
+        {
+          id: "9-sst-2",
+          number: 2,
+          name: "Socialism in Europe and the Russian Revolution",
+          subject: "Social Science",
+          classNum: 9,
+          explanation: [
+            "In the 19th century, industrialization created great wealth for factory owners but harsh conditions for workers — long hours, low wages, child labor, and dangerous workplaces. Socialist thinkers like Karl Marx and Friedrich Engels argued that capitalism exploited workers and called for collective ownership of industries. Marx's Communist Manifesto (1848) urged workers of the world to unite.",
+            "Russia in the early 20th century was under Tsar Nicholas II's autocratic rule. The 1905 Revolution (Bloody Sunday massacre) forced the Tsar to create a parliament (Duma) but real power remained with him. World War I made conditions worse — military disasters, food shortages, and massive casualties led to the February Revolution 1917, which ended the Tsar's rule.",
+            "The Bolsheviks under Lenin seized power in the October Revolution 1917. They signed peace with Germany, nationalized industries, redistributed land to peasants, and created the USSR (Union of Soviet Socialist Republics) in 1922. Stalin later transformed Russia into an industrial superpower through Five-Year Plans, but at the cost of millions of lives in purges and famines.",
+          ],
+          keyConcepts: [
+            {
+              title: "Socialism vs Capitalism",
+              description:
+                "Collective ownership of means of production vs private ownership",
+            },
+            {
+              title: "Marxism",
+              description:
+                "Marx's theory that class struggle drives history towards communism",
+            },
+            {
+              title: "Russian Revolution 1917",
+              description:
+                "February Revolution ended Tsar; October Revolution brought Bolsheviks to power",
+            },
+            {
+              title: "Soviet State",
+              description: "USSR — world's first communist state formed 1922",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Bolsheviks",
+              definition:
+                "Lenin's revolutionary party that seized power in October 1917",
+            },
+            {
+              term: "Proletariat",
+              definition:
+                "The working class; those who sell their labor for wages",
+            },
+            {
+              term: "Soviet",
+              definition:
+                "Workers' council; became the basic unit of Soviet government",
+            },
+          ],
+        },
+        {
+          id: "9-sst-3",
+          number: 3,
+          name: "Nazism and the Rise of Hitler",
+          subject: "Social Science",
+          classNum: 9,
+          explanation: [
+            "Germany after World War I was humiliated by the Treaty of Versailles (1919) — massive reparations, loss of territory, military restrictions, and the 'War Guilt' clause blaming Germany. The Weimar Republic (1919-1933) faced economic crises including hyperinflation (1923) and the Great Depression (1929), creating widespread unemployment and despair.",
+            "Adolf Hitler joined the Nazi Party and used powerful oratory, scapegoating, and propaganda to rise to power. Nazism promoted extreme nationalism, racial hierarchy (Aryans as master race), anti-Semitism, and the Führerprinzip (absolute obedience to the leader). Hitler became Chancellor in 1933 and quickly created a totalitarian state.",
+            "The Holocaust was the systematic murder of 6 million Jews and millions of others (Roma, disabled people, political opponents, homosexuals) by the Nazi regime. Jews were first stripped of citizenship (Nuremberg Laws 1935), forced into ghettos, and eventually sent to extermination camps like Auschwitz. This genocide remains one of history's greatest crimes.",
+          ],
+          keyConcepts: [
+            {
+              title: "Weimar Republic",
+              description:
+                "German democracy 1919-1933 that failed under economic and political pressures",
+            },
+            {
+              title: "Nazi Ideology",
+              description:
+                "Extreme nationalism, racial superiority, anti-Semitism, totalitarianism",
+            },
+            {
+              title: "The Holocaust",
+              description:
+                "Systematic murder of 6 million Jews and others by Nazis",
+            },
+            {
+              title: "Propaganda",
+              description:
+                "Goebbels used film, radio, posters to control public opinion",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Fascism",
+              definition:
+                "Authoritarian ultranationalism with a dictatorial leader and suppression of opposition",
+            },
+            {
+              term: "Anti-Semitism",
+              definition: "Hostility and discrimination against Jewish people",
+            },
+            {
+              term: "Gestapo",
+              definition:
+                "Nazi secret police that terrorized opponents of the regime",
+            },
+          ],
+        },
+        {
+          id: "9-sst-geo1",
+          number: 1,
+          name: "India — Size and Location",
+          subject: "Social Science",
+          classNum: 9,
+          explanation: [
+            "India is the seventh largest country in the world by area (3.28 million km²) and second most populous. It lies entirely in the Northern and Eastern hemispheres. The mainland extends from 8°4' N to 37°6' N latitude and 68°7' E to 97°25' E longitude. The Tropic of Cancer (23°30' N) roughly divides India into two equal halves.",
+            "India's strategic location at the tip of the Asian continent, surrounded by the Indian Ocean on three sides, has given it a central position in trade routes since ancient times. The country shares land borders with Pakistan, Afghanistan, China, Nepal, Bhutan, Bangladesh, and Myanmar. The coastline stretches 7,516 km.",
+            "India's standard meridian is 82°30' E, which passes through Mirzapur (UP), used for Indian Standard Time (IST = GMT +5:30 hours). The latitudinal and longitudinal extent is roughly 30 degrees each, giving India diverse climates from Himalayan snow to equatorial forests in the Andamans.",
+          ],
+          keyConcepts: [
+            {
+              title: "India's Position",
+              description:
+                "8°4'N to 37°6'N latitude; 68°7'E to 97°25'E longitude",
+            },
+            {
+              title: "Tropic of Cancer",
+              description: "23°30'N — divides India into two near-equal parts",
+            },
+            {
+              title: "India's Neighbors",
+              description: "7 land neighbors; Indian Ocean on three sides",
+            },
+            {
+              title: "Standard Meridian",
+              description: "82°30'E through Mirzapur; IST = GMT+5:30",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tropic of Cancer",
+              definition:
+                "Latitude 23°30'N that passes through the middle of India",
+            },
+            {
+              term: "Standard Meridian",
+              definition:
+                "82°30'E longitude used as basis for Indian Standard Time",
+            },
+            {
+              term: "Subcontinent",
+              definition:
+                "A large landmass smaller than a continent; Indian subcontinent",
+            },
+          ],
+        },
+        {
+          id: "9-sst-eco1",
+          number: 1,
+          name: "The Story of Village Palampur",
+          subject: "Social Science",
+          classNum: 9,
+          explanation: [
+            "Palampur is a hypothetical village used to illustrate economic concepts. The story introduces four factors of production through village life: Land (the fields where crops grow), Labour (farmers and farm workers), Capital (tools, machinery, seeds, money), and Enterprise (organization and decision-making). The interaction of these four factors creates production.",
+            "Farming is the main activity in Palampur. Multiple cropping (growing two or more crops on the same land in a year) and use of High Yielding Variety (HYV) seeds from the Green Revolution allow higher production. However, land is limited, creating surplus labor — excess workers pushing wages down.",
+            "Non-farming activities include small-scale manufacturing, trade, and services. The story shows how surplus income from farming is invested in transport, shops, and small factories. This illustrates capital formation — using savings to create more capital — which drives economic development.",
+          ],
+          keyConcepts: [
+            {
+              title: "Factors of Production",
+              description: "Land, Labour, Capital, and Enterprise",
+            },
+            {
+              title: "Multiple Cropping",
+              description: "Growing more than one crop per year on same land",
+            },
+            {
+              title: "HYV Seeds",
+              description:
+                "High Yielding Variety seeds from Green Revolution increasing productivity",
+            },
+            {
+              title: "Capital Formation",
+              description: "Using savings to invest in more productive capital",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Factors of Production",
+              definition:
+                "Resources used to produce goods: land, labour, capital, enterprise",
+            },
+            {
+              term: "Working Capital",
+              definition:
+                "Money and raw materials used up in production process",
+            },
+            {
+              term: "Fixed Capital",
+              definition: "Tools and machinery used repeatedly in production",
+            },
+          ],
+        },
+        {
+          id: "9-sst-pol1",
+          number: 1,
+          name: "Democracy in the Contemporary World",
+          subject: "Social Science",
+          classNum: 9,
+          explanation: [
+            "Democracy is a form of government where people choose their rulers through free and fair elections, all citizens are treated equally before law, and basic rights are protected. Ancient Athens (600-400 BC) had direct democracy where citizens voted on all decisions. Modern democracies are representative — citizens elect representatives who make decisions on their behalf.",
+            "In the 20th century, democracy expanded greatly. After World War II, many Asian and African nations gained independence and adopted democratic constitutions. However, many faced military coups, dictatorships, and one-party rules. The late 20th century saw a third wave of democratization with former Soviet states and Latin American countries transitioning.",
+            "Not all governments that call themselves democracies actually are. Key criteria for a real democracy: regular free elections, freedom of expression and press, rule of law, independent judiciary, protection of minority rights. Pakistan, Saudi Arabia, China are examples of countries that lack some or most of these features.",
+          ],
+          keyConcepts: [
+            {
+              title: "Direct vs Representative Democracy",
+              description: "Citizens vote directly vs electing representatives",
+            },
+            {
+              title: "Features of Democracy",
+              description:
+                "Free elections, rule of law, rights protection, independent institutions",
+            },
+            {
+              title: "Third Wave of Democracy",
+              description: "Late 20th century expansion of democracy globally",
+            },
+            {
+              title: "Non-Democratic Systems",
+              description: "Military rule, monarchy, one-party state",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Democracy",
+              definition:
+                "Government by the people through free and fair elections",
+            },
+            {
+              term: "Constitution",
+              definition:
+                "The fundamental law of a country defining government structure and rights",
+            },
+            {
+              term: "Coup",
+              definition:
+                "Sudden overthrow of a government, usually by the military",
+            },
+          ],
         },
       ],
     },
@@ -7456,9 +8711,9 @@ const class9: NCERTClass = {
           subject: "English",
           classNum: 9,
           explanation: [
-            "Isaac Asimov's story imagines a future in 2157 where children learn at home through mechanical teachers on computer screens. Margie, the protagonist, discovers an old printed book and imagines what school was like when children gathered together to learn.",
-            "The story explores the themes of technology, education, and human connection. While the mechanical teachers are efficient, Margie envies the fun children had in traditional schools — learning with friends, sharing textbooks, and having teachers who understood emotions.",
-            "The story uses contrast between the technological future and the romanticized past to make readers appreciate human relationships in learning. It raises important questions about technology replacing human teachers and whether efficiency always equals better education.",
+            "Isaac Asimov's story is set in 2157 where children learn through mechanical teachers on computer screens. Margie discovers an old printed book and imagines traditional schools where children gathered together to learn.",
+            "The story explores technology, education, and human connection. While mechanical teachers are efficient, Margie envies the fun of traditional schools — shared textbooks, friends, and teachers who understood emotions.",
+            "The contrast between technological future and romanticized past makes readers appreciate human relationships in learning. It raises questions about technology replacing human teachers and whether efficiency always equals better education.",
           ],
           keyConcepts: [
             {
@@ -7472,8 +8727,7 @@ const class9: NCERTClass = {
             },
             {
               title: "Contrast",
-              description:
-                "Comparing two different situations to highlight differences",
+              description: "Comparing two situations to highlight differences",
             },
             {
               title: "Dramatic Irony",
@@ -7494,6 +8748,497 @@ const class9: NCERTClass = {
               term: "Mechanical Teacher",
               definition: "Asimov's imagined computer-based teaching machine",
             },
+          ],
+        },
+        {
+          id: "9-eng-2",
+          number: 2,
+          name: "The Sound of Music",
+          subject: "English",
+          classNum: 9,
+          explanation: [
+            "Part I (Evelyn Glennie): Evelyn Glennie lost her hearing at age 11 but became a world-famous percussionist. She proved that deafness need not be a barrier to music — she learned to feel vibrations through different parts of her body. She practised barefoot to feel vibrations through the floor, studied at the Royal Academy of Music, and has performed over 100 musical instruments.",
+            "Part II (The Shehnai of Bismillah Khan): Bismillah Khan is credited with bringing the shehnai (a woodwind instrument) from temples and small events to the concert hall and national stage. From practising by the Ganga in Varanasi to performing at India's independence ceremony at Red Fort, Khan devoted his life to the shehnai.",
+            "Both stories share the theme of dedication overcoming obstacles. Evelyn shows that disability is not inability; Khan shows that an 'ordinary' instrument can achieve greatness through devotion. Both inspire readers to pursue their passion regardless of limitations.",
+          ],
+          keyConcepts: [
+            {
+              title: "Overcoming Disability",
+              description:
+                "Evelyn Glennie proved deafness need not stop a musical career",
+            },
+            {
+              title: "Dedication",
+              description:
+                "Both Evelyn and Khan achieved greatness through years of dedicated practice",
+            },
+            {
+              title: "Cultural Heritage",
+              description:
+                "Bismillah Khan preserved and elevated Indian classical music tradition",
+            },
+            {
+              title: "Biographical Account",
+              description: "True stories that inspire readers",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Percussionist",
+              definition: "A musician who plays percussion instruments",
+            },
+            {
+              term: "Shehnai",
+              definition:
+                "A woodwind instrument associated with auspicious occasions in India",
+            },
+            {
+              term: "Vibration",
+              definition: "Rapid back-and-forth movement that creates sound",
+            },
+          ],
+        },
+        {
+          id: "9-eng-3",
+          number: 3,
+          name: "The Little Girl",
+          subject: "English",
+          classNum: 9,
+          explanation: [
+            "Katherine Mansfield's story is about Kezia, a little girl who is terrified of her strict father. She sees him as a distant, harsh authority figure who only scolds and punishes. Her mother and grandmother are also mostly away or indifferent, leaving Kezia lonely and fearful in her own home.",
+            "The turning point comes when Kezia's father, Mr. MacDonald, is not at home one night. Kezia has a nightmare and it is her father who comes to comfort her — he takes her into his warm bed and holds her. This experience reveals a different side of her father: caring, warm, and protective.",
+            "The story explores the parent-child relationship and how misunderstanding can create fear and distance. Kezia's fear came from not knowing her father's other side. The theme is that parents may seem harsh due to burdens of work and responsibility, but their love is always present.",
+          ],
+          keyConcepts: [
+            {
+              title: "Father-Daughter Relationship",
+              description:
+                "Fear and distance turning into understanding and love",
+            },
+            {
+              title: "Character Development",
+              description:
+                "Kezia's perception of her father changes through the story",
+            },
+            {
+              title: "Theme of Understanding",
+              description:
+                "Understanding others' perspectives leads to empathy",
+            },
+            {
+              title: "Narrative Perspective",
+              description: "Story told from Kezia's child point of view",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Protagonist",
+              definition: "The main character of a story (Kezia)",
+            },
+            {
+              term: "Antagonist",
+              definition:
+                "Character who creates conflict for the protagonist (father initially)",
+            },
+            {
+              term: "Theme",
+              definition:
+                "The central message: understanding and love in family relationships",
+            },
+          ],
+        },
+        {
+          id: "9-eng-4",
+          number: 4,
+          name: "A Truly Beautiful Mind",
+          subject: "English",
+          classNum: 9,
+          explanation: [
+            "Albert Einstein (1879-1955) was born in Ulm, Germany. He was considered slow as a child — he did not speak until age two-and-a-half. His teacher complained he was a disruptive influence. He failed the entrance exam to ETH Zurich on his first attempt but later passed and graduated.",
+            "In 1905 (his 'miracle year'), Einstein published four groundbreaking papers including the Special Theory of Relativity and E=mc². He explained the photoelectric effect (for which he won the Nobel Prize 1921), Brownian motion, and proposed that energy and mass are interchangeable. His General Theory of Relativity (1915) revolutionized our understanding of gravity.",
+            "Einstein was not just a scientist — he was deeply human. He fell in love with Mileva Maric, a fellow student. When the Nazis rose to power, he left Germany permanently. He wrote to President Roosevelt warning about nuclear weapons but later advocated strongly for peace and disarmament. His 'beautiful mind' was as much about humanity as equations.",
+          ],
+          keyConcepts: [
+            {
+              title: "Theory of Relativity",
+              description:
+                "Space and time are relative; E=mc² shows mass-energy equivalence",
+            },
+            {
+              title: "Photoelectric Effect",
+              description:
+                "Light knocks electrons off metals; proved quantum nature of light",
+            },
+            {
+              title: "Genius vs Conventional Success",
+              description:
+                "Einstein struggled in school but became history's greatest scientist",
+            },
+            {
+              title: "Humanitarian Values",
+              description:
+                "Einstein opposed nationalism and advocated for peace",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Theory of Relativity",
+              definition:
+                "Einstein's theory that space, time, and energy are interrelated",
+            },
+            {
+              term: "E=mc²",
+              definition:
+                "Energy equals mass times speed of light squared — mass-energy equivalence",
+            },
+            {
+              term: "Nobel Prize",
+              definition:
+                "Einstein won the 1921 Nobel Prize in Physics for the photoelectric effect",
+            },
+          ],
+        },
+        {
+          id: "9-eng-5",
+          number: 5,
+          name: "The Snake and the Mirror",
+          subject: "English",
+          classNum: 9,
+          explanation: [
+            "Vaikom Muhammad Bashir's humorous story is narrated by a doctor who recounts a frightening experience from his past. The young, poor doctor is sitting alone in his rented room, admiring himself in the mirror when a large cobra drops onto his shoulder from the roof.",
+            "The cobra coils around the doctor's arm and faces the mirror. The doctor is paralyzed with fear but suddenly feels the cobra loosen its grip. The doctor realizes the cobra was attracted to its own reflection in the mirror! The cobra slithers onto the mirror and the doctor escapes.",
+            "The story uses humor, suspense, and irony effectively. The doctor's vanity (admiring himself in mirror) is contrasted with his helplessness against a snake. The cobra's 'vanity' actually saves the doctor's life — a comic twist. The story teaches that excessive pride can be both our weakness and paradoxically, sometimes our salvation.",
+          ],
+          keyConcepts: [
+            {
+              title: "Humour and Suspense",
+              description: "Story balances comedy with genuine danger",
+            },
+            {
+              title: "Irony",
+              description:
+                "The doctor's mirror obsession leads cobra away from him",
+            },
+            {
+              title: "First-Person Narrative",
+              description:
+                "Doctor tells his own story; creates intimacy and humour",
+            },
+            {
+              title: "Vanity as Theme",
+              description:
+                "Both doctor and cobra exhibit vanity with different outcomes",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Irony",
+              definition:
+                "When the opposite of what is expected occurs, often humorously",
+            },
+            {
+              term: "Narrator",
+              definition:
+                "The person telling the story (the doctor in this case)",
+            },
+            {
+              term: "Anecdote",
+              definition: "A short, interesting story about a real event",
+            },
+          ],
+        },
+        {
+          id: "9-eng-6",
+          number: 6,
+          name: "My Childhood",
+          subject: "English",
+          classNum: 9,
+          explanation: [
+            "This chapter is an autobiographical extract from the life of Dr. A.P.J. Abdul Kalam (1931-2015), India's 11th President and scientist. Kalam grew up in Rameswaram, Tamil Nadu in a middle-class Muslim family. Despite modest means, his family was deeply respected in the predominantly Hindu town.",
+            "Kalam's childhood was marked by religious harmony — his close friends were Hindu boys; his father Jainulabdeen was a respected figure to both Hindus and Muslims; he sat next to his Hindu friend Ramanadha Sastry in school. A new teacher who objected to their sitting together was eventually convinced otherwise by Kalam's teacher Sivasubramania Iyer.",
+            "Key life lessons from the chapter: communal harmony is possible through personal relationships; education can bridge social divides; Kalam's science teacher inspired him by explaining flight of birds; his father's wisdom prepared him for life's challenges. The chapter emphasizes values of tolerance, hard work, and the importance of teachers.",
+          ],
+          keyConcepts: [
+            {
+              title: "Communal Harmony",
+              description:
+                "Kalam's childhood shows Muslims and Hindus living as friends",
+            },
+            {
+              title: "Autobiography",
+              description:
+                "A first-person account of one's own life and experiences",
+            },
+            {
+              title: "Role of Teachers",
+              description:
+                "Inspiring teachers shaped Kalam's dreams and values",
+            },
+            {
+              title: "Secularism in Practice",
+              description:
+                "Religious differences did not prevent deep friendships",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Autobiography",
+              definition: "An account of a person's life written by themselves",
+            },
+            {
+              term: "Secular",
+              definition:
+                "Not connected to religious matters; treating all religions equally",
+            },
+            {
+              term: "Anecdote",
+              definition: "A short, personal story used to illustrate a point",
+            },
+          ],
+        },
+        {
+          id: "9-eng-7",
+          number: 7,
+          name: "Packing",
+          subject: "English",
+          classNum: 9,
+          explanation: [
+            "Jerome K. Jerome's comic excerpt from 'Three Men in a Boat' describes the chaos of packing for a holiday. Jerome believes he is an expert packer and takes charge, ordering his friends Harris and George to sit and watch. However, the packing becomes a disaster — he forgets the boots, then has to unpack to find them; sits on the butter, and makes numerous other mistakes.",
+            "Harris and George then take charge of packing the hampers (food baskets). Their packing is even worse — they break things, squash food items, and George accidentally puts the butter in the kettle. Their messy, incompetent packing contrasts with their earlier lazy attitude of watching Jerome.",
+            "The humor comes from the gap between confidence and competence. Jerome's self-importance and certainty about his packing skills contrasts sharply with his fumbling performance. The story uses comic exaggeration, repetition of errors, and absurd situations for comic effect. It also gently mocks human vanity and overconfidence.",
+          ],
+          keyConcepts: [
+            {
+              title: "Comic Narrative",
+              description: "Story uses exaggeration and mistakes for humour",
+            },
+            {
+              title: "Irony and Self-Importance",
+              description:
+                "Jerome's confidence contrasts with his incompetence",
+            },
+            {
+              title: "Characterization",
+              description:
+                "Characters revealed through their actions (packing)",
+            },
+            {
+              title: "Exaggeration (Hyperbole)",
+              description: "Overstating situations for comic effect",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Hyperbole",
+              definition:
+                "Deliberate exaggeration for emphasis or comic effect",
+            },
+            {
+              term: "Comic Relief",
+              definition: "Humorous scenes that lighten tension in a narrative",
+            },
+            {
+              term: "Anecdote",
+              definition:
+                "A short amusing incident recounted as part of a longer narrative",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Hindi",
+      icon: "🔤",
+      chapters: [
+        {
+          id: "9-hin-1",
+          number: 1,
+          name: "Do Bailon Ki Katha (दो बैलों की कथा)",
+          subject: "Hindi",
+          classNum: 9,
+          explanation: [
+            "मुंशी प्रेमचंद की यह कहानी हीरा और मोती नामक दो बैलों की है। ये दोनों बैल अपने स्वामी झूरी के साथ रहते थे और उनसे बहुत प्रेम करते थे। जब झूरी उन्हें अपनी ससुराल गया प्रसाद के यहाँ छोड़ आया, तो वे वहाँ नहीं रहे और वापस आ गए।",
+            "गया प्रसाद के घर में उन्हें कम चारा-पानी मिलता और काम अधिक करना पड़ता। गया प्रसाद की बेटी भूरी ने उन पर दया दिखाई। दोनों बैलों ने कई बार आज़ादी पाने की कोशिश की, अंत में एक कांजीहौस (पशुशाला) में बंद कर दिए गए जहाँ से वे भाग निकले।",
+            "यह कहानी स्वतंत्रता की अदम्य इच्छा का प्रतीक है। दोनों बैल स्वाधीनता संग्राम के प्रतीक हैं। प्रेमचंद ने बैलों के माध्यम से मानवीय गुण — मित्रता, स्वाभिमान, स्वतंत्रता की चाह — को दर्शाया है। यह कहानी अन्याय के विरुद्ध संघर्ष का संदेश देती है।",
+          ],
+          keyConcepts: [
+            {
+              title: "स्वतंत्रता की थीम",
+              description: "बैल स्वाधीनता सेनानियों के प्रतीक हैं",
+            },
+            {
+              title: "मित्रता",
+              description: "हीरा और मोती की गहरी दोस्ती की कहानी",
+            },
+            {
+              title: "मानवीकरण",
+              description: "बैलों को मानवीय भावनाएँ और सोच दी गई है",
+            },
+            {
+              title: "सामाजिक संदेश",
+              description: "अन्याय का प्रतिरोध करना जरूरी है",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "मानवीकरण",
+              definition: "निर्जीव या पशु पात्रों को मानवीय गुण देना",
+            },
+            {
+              term: "प्रतीक",
+              definition:
+                "किसी विचार या भाव का प्रतिनिधित्व करने वाला पात्र या वस्तु",
+            },
+            { term: "कांजीहौस", definition: "आवारा पशुओं को बंद करने की जगह" },
+          ],
+        },
+        {
+          id: "9-hin-2",
+          number: 2,
+          name: "Lhasa Ki Or (ल्हासा की ओर)",
+          subject: "Hindi",
+          classNum: 9,
+          explanation: [
+            "राहुल सांकृत्यायन का यह यात्रा-वृत्तांत 1929-30 की तिब्बत यात्रा पर आधारित है। उस समय भारतीयों के लिए तिब्बत जाना प्रतिबंधित था, इसलिए लेखक भिक्षु का वेश बनाकर नेपाल होते हुए ल्हासा गए। रास्ते में उन्हें अनेक कठिनाइयों का सामना करना पड़ा।",
+            "यात्रा के दौरान लेखक ने तिब्बती समाज, संस्कृति, खानपान, और प्राकृतिक सौंदर्य का विस्तार से वर्णन किया। वहाँ के लोग अतिथि को देवता मानते थे और बिना किसी मेहनत के भोजन-आश्रय देते थे। सुमति नामक तिब्बती साथी ने उनकी बहुत मदद की।",
+            "यह रचना साहस, जिज्ञासा, और सांस्कृतिक समझ की कहानी है। लेखक ने दिखाया कि कैसे विभिन्न संस्कृतियों में मानवीय सहायता और आतिथ्य का भाव समान होता है। यात्रा-वृत्तांत विधा का यह श्रेष्ठ उदाहरण है।",
+          ],
+          keyConcepts: [
+            { title: "यात्रा-वृत्तांत", description: "यात्रा के अनुभवों का विस्तृत लेखन" },
+            {
+              title: "साहस और जिज्ञासा",
+              description: "प्रतिबंध के बावजूद खोज की इच्छा",
+            },
+            {
+              title: "सांस्कृतिक विविधता",
+              description: "तिब्बती समाज और रीति-रिवाजों का परिचय",
+            },
+            {
+              title: "मानवीय एकता",
+              description: "विभिन्न संस्कृतियों में समान मानवीय मूल्य",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "यात्रा-वृत्तांत",
+              definition: "यात्रा के अनुभव और विवरण लिखने की विधा",
+            },
+            { term: "तिब्बत", definition: "हिमालय के उत्तर में स्थित एक पठारी क्षेत्र" },
+            {
+              term: "भिक्षु",
+              definition: "बौद्ध धर्म में भिक्षा माँगकर जीवन यापन करने वाला साधु",
+            },
+          ],
+        },
+        {
+          id: "9-hin-3",
+          number: 3,
+          name: "Upbhaktavad Ki Sanskriti (उपभोक्तावाद की संस्कृति)",
+          subject: "Hindi",
+          classNum: 9,
+          explanation: [
+            "श्यामाचरण दुबे का यह निबंध आधुनिक उपभोक्तावादी संस्कृति की आलोचना करता है। विज्ञापन और मीडिया ने लोगों को उत्पाद खरीदने के लिए प्रेरित करने की संस्कृति बनाई है। यह संस्कृति लोगों को उत्पाद का उपभोक्ता बनाती है, उनकी वास्तविक जरूरतें नहीं देखी जातीं।",
+            "लेखक कहते हैं कि बाजारवाद ने मनुष्य की परम्परागत संस्कृति को नष्ट कर दिया है। पहले लोग सरल जीवन जीते थे, अब विज्ञापन देखकर अनावश्यक चीजें खरीदते हैं। फैशन, ब्रांड और स्टेटस सिंबल ने मानवीय संबंधों की जगह ले ली है।",
+            "निबंध में चेतावनी दी गई है कि यदि हम उपभोक्तावाद में बह गए तो अपनी जड़ों से कट जाएँगे। लेखक भारतीय मूल्यों — संतोष, सादगी, और प्राकृतिक जीवन — को अपनाने का आग्रह करते हैं।",
+          ],
+          keyConcepts: [
+            {
+              title: "उपभोक्तावाद",
+              description: "वस्तुओं और सेवाओं के अधिकतम उपभोग पर आधारित जीवन दर्शन",
+            },
+            {
+              title: "विज्ञापन का प्रभाव",
+              description: "मीडिया द्वारा कृत्रिम जरूरतें पैदा करना",
+            },
+            { title: "सांस्कृतिक पतन", description: "पारंपरिक मूल्यों का ह्रास" },
+            {
+              title: "वैकल्पिक जीवन-दर्शन",
+              description: "सरल और संतोषजनक जीवन का महत्व",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "उपभोक्तावाद",
+              definition: "अधिकाधिक वस्तुओं के उपभोग को जीवन का लक्ष्य मानना",
+            },
+            {
+              term: "विज्ञापन",
+              definition: "उत्पाद या सेवा को बेचने के लिए प्रचार-प्रसार",
+            },
+            {
+              term: "बाजारवाद",
+              definition: "बाजार की शक्तियों द्वारा समाज को नियंत्रित करने की प्रवृत्ति",
+            },
+          ],
+        },
+        {
+          id: "9-hin-4",
+          number: 4,
+          name: "Sawale Sapno Ki Yad (साँवले सपनों की याद)",
+          subject: "Hindi",
+          classNum: 9,
+          explanation: [
+            "जाबिर हुसेन का यह संस्मरण प्रसिद्ध प्रकृतिवादी और पक्षी-विशेषज्ञ सालिम अली की स्मृति में लिखा गया है। सालिम अली को 'बर्डमैन ऑफ इंडिया' कहा जाता है। उन्होंने अपना पूरा जीवन पक्षियों के अध्ययन और संरक्षण में लगाया।",
+            "लेखक ने सालिम अली के जीवन के अंतिम समय का वर्णन किया है जब वे नर्मदा बचाओ आंदोलन में सक्रिय थे। बीमारी और वृद्धावस्था के बावजूद उनका जुनून कम नहीं हुआ। उनकी मृत्यु से प्रकृति-संरक्षण को एक बड़ी क्षति हुई।",
+            "यह संस्मरण विधा का अच्छा उदाहरण है। लेखक ने व्यक्तिगत यादों और भावनाओं के माध्यम से सालिम अली के व्यक्तित्व को जीवंत किया है। पर्यावरण संरक्षण और प्रकृति से प्रेम का संदेश इसका केंद्रीय विचार है।",
+          ],
+          keyConcepts: [
+            {
+              title: "संस्मरण विधा",
+              description: "किसी व्यक्ति की यादों को लिखित रूप देना",
+            },
+            {
+              title: "पर्यावरण संरक्षण",
+              description: "प्रकृति और वन्यजीवों की रक्षा का महत्व",
+            },
+            {
+              title: "जीवन-समर्पण",
+              description: "सालिम अली का पक्षियों के प्रति अनुराग",
+            },
+            { title: "प्रकृति-प्रेम", description: "प्रकृति के साथ सह-अस्तित्व का संदेश" },
+          ],
+          importantTerms: [
+            {
+              term: "संस्मरण",
+              definition: "किसी को याद करते हुए उनके बारे में लिखी गई रचना",
+            },
+            {
+              term: "प्रकृतिवादी",
+              definition: "प्रकृति का अध्ययन करने वाला वैज्ञानिक",
+            },
+            { term: "पर्यावरण", definition: "हमारे चारों ओर का प्राकृतिक वातावरण" },
+          ],
+        },
+        {
+          id: "9-hin-5",
+          number: 5,
+          name: "Nana Saheb Ki Putri Devbhumi Mein (नाना साहब की पुत्री देवबानू में हुई भर्ती)",
+          subject: "Hindi",
+          classNum: 9,
+          explanation: [
+            "चपला देवी की यह रचना 1857 के प्रथम स्वाधीनता संग्राम से जुड़ी घटना पर आधारित है। नाना साहब पेशवा की पुत्री मैना एक बहादुर, बुद्धिमान और देशभक्त बालिका थी। जनरल हेवलॉक के नेतृत्व में अंग्रेज सैनिकों ने बिठूर के महल को जला दिया।",
+            "मैना ने जनरल आउट्रम से अपने महल को न जलाने की प्रार्थना की और कहा कि उसने कोई अपराध नहीं किया। जब अंग्रेजों ने उसकी बात नहीं मानी और महल जला दिया, मैना को बंदी बनाकर इलाहाबाद ले जाया गया और फाँसी दी गई।",
+            "यह पाठ स्वाधीनता संग्राम में बच्चों और महिलाओं के योगदान को उजागर करता है। मैना की देशभक्ति, निडरता, और आत्म-सम्मान पाठकों को प्रेरित करते हैं। रिपोर्ताज विधा में लिखी यह रचना ऐतिहासिक तथ्यों और कल्पना का मिश्रण है।",
+          ],
+          keyConcepts: [
+            {
+              title: "1857 का विद्रोह",
+              description: "प्रथम स्वाधीनता संग्राम और उसके नायक",
+            },
+            { title: "बाल-वीरता", description: "मैना की निडरता और देशभक्ति" },
+            { title: "रिपोर्ताज विधा", description: "समाचार-लेखन की विशेष शैली" },
+            {
+              title: "नारी-शक्ति",
+              description: "स्वतंत्रता संग्राम में महिलाओं की भूमिका",
+            },
+          ],
+          importantTerms: [
+            { term: "रिपोर्ताज", definition: "किसी घटना का आँखों-देखा विवरण" },
+            {
+              term: "1857 का विद्रोह",
+              definition: "अंग्रेजी शासन के विरुद्ध प्रथम सशस्त्र स्वाधीनता संग्राम",
+            },
+            { term: "देशभक्ति", definition: "अपने देश के प्रति प्रेम और समर्पण" },
           ],
         },
       ],
