@@ -1,8 +1,267 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-<url>
-<loc>https://ncrtbhaiya-8d1.caffeine.xyz/</loc>
-<lastmod>2026-03-02T17:02:33+00:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/</loc><lastmod>2026-03-03</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/leaderboard</loc><lastmod>2026-03-03</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/generate</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- CLASS 1 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 2 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 3 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 4 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/4</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 5 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/5</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 6 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/6</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/6-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/6-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/6-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/6-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/6-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/6-math-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/6-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/6-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 7 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/7</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/7-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/7-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/7-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/7-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/7-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/7-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/7-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 8 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/8</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/8-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/8-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/8-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/8-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/8-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/8-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/8-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 9 — HIGH PRIORITY (most searched) -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- Class 9 Science: Matter in Our Surroundings -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Is Matter Around Us Pure -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Atoms and Molecules -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Structure of the Atom -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: The Fundamental Unit of Life -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Tissues -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Motion -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Force and Laws of Motion -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Gravitation -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Work and Energy -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Sound -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Science: Improvement in Food Resources -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sci-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/9-sci-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/9-sci-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 9 Maths -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-math-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- Class 9 Social Science -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sst-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sst-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sst-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sst-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/9-sst-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- CLASS 10 — HIGH PRIORITY (board exam) -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- Class 10 Science: Chemical Reactions and Equations -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Acids, Bases and Salts -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Metals and Non-metals -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Carbon and its Compounds -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Life Processes -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Control and Coordination -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: How do Organisms Reproduce -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Heredity -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Light - Reflection and Refraction -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Human Eye and the Colourful World -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Electricity -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Magnetic Effects of Electric Current -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Science: Our Environment -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sci-13</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/10-sci-13</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/10-sci-13</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 10 Maths -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-7</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-8</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-9</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-10</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-11</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-13</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-math-14</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- Class 10 Social Science -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sst-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sst-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sst-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sst-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/10-sst-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- CLASS 11 -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/11</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Class 11 Physics -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-phy-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-phy-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-phy-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-phy-4</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-phy-5</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/11-phy-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/11-phy-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Class 11 Chemistry -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-chem-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-chem-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-chem-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/11-chem-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/11-chem-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Class 11 Biology -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-bio-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-bio-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-bio-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/11-bio-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/11-bio-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Class 11 Maths -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/11-math-3</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/11-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/11-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CLASS 12 — HIGH PRIORITY (board exam) -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/class/12</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- Class 12 Physics -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-phy-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-phy-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-phy-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-phy-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-phy-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/12-phy-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/12-phy-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 12 Chemistry -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-chem-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-chem-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-chem-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-chem-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/12-chem-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/12-chem-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 12 Biology -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-bio-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-bio-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-bio-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-bio-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/12-bio-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/12-bio-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Class 12 Maths -->
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-math-2</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-math-3</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-math-4</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-math-5</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/quiz/12-math-6</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/flashcards/12-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ncrtbhaiya-8d1.caffeine.xyz/cheatsheet/12-math-1</loc><lastmod>2026-03-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
 </urlset>

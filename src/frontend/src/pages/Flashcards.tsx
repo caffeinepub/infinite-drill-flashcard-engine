@@ -13,6 +13,7 @@ import { useCallback, useEffect, useState } from "react";
 import { topicsData } from "../data/demoData";
 import type { Flashcard } from "../data/demoData";
 import { useMarkFlashcardMastered } from "../hooks/useQueries";
+import { useSEO } from "../hooks/useSEO";
 
 // ─── Flashcard Component ──────────────────────────────────────────────────────
 
@@ -119,6 +120,13 @@ function CompletionScreen({
 export default function Flashcards() {
   const { topicId } = useParams({ from: "/flashcards/$topicId" });
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
+
+  useSEO({
+    title: `${topic.chapter} Flashcards — ${topic.className} ${topic.subject} NCERT`,
+    description: `Study ${topic.chapter} with interactive flashcards. ${topic.className} ${topic.subject} NCERT key terms and concepts for CBSE board exam revision.`,
+    keywords: `${topic.chapter} flashcards, ${topic.className} ${topic.subject} revision, NCERT ${topic.chapter} key terms, CBSE ${topic.className} flashcards`,
+    canonical: `/flashcards/${topicId}`,
+  });
 
   const [queue, setQueue] = useState(topic.flashcards.map((c) => c.id));
   const [mastered, setMastered] = useState<number[]>([]);

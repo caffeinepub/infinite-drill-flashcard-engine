@@ -17,6 +17,7 @@ import { AdZone } from "../components/AdZone";
 import { getLevel, getLevelProgress, topicsData } from "../data/demoData";
 import type { Question } from "../data/demoData";
 import { useSubmitQuiz } from "../hooks/useQueries";
+import { useSEO } from "../hooks/useSEO";
 
 // ─── Timer Ring ────────────────────────────────────────────────────────────────
 
@@ -101,6 +102,13 @@ export default function Quiz() {
   const { topicId } = useParams({ from: "/quiz/$topicId" });
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
   const questions = topic.questions;
+
+  useSEO({
+    title: `${topic.chapter} MCQ Quiz — ${topic.className} ${topic.subject} NCERT`,
+    description: `Practice ${topic.chapter} MCQ questions for ${topic.className} ${topic.subject} NCERT. Timed quiz with explanations, XP rewards and instant feedback for CBSE exam preparation.`,
+    keywords: `${topic.chapter} MCQ, ${topic.className} ${topic.subject} quiz, NCERT ${topic.chapter} questions, CBSE ${topic.className} practice test, ${topic.chapter} important questions`,
+    canonical: `/quiz/${topicId}`,
+  });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);

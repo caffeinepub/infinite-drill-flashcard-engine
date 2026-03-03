@@ -20,6 +20,7 @@ import { useEffect, useRef, useState } from "react";
 import { AdZone } from "../components/AdZone";
 import { Layout } from "../components/Layout";
 import { difficultyColors, subjectColors, topicsData } from "../data/demoData";
+import { useSEO } from "../hooks/useSEO";
 import { useUserProfile } from "../hooks/useUserProfile";
 
 // ─── Animated Counter ─────────────────────────────────────────────────────────
@@ -196,6 +197,15 @@ export default function Home() {
   const { profile } = useUserProfile();
 
   const studentClass = profile?.studentClass ?? null;
+
+  useSEO({
+    title: "Free NCERT Solutions, Notes & MCQ Quiz for Class 1 to 12",
+    description:
+      "NCERT Bhaiya — Free NCERT chapter notes, MCQ practice quizzes, flashcards and cheat sheets for all CBSE classes 1 to 12. Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology.",
+    keywords:
+      "NCERT solutions, NCERT notes, free NCERT, CBSE study material, class 9 science chapters, class 10 maths chapters, NCERT MCQ quiz, NCERT flashcards, CBSE board exam preparation, NCERT cheat sheet, class 9 chapter names, class 10 chapter names, NCERT class 1 to 12",
+    canonical: "/",
+  });
   // Filter topics by class if possible
   const filteredTopics = studentClass
     ? topicsData.filter(

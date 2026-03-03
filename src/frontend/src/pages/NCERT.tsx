@@ -23,6 +23,7 @@ import {
   ncertClasses,
 } from "../data/ncertContent";
 import { getVideoByContext } from "../data/videoLinks";
+import { useSEO } from "../hooks/useSEO";
 
 // ─── Class Selector ───────────────────────────────────────────────────────────
 
@@ -435,6 +436,31 @@ function ChapterList({
 export default function NCERT() {
   const [selectedClass, setSelectedClass] = useState<number | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+
+  // Dynamic SEO based on selected class/subject
+  const seoTitle =
+    selectedClass && selectedSubject
+      ? `Class ${selectedClass} ${selectedSubject} NCERT Notes & Explanations`
+      : selectedClass
+        ? `Class ${selectedClass} NCERT Chapters — All Subjects`
+        : "NCERT Content Browser — Class 1 to 12 All Subjects";
+
+  const seoDescription =
+    selectedClass && selectedSubject
+      ? `Free NCERT Class ${selectedClass} ${selectedSubject} chapter notes, key concepts, important terms and explanations. CBSE board exam preparation.`
+      : selectedClass
+        ? `Browse all NCERT subjects for Class ${selectedClass} — Science, Maths, Social Science, English, Hindi. Chapter explanations, key concepts and MCQ quizzes.`
+        : "Free NCERT chapter notes, explanations and key concepts for Class 1 to 12. All CBSE subjects covered — Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology.";
+
+  const seoKeywords = selectedClass
+    ? `NCERT class ${selectedClass}, class ${selectedClass} ${selectedSubject ?? "science"} chapters, NCERT class ${selectedClass} notes, CBSE class ${selectedClass} ${selectedSubject ?? "science"}, class ${selectedClass} chapter names`
+    : "NCERT solutions class 1 to 12, NCERT chapter notes, CBSE NCERT notes, free NCERT explanations";
+
+  useSEO({
+    title: seoTitle,
+    description: seoDescription,
+    keywords: seoKeywords,
+  });
 
   const classData = selectedClass
     ? ncertClasses.find((c) => c.classNum === selectedClass)

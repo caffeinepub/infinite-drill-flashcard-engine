@@ -11,6 +11,7 @@ import {
 import { motion } from "motion/react";
 import { topicsData } from "../data/demoData";
 import type { CheatsheetEntry } from "../data/demoData";
+import { useSEO } from "../hooks/useSEO";
 
 // ─── Type config ──────────────────────────────────────────────────────────────
 
@@ -108,6 +109,13 @@ function EntryCard({
 export default function CheatSheet() {
   const { topicId } = useParams({ from: "/cheatsheet/$topicId" });
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
+
+  useSEO({
+    title: `${topic.chapter} Cheat Sheet — ${topic.className} ${topic.subject} NCERT`,
+    description: `Quick reference cheat sheet for ${topic.chapter} (${topic.className} ${topic.subject} NCERT). Definitions, formulas, key examples and tips for CBSE board exam preparation.`,
+    keywords: `${topic.chapter} cheat sheet, ${topic.className} ${topic.subject} notes, NCERT ${topic.chapter}, CBSE ${topic.className} ${topic.subject} cheat sheet, ${topic.chapter} important points`,
+    canonical: `/cheatsheet/${topicId}`,
+  });
 
   return (
     <div className="min-h-screen dark:bg-mesh-dark bg-mesh-light print:bg-white">
