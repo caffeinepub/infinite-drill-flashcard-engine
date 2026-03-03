@@ -175,6 +175,91 @@ const class1: NCERTClass = {
       ],
     },
     {
+      name: "Hindi",
+      icon: "🔤",
+      chapters: [
+        {
+          id: "1-hin-1",
+          number: 1,
+          name: "झूला (Jhula - The Swing)",
+          subject: "Hindi",
+          classNum: 1,
+          explanation: [
+            "यह पाठ बच्चों को हिंदी की दुनिया में एक झूले की कविता के माध्यम से ले जाता है। बच्चे झूले पर बैठकर आनंद लेते हुए ऊंचे-नीचे जाने का वर्णन पढ़ते हैं। कविता में सरल शब्दों का प्रयोग बच्चों को पढ़ने में आसानी देता है।",
+            "Students learn to identify and read basic Hindi vowels (अ, आ, इ, ई, उ, ऊ) and consonants through the poem. Repetition of simple words helps children memorize the alphabet and build reading confidence.",
+            "The poem celebrates the joy of childhood — swings, parks, and outdoor play. Children connect the language to their own experiences, making learning enjoyable and memorable.",
+          ],
+          keyConcepts: [
+            {
+              title: "Hindi Vowels",
+              description: "अ, आ, इ, ई, उ, ऊ, ए, ऐ, ओ, औ",
+            },
+            {
+              title: "Reading Aloud",
+              description: "Reading Hindi with proper pronunciation",
+            },
+            {
+              title: "Word Recognition",
+              description: "Recognizing simple Hindi words",
+            },
+            {
+              title: "Joyful Learning",
+              description: "Learning through poems about familiar experiences",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "झूला (Jhula)",
+              definition: "A swing; a common childhood play item",
+            },
+            { term: "स्वर (Swar)", definition: "Vowels in Hindi language" },
+            {
+              term: "व्यंजन (Vyanjan)",
+              definition: "Consonants in Hindi language",
+            },
+          ],
+        },
+        {
+          id: "1-hin-2",
+          number: 2,
+          name: "आम की टोकरी (Aam ki Tokari)",
+          subject: "Hindi",
+          classNum: 1,
+          explanation: [
+            "इस कविता में एक छोटी लड़की आम की टोकरी लिए बाज़ार जाती है। कविता में गिनती और फलों का परिचय होता है। बच्चे एक साथ हिंदी और गणित — दोनों सीखते हैं।",
+            "Students learn Hindi numbers (एक, दो, तीन...) through the counting of mangoes. This integration of math and language makes both subjects more engaging and helps children remember vocabulary in context.",
+            "The poem introduces market vocabulary and the concept of buying and selling. Children learn about community helpers like vendors and understand how everyday transactions work.",
+          ],
+          keyConcepts: [
+            {
+              title: "Hindi Numbers",
+              description: "एक, दो, तीन, चार, पाँच... (1-10)",
+            },
+            {
+              title: "Fruits Vocabulary",
+              description: "आम, केला, सेब, संतरा (mango, banana, apple)",
+            },
+            {
+              title: "Market Scene",
+              description: "Buying and selling in a market",
+            },
+            {
+              title: "Cross-subject Learning",
+              description: "Hindi + Mathematics together",
+            },
+          ],
+          importantTerms: [
+            { term: "आम (Aam)", definition: "Mango — India's national fruit" },
+            {
+              term: "टोकरी (Tokari)",
+              definition: "A basket for carrying items",
+            },
+            { term: "गिनती (Ginti)", definition: "Counting in Hindi" },
+          ],
+        },
+      ],
+    },
+    {
       name: "EVS",
       icon: "🌿",
       chapters: [
@@ -220,6 +305,354 @@ const class1: NCERTClass = {
             {
               term: "Relatives",
               definition: "Family members like aunts, uncles, and cousins",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+// ─── Class 2 ──────────────────────────────────────────────────────────────────
+
+const class2: NCERTClass = {
+  classNum: 2,
+  subjects: [
+    {
+      name: "Mathematics",
+      icon: "🔢",
+      chapters: [
+        {
+          id: "2-math-1",
+          number: 1,
+          name: "What is Long, What is Short?",
+          subject: "Mathematics",
+          classNum: 2,
+          explanation: [
+            "This chapter teaches children to compare the lengths of objects without using measuring tools. Children learn words like longer, shorter, taller, and smaller by comparing objects directly — placing them side by side or one on top of the other.",
+            "Students explore non-standard units of measurement like handspans, foot-lengths, and pencils to measure objects. This builds the foundation for understanding that measurement needs a consistent unit.",
+            "Through activities like measuring the classroom door with footsteps, children learn that different-sized units give different numbers. This curiosity leads naturally to the idea of standard units.",
+          ],
+          keyConcepts: [
+            {
+              title: "Comparison",
+              description: "Longer, shorter, taller, smaller",
+            },
+            {
+              title: "Non-Standard Units",
+              description: "Using handspans, footsteps to measure",
+            },
+            {
+              title: "Ordering",
+              description: "Arranging objects from shortest to longest",
+            },
+            {
+              title: "Estimation",
+              description: "Guessing length before measuring",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Length",
+              definition: "The measurement of something from end to end",
+            },
+            {
+              term: "Unit",
+              definition: "A standard amount used for measuring",
+            },
+            {
+              term: "Non-standard unit",
+              definition:
+                "An informal unit like a hand or pencil used for measuring",
+            },
+          ],
+        },
+        {
+          id: "2-math-2",
+          number: 2,
+          name: "Counting in Groups",
+          subject: "Mathematics",
+          classNum: 2,
+          explanation: [
+            "Children learn that counting large groups of objects is easier when items are grouped into tens and ones. By making bundles of 10 sticks, students physically experience the concept of place value.",
+            "The chapter introduces the idea that our number system is based on groups of ten (decimal system). Grouping objects into tens helps children count quickly and understand that 24 means '2 tens and 4 ones.'",
+            "Students practice skip counting by 2s, 5s, and 10s. This prepares them for multiplication in higher classes and strengthens their mental math abilities.",
+          ],
+          keyConcepts: [
+            {
+              title: "Grouping by Tens",
+              description: "Bundling objects into groups of 10",
+            },
+            {
+              title: "Place Value",
+              description: "Tens and ones positions in a 2-digit number",
+            },
+            {
+              title: "Skip Counting",
+              description: "Counting by 2s, 5s, or 10s",
+            },
+            {
+              title: "Tens and Ones",
+              description: "Understanding 2-digit numbers",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Place Value",
+              definition:
+                "The value of a digit based on its position in a number",
+            },
+            { term: "Tens", definition: "A group of ten items" },
+            { term: "Ones", definition: "Single individual items (units)" },
+          ],
+        },
+        {
+          id: "2-math-3",
+          number: 3,
+          name: "How Much Can You Carry?",
+          subject: "Mathematics",
+          classNum: 2,
+          explanation: [
+            "This chapter introduces the concept of weight and comparison. Students learn to compare the heaviness of objects using a balance scale and vocabulary: heavier, lighter, equal weight.",
+            "Children experiment with weighing objects using non-standard units like stones, blocks, or bags of sand. They discover that a small object can be heavier than a large one — size does not always equal weight.",
+            "Students learn to estimate weight before measuring. Sorting objects by weight builds critical thinking skills and introduces the scientific method of forming and testing hypotheses.",
+          ],
+          keyConcepts: [
+            {
+              title: "Weight Comparison",
+              description: "Heavier, lighter, and equal weight",
+            },
+            { title: "Balance Scale", description: "Tool to compare weights" },
+            {
+              title: "Non-Standard Weight Units",
+              description: "Using stones or blocks to measure weight",
+            },
+            {
+              title: "Estimation",
+              description: "Predicting which object is heavier",
+            },
+          ],
+          importantTerms: [
+            { term: "Weight", definition: "How heavy an object is" },
+            { term: "Balance", definition: "A tool used to compare weights" },
+            {
+              term: "Heavier/Lighter",
+              definition: "Comparison words for weight",
+            },
+          ],
+        },
+        {
+          id: "2-math-4",
+          number: 4,
+          name: "Rupees and Paise",
+          subject: "Mathematics",
+          classNum: 2,
+          explanation: [
+            "Children are introduced to Indian currency — rupees and paise. They learn to identify different coins (50 paise, 1 rupee, 2 rupees, 5 rupees, 10 rupees) and notes (10, 20, 50, 100 rupees) and their values.",
+            "Through role-play shopping activities, students practice paying the right amount and receiving change. This real-world application makes addition and subtraction meaningful and engaging.",
+            "Students learn that 100 paise = 1 rupee. They practice making amounts using combinations of coins and notes. Money math builds practical life skills alongside mathematical reasoning.",
+          ],
+          keyConcepts: [
+            {
+              title: "Indian Currency",
+              description: "Rupees and paise, coins and notes",
+            },
+            {
+              title: "100 Paise = 1 Rupee",
+              description: "Relationship between rupees and paise",
+            },
+            {
+              title: "Adding Money",
+              description: "Combining coins to make an amount",
+            },
+            {
+              title: "Making Change",
+              description: "Subtracting to find change",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Rupee",
+              definition: "Indian currency unit; 1 rupee = 100 paise",
+            },
+            { term: "Paise", definition: "Smaller unit of Indian currency" },
+            {
+              term: "Change",
+              definition: "Money returned after paying more than needed",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "English",
+      icon: "📖",
+      chapters: [
+        {
+          id: "2-eng-1",
+          number: 1,
+          name: "First Day at School",
+          subject: "English",
+          classNum: 2,
+          explanation: [
+            "This story captures the excitement and nervousness a child feels on their first day at a new school. Students relate to the character's feelings of uncertainty and the joy of making new friends.",
+            "The chapter builds vocabulary around school life — classroom, teacher, friends, books, pencils. Reading comprehension questions help children recall story details and sequence events.",
+            "Students practice writing simple sentences about themselves and their own school experiences. This connects reading to personal expression and builds early writing skills.",
+          ],
+          keyConcepts: [
+            {
+              title: "Emotions",
+              description: "Excited, nervous, happy, afraid",
+            },
+            {
+              title: "School Vocabulary",
+              description: "Classroom, teacher, desk, board, friends",
+            },
+            {
+              title: "Sequencing",
+              description: "Ordering events from the story",
+            },
+            {
+              title: "Personal Writing",
+              description: "Writing about one's own experiences",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Emotion",
+              definition: "A feeling such as happiness, sadness, or fear",
+            },
+            { term: "Vocabulary", definition: "Words of a language" },
+            {
+              term: "Comprehension",
+              definition: "Understanding what you have read",
+            },
+          ],
+        },
+        {
+          id: "2-eng-2",
+          number: 2,
+          name: "I am Lucky!",
+          subject: "English",
+          classNum: 2,
+          explanation: [
+            "This cheerful poem teaches children to appreciate what they have — eyes to see, ears to hear, legs to run, and hands to touch. Gratitude and positivity are core themes.",
+            "Students learn new describing words (adjectives) through the poem's vivid imagery. Reciting the poem helps develop fluency, pronunciation, and rhythm in English speech.",
+            "The chapter encourages children to write their own simple poems about things they are grateful for. Creative expression builds confidence and a love for the English language.",
+          ],
+          keyConcepts: [
+            {
+              title: "Gratitude",
+              description: "Being thankful for what we have",
+            },
+            {
+              title: "Adjectives",
+              description: "Describing words — beautiful, big, small",
+            },
+            {
+              title: "Rhyme Scheme",
+              description: "Pattern of rhyming words in a poem",
+            },
+            {
+              title: "Poetry Recitation",
+              description: "Reading poems aloud with expression",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Adjective",
+              definition: "A word that describes a noun (big, red, happy)",
+            },
+            { term: "Stanza", definition: "A group of lines in a poem" },
+            { term: "Rhyme", definition: "Words that end with the same sound" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "EVS",
+      icon: "🌿",
+      chapters: [
+        {
+          id: "2-evs-1",
+          number: 1,
+          name: "Plants Around Us",
+          subject: "EVS",
+          classNum: 2,
+          explanation: [
+            "Children explore the plants in their immediate environment — in their home garden, school grounds, and nearby parks. They learn to classify plants as trees (big, woody), shrubs (medium-sized, bushy), and herbs (small, soft stems).",
+            "Students learn the basic parts of a plant: roots (hold plant and absorb water), stem (transports water), leaves (make food), flowers (attract insects for pollination), and fruits/seeds (reproduction). This builds foundational biology knowledge.",
+            "The chapter emphasizes the importance of plants to all life on Earth — they produce oxygen, provide food, offer shelter, and prevent soil erosion. Children develop an early sense of responsibility toward nature.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Plants",
+              description: "Trees, shrubs, herbs, creepers, climbers",
+            },
+            {
+              title: "Parts of a Plant",
+              description: "Roots, stem, leaves, flowers, fruits, seeds",
+            },
+            {
+              title: "Uses of Plants",
+              description: "Food, medicine, oxygen, shelter",
+            },
+            {
+              title: "Care for Plants",
+              description: "Watering, sunlight, and not harming them",
+            },
+          ],
+          importantTerms: [
+            { term: "Tree", definition: "A tall plant with a woody trunk" },
+            {
+              term: "Herb",
+              definition: "A small plant with a soft, non-woody stem",
+            },
+            {
+              term: "Roots",
+              definition:
+                "Plant part underground that absorbs water and minerals",
+            },
+          ],
+        },
+        {
+          id: "2-evs-2",
+          number: 2,
+          name: "Animals Around Us",
+          subject: "EVS",
+          classNum: 2,
+          explanation: [
+            "Children learn to identify and categorize familiar animals as domestic (cow, dog, cat — kept by humans) and wild (lion, elephant, tiger — live in forests). They also learn about water animals and birds.",
+            "Students explore what animals need to survive: food, water, shelter, and air. They learn what different animals eat — carnivores (only meat), herbivores (only plants), and omnivores (both).",
+            "The chapter builds empathy toward animals. Children learn why we should not harm animals, why endangered animals need protection, and how animals are important to ecosystems and human life.",
+          ],
+          keyConcepts: [
+            {
+              title: "Domestic vs Wild Animals",
+              description: "Animals kept by humans vs living freely",
+            },
+            {
+              title: "What Animals Eat",
+              description: "Carnivores, herbivores, omnivores",
+            },
+            {
+              title: "Animal Homes",
+              description: "Den, burrow, nest, hive, stable",
+            },
+            {
+              title: "Caring for Animals",
+              description: "Kindness and not harming wildlife",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Domestic Animal",
+              definition: "An animal kept by humans for companionship or work",
+            },
+            { term: "Carnivore", definition: "An animal that eats only meat" },
+            {
+              term: "Herbivore",
+              definition: "An animal that eats only plants",
             },
           ],
         },
@@ -284,6 +717,99 @@ const class3: NCERTClass = {
       ],
     },
     {
+      name: "English",
+      icon: "📖",
+      chapters: [
+        {
+          id: "3-eng-1",
+          number: 1,
+          name: "Good Morning",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "This opening poem teaches greetings and builds the habit of being polite and respectful. Good morning to the sun, the birds, the trees — children learn to appreciate the world around them as they start each day.",
+            "Students practice simple greetings and responses in English: Good morning/afternoon/evening/night. Role-play activities help children become comfortable with everyday English conversational expressions.",
+            "The poem introduces capital letters for proper nouns and the beginning of sentences, and punctuation like the exclamation mark for greetings. These foundational grammar rules are introduced naturally through the poem.",
+          ],
+          keyConcepts: [
+            {
+              title: "Greetings",
+              description: "Good morning, afternoon, evening, night",
+            },
+            {
+              title: "Capital Letters",
+              description: "Starting sentences and proper nouns with capitals",
+            },
+            {
+              title: "Exclamation Mark",
+              description: "Punctuation for surprise and enthusiasm",
+            },
+            {
+              title: "Polite Language",
+              description: "Saying please, thank you, you're welcome",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Greeting",
+              definition: "A polite expression used when meeting someone",
+            },
+            {
+              term: "Capital Letter",
+              definition:
+                "An uppercase letter used to begin sentences and proper nouns",
+            },
+            {
+              term: "Punctuation",
+              definition:
+                "Marks used in writing to clarify meaning and sentences",
+            },
+          ],
+        },
+        {
+          id: "3-eng-2",
+          number: 2,
+          name: "The Magic Garden",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "A girl discovers a magical garden where all plants have unusual properties — a laughter tree, a candy bush, and a rainbow flower. The story stimulates imagination and builds creative thinking alongside reading skills.",
+            "Students learn descriptive adjectives through the vivid garden imagery. They practice identifying nouns and adjectives and using them in their own sentences. Building a personal vocabulary list is encouraged.",
+            "The story ends with the girl realizing any garden can be magical if you observe it carefully. This lesson in mindfulness and appreciation of nature extends the story's meaning beyond fantasy.",
+          ],
+          keyConcepts: [
+            {
+              title: "Descriptive Adjectives",
+              description: "Words describing properties of nouns",
+            },
+            {
+              title: "Nouns and Adjectives",
+              description: "Identifying naming and describing words",
+            },
+            {
+              title: "Creative Writing",
+              description: "Inventing one's own magical garden story",
+            },
+            {
+              title: "Observation",
+              description: "Seeing beauty in real nature",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Noun",
+              definition: "A naming word — person, place, animal, or thing",
+            },
+            { term: "Adjective", definition: "A word that describes a noun" },
+            {
+              term: "Fantasy",
+              definition: "A genre involving magical or imaginary elements",
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "EVS",
       icon: "🌿",
       chapters: [
@@ -329,6 +855,465 @@ const class3: NCERTClass = {
             {
               term: "Ecosystem",
               definition: "A community of living things and their environment",
+            },
+          ],
+        },
+        {
+          id: "3-evs-2",
+          number: 2,
+          name: "The Plant Fairy",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "This imaginative chapter explores plants from the perspective of how they help each other and other living beings. Seeds travel in remarkable ways — by wind (dandelion, maple), by water (coconuts), by animals (burrs that cling to fur), and by explosion (touch-me-not pods). This dispersal spreads plants far and wide.",
+            "Students learn about germination — the process by which a seed grows into a new plant. A seed needs water, warmth, and air to germinate. The embryo inside the seed uses stored food to grow its first roots (radicle) and shoot (plumule) before it can photosynthesize.",
+            "The interconnection between plants and animals is highlighted — birds eat fruits and disperse seeds in their droppings; bees collect nectar and pollinate flowers; earthworms dig the soil and make it fertile. This web of relationships shows ecology's beautiful complexity.",
+          ],
+          keyConcepts: [
+            {
+              title: "Seed Dispersal",
+              description: "Wind, water, animals, and explosion methods",
+            },
+            {
+              title: "Germination",
+              description: "How a seed sprouts into a new plant",
+            },
+            {
+              title: "Plant-Animal Interdependence",
+              description: "Bees, birds, and plants need each other",
+            },
+            {
+              title: "Seed Structure",
+              description: "Embryo, seed coat, and food store",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Germination",
+              definition: "The process of a seed sprouting into a new plant",
+            },
+            {
+              term: "Dispersal",
+              definition: "Spreading seeds away from the parent plant",
+            },
+            {
+              term: "Radicle",
+              definition: "The first root that emerges from a germinating seed",
+            },
+          ],
+        },
+        {
+          id: "3-evs-9",
+          number: 9,
+          name: "It's Raining",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Rain is part of the water cycle — the continuous movement of water between earth, atmosphere, and back. The sun heats water in oceans, lakes, and rivers, causing evaporation (liquid → water vapor). Water vapor rises, cools, and condenses into clouds (tiny water droplets). When droplets get heavy enough, they fall as rain (precipitation).",
+            "India's rainfall is mainly through the monsoon — seasonal winds that bring moisture from the Indian Ocean. The Southwest Monsoon (June-September) brings most of India's rainfall. Without monsoon rains, India's agriculture would collapse. Understanding the monsoon is key to understanding Indian climate and economy.",
+            "Students learn about water conservation — saving rainwater through rooftop collection, ponds, and check dams. They understand that freshwater is limited and must be used carefully. Even though 71% of Earth is water, only 2.5% is freshwater, and most of that is frozen in ice caps.",
+          ],
+          keyConcepts: [
+            {
+              title: "Water Cycle",
+              description:
+                "Evaporation → condensation → precipitation → runoff",
+            },
+            {
+              title: "Monsoon",
+              description: "Seasonal winds bringing India's annual rainfall",
+            },
+            {
+              title: "Water Conservation",
+              description: "Saving and reusing water wisely",
+            },
+            {
+              title: "Freshwater Scarcity",
+              description: "Only 2.5% of Earth's water is fresh",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Evaporation",
+              definition: "Water converting from liquid to vapor due to heat",
+            },
+            {
+              term: "Condensation",
+              definition:
+                "Water vapor cooling and turning to liquid water droplets",
+            },
+            {
+              term: "Monsoon",
+              definition:
+                "Seasonal wind system bringing heavy rainfall to India",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+// ─── Class 4 ──────────────────────────────────────────────────────────────────
+
+const class4: NCERTClass = {
+  classNum: 4,
+  subjects: [
+    {
+      name: "Mathematics",
+      icon: "🔢",
+      chapters: [
+        {
+          id: "4-math-1",
+          number: 1,
+          name: "Building with Bricks",
+          subject: "Mathematics",
+          classNum: 4,
+          explanation: [
+            "Using the context of bricks and building, this chapter introduces children to arrays and multiplication concepts. By arranging bricks in rows and columns, students see how multiplication is related to repeated addition and rectangular arrangements.",
+            "Students learn to describe 3D shapes from different viewpoints and understand the properties of common solids like cubes, cuboids, cylinders, and cones. This spatial thinking is foundational for geometry.",
+            "The chapter connects math to real-world construction and architecture. Students are encouraged to notice geometric patterns in buildings around them, making math a living subject rather than an abstract one.",
+          ],
+          keyConcepts: [
+            {
+              title: "Arrays",
+              description: "Rows and columns showing multiplication",
+            },
+            {
+              title: "3D Shapes",
+              description: "Cube, cuboid, cylinder, cone, sphere",
+            },
+            {
+              title: "Faces, Edges, Corners",
+              description: "Properties of 3D shapes",
+            },
+            {
+              title: "Patterns in Buildings",
+              description: "Geometric patterns in architecture",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Array",
+              definition: "Objects arranged in equal rows and columns",
+            },
+            {
+              term: "Cuboid",
+              definition: "A 3D shape with 6 rectangular faces",
+            },
+            { term: "Face", definition: "A flat surface of a 3D shape" },
+          ],
+        },
+        {
+          id: "4-math-2",
+          number: 2,
+          name: "Long and Short",
+          subject: "Mathematics",
+          classNum: 4,
+          explanation: [
+            "Students are introduced to the standard metric system: centimetres (cm) and metres (m). They learn that 100 cm = 1 m and practice measuring objects in the classroom and school environment.",
+            "The chapter builds on informal measurement from earlier classes and introduces precision. Students learn to use rulers accurately, reading the scale correctly and understanding that measurements must start from zero.",
+            "Word problems involving measurement build problem-solving skills. For example, if a ribbon is 3 m 50 cm long and 1 m 20 cm is cut, how much remains? Converting between cm and m is a key skill.",
+          ],
+          keyConcepts: [
+            {
+              title: "Metre and Centimetre",
+              description: "Standard units of length; 100 cm = 1 m",
+            },
+            {
+              title: "Using a Ruler",
+              description: "Measuring accurately in cm",
+            },
+            { title: "Conversion", description: "Converting between cm and m" },
+            {
+              title: "Measurement Word Problems",
+              description: "Solving real-life length problems",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Metre (m)",
+              definition: "Standard unit of length; 1 m = 100 cm",
+            },
+            {
+              term: "Centimetre (cm)",
+              definition: "Smaller unit of length; 100 cm = 1 m",
+            },
+            {
+              term: "Scale",
+              definition: "A marked measuring tool like a ruler",
+            },
+          ],
+        },
+        {
+          id: "4-math-3",
+          number: 3,
+          name: "Tables and Shares (Division)",
+          subject: "Mathematics",
+          classNum: 4,
+          explanation: [
+            "Division is introduced as sharing equally — if 12 mangoes are shared among 4 children, each gets 3. Students connect division to the idea of equal groups, building on their understanding of multiplication.",
+            "The chapter introduces the relationship between multiplication and division: 3 × 4 = 12 means 12 ÷ 4 = 3. Students use multiplication tables to solve division problems, showing the inverse relationship between the two operations.",
+            "Long division is introduced with simple 2-digit dividends. The concept of remainder — what is left over when something cannot be divided equally — is explained through real-life sharing examples.",
+          ],
+          keyConcepts: [
+            {
+              title: "Division as Sharing",
+              description: "Dividing into equal groups",
+            },
+            {
+              title: "Division and Multiplication",
+              description: "Inverse operations",
+            },
+            {
+              title: "Remainder",
+              description: "What is left over after division",
+            },
+            {
+              title: "Long Division",
+              description: "Step-by-step division method",
+            },
+          ],
+          importantTerms: [
+            { term: "Dividend", definition: "The number being divided" },
+            { term: "Divisor", definition: "The number by which we divide" },
+            {
+              term: "Remainder",
+              definition: "What is left after dividing as much as possible",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "English",
+      icon: "📖",
+      chapters: [
+        {
+          id: "4-eng-1",
+          number: 1,
+          name: "Wake Up!",
+          subject: "English",
+          classNum: 4,
+          explanation: [
+            "This lively poem by Christina Rossetti wakes readers up to the beauty of the morning — birds singing, the sun rising, bees buzzing. The poem uses vivid sensory details to paint a picture of a fresh new day.",
+            "Students learn about sensory language — words that describe what we see, hear, smell, feel, and taste. This enriches their vocabulary and helps them write more descriptive compositions.",
+            "The poem's rhyme scheme and rhythm make it enjoyable to recite. Students practice reading aloud with expression and pace, developing oral English skills alongside reading comprehension.",
+          ],
+          keyConcepts: [
+            {
+              title: "Sensory Language",
+              description: "Words describing sights, sounds, smells, etc.",
+            },
+            {
+              title: "Rhyme Scheme",
+              description: "The pattern of rhyming lines in a poem",
+            },
+            {
+              title: "Morning Imagery",
+              description: "Descriptive language about nature and morning",
+            },
+            {
+              title: "Oral Reading",
+              description: "Reading aloud with expression and rhythm",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Imagery",
+              definition: "Language that creates pictures in the reader's mind",
+            },
+            {
+              term: "Rhyme Scheme",
+              definition: "The pattern of end rhymes in a poem",
+            },
+            {
+              term: "Recitation",
+              definition: "Speaking a poem aloud from memory",
+            },
+          ],
+        },
+        {
+          id: "4-eng-2",
+          number: 2,
+          name: "Neha's Alarm Clock",
+          subject: "English",
+          classNum: 4,
+          explanation: [
+            "Neha sets an alarm clock for the first time so she can wake up early and see the sunrise. The story explores themes of independence, responsibility, and the wonder of nature through a child's perspective.",
+            "Students practice reading a short story and answering comprehension questions. They identify characters, setting, problem, and resolution — the basic elements of narrative structure.",
+            "The chapter introduces past tense verbs and their irregular forms through the story's narrative. Students practice forming simple past tense sentences about events that have already happened.",
+          ],
+          keyConcepts: [
+            {
+              title: "Story Elements",
+              description: "Characters, setting, problem, resolution",
+            },
+            {
+              title: "Past Tense",
+              description: "Verbs describing things that already happened",
+            },
+            {
+              title: "Comprehension",
+              description: "Understanding and answering questions about a text",
+            },
+            {
+              title: "Responsibility",
+              description: "Taking care of one's own duties",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Narrative",
+              definition: "A story that describes a sequence of events",
+            },
+            {
+              term: "Past Tense",
+              definition: "Verb form used for things that happened before now",
+            },
+            {
+              term: "Setting",
+              definition: "The time and place where a story happens",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "EVS",
+      icon: "🌿",
+      chapters: [
+        {
+          id: "4-evs-1",
+          number: 1,
+          name: "Going to School",
+          subject: "EVS",
+          classNum: 4,
+          explanation: [
+            "Children across India reach school in many different ways — on foot, by bus, boat, bullock cart, rickshaw, or even a horse! This chapter explores the diversity of transportation methods in different regions and geographical conditions.",
+            "Students learn about different terrains in India — mountains, valleys, rivers, deserts, and plains — and how they affect how people travel. Children in hilly areas may walk steep paths; children near rivers use boats.",
+            "The chapter builds appreciation for the diverse conditions of life in India. It encourages empathy for the challenges others face and pride in the variety of India's geography and culture.",
+          ],
+          keyConcepts: [
+            {
+              title: "Modes of Transport",
+              description: "How children reach school in different regions",
+            },
+            {
+              title: "India's Geography",
+              description:
+                "Mountains, plains, deserts, rivers affecting travel",
+            },
+            {
+              title: "Community Diversity",
+              description: "Different ways of life across India",
+            },
+            {
+              title: "Empathy",
+              description: "Understanding others' challenges and experiences",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Terrain",
+              definition: "The physical features of an area of land",
+            },
+            {
+              term: "Transport",
+              definition: "A way of moving from one place to another",
+            },
+            {
+              term: "Community",
+              definition: "A group of people living in the same area",
+            },
+          ],
+        },
+        {
+          id: "4-evs-2",
+          number: 2,
+          name: "From The Window",
+          subject: "EVS",
+          classNum: 4,
+          explanation: [
+            "Through the metaphor of looking from a train window, students observe how the landscape changes as one travels across India — from green fields to dry scrubland, from villages to towns. This develops geographical observation skills.",
+            "The chapter introduces the concept that India has great diversity in landscape, climate, vegetation, and lifestyle. The same train journey can pass through several distinct ecological zones.",
+            "Students are encouraged to observe changes in their own environment as seasons change — trees losing leaves, birds migrating, ponds drying up. This builds skills of scientific observation and environmental awareness.",
+          ],
+          keyConcepts: [
+            {
+              title: "Changing Landscape",
+              description: "How land looks different in different regions",
+            },
+            {
+              title: "Diversity of India",
+              description: "Varied geography, climate, and vegetation",
+            },
+            {
+              title: "Seasonal Changes",
+              description: "How surroundings change with seasons",
+            },
+            {
+              title: "Observation Skills",
+              description: "Noticing details in the environment",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Landscape",
+              definition: "The visible features of an area of land",
+            },
+            {
+              term: "Vegetation",
+              definition: "Plants that cover a particular area",
+            },
+            {
+              term: "Migration",
+              definition:
+                "Seasonal movement of animals to find better conditions",
+            },
+          ],
+        },
+        {
+          id: "4-evs-3",
+          number: 3,
+          name: "A River's Tale",
+          subject: "EVS",
+          classNum: 4,
+          explanation: [
+            "Rivers are the lifelines of civilizations. This chapter follows a river's journey from mountain glaciers through valleys, plains, and finally to the sea. Each stage of the river's journey has different characteristics and supports different life forms.",
+            "Students learn how rivers support human settlements, agriculture, and industries. Most of India's ancient civilizations grew near rivers (Indus, Ganga) because rivers provide fresh water, fertile soil, and transportation routes.",
+            "The chapter addresses river pollution — how factories, farms, and cities dump waste into rivers, harming aquatic life and making water unsafe. Students are encouraged to think about how to protect rivers for future generations.",
+          ],
+          keyConcepts: [
+            {
+              title: "River Journey",
+              description: "Source → tributaries → plains → sea",
+            },
+            {
+              title: "Rivers and Civilization",
+              description: "How rivers support human life",
+            },
+            {
+              title: "River Ecosystem",
+              description: "Living things in and around rivers",
+            },
+            {
+              title: "River Pollution",
+              description: "Human activities harming rivers",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Source",
+              definition: "Where a river begins, often in mountains",
+            },
+            {
+              term: "Tributary",
+              definition: "A smaller river that flows into a larger river",
+            },
+            {
+              term: "Delta",
+              definition: "Fan-shaped land formed where a river meets the sea",
             },
           ],
         },
@@ -395,6 +1380,98 @@ const class5: NCERTClass = {
       ],
     },
     {
+      name: "English",
+      icon: "📖",
+      chapters: [
+        {
+          id: "5-eng-1",
+          number: 1,
+          name: "Ice-Cream Man",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "This delightful poem by Rachel Field describes an ice-cream man and his cart — the jingle of the bells, the colors of the ice cream, the happiness he brings. It develops sensory vocabulary and the ability to write vivid descriptions.",
+            "Students learn the present tense through descriptions of what the ice-cream man does regularly. They practice simple present tense for habits and facts: 'He rings his bell,' 'Children run to him.'",
+            "The poem introduces punctuation — commas in lists, apostrophes in contractions (it's, he's). These grammatical elements are taught in context rather than in isolation, making them easier to understand and remember.",
+          ],
+          keyConcepts: [
+            {
+              title: "Sensory Words",
+              description: "Describing sights, sounds, tastes, and smells",
+            },
+            {
+              title: "Simple Present Tense",
+              description: "Describing habits and regular actions",
+            },
+            {
+              title: "Vivid Description",
+              description: "Using specific details to paint a picture",
+            },
+            {
+              title: "Punctuation in Context",
+              description: "Commas, apostrophes in poetry",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Imagery",
+              definition: "Language that creates a sensory picture",
+            },
+            {
+              term: "Simple Present",
+              definition: "Tense for habits: 'He walks to school'",
+            },
+            {
+              term: "Apostrophe",
+              definition:
+                "Punctuation mark for contractions (it's) or possession (boy's)",
+            },
+          ],
+        },
+        {
+          id: "5-eng-3",
+          number: 3,
+          name: "My Shadow",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "Robert Louis Stevenson's classic poem explores the curious phenomenon of a shadow — how it changes size throughout the day, why it stays behind sometimes, and why the child imagines it as a companion. Scientific observation meets poetic imagination.",
+            "Students learn about light and shadows as a scientific concept connected to the poem. Shadows are formed when an opaque object blocks light. Longer shadows at dawn and dusk, shorter shadows at noon — the poem captures these observations beautifully.",
+            "The chapter develops skills of comparing and contrasting — the child vs the shadow, morning vs evening, reality vs imagination. Students write their own poems about natural phenomena they observe, combining science and creative writing.",
+          ],
+          keyConcepts: [
+            {
+              title: "Shadow Formation",
+              description: "Opaque objects block light to form shadows",
+            },
+            {
+              title: "Comparison Poetry",
+              description: "Comparing two things to highlight differences",
+            },
+            {
+              title: "Observation in Poetry",
+              description: "Scientific observation expressed poetically",
+            },
+            {
+              title: "Creative Writing",
+              description: "Writing poems about personal observations",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Shadow",
+              definition: "Dark area formed when object blocks light",
+            },
+            { term: "Opaque", definition: "Does not let light pass through" },
+            {
+              term: "Stanza",
+              definition: "A group of lines in a poem (like a paragraph)",
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "EVS",
       icon: "🌿",
       chapters: [
@@ -440,6 +1517,142 @@ const class5: NCERTClass = {
               term: "Adaptation",
               definition:
                 "A feature that helps an organism survive in its environment",
+            },
+          ],
+        },
+        {
+          id: "5-evs-3",
+          number: 3,
+          name: "From Tasting to Digesting",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Food goes on a remarkable journey through your body. Digestion begins in the mouth, where teeth crush food and saliva softens it. The tongue helps swallow. Food travels down the esophagus to the stomach, where gastric acid and enzymes break it down into a liquid mixture.",
+            "The small intestine is where most digestion and all absorption happens. Digestive juices from the liver (bile) and pancreas break down fats and proteins. Millions of tiny finger-like villi absorb nutrients into the bloodstream, which carries them to every cell in the body.",
+            "The large intestine absorbs water from the remaining indigestible material. The rest passes out as solid waste. The whole process takes 24-72 hours. Understanding digestion helps children appreciate why different foods matter — proteins for growth, carbohydrates for energy, vitamins for protection.",
+          ],
+          keyConcepts: [
+            {
+              title: "Digestion Journey",
+              description: "Mouth → esophagus → stomach → intestines → exit",
+            },
+            {
+              title: "Role of Each Organ",
+              description: "Mouth chews, stomach churns, intestine absorbs",
+            },
+            {
+              title: "Nutrients and Their Functions",
+              description: "Proteins, carbs, fats, vitamins",
+            },
+            {
+              title: "Absorption",
+              description: "Nutrients passing from intestine into blood",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Digestion",
+              definition:
+                "Breaking down food into substances the body can absorb",
+            },
+            {
+              term: "Absorption",
+              definition: "Passage of digested nutrients into the bloodstream",
+            },
+            {
+              term: "Esophagus",
+              definition: "Tube connecting mouth to stomach",
+            },
+            { term: "Bile", definition: "Liver fluid that helps digest fats" },
+          ],
+        },
+        {
+          id: "5-evs-10",
+          number: 10,
+          name: "Walls Tell Stories",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "This chapter explores how ancient structures like forts, temples, mosques, and monuments tell us stories about the past. Walls, pillars, carvings, paintings, and inscriptions are historical sources. Buildings reveal what materials were available, what skills people had, and what they valued.",
+            "Students learn about India's remarkable historical architecture: the Red Fort and Taj Mahal (Mughal era), Hampi temples (Vijayanagara Empire), Ajanta and Ellora caves (Buddhist and Hindu art). Each represents a different era and culture.",
+            "The concept of heritage is introduced — buildings and artifacts from the past that belong to all of humanity. The UNESCO World Heritage Sites in India (Taj Mahal, Hampi, Qutub Minar, etc.) are protected for future generations. Students understand why preserving historical structures matters.",
+          ],
+          keyConcepts: [
+            {
+              title: "Buildings as Historical Sources",
+              description: "What structures reveal about past societies",
+            },
+            {
+              title: "India's Heritage Sites",
+              description: "Taj Mahal, Hampi, Ajanta-Ellora caves",
+            },
+            {
+              title: "Archaeological Preservation",
+              description: "Why we protect ancient structures",
+            },
+            {
+              title: "Architecture and Culture",
+              description: "How buildings reflect their era",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Heritage",
+              definition:
+                "Things passed down from earlier generations worth preserving",
+            },
+            {
+              term: "UNESCO",
+              definition:
+                "UN organization that designates and protects World Heritage Sites",
+            },
+            {
+              term: "Inscription",
+              definition: "Writing carved on stone, metal, or walls",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Mathematics",
+      icon: "🔢",
+      chapters: [
+        {
+          id: "5-math-1",
+          number: 1,
+          name: "The Fish Tale",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Through the story of a fishing village, students explore large numbers, estimation, and multiplication. If one fisherman catches 45 fish per day and there are 200 fishermen, how many fish are caught in a week? These practical problems show multiplication's power.",
+            "Estimation is a key skill — before calculating exactly, we estimate to check if an answer is reasonable. 'About 200 × 50 = about 10,000' is faster than exact calculation and helps catch errors. Mental math strategies using rounding make everyday calculations more manageable.",
+            "The chapter introduces data handling through the fishing context. Students learn to collect data (how many fish different people catch), organize it in tables, and represent it in bar graphs. These are foundational data literacy skills for the modern world.",
+          ],
+          keyConcepts: [
+            {
+              title: "Large Number Multiplication",
+              description: "Multiplying 3-4 digit numbers",
+            },
+            {
+              title: "Estimation",
+              description: "Rounding to find approximate answers",
+            },
+            {
+              title: "Data Collection",
+              description: "Gathering and organizing information",
+            },
+            { title: "Bar Graphs", description: "Representing data visually" },
+          ],
+          importantTerms: [
+            {
+              term: "Estimation",
+              definition: "An approximate calculation or judgment",
+            },
+            { term: "Data", definition: "Information collected for analysis" },
+            {
+              term: "Bar Graph",
+              definition: "A chart using bars to represent quantities",
             },
           ],
         },
@@ -817,6 +2030,1023 @@ const class6: NCERTClass = {
         },
       ],
     },
+    {
+      name: "Hindi",
+      icon: "🔤",
+      chapters: [
+        {
+          id: "6-hin-1",
+          number: 1,
+          name: "वह चिड़िया जो (Woh Chidiya Jo)",
+          subject: "Hindi",
+          classNum: 6,
+          explanation: [
+            "केदारनाथ अग्रवाल की यह कविता एक नीली चिड़िया का वर्णन करती है जो स्वतंत्र और निर्भीक है। वह खेतों में अनाज के दाने खाती है, नदी से पानी पीती है और जंगल में गाती है। कविता प्रकृति प्रेम और स्वतंत्रता का संदेश देती है।",
+            "Students learn about metaphors in Hindi poetry — the bird represents freedom, joy, and connection to nature. Poetic devices (उपमा, रूपक) are introduced. Students identify and appreciate how poets use images to convey deeper meanings.",
+            "Vocabulary related to nature — forest (जंगल), river (नदी), grain (अनाज), song (गीत) — is introduced. Students write their own short Hindi poem about an animal or bird they love, applying newly learned poetic language.",
+          ],
+          keyConcepts: [
+            {
+              title: "प्रकृति काव्य",
+              description: "Nature poetry in Hindi tradition",
+            },
+            {
+              title: "उपमा (Upma)",
+              description: "Simile — comparing two things using 'like'",
+            },
+            {
+              title: "रूपक (Roopak)",
+              description: "Metaphor — directly equating two things",
+            },
+            {
+              title: "भाव (Bhav)",
+              description: "The emotional message of the poem",
+            },
+          ],
+          importantTerms: [
+            { term: "कविता (Kavita)", definition: "A poem in Hindi" },
+            {
+              term: "चिड़िया (Chidiya)",
+              definition: "A bird; symbol of freedom in the poem",
+            },
+            {
+              term: "स्वतंत्रता (Swatantrata)",
+              definition: "Freedom; a key theme of the poem",
+            },
+          ],
+        },
+        {
+          id: "6-hin-2",
+          number: 2,
+          name: "बचपन (Bachpan - Childhood)",
+          subject: "Hindi",
+          classNum: 6,
+          explanation: [
+            "कृष्णा सोबती की यह कहानी बचपन की यादों पर आधारित है। एक बड़ी हो चुकी महिला अपने बचपन की पसंद — कपड़े, खाना, खेल और आदतें — के बारे में बताती है। यह पाठ संस्मरण (memoir) विधा से परिचित कराता है।",
+            "Students learn the concept of a memoir (संस्मरण) — first-person narrative about real personal memories. Contrasting past memories with present reality teaches students about how perspective and preferences change with age.",
+            "Grammar focus: Past tense (भूतकाल) in Hindi. Students practice writing their own संस्मरण about a favourite childhood memory. This personal connection makes Hindi writing practice meaningful and enjoyable.",
+          ],
+          keyConcepts: [
+            {
+              title: "संस्मरण (Memoir)",
+              description: "First-person writing about personal memories",
+            },
+            {
+              title: "भूतकाल (Past Tense)",
+              description: "Hindi verb forms for past actions",
+            },
+            {
+              title: "बदलाव (Change)",
+              description: "How preferences change as we grow",
+            },
+            {
+              title: "वर्णनात्मक लेखन",
+              description: "Descriptive writing about personal experience",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "संस्मरण (Smaran)",
+              definition: "A piece of writing about personal memories",
+            },
+            {
+              term: "भूतकाल (Bhootkaal)",
+              definition: "Past tense in Hindi grammar",
+            },
+            {
+              term: "आत्मकथा (Aatmakatha)",
+              definition: "Autobiography — life story written by oneself",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+// ─── Class 7 ──────────────────────────────────────────────────────────────────
+
+const class7: NCERTClass = {
+  classNum: 7,
+  subjects: [
+    {
+      name: "Science",
+      icon: "🔬",
+      chapters: [
+        {
+          id: "7-sci-1",
+          number: 1,
+          name: "Nutrition in Plants",
+          subject: "Science",
+          classNum: 7,
+          explanation: [
+            "Plants are autotrophs — they make their own food through photosynthesis. The equation is: 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ (glucose) + 6O₂. Chlorophyll in chloroplasts absorbs sunlight to power this process. All oxygen in Earth's atmosphere comes from photosynthesis.",
+            "Not all plants are fully autotrophic. Some plants are partially or fully heterotrophic: Insectivorous plants (like Venus flytrap, pitcher plant) trap insects to get nitrogen; Parasitic plants (like Cuscuta/Amarbel) grow on other plants and steal nutrients; Saprophytes (some fungi) digest dead organic matter.",
+            "Minerals from the soil are equally important as sunlight and CO₂. Nitrogen (for proteins), phosphorus (for energy), and potassium (for growth regulation) are key minerals. Farmers add fertilizers to supply these minerals when soil is depleted.",
+          ],
+          keyConcepts: [
+            {
+              title: "Photosynthesis",
+              description: "CO₂ + H₂O + light → glucose + O₂ in chloroplasts",
+            },
+            {
+              title: "Insectivorous Plants",
+              description: "Trap insects to get nitrogen (Venus flytrap)",
+            },
+            {
+              title: "Parasitic Plants",
+              description: "Cuscuta steals nutrients from host plants",
+            },
+            {
+              title: "Mineral Nutrients",
+              description: "Nitrogen, phosphorus, potassium from soil",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Photosynthesis",
+              definition:
+                "Process by which plants make food using light, CO₂, and water",
+            },
+            {
+              term: "Chlorophyll",
+              definition: "Green pigment in leaves that absorbs sunlight",
+            },
+            {
+              term: "Autotroph",
+              definition: "An organism that makes its own food",
+            },
+            {
+              term: "Parasitic Plant",
+              definition:
+                "A plant that obtains nutrients from another living plant",
+            },
+          ],
+        },
+        {
+          id: "7-sci-2",
+          number: 2,
+          name: "Nutrition in Animals",
+          subject: "Science",
+          classNum: 7,
+          explanation: [
+            "Animals cannot make their own food and must eat other organisms. The human digestive system breaks down food into simpler molecules: Mouth (chewing + salivary amylase breaks starch), Esophagus (muscular tube), Stomach (acid + pepsin breaks proteins), Small intestine (bile from liver + pancreatic enzymes complete digestion, villi absorb nutrients), Large intestine (absorbs water), Rectum and anus (eliminate waste).",
+            "Nutrition in different animals shows interesting adaptations. Amoeba engulfs food by forming pseudopodia (phagocytosis). Paramecium uses cilia to sweep food into a gullet. Grasshoppers and earthworms have simpler digestive systems. Ruminants like cows have four-chambered stomachs to digest grass efficiently.",
+            "Teeth are specialized for different functions: Incisors (cutting), Canines (tearing), Premolars (grinding), Molars (crushing). Carnivores have large canines; herbivores have strong molars. Humans, being omnivores, have all types. Understanding teeth helps in dental hygiene.",
+          ],
+          keyConcepts: [
+            {
+              title: "Human Digestive System",
+              description:
+                "Mouth → stomach → small intestine → large intestine",
+            },
+            {
+              title: "Digestive Enzymes",
+              description: "Amylase, pepsin, bile break down food",
+            },
+            {
+              title: "Absorption",
+              description:
+                "Villi in small intestine absorb nutrients into blood",
+            },
+            {
+              title: "Types of Teeth",
+              description: "Incisors, canines, premolars, molars",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Digestion",
+              definition:
+                "Breaking down food into simpler molecules the body can use",
+            },
+            {
+              term: "Villi",
+              definition:
+                "Tiny finger-like projections in small intestine that absorb nutrients",
+            },
+            {
+              term: "Enzyme",
+              definition:
+                "A biological molecule that speeds up chemical reactions",
+            },
+            {
+              term: "Bile",
+              definition: "Liquid produced by liver that helps digest fats",
+            },
+          ],
+        },
+        {
+          id: "7-sci-5",
+          number: 5,
+          name: "Acids, Bases and Salts",
+          subject: "Science",
+          classNum: 7,
+          explanation: [
+            "Acids are sour-tasting substances that turn blue litmus red. Examples: hydrochloric acid (HCl) in stomach, citric acid in lemons, acetic acid in vinegar. Bases are bitter, slippery substances that turn red litmus blue. Examples: sodium hydroxide (NaOH), calcium hydroxide (lime), baking soda. The pH scale (0-14) measures acidity: below 7 is acidic, 7 is neutral, above 7 is basic.",
+            "Indicators are substances that change color in acids and bases — litmus (red in acid, blue in base), turmeric (yellow in neutral, red-brown in base), and phenolphthalein (colorless in acid, pink in base). Natural indicators from plants (red cabbage, turmeric) can be used in simple experiments.",
+            "Neutralization is the reaction between an acid and a base to form salt and water: Acid + Base → Salt + Water. This has practical uses — treating acid indigestion with antacids (base), adding lime to acidic soil, using baking soda on bee stings (acidic). Understanding acids and bases is fundamental to chemistry.",
+          ],
+          keyConcepts: [
+            {
+              title: "Acids",
+              description: "Sour, turn blue litmus red, pH < 7",
+            },
+            {
+              title: "Bases (Alkalis)",
+              description: "Bitter, slippery, turn red litmus blue, pH > 7",
+            },
+            {
+              title: "Indicators",
+              description: "Substances that show if solution is acid or base",
+            },
+            {
+              title: "Neutralization",
+              description: "Acid + Base → Salt + Water",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "pH Scale",
+              definition:
+                "Scale from 0-14 measuring acidity/basicity of a solution",
+            },
+            {
+              term: "Neutralization",
+              definition: "Reaction of acid and base to form salt and water",
+            },
+            {
+              term: "Indicator",
+              definition:
+                "A substance that shows presence of acid or base by color change",
+            },
+            {
+              term: "Antacid",
+              definition: "A base used to neutralize excess stomach acid",
+            },
+          ],
+        },
+        {
+          id: "7-sci-13",
+          number: 13,
+          name: "Motion and Time",
+          subject: "Science",
+          classNum: 7,
+          explanation: [
+            "Motion is the change in position of an object with time. The speed of an object measures how fast it moves: Speed = Distance ÷ Time. The SI unit of speed is metres per second (m/s). The speedometer in a vehicle measures speed. Time is measured using clocks — sundials were the earliest clocks, followed by water clocks, sand clocks, and modern mechanical and digital clocks.",
+            "Distance-time graphs are powerful tools to visualize motion. A horizontal line indicates the object is at rest; a sloping line indicates motion; a steeper slope means higher speed. If the line is straight (uniform slope), speed is constant (uniform motion). A curved line indicates changing speed (non-uniform motion).",
+            "Period of a pendulum is the time taken for one complete swing. This was the principle behind pendulum clocks invented by Galileo and improved by Huygens. Simple harmonic motion (back-and-forth oscillation) has numerous applications from clock mechanisms to bridges and even earthquakes.",
+          ],
+          keyConcepts: [
+            {
+              title: "Speed Formula",
+              description: "Speed = Distance ÷ Time (m/s)",
+            },
+            {
+              title: "Distance-Time Graphs",
+              description: "Slope shows speed; steeper = faster",
+            },
+            {
+              title: "Uniform Motion",
+              description:
+                "Constant speed; straight line on distance-time graph",
+            },
+            {
+              title: "Pendulum",
+              description: "Regular oscillation used in timekeeping",
+            },
+          ],
+          importantTerms: [
+            { term: "Speed", definition: "Distance traveled per unit time" },
+            {
+              term: "Uniform Motion",
+              definition: "Movement at constant speed in a straight line",
+            },
+            {
+              term: "Oscillation",
+              definition: "Back-and-forth movement about a central position",
+            },
+            {
+              term: "Period",
+              definition: "Time taken for one complete oscillation",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Mathematics",
+      icon: "🔢",
+      chapters: [
+        {
+          id: "7-math-1",
+          number: 1,
+          name: "Integers",
+          subject: "Mathematics",
+          classNum: 7,
+          explanation: [
+            "Integers include all whole numbers, their negatives, and zero: {..., -3, -2, -1, 0, 1, 2, 3, ...}. They are needed to represent quantities below zero — temperature below freezing (-5°C), debt (-₹200), below sea level (-50 m). The number line extends infinitely in both directions.",
+            "Addition and subtraction of integers follow rules: Adding a negative is like subtracting, and subtracting a negative is like adding. For example, -3 + (-2) = -5 (move further left on number line), and -3 - (-2) = -3 + 2 = -1 (subtracting a negative flips direction).",
+            "Multiplication and division rules: positive × positive = positive, negative × negative = positive, positive × negative = negative. This means (-3) × (-4) = +12 and (-3) × 4 = -12. These rules are essential for all algebraic operations in higher classes.",
+          ],
+          keyConcepts: [
+            {
+              title: "Number Line",
+              description: "Integers shown on a line extending both directions",
+            },
+            {
+              title: "Adding Integers",
+              description: "Rules for adding positive and negative numbers",
+            },
+            {
+              title: "Multiplying Integers",
+              description: "Same signs → positive; different signs → negative",
+            },
+            {
+              title: "Real-Life Integers",
+              description: "Temperature, altitude, debt use negative integers",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Integer",
+              definition: "Whole numbers including negatives and zero",
+            },
+            {
+              term: "Absolute Value",
+              definition: "The distance of a number from zero; always positive",
+            },
+            {
+              term: "Additive Inverse",
+              definition:
+                "The number that when added gives zero (e.g., -5 is inverse of 5)",
+            },
+          ],
+        },
+        {
+          id: "7-math-2",
+          number: 2,
+          name: "Fractions and Decimals",
+          subject: "Mathematics",
+          classNum: 7,
+          explanation: [
+            "Multiplication of fractions: multiply numerators and multiply denominators. (2/3) × (3/4) = 6/12 = 1/2. 'Of' in math means multiplication: 1/2 of 16 = 8. The product of two proper fractions is smaller than either fraction, which may seem surprising but makes intuitive sense (e.g., half of a quarter is less than a quarter).",
+            "Division of fractions uses the reciprocal: (a/b) ÷ (c/d) = (a/b) × (d/c). To divide by a fraction, multiply by its reciprocal. This can be understood as asking 'how many times does c/d fit into a/b?' Real-world applications include dividing recipes.",
+            "Decimal multiplication and division follow place value rules. Multiplying by 10, 100, 1000 shifts decimal point right; dividing shifts it left. Multiplying 3.25 × 10 = 32.5. Understanding this makes calculations much faster than long multiplication.",
+          ],
+          keyConcepts: [
+            {
+              title: "Fraction Multiplication",
+              description: "Multiply numerators, multiply denominators",
+            },
+            {
+              title: "Fraction Division",
+              description: "Multiply by the reciprocal of the divisor",
+            },
+            {
+              title: "Decimal Place Value",
+              description: "Tenths, hundredths, thousandths",
+            },
+            {
+              title: "Multiplying Decimals",
+              description: "Multiply as integers, then place decimal point",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Reciprocal",
+              definition: "The inverse of a fraction: reciprocal of a/b is b/a",
+            },
+            {
+              term: "Proper Fraction",
+              definition: "A fraction where numerator is less than denominator",
+            },
+            {
+              term: "Improper Fraction",
+              definition:
+                "A fraction where numerator is greater than denominator",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Social Science",
+      icon: "🗺️",
+      chapters: [
+        {
+          id: "7-sst-1",
+          number: 1,
+          name: "Tracing Changes Through a Thousand Years",
+          subject: "Social Science",
+          classNum: 7,
+          explanation: [
+            "This chapter examines India from 700 CE to 1750 CE — a period of dramatic change. Historians use a variety of sources: manuscripts (handwritten texts), inscriptions, coins, paintings, architecture, and travellers' accounts. Each source has biases and limitations, so historians compare multiple sources to build reliable accounts.",
+            "The nature of regions changed significantly — new kingdoms rose and fell, religions and cultures mixed, and foreign influences arrived. The term 'Hindu' was coined by outsiders to describe all people east of the Indus river, not a religious community. Similarly, 'India' evolved from the Greek 'Indika.'",
+            "Cartography (mapmaking) improved dramatically in this period. Early medieval maps placed east at the top (where the sun rises), not north. Arabic maps were sometimes drawn with south at the top. Understanding how maps reflect the knowledge and perspective of their makers is a key historical thinking skill.",
+          ],
+          keyConcepts: [
+            {
+              title: "Historical Sources",
+              description:
+                "Manuscripts, coins, inscriptions, travellers' accounts",
+            },
+            {
+              title: "Changing Terminologies",
+              description: "How words like 'Hindu' and 'India' evolved",
+            },
+            {
+              title: "Medieval Cartography",
+              description: "Early maps and their orientations",
+            },
+            {
+              title: "Source Evaluation",
+              description:
+                "Questioning bias and reliability of historical sources",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Manuscript",
+              definition: "A handwritten document from the past",
+            },
+            {
+              term: "Inscription",
+              definition: "Writing carved on hard surfaces like stone or metal",
+            },
+            {
+              term: "Cartography",
+              definition: "The science and art of making maps",
+            },
+          ],
+        },
+        {
+          id: "7-sst-2",
+          number: 2,
+          name: "New Kings and Kingdoms",
+          subject: "Social Science",
+          classNum: 7,
+          explanation: [
+            "Between 700-1200 CE, new kingdoms emerged across the Indian subcontinent. The Rashtrakutas of the Deccan, the Gurjara-Pratiharas of northern India, and the Palas of eastern India were the three main powers constantly fighting over the Gangetic plain and its resources.",
+            "The tripartite struggle over Kannauj (a powerful city controlling trade routes) lasted for centuries. Each kingdom wanted to control this wealthy city, showing how territorial control = economic and political power. This understanding helps explain why battles were fought.",
+            "The concept of 'Rajput' emerged in this period — warrior chiefs who legitimized themselves through genealogies connecting them to solar and lunar dynasties. Poetry, literature, and temples were used to glorify kings. Royal courts supported artists, poets, and scholars to enhance royal prestige.",
+          ],
+          keyConcepts: [
+            {
+              title: "Three Kingdoms",
+              description: "Rashtrakutas, Gurjara-Pratiharas, and Palas",
+            },
+            {
+              title: "Tripartite Struggle",
+              description: "Contest over Kannauj and Gangetic plain",
+            },
+            {
+              title: "Rajput Clans",
+              description: "Warrior chiefs with solar/lunar lineage claims",
+            },
+            {
+              title: "Royal Patronage",
+              description: "Kings supporting art, architecture, and scholars",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tripartite Struggle",
+              definition: "Three-way conflict for control of northern India",
+            },
+            {
+              term: "Prashasti",
+              definition: "Sanskrit eulogy praising a king's achievements",
+            },
+            {
+              term: "Genealogy",
+              definition: "A record of family descent and ancestry",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "English",
+      icon: "📖",
+      chapters: [
+        {
+          id: "7-eng-1",
+          number: 1,
+          name: "Three Questions",
+          subject: "English",
+          classNum: 7,
+          explanation: [
+            "Leo Tolstoy's philosophical story follows a king who wants answers to three questions: What is the best time to do things? Who are the most important people? What is the most important thing to do? He visits a wise hermit to find the answers.",
+            "Through the story's events — the king helping the wounded enemy and the hermit — the answers emerge naturally: The most important time is now; The most important person is the one you are with; The most important thing is to do good to that person. The story is a parable about mindfulness and compassion.",
+            "Students learn to identify the moral of a story and analyze how the author conveys a message through plot and character rather than stating it directly. This critical reading skill is central to literary analysis.",
+          ],
+          keyConcepts: [
+            {
+              title: "Parable",
+              description: "A short story with a moral lesson",
+            },
+            {
+              title: "Theme of Mindfulness",
+              description: "Focusing on the present moment and person",
+            },
+            {
+              title: "Moral of a Story",
+              description: "The underlying lesson or message",
+            },
+            {
+              title: "Character Analysis",
+              description: "Understanding the king, hermit, and enemy",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Parable",
+              definition: "A simple story used to illustrate a moral lesson",
+            },
+            {
+              term: "Moral",
+              definition: "A lesson about right and wrong behavior",
+            },
+            {
+              term: "Compassion",
+              definition: "Feeling concern for and wanting to help others",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+// ─── Class 8 ──────────────────────────────────────────────────────────────────
+
+const class8: NCERTClass = {
+  classNum: 8,
+  subjects: [
+    {
+      name: "Science",
+      icon: "🔬",
+      chapters: [
+        {
+          id: "8-sci-1",
+          number: 1,
+          name: "Crop Production and Management",
+          subject: "Science",
+          classNum: 8,
+          explanation: [
+            "Agriculture is the backbone of India's economy. The food we eat comes from crops — plants grown in large quantities for food, fiber, or fuel. Kharif crops (paddy, maize, cotton, soybean) are grown in the rainy season (June-September). Rabi crops (wheat, mustard, peas, gram) are grown in winter (November-April). Both need different care.",
+            "Good farming practices include: Tilling/Ploughing (loosening soil to improve aeration and drainage), Sowing (planting seeds at proper depth and spacing), Irrigation (supplying water), Weeding (removing unwanted plants), Harvesting (cutting mature crops), Threshing (separating grain from stalks), and Winnowing (separating grain from chaff).",
+            "Modern agriculture uses fertilizers and pesticides. Chemical fertilizers (NPK) provide nutrients quickly but can harm soil over time. Organic manure (compost, animal waste) improves soil structure. Overuse of pesticides can harm beneficial insects and pollute water. Sustainable farming balances productivity with environmental health.",
+          ],
+          keyConcepts: [
+            {
+              title: "Kharif and Rabi Crops",
+              description: "Seasonal classification of crops",
+            },
+            {
+              title: "Agricultural Practices",
+              description: "Ploughing, sowing, irrigation, harvesting",
+            },
+            {
+              title: "Fertilizers vs Manure",
+              description: "Chemical vs organic soil nutrients",
+            },
+            {
+              title: "Storage and Silos",
+              description: "Protecting harvested grain from pests",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Kharif Crop",
+              definition:
+                "Crops grown in rainy season (June-September): paddy, maize",
+            },
+            {
+              term: "Rabi Crop",
+              definition:
+                "Crops grown in winter season (Nov-April): wheat, mustard",
+            },
+            {
+              term: "Irrigation",
+              definition: "Artificial supply of water to agricultural land",
+            },
+            {
+              term: "Threshing",
+              definition:
+                "Separating grain seeds from the stalks of harvested crops",
+            },
+          ],
+        },
+        {
+          id: "8-sci-6",
+          number: 6,
+          name: "Combustion and Flame",
+          subject: "Science",
+          classNum: 8,
+          explanation: [
+            "Combustion is the chemical reaction between a substance and oxygen that produces heat and light. For combustion to occur, three conditions are needed: fuel (combustible substance), oxygen (from air), and ignition temperature (minimum temperature to start burning). Removing any one of these stops a fire — the basis of fire extinguishing.",
+            "Flames are produced when gaseous fuels or vapors burn. A candle flame has three zones: the innermost blue zone (unburnt gas), the middle yellow zone (partial combustion), and the outer blue zone (complete combustion, hottest). The yellow color of flames is caused by tiny carbon particles that glow when heated.",
+            "Fuels are classified by their properties. Calorific value measures the heat produced per kg of fuel — LPG has high calorific value (~47,000 kJ/kg), wood has lower (~17,000 kJ/kg). Burning fuels release greenhouse gases (CO₂) and harmful gases (CO, SO₂, NO₂). Understanding combustion is essential for energy management and environmental protection.",
+          ],
+          keyConcepts: [
+            {
+              title: "Conditions for Combustion",
+              description: "Fuel + Oxygen + Ignition temperature",
+            },
+            {
+              title: "Structure of a Flame",
+              description: "Three zones: inner blue, middle, outer blue",
+            },
+            {
+              title: "Calorific Value",
+              description: "Heat energy in fuel per kilogram",
+            },
+            {
+              title: "Fuel Combustion Pollution",
+              description: "CO₂, CO, SO₂ produced by burning fuels",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Combustion",
+              definition:
+                "Chemical reaction of fuel with oxygen, releasing heat and light",
+            },
+            {
+              term: "Ignition Temperature",
+              definition: "Minimum temperature needed to start combustion",
+            },
+            {
+              term: "Calorific Value",
+              definition: "Amount of heat produced by burning 1 kg of fuel",
+            },
+            {
+              term: "Fuel",
+              definition: "A substance that burns to produce heat energy",
+            },
+          ],
+        },
+        {
+          id: "8-sci-11",
+          number: 11,
+          name: "Force and Pressure",
+          subject: "Science",
+          classNum: 8,
+          explanation: [
+            "A force is a push or pull that can change the speed, direction, or shape of an object. Forces can be contact forces (friction, muscular force, normal reaction) or non-contact forces (gravity, magnetic force, electrostatic force). The SI unit of force is Newton (N). Multiple forces acting on an object combine into a net force.",
+            "Pressure is the force applied per unit area: Pressure = Force/Area. This explains why a knife cuts easily (small area = high pressure) while snowshoes prevent sinking in snow (large area = low pressure). Atmospheric pressure — the weight of air pressing down on us — is about 101,325 Pa at sea level but decreases at higher altitudes.",
+            "Liquids exert pressure in all directions — this is Pascal's Law, the basis of hydraulic systems (brakes, presses, cranes). The pressure at a point in a liquid depends on the depth and density of the liquid. Archimedes' principle — objects submerged in a fluid experience an upward buoyant force equal to the weight of displaced fluid — explains why ships float.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Forces",
+              description:
+                "Contact (friction, muscular) vs non-contact (gravity, magnetic)",
+            },
+            {
+              title: "Pressure Formula",
+              description: "Pressure = Force ÷ Area; unit is Pascal (Pa)",
+            },
+            {
+              title: "Atmospheric Pressure",
+              description: "Weight of air pressing on Earth's surface",
+            },
+            {
+              title: "Pressure in Liquids",
+              description: "Increases with depth; Pascal's Law",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Force",
+              definition:
+                "A push or pull that changes an object's motion or shape",
+            },
+            {
+              term: "Pressure",
+              definition: "Force exerted per unit area; measured in Pascals",
+            },
+            {
+              term: "Atmospheric Pressure",
+              definition: "Pressure exerted by the weight of the atmosphere",
+            },
+            {
+              term: "Buoyancy",
+              definition:
+                "Upward force exerted by a fluid on a submerged object",
+            },
+          ],
+        },
+        {
+          id: "8-sci-12",
+          number: 12,
+          name: "Friction",
+          subject: "Science",
+          classNum: 8,
+          explanation: [
+            "Friction is the force that opposes the relative motion of two surfaces in contact. It acts in the direction opposite to the direction of motion or attempted motion. Without friction, we could not walk, write, or drive — friction is both a nuisance and a necessity. Friction acts even between surfaces that appear smooth, because all surfaces have microscopic irregularities.",
+            "Types of friction: Static friction (prevents stationary objects from moving); Sliding (kinetic) friction (opposes motion while object slides); Rolling friction (when object rolls, e.g., wheels); Fluid friction/drag (resistance in air or water). Rolling friction is much less than sliding friction — that's why wheels were such a revolutionary invention.",
+            "Friction can be reduced (for efficiency) using lubricants (oil, grease), smooth/polished surfaces, ball bearings (converting sliding to rolling), and streamlining (reducing fluid drag). Friction is increased (for safety and grip) using rough surfaces (tire treads), sand on icy roads, and rubber soles on shoes.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Friction",
+              description: "Static, sliding, rolling, and fluid friction",
+            },
+            {
+              title: "Friction as Force",
+              description:
+                "Opposes relative motion; acts against movement direction",
+            },
+            {
+              title: "Reducing Friction",
+              description: "Lubricants, smooth surfaces, ball bearings",
+            },
+            {
+              title: "Increasing Friction",
+              description: "Rough surfaces, tire treads, rubber soles",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Friction",
+              definition:
+                "Force that opposes relative motion between two surfaces",
+            },
+            {
+              term: "Lubricant",
+              definition:
+                "A substance (oil, grease) that reduces friction between surfaces",
+            },
+            {
+              term: "Drag",
+              definition:
+                "Friction force exerted by fluids (air, water) on moving objects",
+            },
+            {
+              term: "Rolling Friction",
+              definition:
+                "Friction when one surface rolls on another; less than sliding friction",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Mathematics",
+      icon: "🔢",
+      chapters: [
+        {
+          id: "8-math-1",
+          number: 1,
+          name: "Rational Numbers",
+          subject: "Mathematics",
+          classNum: 8,
+          explanation: [
+            "Rational numbers are numbers that can be expressed in the form p/q where p and q are integers and q ≠ 0. This includes integers (5 = 5/1), fractions (3/4), and terminating/repeating decimals (0.5 = 1/2, 0.333... = 1/3). Irrational numbers like √2 and π cannot be expressed as p/q.",
+            "Properties of rational numbers: Closure (any operation on two rational numbers gives a rational number, except division by zero), Commutativity (a + b = b + a, a × b = b × a), Associativity ((a+b)+c = a+(b+c)), Distributivity (a×(b+c) = a×b + a×c). These properties, shared with real numbers, form the foundation of algebra.",
+            "Between any two rational numbers, there are infinitely many rational numbers. For example, between 1/3 and 1/2, we have 2/5, 5/12, etc. This property (density) distinguishes rationals from integers, where there is nothing between 3 and 4.",
+          ],
+          keyConcepts: [
+            {
+              title: "Definition",
+              description: "p/q form where p,q are integers and q≠0",
+            },
+            {
+              title: "Properties",
+              description:
+                "Closure, commutativity, associativity, distributivity",
+            },
+            {
+              title: "Number Line",
+              description: "Rational numbers densely fill the number line",
+            },
+            {
+              title: "Operations",
+              description:
+                "Adding, subtracting, multiplying, dividing rationals",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Rational Number",
+              definition:
+                "Any number expressible as p/q where p,q are integers, q≠0",
+            },
+            {
+              term: "Closure Property",
+              definition:
+                "Operations on rational numbers give rational numbers",
+            },
+            {
+              term: "Additive Identity",
+              definition: "Zero; adding 0 to any number leaves it unchanged",
+            },
+          ],
+        },
+        {
+          id: "8-math-2",
+          number: 2,
+          name: "Linear Equations in One Variable",
+          subject: "Mathematics",
+          classNum: 8,
+          explanation: [
+            "A linear equation is an equation where the variable has degree 1 (x, not x²). Examples: 3x + 5 = 14, 2x/3 = 8. The goal is to isolate the variable on one side by performing the same operation on both sides (maintaining equality). Solving: 3x + 5 = 14 → 3x = 9 → x = 3.",
+            "Linear equations with variables on both sides: Collect variable terms on one side and constant terms on the other. For example: 5x - 2 = 3x + 8 → 5x - 3x = 8 + 2 → 2x = 10 → x = 5. Always verify by substituting the answer back into the original equation.",
+            "Real-life applications are extensive: age problems (if Rahul is twice Priya's age and together they are 36, find each age), money problems (coins of different denominations totalling a certain amount), speed-time-distance problems. Word problems require translating sentences into mathematical equations.",
+          ],
+          keyConcepts: [
+            {
+              title: "Solving Linear Equations",
+              description: "Isolate variable by inverse operations",
+            },
+            {
+              title: "Variables on Both Sides",
+              description: "Collect like terms to solve",
+            },
+            {
+              title: "Verification",
+              description: "Substituting answer back to check correctness",
+            },
+            {
+              title: "Word Problems",
+              description: "Translating real situations into equations",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Linear Equation",
+              definition: "An equation where the variable has degree 1",
+            },
+            {
+              term: "Solution",
+              definition:
+                "The value of the variable that satisfies the equation",
+            },
+            {
+              term: "Transposing",
+              definition:
+                "Moving a term from one side of the equation to the other",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Social Science",
+      icon: "🗺️",
+      chapters: [
+        {
+          id: "8-sst-1",
+          number: 1,
+          name: "How, When and Where",
+          subject: "Social Science",
+          classNum: 8,
+          explanation: [
+            "Modern history of India begins with the arrival of the British East India Company in the early 17th century. The chapter examines how historians periodize the past. The British divided Indian history into Hindu, Muslim, and British periods, which has been criticized as oversimplified and communally biased. More useful divisions focus on economic and social changes.",
+            "Dates in history mark events but can mislead — 1757 (Battle of Plassey) is often given as the start of British rule, but British influence was present before and took decades to consolidate. Historical processes are gradual, not sudden. Learning to question historical periodization is a critical thinking skill.",
+            "Sources for modern Indian history are more abundant than for ancient history: official records (East India Company documents), private accounts (letters, diaries), newspapers, photographs, maps, and oral testimonies. Each source reflects the perspective of its creator. Colonial records were written from a British perspective and may underrepresent Indian voices.",
+          ],
+          keyConcepts: [
+            {
+              title: "Periodization",
+              description:
+                "Dividing history into periods has advantages and biases",
+            },
+            {
+              title: "Colonial Records",
+              description:
+                "British documents as historical sources; their limitations",
+            },
+            {
+              title: "Multiple Perspectives",
+              description:
+                "Same event described differently by different people",
+            },
+            {
+              title: "Official vs Personal Records",
+              description: "Government documents vs diaries and letters",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Periodization",
+              definition: "Dividing history into distinct periods or ages",
+            },
+            {
+              term: "Colony",
+              definition:
+                "A territory under political control of another country",
+            },
+            {
+              term: "Archive",
+              definition: "A collection of historical documents and records",
+            },
+          ],
+        },
+        {
+          id: "8-sst-5",
+          number: 5,
+          name: "When People Rebel (1857 and After)",
+          subject: "Social Science",
+          classNum: 8,
+          explanation: [
+            "The Revolt of 1857 (also called the Sepoy Mutiny by British, or First War of Independence by Indians) was the most widespread armed uprising against British rule. It began in Meerut on May 10, 1857 when sepoys refused to use greased cartridges (rumored to contain cow and pig fat, offensive to Hindus and Muslims respectively).",
+            "The revolt spread rapidly — Nana Saheb in Kanpur, Begum Hazrat Mahal in Lucknow, Rani Lakshmi Bai in Jhansi, Tantia Tope coordinating military actions, and Khan Bahadur Khan in Bareilly. Delhi became the center of resistance, with the last Mughal Emperor Bahadur Shah Zafar proclaimed leader. The British suppressed the revolt brutally by late 1858.",
+            "After 1857, the British government took direct control from the East India Company. Queen Victoria became the Empress of India. The British changed many policies: no interference with religious customs, promised to respect existing rulers, and increased British officers in the army. But political power remained firmly with the British, seeding nationalist movements.",
+          ],
+          keyConcepts: [
+            {
+              title: "Causes of 1857 Revolt",
+              description:
+                "Greased cartridges, annexations, cultural interference",
+            },
+            {
+              title: "Key Leaders",
+              description:
+                "Rani Lakshmi Bai, Nana Saheb, Tantia Tope, Bahadur Shah",
+            },
+            {
+              title: "Suppression and Aftermath",
+              description: "British regained control by 1858",
+            },
+            {
+              title: "Changes After 1857",
+              description: "Crown rule replaced Company rule",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Sepoy",
+              definition:
+                "Indian soldier employed by the British East India Company",
+            },
+            {
+              term: "Doctrine of Lapse",
+              definition:
+                "British policy of annexing states without a male heir",
+            },
+            {
+              term: "Crown Rule",
+              definition:
+                "British government (Queen Victoria) taking direct control from Company",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "English",
+      icon: "📖",
+      chapters: [
+        {
+          id: "8-eng-1",
+          number: 1,
+          name: "The Best Christmas Present in the World",
+          subject: "English",
+          classNum: 8,
+          explanation: [
+            "Michael Morpurgo's moving story is set during World War I. The narrator finds an old writing desk and hidden inside, a letter written by a British soldier named Jim to his wife Connie. The letter describes the Christmas truce of 1914, when British and German soldiers temporarily stopped fighting to celebrate Christmas together.",
+            "The story within the story (Jim's letter) describes a miraculous moment of peace in the horror of war. German and British soldiers exchanged gifts, played football, and embraced as human beings before returning to trenches the next day. This historical event is movingly depicted to show humanity's capacity for kindness even in conflict.",
+            "Students analyze multiple narrative layers (present story + embedded letter), historical context, emotional themes, and characterization. The story challenges the idea of enemies as purely evil and explores shared humanity. Reading it develops empathy and historical consciousness.",
+          ],
+          keyConcepts: [
+            {
+              title: "World War I Context",
+              description: "Trenches, Christmas truce of 1914",
+            },
+            {
+              title: "Nested Narrative",
+              description: "A story within a story structure",
+            },
+            {
+              title: "Humanity in War",
+              description: "Soldiers' shared humanity despite conflict",
+            },
+            {
+              title: "Characterization",
+              description: "Jim and Connie as symbols of love and longing",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Truce",
+              definition: "A temporary agreement to stop fighting",
+            },
+            {
+              term: "Nested Narrative",
+              definition: "A story told within another story",
+            },
+            {
+              term: "Characterization",
+              definition: "How an author creates and develops characters",
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
@@ -933,6 +3163,103 @@ const class9: NCERTClass = {
           videoKeyword: "chemistry",
         },
         {
+          id: "9-sci-5",
+          number: 5,
+          name: "The Fundamental Unit of Life",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "The cell is the basic structural and functional unit of all living organisms. Robert Hooke first observed cells in 1665 using a cork slice. All cells come from pre-existing cells (cell theory). Cells are of two types: Prokaryotic (bacteria — no nucleus, cell division by fission) and Eukaryotic (plants, animals, fungi — have nucleus, complex organelles).",
+            "Key organelles in eukaryotic cells: Nucleus (contains DNA, controls all cell activities); Cell membrane (selective barrier, controls what enters/exits); Cytoplasm (jelly-like fluid containing organelles); Mitochondria (ATP production); Plastids in plants (chloroplasts for photosynthesis, leucoplasts for storage, chromoplasts for color); Vacuole (storage; plant cells have one large central vacuole); Endoplasmic Reticulum (ER); Golgi apparatus (packaging and secretion).",
+            "Plant cells differ from animal cells: Plant cells have cell wall (cellulose — rigid support), large central vacuole (stores water and maintains turgor), and chloroplasts. Animal cells have centrioles (for cell division), smaller vacuoles, and lysosomes (digestive organelles called 'suicidal bags' because they can destroy the cell if ruptured).",
+          ],
+          keyConcepts: [
+            {
+              title: "Cell Theory",
+              description: "All life is made of cells; cells arise from cells",
+            },
+            {
+              title: "Prokaryote vs Eukaryote",
+              description: "No nucleus vs true nucleus",
+            },
+            {
+              title: "Cell Organelles",
+              description: "Nucleus, mitochondria, chloroplast, ER, Golgi",
+            },
+            {
+              title: "Plant vs Animal Cells",
+              description: "Cell wall, vacuole, chloroplast differences",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Cell Wall",
+              definition: "Rigid outer layer of plant cells made of cellulose",
+            },
+            {
+              term: "Mitochondria",
+              definition:
+                "Organelle producing energy (ATP); 'powerhouse of the cell'",
+            },
+            {
+              term: "Lysosome",
+              definition:
+                "Organelle containing digestive enzymes; 'suicidal bag'",
+            },
+            {
+              term: "Chloroplast",
+              definition: "Plant organelle with chlorophyll for photosynthesis",
+            },
+          ],
+          videoKeyword: "cell",
+        },
+        {
+          id: "9-sci-8",
+          number: 8,
+          name: "Motion",
+          subject: "Science",
+          classNum: 9,
+          explanation: [
+            "Motion is the change in position of an object. Key quantities: Distance (total path length, scalar) vs Displacement (shortest path from start to end, vector). Speed (distance/time, scalar) vs Velocity (displacement/time, vector). A car going around a circular track may have zero displacement (back to start) but a large distance traveled.",
+            "Uniform motion: constant velocity (straight line, same speed). Non-uniform motion: changing velocity (acceleration present). Equations of uniformly accelerated motion: v = u + at; s = ut + ½at²; v² = u² + 2as. Here, u = initial velocity, v = final velocity, a = acceleration, t = time, s = displacement.",
+            "Graphs are powerful tools for analyzing motion. Velocity-time graphs: slope = acceleration (horizontal line = uniform motion, sloped line = uniform acceleration, curved = non-uniform acceleration). The area under a velocity-time graph = displacement. Distance-time graphs: slope = speed. These mathematical interpretations build analytical skills.",
+          ],
+          keyConcepts: [
+            {
+              title: "Distance vs Displacement",
+              description: "Path length (scalar) vs shortest path (vector)",
+            },
+            {
+              title: "Speed vs Velocity",
+              description: "Speed has no direction; velocity has direction",
+            },
+            {
+              title: "Equations of Motion",
+              description: "v=u+at, s=ut+½at², v²=u²+2as",
+            },
+            {
+              title: "Motion Graphs",
+              description:
+                "Interpreting distance-time and velocity-time graphs",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Acceleration",
+              definition: "Rate of change of velocity; a = (v-u)/t; unit: m/s²",
+            },
+            {
+              term: "Displacement",
+              definition: "Change in position with direction; vector quantity",
+            },
+            {
+              term: "Uniform Motion",
+              definition: "Equal displacement in equal intervals of time",
+            },
+          ],
+          videoKeyword: "newton",
+        },
+        {
           id: "9-sci-9",
           number: 9,
           name: "Force and Laws of Motion",
@@ -1032,6 +3359,98 @@ const class9: NCERTClass = {
             {
               term: "Real Numbers",
               definition: "All rational and irrational numbers together",
+            },
+          ],
+        },
+        {
+          id: "9-math-2",
+          number: 2,
+          name: "Polynomials",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "A polynomial is an algebraic expression with one or more terms involving variables raised to non-negative integer powers. Examples: 2x + 3 (linear, degree 1), x² - 5x + 6 (quadratic, degree 2), x³ + 2x² - x - 2 (cubic, degree 3). The degree is the highest power of the variable. The coefficient of the highest degree term is the leading coefficient.",
+            "Key theorems: The Remainder Theorem states that when a polynomial p(x) is divided by (x - a), the remainder is p(a). This allows us to find remainders without long division. The Factor Theorem states (x - a) is a factor of p(x) if and only if p(a) = 0. These theorems are powerful tools for factoring polynomials.",
+            "Algebraic identities are essential shortcuts: (a+b)² = a² + 2ab + b²; (a-b)² = a² - 2ab + b²; (a+b)(a-b) = a² - b²; (a+b)³ = a³ + 3a²b + 3ab² + b³; a³ + b³ = (a+b)(a² - ab + b²). These identities reduce complex calculations to simple substitutions.",
+          ],
+          keyConcepts: [
+            {
+              title: "Degree of Polynomial",
+              description: "Highest power of variable; determines type",
+            },
+            {
+              title: "Remainder Theorem",
+              description: "Remainder when divided by (x-a) equals p(a)",
+            },
+            {
+              title: "Factor Theorem",
+              description: "(x-a) is factor if p(a) = 0",
+            },
+            {
+              title: "Algebraic Identities",
+              description: "Useful formulas for expansion and factorisation",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Polynomial",
+              definition:
+                "Algebraic expression with non-negative integer powers",
+            },
+            {
+              term: "Zero of a Polynomial",
+              definition: "Value of x that makes the polynomial equal to zero",
+            },
+            {
+              term: "Degree",
+              definition: "The highest power of the variable in a polynomial",
+            },
+          ],
+        },
+        {
+          id: "9-math-7",
+          number: 7,
+          name: "Triangles",
+          subject: "Mathematics",
+          classNum: 9,
+          explanation: [
+            "Congruent triangles are exactly the same in shape and size — one can be superimposed on the other. Congruence conditions: SSS (all three sides equal), SAS (two sides and included angle), ASA (two angles and included side), AAS (two angles and non-included side), RHS (right angle, hypotenuse, side for right triangles). Only these specific combinations guarantee congruence.",
+            "Properties of triangles: Sum of all angles = 180°; Exterior angle = sum of two non-adjacent interior angles; The side opposite the largest angle is the longest; Triangle inequality: sum of any two sides > third side. The Pythagorean theorem (a² + b² = c² for right triangles) is one of mathematics' most important relationships.",
+            "Similar triangles have the same shape but different sizes — corresponding angles are equal and corresponding sides are proportional. Similarity conditions: AA (two pairs of equal angles), SSS (sides in same ratio), SAS (two sides in ratio with included angle). Applications include finding heights of tall buildings and distances across rivers.",
+          ],
+          keyConcepts: [
+            {
+              title: "Congruence Criteria",
+              description: "SSS, SAS, ASA, AAS, RHS conditions",
+            },
+            {
+              title: "Triangle Properties",
+              description: "Angle sum = 180°, triangle inequality",
+            },
+            {
+              title: "Pythagoras Theorem",
+              description: "a² + b² = c² for right triangles",
+            },
+            {
+              title: "Similar Triangles",
+              description: "Same shape, proportional sides",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Congruent",
+              definition:
+                "Identical in shape and size; can be superimposed exactly",
+            },
+            {
+              term: "Similar",
+              definition:
+                "Same shape but different size; corresponding angles equal",
+            },
+            {
+              term: "Hypotenuse",
+              definition:
+                "Longest side of a right triangle, opposite the right angle",
             },
           ],
         },
@@ -1641,6 +4060,60 @@ const class11: NCERTClass = {
           ],
           videoKeyword: "cell",
         },
+        {
+          id: "11-bio-16",
+          number: 16,
+          name: "Digestion and Absorption",
+          subject: "Biology",
+          classNum: 11,
+          explanation: [
+            "The human digestive system comprises the alimentary canal and accessory glands. The canal: Mouth (ingestion, mechanical and chemical digestion begins — salivary amylase acts on starch) → Pharynx → Esophagus (peristalsis) → Stomach (HCl + pepsin digest proteins; HCl creates acidic pH 2, kills bacteria) → Small intestine (duodenum + jejunum + ileum — main digestion and absorption occur here).",
+            "Bile from the liver (stored in gall bladder) emulsifies fats into small droplets (increases surface area for lipase). Pancreatic juice contains trypsin, lipase, and amylase. The intestinal wall secretes peptidases, maltase, sucrase, and lactase. Together, these enzymes complete digestion of all nutrients into absorbable forms.",
+            "Absorption occurs through the microvilli (brush border) of intestinal epithelial cells. Glucose and amino acids are absorbed by active transport into blood capillaries, then to liver via portal vein. Fatty acids and glycerol enter lacteals (lymph vessels) as chylomicrons. The large intestine absorbs water and electrolytes; remaining matter is compacted and egested.",
+          ],
+          keyConcepts: [
+            {
+              title: "Digestion Organs",
+              description: "Mouth, stomach, small intestine, large intestine",
+            },
+            {
+              title: "Digestive Enzymes",
+              description:
+                "Amylase, pepsin, trypsin, lipase and their substrates",
+            },
+            {
+              title: "Role of Liver and Pancreas",
+              description: "Bile and pancreatic juice in digestion",
+            },
+            {
+              title: "Absorption Mechanisms",
+              description: "Active transport, passive, fatty acid absorption",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Peristalsis",
+              definition:
+                "Wave-like muscle contractions that move food through digestive tract",
+            },
+            {
+              term: "Chyme",
+              definition:
+                "Semi-liquid mass of partly digested food leaving the stomach",
+            },
+            {
+              term: "Villus",
+              definition:
+                "Finger-like projection of small intestine wall for absorption",
+            },
+            {
+              term: "Emulsification",
+              definition:
+                "Breaking fats into tiny droplets (by bile) for easier digestion",
+            },
+          ],
+          videoKeyword: "digestion",
+        },
       ],
     },
     {
@@ -1696,6 +4169,108 @@ const class11: NCERTClass = {
             },
           ],
         },
+        {
+          id: "11-phy-5",
+          number: 5,
+          name: "Laws of Motion",
+          subject: "Physics",
+          classNum: 11,
+          explanation: [
+            "Newton's First Law (Law of Inertia): A body at rest stays at rest, and a body in uniform motion stays in uniform motion unless acted on by an external net force. Inertia is the property of resisting change — heavier objects have more inertia. This explains seatbelts: in a collision, your body continues moving forward even when the car stops.",
+            "Newton's Second Law: Net Force = mass × acceleration (F = ma). Force is a vector; its direction determines the direction of acceleration. This law is the foundation of classical mechanics — given force and mass, we can predict motion precisely. The SI unit of force is Newton (1 N = 1 kg·m/s²).",
+            "Newton's Third Law: For every action, there is an equal and opposite reaction. The forces are equal in magnitude, opposite in direction, but act on different objects. A rifle recoils when fired; rockets are propelled by exhaust gases. Importantly, action-reaction pairs don't cancel each other (they act on different objects). Free Body Diagrams isolate a single object and show all forces acting on it — essential for solving mechanics problems.",
+          ],
+          keyConcepts: [
+            {
+              title: "Law of Inertia",
+              description: "Objects resist change in motion state",
+            },
+            {
+              title: "F = ma",
+              description: "Net force equals mass times acceleration",
+            },
+            {
+              title: "Action-Reaction",
+              description:
+                "Equal forces on different objects in opposite directions",
+            },
+            {
+              title: "Free Body Diagram",
+              description: "Diagram showing all forces on a single object",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Inertia",
+              definition:
+                "The resistance of an object to a change in its state of motion",
+            },
+            {
+              term: "Net Force",
+              definition: "The vector sum of all forces acting on an object",
+            },
+            {
+              term: "Normal Force",
+              definition: "Perpendicular contact force between surfaces",
+            },
+            {
+              term: "Friction",
+              definition: "Force opposing relative motion between surfaces",
+            },
+          ],
+          videoKeyword: "newton",
+        },
+        {
+          id: "11-phy-11",
+          number: 11,
+          name: "Thermal Properties of Matter",
+          subject: "Physics",
+          classNum: 11,
+          explanation: [
+            "Temperature measures how hot or cold an object is. Heat is energy transferred due to temperature difference. Temperature scales: Celsius (water freezes at 0°C, boils at 100°C), Kelvin (absolute scale, 0 K = -273°C, the coldest possible temperature), Fahrenheit (°F = 9/5°C + 32). The Kelvin scale is used in scientific calculations.",
+            "Thermal expansion: most substances expand when heated. Linear expansion: ΔL = αL₀ΔT; Volume expansion: ΔV = γV₀ΔT. Water is anomalous — it contracts from 0°C to 4°C (maximum density at 4°C), then expands. This is why ice floats and why aquatic life can survive in winter.",
+            "Heat transfer occurs by three mechanisms: Conduction (heat flows through material; metals are good conductors, wood is insulator), Convection (heat transferred by moving fluid — warm air rises, cool air sinks; convection currents drive weather), and Radiation (energy transmitted as electromagnetic waves; no medium needed — this is how sunlight reaches Earth). Newton's Law of Cooling: rate of cooling proportional to temperature difference.",
+          ],
+          keyConcepts: [
+            {
+              title: "Temperature Scales",
+              description: "Celsius, Kelvin, Fahrenheit conversion",
+            },
+            {
+              title: "Thermal Expansion",
+              description: "Objects expand on heating; α is coefficient",
+            },
+            {
+              title: "Anomalous Expansion of Water",
+              description: "Maximum density at 4°C; ice floats",
+            },
+            {
+              title: "Heat Transfer Methods",
+              description: "Conduction, convection, and radiation",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Absolute Zero",
+              definition:
+                "0 Kelvin (-273°C); theoretically coldest possible temperature",
+            },
+            {
+              term: "Conduction",
+              definition: "Heat transfer through a solid without bulk motion",
+            },
+            {
+              term: "Convection",
+              definition: "Heat transfer by movement of heated fluid",
+            },
+            {
+              term: "Radiation",
+              definition:
+                "Heat transfer by electromagnetic waves without medium",
+            },
+          ],
+          videoKeyword: "heat",
+        },
       ],
     },
     {
@@ -1749,6 +4324,109 @@ const class11: NCERTClass = {
           ],
           videoKeyword: "chemistry",
         },
+        {
+          id: "11-chem-2",
+          number: 2,
+          name: "Structure of Atom",
+          subject: "Chemistry",
+          classNum: 11,
+          explanation: [
+            "The modern understanding of atomic structure evolved through many models. Thomson's plum-pudding model (electrons in positive sphere) was disproved by Rutherford's gold foil experiment — most alpha particles passed through (atom is mostly empty space) but some deflected sharply (dense, positive nucleus). Bohr's model then proposed electrons in fixed circular orbits with defined energy levels.",
+            "Quantum numbers describe each electron's state: Principal quantum number (n = 1, 2, 3... defines shell/energy), Azimuthal quantum number (l = 0, 1... n-1; defines subshell s, p, d, f), Magnetic quantum number (ml; defines orbital orientation), Spin quantum number (ms = +½ or -½; defines spin). Pauli Exclusion Principle: no two electrons can have identical sets of all four quantum numbers.",
+            "Electron configuration follows: Aufbau Principle (fill lowest energy orbitals first), Pauli Exclusion (max 2 electrons per orbital with opposite spins), and Hund's Rule (fill each degenerate orbital with one electron before pairing). The order is: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p... This determines chemical properties — elements in same group have same outer electron configuration.",
+          ],
+          keyConcepts: [
+            {
+              title: "Atomic Models",
+              description:
+                "Thomson → Rutherford → Bohr → Quantum model evolution",
+            },
+            {
+              title: "Quantum Numbers",
+              description: "n, l, ml, ms describe each electron's state",
+            },
+            {
+              title: "Electron Configuration",
+              description: "Aufbau + Pauli + Hund's rules fill orbitals",
+            },
+            {
+              title: "Orbitals",
+              description: "s (2 e⁻), p (6 e⁻), d (10 e⁻), f (14 e⁻)",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Atomic Number",
+              definition: "Number of protons in an atom; defines the element",
+            },
+            {
+              term: "Orbital",
+              definition:
+                "Region of space with 90% probability of finding an electron",
+            },
+            {
+              term: "Aufbau Principle",
+              definition:
+                "Electrons occupy lowest available energy orbitals first",
+            },
+            {
+              term: "Pauli Exclusion Principle",
+              definition: "No two electrons can have identical quantum numbers",
+            },
+          ],
+          videoKeyword: "atom",
+        },
+        {
+          id: "11-chem-5",
+          number: 5,
+          name: "States of Matter",
+          subject: "Chemistry",
+          classNum: 11,
+          explanation: [
+            "The three states of matter differ in intermolecular distance and forces. Gases follow gas laws: Boyle's Law (P∝1/V at constant T), Charles' Law (V∝T at constant P), Gay-Lussac's Law (P∝T at constant V), combined into the Ideal Gas Law: PV = nRT. R = 8.314 J/mol·K is the universal gas constant.",
+            "Kinetic Molecular Theory explains gas behavior: gas molecules are in constant random motion; they have negligible volume; no intermolecular forces; collisions are perfectly elastic; average kinetic energy ∝ absolute temperature. Real gases deviate from ideal behavior at high pressures and low temperatures (when intermolecular forces matter).",
+            "Liquids have properties between gases and solids. Surface tension (tendency of liquid surface to minimize area) explains why water droplets form spheres and insects can walk on water. Viscosity (resistance to flow) depends on temperature and molecular size — honey is more viscous than water. Evaporation is a cooling process; boiling occurs when vapor pressure equals external pressure.",
+          ],
+          keyConcepts: [
+            {
+              title: "Gas Laws",
+              description:
+                "Boyle's, Charles', Gay-Lussac's, and Ideal Gas Law PV=nRT",
+            },
+            {
+              title: "Kinetic Theory",
+              description:
+                "Molecular explanation of gas properties and temperature",
+            },
+            {
+              title: "Surface Tension",
+              description:
+                "Force pulling liquid surface inward to minimize area",
+            },
+            {
+              title: "Viscosity",
+              description:
+                "Resistance of liquid to flow; decreases with temperature",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Ideal Gas Law",
+              definition: "PV = nRT; describes behavior of ideal gases",
+            },
+            {
+              term: "Surface Tension",
+              definition:
+                "Force per unit length on liquid surface tending to minimize area",
+            },
+            {
+              term: "Vapour Pressure",
+              definition:
+                "Pressure exerted by vapor above its liquid at equilibrium",
+            },
+          ],
+          videoKeyword: "chemistry",
+        },
       ],
     },
     {
@@ -1798,6 +4476,102 @@ const class11: NCERTClass = {
             {
               term: "Intersection",
               definition: "Set of elements common to both A and B (A ∩ B)",
+            },
+          ],
+        },
+        {
+          id: "11-math-3",
+          number: 3,
+          name: "Trigonometric Functions",
+          subject: "Mathematics",
+          classNum: 11,
+          explanation: [
+            "Trigonometric functions extend beyond right triangles to all angles and even real numbers. Starting from degree measure, radians are introduced as the natural unit: π radians = 180°. The unit circle (radius 1) defines sin θ and cos θ as y and x coordinates of a point, making them work for any angle from 0 to 360° and beyond.",
+            "Key identities: sin²θ + cos²θ = 1 (Pythagorean identity); sin(A+B) = sinA cosB + cosA sinB; cos(A+B) = cosA cosB - sinA sinB. These addition formulas derive double-angle formulas: sin 2θ = 2 sin θ cos θ; cos 2θ = cos²θ - sin²θ. Memorizing and applying these identities is central to solving trigonometric problems.",
+            "The graphs of sin x and cos x are periodic waves (period = 2π), with amplitude 1. tan x has period π. Understanding the period, amplitude, and phase shift of trigonometric functions is essential for physics (wave motion, simple harmonic motion) and engineering (signal processing, alternating current).",
+          ],
+          keyConcepts: [
+            {
+              title: "Radian Measure",
+              description: "π radians = 180°; natural unit for angles",
+            },
+            {
+              title: "Unit Circle Definition",
+              description: "sin and cos as coordinates on unit circle",
+            },
+            {
+              title: "Trigonometric Identities",
+              description: "sin²θ+cos²θ=1, addition formulas",
+            },
+            {
+              title: "Trigonometric Graphs",
+              description: "Periodic waves; period, amplitude, phase",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Radian",
+              definition: "Angle where arc length equals radius; π rad = 180°",
+            },
+            {
+              term: "Period",
+              definition:
+                "The smallest interval after which a function repeats",
+            },
+            {
+              term: "Amplitude",
+              definition: "The maximum displacement from equilibrium in a wave",
+            },
+            {
+              term: "Identity",
+              definition: "An equation true for all values of the variable",
+            },
+          ],
+        },
+        {
+          id: "11-math-8",
+          number: 8,
+          name: "Sequences and Series",
+          subject: "Mathematics",
+          classNum: 11,
+          explanation: [
+            "A sequence is an ordered list of numbers following a rule. Arithmetic Progression (AP): each term differs from the previous by a constant difference d. nth term: aₙ = a + (n-1)d. Sum of n terms: Sₙ = n/2[2a + (n-1)d]. Examples: 2, 5, 8, 11... (d=3) or the natural numbers 1, 2, 3... (d=1).",
+            "Geometric Progression (GP): each term is obtained by multiplying the previous by a constant ratio r. nth term: aₙ = arⁿ⁻¹. Sum of n terms: Sₙ = a(rⁿ-1)/(r-1) for r≠1. Sum of infinite GP: S∞ = a/(1-r) if |r| < 1. Examples: 2, 6, 18, 54... (r=3) or 1, 1/2, 1/4... (r=1/2).",
+            "Applications are enormous: Compound interest follows GP, loan payments use AP/GP formulas, population growth is geometric. The number e = 2.718... is defined as the sum of the infinite series 1 + 1/1! + 1/2! + 1/3!... Sequences and series form the mathematical foundation for calculus and analysis.",
+          ],
+          keyConcepts: [
+            {
+              title: "Arithmetic Progression (AP)",
+              description: "Constant difference d; nth term = a+(n-1)d",
+            },
+            {
+              title: "Geometric Progression (GP)",
+              description: "Constant ratio r; nth term = arⁿ⁻¹",
+            },
+            { title: "Sum of AP", description: "Sₙ = n/2[2a + (n-1)d]" },
+            {
+              title: "Infinite GP Sum",
+              description: "S∞ = a/(1-r) when |r| < 1",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Arithmetic Progression",
+              definition:
+                "Sequence where consecutive terms differ by constant amount",
+            },
+            {
+              term: "Geometric Progression",
+              definition:
+                "Sequence where consecutive terms have constant ratio",
+            },
+            {
+              term: "Common Difference (d)",
+              definition: "Constant difference between consecutive terms in AP",
+            },
+            {
+              term: "Common Ratio (r)",
+              definition: "Constant factor between consecutive terms in GP",
             },
           ],
         },
@@ -2199,9 +4973,13 @@ const class12: NCERTClass = {
 
 export const ncertClasses: NCERTClass[] = [
   class1,
+  class2,
   class3,
+  class4,
   class5,
   class6,
+  class7,
+  class8,
   class9,
   class10,
   class11,
