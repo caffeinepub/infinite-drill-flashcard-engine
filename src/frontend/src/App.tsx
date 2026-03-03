@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import { AuthGuard } from "./components/AuthGuard";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { UserProfileProvider } from "./context/UserProfileContext";
 import CheatSheet from "./pages/CheatSheet";
 import Flashcards from "./pages/Flashcards";
 import Generate from "./pages/Generate";
@@ -88,9 +89,11 @@ declare module "@tanstack/react-router" {
 export default function App() {
   return (
     <ThemeProvider>
-      <AuthGuard>
-        <RouterProvider router={router} />
-      </AuthGuard>
+      <UserProfileProvider>
+        <AuthGuard>
+          <RouterProvider router={router} />
+        </AuthGuard>
+      </UserProfileProvider>
       <Toaster richColors position="top-right" />
     </ThemeProvider>
   );

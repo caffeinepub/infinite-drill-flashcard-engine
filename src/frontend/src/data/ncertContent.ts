@@ -714,6 +714,329 @@ const class3: NCERTClass = {
             },
           ],
         },
+        {
+          id: "3-math-2",
+          number: 2,
+          name: "Fun with Numbers",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "Students extend their counting skills to numbers up to 999. They learn to read and write number names — 'three hundred and forty-two' for 342. This builds number vocabulary and connects spoken language to written numerals.",
+            "Place value is introduced with hundreds, tens, and ones. Using bundled sticks or base-ten blocks, children see that 342 means 3 hundreds, 4 tens, and 2 ones. This place value understanding is the foundation of all arithmetic.",
+            "Students compare and order 3-digit numbers using the greater-than and less-than symbols. They arrange numbers on a number line and understand that moving right means bigger, moving left means smaller.",
+          ],
+          keyConcepts: [
+            {
+              title: "Numbers up to 999",
+              description: "Counting, reading, and writing 3-digit numbers",
+            },
+            {
+              title: "Place Value",
+              description: "Hundreds, tens, and ones in a 3-digit number",
+            },
+            {
+              title: "Number Names",
+              description: "Writing numbers in words up to 999",
+            },
+            {
+              title: "Comparing Numbers",
+              description: "Using greater-than and less-than symbols",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Place Value",
+              definition:
+                "The value of a digit based on its position in the number",
+            },
+            {
+              term: "Hundreds",
+              definition: "The third digit from the right in a 3-digit number",
+            },
+            {
+              term: "Expanded Form",
+              definition:
+                "Writing a number as sum of its place values (300+40+2)",
+            },
+          ],
+        },
+        {
+          id: "3-math-3",
+          number: 3,
+          name: "Give and Take",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "This chapter introduces addition with carrying (regrouping). When the sum of digits in a column exceeds 9, we carry 1 to the next column. For example, 47 + 35: the ones column gives 7+5=12, so we write 2 and carry 1 to the tens column.",
+            "Subtraction with borrowing (regrouping) is also taught. When the top digit is smaller than the bottom digit, we borrow 10 from the next column. For example, 53 - 28: we cannot do 3-8 in the ones, so we borrow 10, making it 13-8=5 in the ones column.",
+            "Real-life word problems — buying and selling, earning and spending — make addition and subtraction meaningful. Students learn to identify what is being asked, what information they have, and choose the correct operation to find the answer.",
+          ],
+          keyConcepts: [
+            {
+              title: "Addition with Carrying",
+              description: "Regrouping when sum of digits exceeds 9",
+            },
+            {
+              title: "Subtraction with Borrowing",
+              description: "Regrouping when top digit is smaller than bottom",
+            },
+            {
+              title: "Word Problems",
+              description:
+                "Solving real-life addition and subtraction problems",
+            },
+            {
+              title: "Inverse Operations",
+              description: "Addition and subtraction undo each other",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Regrouping",
+              definition:
+                "Exchanging 10 ones for 1 ten (or vice versa) in calculations",
+            },
+            {
+              term: "Carrying",
+              definition: "Moving 1 to the next column when sum exceeds 9",
+            },
+            {
+              term: "Borrowing",
+              definition:
+                "Taking 10 from the next column when top digit is too small",
+            },
+          ],
+        },
+        {
+          id: "3-math-4",
+          number: 4,
+          name: "Long and Short",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "Children begin with non-standard measurement — using handspans, footsteps, or pencils to measure length. They discover that everyone's handspan is different, which motivates the need for a standard unit that everyone agrees upon.",
+            "The centimetre (cm) is introduced as a standard unit for measuring shorter lengths. Students learn to use a ruler correctly, aligning objects at zero and reading the scale carefully. They measure objects in their classroom and compare lengths.",
+            "Students understand when to use different units — centimetres for short lengths like a pencil, metres for longer distances like the classroom. They estimate before measuring, then check their estimates, building strong measurement sense.",
+          ],
+          keyConcepts: [
+            {
+              title: "Non-Standard Measurement",
+              description: "Using handspans, footsteps, pencils to measure",
+            },
+            {
+              title: "Standard Units",
+              description: "Centimetre (cm) as an agreed unit of measurement",
+            },
+            {
+              title: "Using a Ruler",
+              description: "Aligning at zero and reading scale accurately",
+            },
+            {
+              title: "Estimation",
+              description: "Guessing length before measuring to check accuracy",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Centimetre (cm)",
+              definition: "A standard unit of length; 100 cm = 1 metre",
+            },
+            {
+              term: "Measurement",
+              definition: "Finding the size of something using a standard unit",
+            },
+            {
+              term: "Estimation",
+              definition:
+                "A careful guess about a measurement before measuring",
+            },
+          ],
+        },
+        {
+          id: "3-math-5",
+          number: 5,
+          name: "Shapes and Designs",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "Students explore 2D shapes — circles, triangles, squares, rectangles, hexagons — and learn their properties: number of sides, corners, and whether they have equal sides. They find these shapes in objects around them.",
+            "Patterns and symmetry are central to this chapter. Students create repeating patterns using shapes and colours. They fold paper to find lines of symmetry — a shape is symmetric if one half is the mirror image of the other half.",
+            "Tiling and tessellation activities show how shapes fit together without gaps or overlaps to cover a surface. Tiles on a floor, bricks in a wall, and honeycombs in a beehive all show tessellation. This connects geometry to real-world design and art.",
+          ],
+          keyConcepts: [
+            {
+              title: "2D Shapes",
+              description: "Circle, triangle, square, rectangle, hexagon",
+            },
+            {
+              title: "Symmetry",
+              description: "Line of symmetry; one half mirrors the other",
+            },
+            {
+              title: "Patterns",
+              description: "Repeating arrangements of shapes and colours",
+            },
+            {
+              title: "Tessellation",
+              description:
+                "Shapes fitting together without gaps to cover a surface",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Symmetry",
+              definition:
+                "A shape has symmetry if one half is the mirror of the other",
+            },
+            {
+              term: "Line of Symmetry",
+              definition:
+                "The fold line that divides a shape into two equal halves",
+            },
+            {
+              term: "Pattern",
+              definition:
+                "A repeating arrangement of shapes, colours, or numbers",
+            },
+          ],
+        },
+        {
+          id: "3-math-6",
+          number: 6,
+          name: "Fun with Give and Take",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "Word problems bring addition and subtraction to life. Students learn a systematic approach: read the problem carefully, identify what is given, what is asked, choose the right operation, and write the answer with the correct unit.",
+            "Multi-step problems require two or more operations. For example: Riya has 125 marbles, she gives 48 to her brother and receives 35 from her sister. How many does she have now? Students learn to break such problems into smaller steps.",
+            "Checking answers using the inverse operation is emphasized — if you added to get an answer, subtract to check; if you subtracted, add to verify. This habit of checking builds mathematical accuracy and confidence.",
+          ],
+          keyConcepts: [
+            {
+              title: "Word Problem Strategy",
+              description: "Read, identify, choose operation, solve, check",
+            },
+            {
+              title: "Multi-Step Problems",
+              description: "Problems requiring more than one operation",
+            },
+            {
+              title: "Checking Answers",
+              description: "Using inverse operation to verify solutions",
+            },
+            {
+              title: "Real-Life Contexts",
+              description: "Shopping, sharing, and collecting situations",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Word Problem",
+              definition:
+                "A math problem described in words using a real-life situation",
+            },
+            {
+              term: "Operation",
+              definition:
+                "A mathematical process: addition, subtraction, multiplication, or division",
+            },
+            {
+              term: "Inverse",
+              definition: "The opposite operation (addition ↔ subtraction)",
+            },
+          ],
+        },
+        {
+          id: "3-math-7",
+          number: 7,
+          name: "Time Goes On",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "Students learn to read both analogue and digital clocks. On an analogue clock, the short hand shows hours and the long hand shows minutes. They learn to read time to the nearest 5 minutes and then to the exact minute.",
+            "Days of the week and months of the year are explored in order. Students learn that 7 days = 1 week, 30 or 31 days = 1 month (except February with 28 or 29), and 12 months = 1 year. The four seasons and their connection to months are introduced.",
+            "Students calculate time intervals — how many hours between 9:00 AM and 2:00 PM, how many days until a birthday. Using calendars, they find days of the week for specific dates and count days between events. These are practical life skills.",
+          ],
+          keyConcepts: [
+            {
+              title: "Reading a Clock",
+              description: "Hour hand, minute hand, and reading time",
+            },
+            {
+              title: "Days and Months",
+              description: "7 days in a week, 12 months in a year",
+            },
+            {
+              title: "Seasons",
+              description: "Summer, monsoon, autumn, winter and their months",
+            },
+            {
+              title: "Time Intervals",
+              description: "Calculating time elapsed between two times",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Analogue Clock",
+              definition:
+                "A clock with hour and minute hands on a circular face",
+            },
+            {
+              term: "AM/PM",
+              definition:
+                "Before noon (AM) and after noon (PM) in 12-hour time",
+            },
+            {
+              term: "Calendar",
+              definition: "A chart showing days, weeks, and months of the year",
+            },
+          ],
+        },
+        {
+          id: "3-math-8",
+          number: 8,
+          name: "Who is Heavier?",
+          subject: "Mathematics",
+          classNum: 3,
+          explanation: [
+            "Weight comparison begins with direct experience — picking up objects and judging which is heavier. Students use a balance scale to compare weights systematically. The side that goes down is heavier; equal height means equal weight.",
+            "Non-standard weights like clay balls, coins, or stones are used first. Students find that a small iron ball can be heavier than a big balloon because weight depends on what an object is made of, not just its size.",
+            "The gram (g) is introduced as a standard unit for measuring light objects. Students handle gram weights and compare them to familiar objects. They estimate weights and then verify with a balance or weighing scale. This builds weight intuition and measurement skills.",
+          ],
+          keyConcepts: [
+            {
+              title: "Weight Comparison",
+              description: "Heavier, lighter, and equal weight on a balance",
+            },
+            {
+              title: "Balance Scale",
+              description: "Tool for comparing and measuring weight",
+            },
+            {
+              title: "Gram as Unit",
+              description: "Standard unit for measuring weight",
+            },
+            {
+              title: "Estimation",
+              description: "Predicting weight before measuring",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Weight",
+              definition:
+                "How heavy an object is; measured in grams (g) or kilograms (kg)",
+            },
+            {
+              term: "Balance",
+              definition: "A weighing tool with two pans for comparing weights",
+            },
+            {
+              term: "Gram (g)",
+              definition: "A standard unit of weight; 1000 g = 1 kilogram",
+            },
+          ],
+        },
       ],
     },
     {
@@ -804,6 +1127,279 @@ const class3: NCERTClass = {
             {
               term: "Fantasy",
               definition: "A genre involving magical or imaginary elements",
+            },
+          ],
+        },
+        {
+          id: "3-eng-3",
+          number: 3,
+          name: "Bird Talk",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "This delightful poem features two birds — a sparrow and a crow — having a conversation about their lives, food, and the sky. The poem introduces the concept of dialogue in poetry and builds speaking and listening skills.",
+            "Similes are the key literary device in this chapter. Students learn that a simile compares two unlike things using 'like' or 'as' — for example, 'as free as a bird' or 'flies like an arrow.' They identify similes in the poem and create their own.",
+            "The poem encourages children to observe birds in their neighbourhood and describe them using comparisons. Writing activities ask students to imagine a conversation between two animals of their choice, using the poem as a model.",
+          ],
+          keyConcepts: [
+            {
+              title: "Simile",
+              description: "Comparing two things using 'like' or 'as'",
+            },
+            {
+              title: "Dialogue in Poetry",
+              description: "Two characters speaking to each other in verse",
+            },
+            {
+              title: "Nature Observation",
+              description: "Describing birds and their behaviour",
+            },
+            {
+              title: "Oral Language",
+              description: "Reading aloud with expression and character voices",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Simile",
+              definition:
+                "A comparison using 'like' or 'as' (e.g., brave as a lion)",
+            },
+            {
+              term: "Dialogue",
+              definition: "Conversation between two or more characters",
+            },
+            {
+              term: "Rhyme",
+              definition: "Words that end with the same sound",
+            },
+          ],
+        },
+        {
+          id: "3-eng-4",
+          number: 4,
+          name: "Nina and the Baby Sparrow",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "Nina finds a baby sparrow that has fallen from its nest. She carefully picks it up and nurses it back to health over several days, feeding it and keeping it warm. The story develops themes of compassion, patience, and responsibility.",
+            "Students learn narrative structure through this story — the introduction (finding the bird), rising action (caring for it), climax (will it survive?), and resolution (the bird flies away). Identifying these elements helps children understand and write stories.",
+            "The story raises an important question: when the bird is healed, Nina releases it. Students discuss why it is important to let wild animals return to nature rather than keeping them as pets. This builds environmental ethics alongside literacy.",
+          ],
+          keyConcepts: [
+            {
+              title: "Narrative Structure",
+              description: "Introduction, rising action, climax, resolution",
+            },
+            {
+              title: "Compassion",
+              description: "Caring for a hurt creature with kindness",
+            },
+            {
+              title: "Wild vs Domestic",
+              description: "Why wild animals should live freely in nature",
+            },
+            {
+              title: "Sequence of Events",
+              description:
+                "Ordering story events using first, next, then, finally",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Compassion",
+              definition:
+                "Feeling care and concern for something that is suffering",
+            },
+            {
+              term: "Narrative",
+              definition: "A story that tells a sequence of events",
+            },
+            {
+              term: "Climax",
+              definition: "The most exciting or important moment in a story",
+            },
+          ],
+        },
+        {
+          id: "3-eng-5",
+          number: 5,
+          name: "Little By Little",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "This poem traces the journey of a seed that grows, little by little, into a mighty tree. First a shoot, then a sapling, then branches, then a full tree with shade, flowers, and fruit — all from one tiny seed. The poem is a beautiful metaphor for patience and growth.",
+            "The poem teaches the growth mindset — great things happen through small, persistent steps. Students relate the tree's growth to their own learning: each reading practice, each sum solved, each new word learned is a step in their growth.",
+            "Literary devices introduced include personification (the seed 'struggled' upward) and metaphor (the child's growth compared to the tree's growth). Students write their own growth poems about something they have learned or developed gradually.",
+          ],
+          keyConcepts: [
+            {
+              title: "Metaphor",
+              description: "A direct comparison without using 'like' or 'as'",
+            },
+            {
+              title: "Personification",
+              description: "Giving human qualities to non-human things",
+            },
+            {
+              title: "Growth Mindset",
+              description:
+                "Believing abilities improve through effort and patience",
+            },
+            {
+              title: "Plant Life Cycle",
+              description: "Seed to seedling to sapling to tree",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Metaphor",
+              definition:
+                "A comparison saying one thing IS another (e.g., life is a journey)",
+            },
+            {
+              term: "Personification",
+              definition: "Giving human traits to animals, objects, or ideas",
+            },
+            {
+              term: "Seedling",
+              definition: "A very young plant grown from a seed",
+            },
+          ],
+        },
+        {
+          id: "3-eng-6",
+          number: 6,
+          name: "The Enormous Turnip",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "In this classic folk tale, an old farmer plants a turnip that grows so large that he cannot pull it out alone. He calls his wife, who calls their granddaughter, who calls the dog, the cat, and finally a tiny mouse. Together, they pull the turnip out — showing that teamwork makes the impossible possible.",
+            "The story follows a repetitive, cumulative pattern — each attempt adds a new character and repeats all the previous characters. This structure makes it easy for young readers to predict what comes next and join in the reading. Students practice sequence words: first, then, next, after that, finally.",
+            "Students analyse the story's moral: even the smallest contribution matters. The tiny mouse made the difference. This is a powerful lesson about inclusion and teamwork. Students re-enact the story through role-play, building oral language and expression skills.",
+          ],
+          keyConcepts: [
+            {
+              title: "Teamwork Theme",
+              description:
+                "Working together to achieve what one cannot do alone",
+            },
+            {
+              title: "Cumulative Story",
+              description:
+                "Each step repeats all previous steps — pattern in narrative",
+            },
+            {
+              title: "Sequence Words",
+              description: "First, then, next, after that, finally",
+            },
+            {
+              title: "Folk Tale",
+              description: "Traditional story passed down through generations",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Folk Tale",
+              definition:
+                "A traditional story passed down orally through generations",
+            },
+            {
+              term: "Teamwork",
+              definition: "Working together with others towards a common goal",
+            },
+            {
+              term: "Cumulative",
+              definition: "Increasing by adding one thing on top of another",
+            },
+          ],
+        },
+        {
+          id: "3-eng-7",
+          number: 7,
+          name: "Sea Song",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "This poem describes the sea in vivid, musical language — the rhythm of the waves, the call of seagulls, the salt in the air, and the mystery of the deep ocean. The poem's rhythm itself mimics the rise and fall of ocean waves.",
+            "Rhyme and rhythm are the focus of this chapter. Students identify the rhyme scheme (which lines rhyme with which) and clap out the rhythm (beat pattern) of the poem. They discover that the regular beat makes the poem feel like music.",
+            "Students are encouraged to listen to the sounds of water and describe them in words. Onomatopoeia — words that sound like what they describe (splash, crash, roar, hiss) — is introduced through the poem's language about the sea.",
+          ],
+          keyConcepts: [
+            {
+              title: "Rhyme and Rhythm",
+              description: "The sound pattern and beat of a poem",
+            },
+            {
+              title: "Onomatopoeia",
+              description: "Words that sound like the noises they describe",
+            },
+            {
+              title: "Ocean Imagery",
+              description: "Vivid descriptions of the sea and its features",
+            },
+            {
+              title: "Sensory Language",
+              description: "Words describing sounds, sights, smells of the sea",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Onomatopoeia",
+              definition:
+                "A word that imitates the sound it represents (splash, crash)",
+            },
+            {
+              term: "Rhythm",
+              definition: "The pattern of beats or stresses in a poem",
+            },
+            {
+              term: "Rhyme Scheme",
+              definition: "The pattern showing which lines in a poem rhyme",
+            },
+          ],
+        },
+        {
+          id: "3-eng-8",
+          number: 8,
+          name: "A Little Fish Story",
+          subject: "English",
+          classNum: 3,
+          explanation: [
+            "A small fish lives in a big ocean and feels afraid of all the larger creatures. One day, faced with a dangerous situation, the little fish finds unexpected courage within itself and swims bravely through to safety. The story celebrates inner strength and self-belief.",
+            "Students explore the theme of bravery — understanding that being brave doesn't mean having no fear, but acting despite fear. The little fish is afraid but acts anyway. Students discuss times they felt scared but overcame their fear.",
+            "The story uses vivid ocean vocabulary: currents, coral reefs, predators, scales, fins. Students build a word map of ocean words and write a short story about an undersea adventure, using new vocabulary in context. This builds both vocabulary and creative writing skills.",
+          ],
+          keyConcepts: [
+            {
+              title: "Bravery Theme",
+              description: "Acting despite fear; finding inner strength",
+            },
+            {
+              title: "Ocean Vocabulary",
+              description: "Currents, coral reefs, predators, scales, fins",
+            },
+            {
+              title: "Character Development",
+              description: "How a character changes from beginning to end",
+            },
+            {
+              title: "Creative Writing",
+              description: "Writing an undersea adventure story",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Bravery",
+              definition: "Acting with courage despite feeling afraid",
+            },
+            {
+              term: "Predator",
+              definition: "An animal that hunts and eats other animals",
+            },
+            {
+              term: "Character",
+              definition: "A person or animal in a story",
             },
           ],
         },
@@ -946,6 +1542,1343 @@ const class3: NCERTClass = {
               term: "Monsoon",
               definition:
                 "Seasonal wind system bringing heavy rainfall to India",
+            },
+          ],
+        },
+        {
+          id: "3-evs-3",
+          number: 3,
+          name: "Water O Water",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Water is essential for all life. This chapter explores the many sources of water — rivers, lakes, ponds, wells, taps, and rainfall. Students learn that different communities in India get water in different ways, from hand-pumps in villages to municipal taps in cities.",
+            "Water is used in countless ways in daily life — for drinking, cooking, bathing, washing, farming, and industry. Students track how much water their family uses in a day and are often surprised by the large amounts. This awareness is the first step to conservation.",
+            "Simple water conservation habits are taught: turning off taps while brushing teeth, fixing leaky pipes, using a bucket instead of a running tap for bathing. Students learn that wasting water is unfair to those who don't have enough. The chapter builds a sense of water responsibility.",
+          ],
+          keyConcepts: [
+            {
+              title: "Sources of Water",
+              description: "Rivers, lakes, wells, taps, rainfall, groundwater",
+            },
+            {
+              title: "Uses of Water",
+              description: "Drinking, cooking, farming, industry, hygiene",
+            },
+            {
+              title: "Water Conservation",
+              description: "Simple daily habits to save water",
+            },
+            {
+              title: "Water Scarcity",
+              description: "Many communities lack access to clean water",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Conservation",
+              definition: "Using resources carefully to avoid waste",
+            },
+            {
+              term: "Groundwater",
+              definition:
+                "Water stored underground, accessed through wells and bore wells",
+            },
+            {
+              term: "Potable Water",
+              definition: "Water that is safe and clean enough to drink",
+            },
+          ],
+        },
+        {
+          id: "3-evs-4",
+          number: 4,
+          name: "Our First School",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "The family is our first school — the place where we learn our first words, values, habits, and ways of living. Parents, grandparents, siblings, and other family members all teach us different things: how to walk, talk, behave, and understand the world.",
+            "Different family members play different roles. Grandparents often share stories, traditions, and wisdom. Parents provide food, safety, and guidance. Siblings are companions and playmates. The chapter builds appreciation for every family member's contribution.",
+            "Students explore what they have learned from different family members — a grandmother's recipe, a grandfather's farm knowledge, a father's trade skill, a mother's organisational ability. This values activity reinforces respect for all kinds of knowledge and wisdom.",
+          ],
+          keyConcepts: [
+            {
+              title: "Family as First Teacher",
+              description: "Learning values, language, and life skills at home",
+            },
+            {
+              title: "Roles in Family",
+              description: "What each family member teaches and contributes",
+            },
+            {
+              title: "Traditional Knowledge",
+              description: "Skills and wisdom passed down through generations",
+            },
+            {
+              title: "Respect for Elders",
+              description: "Honouring grandparents and their experience",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Generation",
+              definition:
+                "A group of people born and living at around the same time",
+            },
+            {
+              term: "Tradition",
+              definition:
+                "A custom or practice passed down within a family or community",
+            },
+            {
+              term: "Values",
+              definition: "Beliefs about what is important and how to behave",
+            },
+          ],
+        },
+        {
+          id: "3-evs-5",
+          number: 5,
+          name: "Chhotu's House",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "India has an enormous variety of houses — mud huts in villages, brick houses in towns, bamboo homes in forests, stilt houses near rivers, and concrete buildings in cities. This chapter celebrates that diversity and helps children understand why houses differ.",
+            "The materials used to build houses depend on what is available locally and what the climate requires. In rainy regions, sloping roofs help shed water; in hot desert areas, thick mud walls keep homes cool. In cold mountain areas, small windows and insulating materials keep heat inside.",
+            "Students learn about the basic functions of a house: protection from weather, safety, privacy, and a place for family life. The chapter builds empathy for children who live in different kinds of homes and teaches respect for all living situations.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Houses",
+              description: "Mud, brick, bamboo, stilt, and concrete houses",
+            },
+            {
+              title: "Building Materials",
+              description: "Local materials suited to climate and geography",
+            },
+            {
+              title: "Climate and House Design",
+              description:
+                "How weather shapes the shape and materials of homes",
+            },
+            {
+              title: "Functions of a House",
+              description: "Protection, safety, privacy, family space",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Stilt House",
+              definition: "A house built on poles above water or ground level",
+            },
+            {
+              term: "Insulation",
+              definition:
+                "Material that prevents heat from entering or leaving a space",
+            },
+            {
+              term: "Climate",
+              definition:
+                "The typical weather conditions of an area over a long period",
+            },
+          ],
+        },
+        {
+          id: "3-evs-6",
+          number: 6,
+          name: "Foods We Eat",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "India's food is remarkably diverse. Different regions have different staples — rice in South and East India, wheat in North India, maize and millet in many areas. This diversity reflects different climates, agriculture, and cultures.",
+            "Foods can be grouped by what they provide: energy foods (rice, wheat, potatoes), body-building foods (dal, milk, eggs, meat), and protective foods (fruits and vegetables). A balanced meal includes something from each group. Students plan a healthy meal using this framework.",
+            "Food preparation methods vary too — steaming, boiling, frying, baking. Some foods are eaten raw (salads, fruits) while others must be cooked for safety and taste. Students learn basic kitchen safety and develop respect for the effort that goes into preparing food.",
+          ],
+          keyConcepts: [
+            {
+              title: "Regional Food Diversity",
+              description: "India's different staple foods by region",
+            },
+            {
+              title: "Food Groups",
+              description: "Energy, body-building, and protective foods",
+            },
+            {
+              title: "Balanced Meal",
+              description: "Including foods from all three groups",
+            },
+            {
+              title: "Food Preparation",
+              description: "Different ways of cooking food safely",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Nutrient",
+              definition:
+                "A substance in food that helps the body grow and stay healthy",
+            },
+            {
+              term: "Staple Food",
+              definition:
+                "The main food eaten regularly in a particular region",
+            },
+            {
+              term: "Balanced Diet",
+              definition:
+                "Eating a variety of foods to get all needed nutrients",
+            },
+          ],
+        },
+        {
+          id: "3-evs-7",
+          number: 7,
+          name: "Saying Without Speaking",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "We communicate in many ways without using words. Facial expressions (smile, frown, surprise), gestures (waving, thumbs up, pointing), and body posture (crossed arms, open arms) all carry meaning. This non-verbal communication is universal across languages.",
+            "Sign language allows people who cannot hear to communicate through hand shapes, facial expressions, and body movements. Students learn a few basic signs and appreciate the rich, complete language that sign language is. This builds inclusion and empathy for people with hearing impairment.",
+            "Traffic signals, road signs, and danger symbols are examples of non-verbal communication used in everyday life. Students learn to read common symbols and understand why visual communication is often faster and more universal than written words.",
+          ],
+          keyConcepts: [
+            {
+              title: "Non-Verbal Communication",
+              description: "Facial expressions, gestures, and body language",
+            },
+            {
+              title: "Sign Language",
+              description: "A complete language using hands and expressions",
+            },
+            {
+              title: "Symbols and Signs",
+              description: "Traffic signals, warning signs, and road symbols",
+            },
+            {
+              title: "Universal Communication",
+              description: "Gestures understood across cultures",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Gesture",
+              definition: "A movement of the body used to express meaning",
+            },
+            {
+              term: "Sign Language",
+              definition:
+                "A visual language using hand shapes and expressions for the deaf",
+            },
+            {
+              term: "Symbol",
+              definition: "A mark, sign, or image that represents an idea",
+            },
+          ],
+        },
+        {
+          id: "3-evs-8",
+          number: 8,
+          name: "Flying High",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Birds are remarkably adapted for flight. Their hollow bones reduce weight, streamlined bodies reduce air resistance, and powerful breast muscles drive their wings. Feathers — both the large flight feathers and the soft downy feathers — are essential for lift, insulation, and waterproofing.",
+            "Different birds have different beak and feet adaptations for their lifestyle. An eagle has a sharp hooked beak for tearing meat and strong talons for gripping prey. A duck has a flat beak for filtering water and webbed feet for swimming. A woodpecker has a chisel-shaped beak for drilling into wood.",
+            "Migration is one of nature's most extraordinary phenomena. Birds like Siberian cranes travel thousands of kilometres from cold regions to warmer India during winter. They navigate using the sun, stars, Earth's magnetic field, and landmarks. Students map migration routes and learn about the threats migratory birds face.",
+          ],
+          keyConcepts: [
+            {
+              title: "Bird Adaptations for Flight",
+              description: "Hollow bones, streamlined body, wings, feathers",
+            },
+            {
+              title: "Beak and Feet Adaptations",
+              description:
+                "Beaks and feet shaped for each bird's food and habitat",
+            },
+            {
+              title: "Migration",
+              description:
+                "Long-distance seasonal travel for food and breeding",
+            },
+            {
+              title: "Bird Diversity",
+              description: "Different birds in different habitats across India",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Migration",
+              definition:
+                "Seasonal movement of birds to warmer or cooler places",
+            },
+            {
+              term: "Adaptation",
+              definition:
+                "A body feature or behaviour that helps an animal survive",
+            },
+            {
+              term: "Feather",
+              definition:
+                "Lightweight structure on birds used for flight, warmth, and waterproofing",
+            },
+          ],
+        },
+        {
+          id: "3-evs-10",
+          number: 10,
+          name: "What is Cooking?",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Cooking transforms raw food into safer, tastier, and more digestible meals. Heat kills harmful bacteria and breaks down tough plant cells. Cooking also changes the colour, texture, smell, and taste of food in wonderful ways.",
+            "Different fuels are used for cooking: firewood and cow dung cakes in villages, LPG gas in most urban homes, kerosene, and increasingly solar cookers and electric stoves. Students learn the advantages and disadvantages of each fuel in terms of cost, safety, and pollution.",
+            "Kitchen safety is an important part of this chapter. Children learn basic rules: keep away from open flames, never leave food unattended on a stove, wash hands before and after handling food, and store food correctly to prevent spoiling. These habits prevent accidents and illness.",
+          ],
+          keyConcepts: [
+            {
+              title: "Why We Cook Food",
+              description: "Safety, digestibility, taste, and texture",
+            },
+            {
+              title: "Cooking Fuels",
+              description: "Wood, LPG gas, kerosene, solar, electric",
+            },
+            {
+              title: "Kitchen Safety",
+              description: "Rules to prevent burns, fires, and food poisoning",
+            },
+            {
+              title: "Food Hygiene",
+              description: "Washing hands and storing food correctly",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "LPG",
+              definition:
+                "Liquefied Petroleum Gas — a common cooking fuel in Indian homes",
+            },
+            {
+              term: "Solar Cooker",
+              definition:
+                "A device that uses sunlight to cook food without fuel",
+            },
+            {
+              term: "Hygiene",
+              definition: "Practices that maintain health and prevent disease",
+            },
+          ],
+        },
+        {
+          id: "3-evs-11",
+          number: 11,
+          name: "From Here to There",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Transport connects people, goods, and places. Land transport includes walking, cycling, rickshaws, buses, cars, trains, and trucks. Water transport uses boats, ferries, and ships on rivers, lakes, and seas. Air transport uses aeroplanes and helicopters for the fastest travel.",
+            "Maps help us understand directions and routes. A map is a drawing of an area as seen from above, using symbols to show roads, rivers, towns, and other features. Students learn cardinal directions (North, South, East, West) and how to use a simple map to find routes.",
+            "The postal and transport systems connect remote villages to cities. Students learn how goods like vegetables from farms reach city markets, how letters travel from one state to another, and how emergency vehicles like ambulances need clear roads. Transport infrastructure is the backbone of society.",
+          ],
+          keyConcepts: [
+            {
+              title: "Modes of Transport",
+              description: "Land, water, and air transport",
+            },
+            {
+              title: "Maps and Directions",
+              description: "North, South, East, West and map symbols",
+            },
+            {
+              title: "Goods and People",
+              description: "How transport connects producers and consumers",
+            },
+            {
+              title: "Infrastructure",
+              description: "Roads, railways, waterways, and airways",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Cardinal Directions",
+              definition: "The four main directions: North, South, East, West",
+            },
+            {
+              term: "Map",
+              definition:
+                "A drawing of an area showing its features from above",
+            },
+            {
+              term: "Infrastructure",
+              definition:
+                "Basic systems needed for society to function (roads, rails)",
+            },
+          ],
+        },
+        {
+          id: "3-evs-12",
+          number: 12,
+          name: "Work We Do",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Society functions because people perform many different kinds of work. Farmers grow food, teachers educate, doctors heal, builders construct, and sweepers keep areas clean. Every job contributes to the community and deserves equal respect.",
+            "Students learn about division of labour — how different people specialize in different work so that society as a whole can function better than if everyone tried to do everything themselves. A farmer focuses on growing food rather than also building houses and making clothes.",
+            "The chapter challenges gender stereotypes about work. Men and women can do any kind of work. Students look at examples from their own community where women drive buses, build houses, or run businesses, and where men cook, care for children, or nurse patients. All work has dignity.",
+          ],
+          keyConcepts: [
+            {
+              title: "Occupations",
+              description: "Different jobs people do in a community",
+            },
+            {
+              title: "Division of Labour",
+              description: "Specialization of work for community efficiency",
+            },
+            {
+              title: "Dignity of Work",
+              description: "Every job deserves equal respect",
+            },
+            {
+              title: "Gender and Work",
+              description: "Breaking stereotypes about who does what work",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Occupation",
+              definition: "The work a person does regularly to earn a living",
+            },
+            {
+              term: "Division of Labour",
+              definition:
+                "Assigning different tasks to different people or groups",
+            },
+            {
+              term: "Stereotype",
+              definition:
+                "An oversimplified idea that all people in a group are the same",
+            },
+          ],
+        },
+        {
+          id: "3-evs-13",
+          number: 13,
+          name: "Sharing Our Feelings",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Emotions are a natural and important part of being human. Happiness, sadness, anger, fear, surprise, and disgust are six basic emotions recognized in all cultures. Every emotion has a cause, and understanding what triggers emotions helps children manage them better.",
+            "Expressing feelings in healthy ways — talking to someone, drawing, writing, running, or crying — is much better than bottling emotions inside or expressing them through aggression. Students learn that it is okay to feel sad, scared, or angry, and that these feelings will pass.",
+            "Empathy — the ability to understand and share another person's feelings — is a crucial social skill. Students practice empathy through discussion of scenarios: How would you feel if...? What could you say to help? This builds emotional intelligence alongside academic learning.",
+          ],
+          keyConcepts: [
+            {
+              title: "Basic Emotions",
+              description: "Happiness, sadness, anger, fear, surprise, disgust",
+            },
+            {
+              title: "Expressing Feelings",
+              description: "Healthy ways to share and release emotions",
+            },
+            {
+              title: "Empathy",
+              description:
+                "Understanding and sharing another person's feelings",
+            },
+            {
+              title: "Emotional Intelligence",
+              description: "Recognising and managing emotions wisely",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Emotion",
+              definition: "A strong feeling like happiness, sadness, or fear",
+            },
+            {
+              term: "Empathy",
+              definition:
+                "The ability to understand and share the feelings of another",
+            },
+            {
+              term: "Expression",
+              definition: "Showing or communicating a feeling to others",
+            },
+          ],
+        },
+        {
+          id: "3-evs-14",
+          number: 14,
+          name: "The Story of Food",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Before food reaches our plate, it goes on a long journey. Seeds are sown by farmers, crops are watered and protected, harvested, transported to markets, bought by shopkeepers or mothers, and finally cooked and served. Understanding this journey builds gratitude for food.",
+            "Farmers are the most important link in the food chain. They wake before sunrise, work through heat and rain, and face uncertainty about weather and prices. The chapter builds deep respect for farmers and agricultural work, which feeds the entire nation.",
+            "Food waste is a serious problem — millions of people go hungry while enormous quantities of food are wasted. Students calculate how much food their family wastes in a week and think about how to reduce waste. Composting food scraps turns waste into useful fertiliser for plants.",
+          ],
+          keyConcepts: [
+            {
+              title: "Food Journey",
+              description: "From farm to table: farmer, market, cook, plate",
+            },
+            {
+              title: "Role of Farmers",
+              description: "Hard work and challenges farmers face",
+            },
+            {
+              title: "Food Waste",
+              description: "How much food is wasted and how to reduce it",
+            },
+            {
+              title: "Composting",
+              description: "Turning food waste into fertiliser",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Food Chain (supply)",
+              definition: "The sequence from food production to consumption",
+            },
+            {
+              term: "Harvest",
+              definition: "The process of gathering ripe crops from the fields",
+            },
+            {
+              term: "Compost",
+              definition: "Decayed organic matter used as fertiliser for soil",
+            },
+          ],
+        },
+        {
+          id: "3-evs-15",
+          number: 15,
+          name: "Making Pots",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Pottery is one of humanity's oldest crafts. Potters (kumhars) shape clay on a spinning wheel called a chak, creating pots, bowls, lamps, and decorative items. The pots are then dried in the sun and fired in a kiln at high temperature to become hard and waterproof.",
+            "Clay is a naturally occurring material found near rivers. Different types of clay have different properties — some are smooth and fine, others are coarser. The potter tests the clay, kneads it to remove air bubbles, and shapes it with skilled hands before it hardens.",
+            "India has rich pottery traditions in every state — blue pottery of Jaipur, black pottery of Manipur, terracotta of West Bengal, and many others. Each tradition reflects local materials, techniques, and artistic styles. Students appreciate this heritage and learn about crafts as cultural identity.",
+          ],
+          keyConcepts: [
+            {
+              title: "Pottery Process",
+              description: "Clay → shaping on wheel → drying → kiln firing",
+            },
+            {
+              title: "Clay Properties",
+              description: "Soft when wet, hard when fired",
+            },
+            {
+              title: "Pottery Traditions",
+              description: "Regional pottery styles across India",
+            },
+            {
+              title: "Crafts as Heritage",
+              description: "Traditional crafts as cultural identity",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Potter's Wheel",
+              definition: "A spinning platform used to shape clay into pots",
+            },
+            {
+              term: "Kiln",
+              definition: "An oven used to fire and harden clay pottery",
+            },
+            {
+              term: "Terracotta",
+              definition: "Baked clay, usually reddish-brown in colour",
+            },
+          ],
+        },
+        {
+          id: "3-evs-16",
+          number: 16,
+          name: "Games We Play",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "India has a treasure of traditional games played for centuries — Kabaddi, Kho-Kho, Gilli-Danda, Lagori, Hopscotch, Marbles, Pittu, and many more. These games are often played without expensive equipment, outdoors, with large groups, developing physical fitness and social skills together.",
+            "Traditional games teach important values: fairness (following rules), teamwork (helping your side win), resilience (accepting defeat gracefully), and creativity (inventing variations). They also preserve cultural heritage and bring communities together across generations.",
+            "Modern sports like cricket, football, and basketball also have great value. Students compare traditional and modern games in terms of equipment needed, space required, number of players, and benefits. The chapter encourages all children to be physically active every day for good health.",
+          ],
+          keyConcepts: [
+            {
+              title: "Traditional Indian Games",
+              description: "Kabaddi, Kho-Kho, Gilli-Danda, Pittu, Lagori",
+            },
+            {
+              title: "Values in Play",
+              description: "Fairness, teamwork, resilience through games",
+            },
+            {
+              title: "Physical Health",
+              description: "Importance of daily activity and outdoor play",
+            },
+            {
+              title: "Cultural Heritage",
+              description: "Traditional games as part of India's culture",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Kabaddi",
+              definition:
+                "A contact sport played widely in India, now an international sport",
+            },
+            {
+              term: "Resilience",
+              definition: "The ability to recover from setbacks and keep going",
+            },
+            {
+              term: "Heritage",
+              definition:
+                "Things passed down from earlier generations worth preserving",
+            },
+          ],
+        },
+        {
+          id: "3-evs-17",
+          number: 17,
+          name: "Here Comes the Mail",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "The postal system is one of India's oldest and most widespread public services. India Post has over 1.5 lakh post offices — more than any other country in the world. A letter travels from sender to collection, sorting, dispatch, transport, delivery — each step handled by postal workers.",
+            "Students trace the journey of a letter from writing to delivery. A letter dropped in a letter box is collected by a postman, taken to a sorting office, stamped and sorted by destination, transported (by road, rail, or air), received at the destination post office, and finally delivered by a postman who knows every house in their beat.",
+            "The chapter connects to modern communication — emails, WhatsApp, and video calls have largely replaced physical letters, but the postal system still handles parcels, money orders, and official documents. Students appreciate how technology has transformed communication while respecting the human postal workers who serve remote areas.",
+          ],
+          keyConcepts: [
+            {
+              title: "Journey of a Letter",
+              description: "Writing → posting → sorting → transport → delivery",
+            },
+            {
+              title: "India Post",
+              description:
+                "World's largest postal network with 1.5 lakh offices",
+            },
+            {
+              title: "Postal Workers",
+              description: "The people who make mail delivery possible",
+            },
+            {
+              title: "Modern Communication",
+              description: "How email and mobile phones changed communication",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Postcode (PIN)",
+              definition: "A 6-digit code identifying a postal area in India",
+            },
+            {
+              term: "Sorting Office",
+              definition: "A place where mail is organised by destination",
+            },
+            {
+              term: "Money Order",
+              definition: "A postal service for sending money to someone",
+            },
+          ],
+        },
+        {
+          id: "3-evs-18",
+          number: 18,
+          name: "A House Like This",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "People around the world live in remarkable homes adapted to their environment. Igloos are built from blocks of ice and snow by the Inuit people of the Arctic — the curved shape traps warm air, and the thick ice walls insulate against extreme cold. Inside, body heat keeps the temperature above freezing.",
+            "Houseboats on Dal Lake in Kashmir and on the backwaters of Kerala are floating homes built on water. They are often decorated beautifully and serve as both homes and tourist accommodations. Stilt houses in Assam and parts of South Asia are raised on poles to protect against floods and wild animals.",
+            "Underground homes in Matmata, Tunisia, and cave dwellings in Cappadocia, Turkey, stay naturally cool in hot climates. Tree houses in forest communities are built without harming the tree. Students discover that human creativity in building homes is shaped entirely by local needs, materials, and environment.",
+          ],
+          keyConcepts: [
+            {
+              title: "Igloo",
+              description:
+                "Ice house of Arctic Inuit people; curved shape traps warmth",
+            },
+            {
+              title: "Houseboat",
+              description: "Floating home on water; Kashmir, Kerala",
+            },
+            {
+              title: "Stilt House",
+              description: "House raised on poles against floods and animals",
+            },
+            {
+              title: "Climate-Adapted Homes",
+              description:
+                "Every home design solves local environmental challenges",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Igloo",
+              definition:
+                "A dome-shaped snow house built by Inuit people in the Arctic",
+            },
+            {
+              term: "Houseboat",
+              definition:
+                "A boat designed and used as a home floating on water",
+            },
+            {
+              term: "Adaptation",
+              definition: "Changing design to suit specific conditions",
+            },
+          ],
+        },
+        {
+          id: "3-evs-19",
+          number: 19,
+          name: "Our Friends, Animals",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Humans and animals have shared a close relationship throughout history. Dogs were the first domesticated animals, helping humans hunt and guard. Cattle, goats, and sheep were domesticated for milk, meat, and wool. Horses and camels transformed travel and trade. This partnership shaped civilization.",
+            "Animals serve us in countless ways — oxen and horses plough fields, guide dogs help the visually impaired, therapy animals comfort the sick, dolphins assist in search and rescue. Animals also play important ecological roles: bees pollinate crops, earthworms enrich soil, birds control insect populations.",
+            "Our responsibility toward animals is central to this chapter. Cruelty to animals is wrong and often illegal. Wild animals should not be kept as pets. Endangered species need legal protection. Students discuss their own relationships with pets and wildlife, and commit to treating animals with kindness and respect.",
+          ],
+          keyConcepts: [
+            {
+              title: "Domestication",
+              description:
+                "How humans tamed animals for work, food, and companionship",
+            },
+            {
+              title: "Service Animals",
+              description: "Animals that help humans in specific ways",
+            },
+            {
+              title: "Animal Rights",
+              description: "Treating animals with care and preventing cruelty",
+            },
+            {
+              title: "Ecological Role",
+              description:
+                "Animals' importance in maintaining healthy ecosystems",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Domestication",
+              definition: "The process of taming wild animals for human use",
+            },
+            {
+              term: "Endangered Species",
+              definition: "Animals at risk of extinction due to human activity",
+            },
+            {
+              term: "Service Animal",
+              definition:
+                "An animal trained to assist people with disabilities",
+            },
+          ],
+        },
+        {
+          id: "3-evs-20",
+          number: 20,
+          name: "Drop by Drop",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "The water cycle describes how water moves continuously through the environment. The sun heats surface water, causing it to evaporate into water vapour that rises into the atmosphere. As it rises and cools, it condenses into tiny droplets forming clouds. When enough drops collect, rain falls back to the earth.",
+            "Water is used by plants through their roots, by animals through drinking, and by humans in homes, farms, and industry. After use, water eventually returns to oceans and lakes, where the cycle begins again. Students trace water through this continuous loop.",
+            "The importance of saving water cannot be overstated. Collect rainwater, fix dripping taps, use grey water (from washing) for plants, take shorter showers. Students calculate how much water is wasted in their home and make a pledge to reduce it. Each drop saved counts.",
+          ],
+          keyConcepts: [
+            {
+              title: "Water Cycle Steps",
+              description:
+                "Evaporation, condensation, precipitation, collection",
+            },
+            {
+              title: "Water Use",
+              description: "By plants, animals, and humans in daily life",
+            },
+            {
+              title: "Rainwater Harvesting",
+              description: "Collecting rainwater for storage and later use",
+            },
+            {
+              title: "Water Saving Habits",
+              description: "Practical daily actions to conserve water",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Precipitation",
+              definition: "Water falling from clouds as rain, hail, or snow",
+            },
+            {
+              term: "Water Cycle",
+              definition:
+                "The continuous movement of water through environment",
+            },
+            {
+              term: "Rainwater Harvesting",
+              definition: "Collecting and storing rainwater for future use",
+            },
+          ],
+        },
+        {
+          id: "3-evs-21",
+          number: 21,
+          name: "Families Can Be Different",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Families come in many shapes and sizes across India. Some children live with both parents and siblings (nuclear family). Some live in large joint families with grandparents, aunts, uncles, and cousins all sharing a home. Some live with a single parent, or with grandparents. All are valid family structures.",
+            "India's regional diversity means family traditions vary widely. Naming ceremonies, wedding customs, food habits, and festivals differ between Tamil, Bengali, Punjabi, and Marathi families, for example. This diversity is a strength — students learn from and about different family traditions with curiosity and respect.",
+            "The chapter emphasises that what makes a family is love, care, and support — not the number of people or specific relationships. Students draw their own family tree and share it with the class, celebrating each family's unique structure. This activity builds confidence and inclusion.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Families",
+              description: "Nuclear, joint, single-parent, extended families",
+            },
+            {
+              title: "Regional Diversity",
+              description:
+                "Different traditions, customs, and practices across India",
+            },
+            {
+              title: "Family Tree",
+              description: "A diagram showing relationships in a family",
+            },
+            {
+              title: "Inclusion",
+              description: "Respecting and welcoming all family types",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Nuclear Family",
+              definition: "A family unit of parents and their children",
+            },
+            {
+              term: "Joint Family",
+              definition: "Multiple generations living together in one home",
+            },
+            {
+              term: "Family Tree",
+              definition:
+                "A diagram showing the relationships of family members",
+            },
+          ],
+        },
+        {
+          id: "3-evs-22",
+          number: 22,
+          name: "Left-Right",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "Direction is fundamental to navigation and communication. The four cardinal directions — North, South, East, West — are the primary compass points. The sun rises in the East and sets in the West, providing a natural reference for directions. At noon in India, shadows point North.",
+            "Maps use directions, symbols, and scale to represent real areas. North is usually at the top of maps. Students learn to read simple maps using direction labels and understand that the map is a bird's eye view of the real world, scaled down.",
+            "Between the four cardinal directions are four intermediate directions: Northeast, Northwest, Southeast, Southwest. Students practice giving directions using these eight points. Treasure hunt activities using direction cards make learning fun and kinesthetic.",
+          ],
+          keyConcepts: [
+            {
+              title: "Cardinal Directions",
+              description: "North, South, East, West",
+            },
+            {
+              title: "Compass",
+              description:
+                "A tool that shows direction using a magnetic needle",
+            },
+            {
+              title: "Maps",
+              description: "Bird's eye view using symbols and scale",
+            },
+            {
+              title: "Intermediate Directions",
+              description: "NE, NW, SE, SW between cardinal points",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Cardinal Direction",
+              definition:
+                "One of the four main directions: North, South, East, West",
+            },
+            {
+              term: "Compass",
+              definition:
+                "An instrument using a magnetic needle to show direction",
+            },
+            {
+              term: "Scale (map)",
+              definition:
+                "The ratio between map distance and real-world distance",
+            },
+          ],
+        },
+        {
+          id: "3-evs-23",
+          number: 23,
+          name: "A Beautiful Cloth",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "India is famous worldwide for its handloom weaving traditions. Silk sarees of Varanasi (Banarasi silk), cotton handloom of Pochampally and Kanchipuram, and woollen shawls of Kashmir represent centuries of craft heritage. Each region has unique patterns, colours, and techniques passed from master to apprentice.",
+            "Weaving begins with threads (warp threads stretched on a loom) being interlaced with other threads (weft threads) at right angles. The loom is the tool that holds the warp threads and allows the weaver to pass the weft through, row by row, creating fabric. Different interlacing patterns create different textures.",
+            "Natural dyes from plants and minerals — indigo (blue), turmeric (yellow), madder root (red), and iron-rich mud (black) — were traditionally used for colouring. Modern chemical dyes are brighter and more permanent, but natural dyes are making a comeback for ecological reasons. Students see how cloth connects ecology, art, and community.",
+          ],
+          keyConcepts: [
+            {
+              title: "Weaving Process",
+              description: "Warp and weft threads interlaced on a loom",
+            },
+            {
+              title: "Indian Handloom",
+              description:
+                "Banarasi silk, Kanchipuram, Pochampally, Kashmiri shawls",
+            },
+            {
+              title: "Natural Dyes",
+              description: "Plant and mineral dyes: indigo, turmeric, madder",
+            },
+            {
+              title: "Craft Heritage",
+              description: "Traditional skills passed down through generations",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Loom",
+              definition: "A device used to weave cloth by interlacing threads",
+            },
+            {
+              term: "Warp",
+              definition: "Threads stretched lengthwise on the loom",
+            },
+            {
+              term: "Weft",
+              definition: "Threads woven horizontally through the warp threads",
+            },
+          ],
+        },
+        {
+          id: "3-evs-24",
+          number: 24,
+          name: "Web of Life",
+          subject: "EVS",
+          classNum: 3,
+          explanation: [
+            "All living things — plants, animals, insects, birds, fungi, and bacteria — are connected to each other in complex webs of relationships. Plants produce food using sunlight; insects pollinate plants; birds eat insects; larger animals eat birds; when animals die, fungi and bacteria break them down into nutrients for plants. Remove one link and the entire web is affected.",
+            "A food web is more realistic than a simple food chain because most animals eat and are eaten by more than one species. If one animal population collapses, it affects all the others connected to it. This is why biodiversity — having many different species — makes ecosystems more stable and resilient.",
+            "Human activities — deforestation, pollution, hunting — tear apart the web of life. When forests are cut, the birds that lived there disappear; the insects they ate multiply; the crops the insects damage fail. Students understand that protecting nature is not just about saving cute animals — it is about maintaining the web of life that supports all of us.",
+          ],
+          keyConcepts: [
+            {
+              title: "Food Web",
+              description: "Interconnected food chains in an ecosystem",
+            },
+            {
+              title: "Biodiversity",
+              description: "Variety of life in an ecosystem",
+            },
+            {
+              title: "Interdependence",
+              description: "How all living things depend on each other",
+            },
+            {
+              title: "Human Impact",
+              description: "How human activities disrupt the web of life",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Food Web",
+              definition:
+                "A network of interconnected food chains in an ecosystem",
+            },
+            {
+              term: "Biodiversity",
+              definition:
+                "The variety of plant and animal life in an environment",
+            },
+            {
+              term: "Ecosystem",
+              definition:
+                "A community of living things interacting with their environment",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Hindi",
+      icon: "🔤",
+      chapters: [
+        {
+          id: "3-hin-1",
+          number: 1,
+          name: "कक्कू",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "यह कविता कोयल (कक्कू) की आवाज़ और उसकी खूबसूरती पर आधारित है। कोयल की मीठी कुहू-कुहू की आवाज़ बसंत के आने का संकेत है। कविता में प्रकृति का सुंदर चित्रण है जो बच्चों को पक्षियों और पर्यावरण से जोड़ता है।",
+            "Students learn new Hindi vocabulary about nature — birds, seasons, trees, and flowers. The poem's simple rhyme scheme makes it easy to memorize and recite. Children develop phonemic awareness in Hindi and practice correct pronunciation of complex consonant clusters.",
+            "The chapter encourages children to listen for birdsong in their environment and identify different birds by their calls. This connects classroom Hindi learning to real-world observation and appreciation of nature.",
+          ],
+          keyConcepts: [
+            {
+              title: "प्रकृति शब्दावली",
+              description: "Nature vocabulary: birds, seasons, trees",
+            },
+            {
+              title: "तुकबंदी",
+              description: "Rhyming words in Hindi poetry",
+            },
+            {
+              title: "पक्षी-ज्ञान",
+              description: "Learning about birds through poetry",
+            },
+            {
+              title: "कविता पाठ",
+              description: "Reading Hindi poetry with correct pronunciation",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "कोयल (Koyal)",
+              definition: "Cuckoo — a bird famous for its sweet singing voice",
+            },
+            {
+              term: "बसंत (Basant)",
+              definition: "Spring — the season associated with cuckoos singing",
+            },
+            {
+              term: "कुहू",
+              definition:
+                "The sound that a cuckoo makes; onomatopoeia in Hindi",
+            },
+          ],
+        },
+        {
+          id: "3-hin-2",
+          number: 2,
+          name: "शेखीबाज़ मक्खी",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "यह कहानी एक घमंडी मक्खी की है जो शेर के कान में घुसकर परेशान करती है और खुद को बहादुर समझती है। लेकिन अंत में वही मक्खी एक साधारण मकड़ी के जाल में फँस जाती है। कहानी में घमंड के पतन का सुंदर संदेश है।",
+            "Students learn the moral that pride and boastfulness lead to downfall. The story uses vivid characters — the boastful fly, the mighty lion (ironically defeated by the tiny fly), and the humble spider (which finally catches the fly). Character contrast teaches moral reasoning.",
+            "Grammar focus: संज्ञा (nouns) and क्रिया (verbs) are identified through the story. Students practice reading Hindi sentences fluently and answer comprehension questions in Hindi. New vocabulary from the story is used in their own sentences.",
+          ],
+          keyConcepts: [
+            {
+              title: "घमंड का परिणाम",
+              description: "Boastfulness leads to downfall — the story's moral",
+            },
+            {
+              title: "संज्ञा और क्रिया",
+              description: "Nouns and verbs in Hindi",
+            },
+            {
+              title: "पात्र-विश्लेषण",
+              description: "Analysing characters and their traits",
+            },
+            {
+              title: "नैतिक कहानी",
+              description: "Moral stories in Hindi literature",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "शेखीबाज़ (Shekhibaaz)",
+              definition: "A boastful person who brags about themselves",
+            },
+            {
+              term: "संज्ञा (Sangya)",
+              definition: "Noun — a word naming a person, place, or thing",
+            },
+            {
+              term: "क्रिया (Kriya)",
+              definition: "Verb — a word showing action or state of being",
+            },
+          ],
+        },
+        {
+          id: "3-hin-3",
+          number: 3,
+          name: "चाँद वाली अम्मा",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "यह कविता चाँद को एक माँ की तरह कल्पित करती है जो रात में आसमान में घर करती है और तारों को बच्चों की तरह सुलाती है। बच्चों की कल्पनाशीलता और चाँद के साथ उनके भावनात्मक जुड़ाव को यह कविता खूबसूरती से व्यक्त करती है।",
+            "Students explore personification in Hindi poetry — how the moon is given human qualities (mother, home, nurturing). They learn that Hindi poetry has a rich tradition of finding human feelings in natural objects. This poetic device makes the moon feel warm and familiar.",
+            "The chapter introduces vocabulary related to the night sky — stars, moon, darkness, nighttime sounds. Students write their own short Hindi poem imagining the moon or another celestial body as a person. This creative activity builds Hindi writing skills alongside imagination.",
+          ],
+          keyConcepts: [
+            {
+              title: "मानवीकरण",
+              description: "Personification in Hindi poetry",
+            },
+            {
+              title: "रात्रि शब्दावली",
+              description: "Night sky vocabulary: moon, stars, darkness",
+            },
+            {
+              title: "कल्पना और काव्य",
+              description: "Imagination in Hindi poetry",
+            },
+            {
+              title: "भावनात्मक भाषा",
+              description: "Expressing feelings through poetic language",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "चाँद (Chaand)",
+              definition: "Moon — the satellite of Earth visible at night",
+            },
+            {
+              term: "मानवीकरण",
+              definition:
+                "Personification — giving human qualities to non-human things",
+            },
+            {
+              term: "तारे (Taare)",
+              definition: "Stars — distant suns seen as tiny lights at night",
+            },
+          ],
+        },
+        {
+          id: "3-hin-4",
+          number: 4,
+          name: "मन करता है",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "यह कविता बच्चों की मनोकामनाओं और इच्छाओं को आवाज़ देती है — उड़ने की, तैरने की, पहाड़ चढ़ने की, बारिश में नाचने की। कविता बच्चों की स्वाभाविक जिज्ञासा और जोश को सम्मान देती है।",
+            "The poem uses the grammatical construction 'मन करता है + infinitive verb' — 'I feel like doing...'. Students learn this common Hindi expression for wishes and desires. They practice creating their own sentences using this pattern to express personal wishes.",
+            "Students write a personal poem listing five things their heart desires to do. This creative Hindi writing activity connects grammar (verb forms) with personal expression. Sharing these wish poems in class builds speaking confidence and vocabulary.",
+          ],
+          keyConcepts: [
+            {
+              title: "इच्छा व्यक्त करना",
+              description: "Expressing wishes and desires in Hindi",
+            },
+            {
+              title: "क्रिया के रूप",
+              description: "Infinitive verb forms in Hindi",
+            },
+            {
+              title: "बालमन की अभिव्यक्ति",
+              description: "Children's feelings and desires in poetry",
+            },
+            {
+              title: "रचनात्मक लेखन",
+              description: "Writing wish poems in Hindi",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "इच्छा (Iccha)",
+              definition: "Desire or wish — something one wants to do",
+            },
+            {
+              term: "क्रिया (Kriya)",
+              definition: "Verb — action word in Hindi grammar",
+            },
+            {
+              term: "मन (Man)",
+              definition:
+                "Mind or heart — used to express feelings and desires",
+            },
+          ],
+        },
+        {
+          id: "3-hin-5",
+          number: 5,
+          name: "बहादुर बित्तो",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "बित्तो एक साहसी लड़की है जो खेत में काम करते समय एक साँप देखती है और घबराने की जगह समझदारी से काम लेती है। वह अपने परिवार और गाँव वालों को बचाने के लिए तुरंत और बुद्धिमानी से काम करती है।",
+            "The story celebrates a brave, quick-thinking girl from a village — challenging stereotypes about girls being timid and dependent. Students discuss what makes Bitto brave: it is not that she has no fear, but that she thinks clearly and acts quickly when others are in danger.",
+            "Grammar focus: भूतकाल (past tense) and वर्तमानकाल (present tense) are compared through the story. Students retell the story of Bitto in their own words, practicing Hindi narrative writing with correct tense usage. This builds both grammar skills and confidence in Hindi storytelling.",
+          ],
+          keyConcepts: [
+            {
+              title: "साहस और बुद्धि",
+              description: "Bravery combined with quick thinking",
+            },
+            {
+              title: "लिंग समानता",
+              description: "Girls can be strong, brave, and smart",
+            },
+            {
+              title: "भूतकाल",
+              description: "Past tense in Hindi — events that already happened",
+            },
+            {
+              title: "कहानी पुनर्कथन",
+              description: "Retelling a story in own words",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "साहस (Saahas)",
+              definition: "Courage or bravery in the face of danger",
+            },
+            {
+              term: "भूतकाल (Bhootkaal)",
+              definition:
+                "Past tense — describing events that already happened",
+            },
+            {
+              term: "बुद्धिमानी (Buddhimaani)",
+              definition:
+                "Intelligence and wise thinking in difficult situations",
+            },
+          ],
+        },
+        {
+          id: "3-hin-6",
+          number: 6,
+          name: "हमसे सब कहते",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "यह कविता बच्चों के नज़रिये से है — बड़े उनसे हमेशा कुछ न कुछ करने के लिए कहते हैं: जल्दी उठो, पढ़ो, खाना खाओ, शोर मत करो। लेकिन बच्चे चाहते हैं कि उन्हें भी अपने मन से जीने का मौका मिले।",
+            "The poem invites children to express their own perspective on the rules adults impose on them. This teaches Hindi writing about personal experience and opinion. Students learn to write first-person (मैं) sentences expressing their views respectfully.",
+            "The chapter introduces the concept that children have rights — to play, to rest, to express opinions, to make some choices. Students compare what adults tell them to do with what they themselves want to do, and discuss where rules are fair and helpful and where children could have more freedom.",
+          ],
+          keyConcepts: [
+            {
+              title: "बच्चों का दृष्टिकोण",
+              description: "Expressing children's perspective on adult rules",
+            },
+            {
+              title: "प्रथम पुरुष",
+              description: "First-person (मैं) writing in Hindi",
+            },
+            {
+              title: "बाल अधिकार",
+              description:
+                "Children's rights to play, rest, and express opinions",
+            },
+            {
+              title: "विचार व्यक्त करना",
+              description: "Expressing opinions and views in Hindi",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "अधिकार (Adhikar)",
+              definition:
+                "Rights — things one is entitled to by law or fairness",
+            },
+            {
+              term: "दृष्टिकोण (Drishtikon)",
+              definition: "Point of view or perspective",
+            },
+            {
+              term: "प्रथम पुरुष",
+              definition: "First person — speaking as oneself using 'मैं' (I)",
+            },
+          ],
+        },
+        {
+          id: "3-hin-7",
+          number: 7,
+          name: "टिपटिपवा",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "टिपटिपवा वर्षा के पानी की टिप-टिप आवाज़ का प्रतीक है। यह कहानी एक जंगल में बारिश के दौरान घटती है जहाँ विभिन्न जानवर अपने अनुभव साझा करते हैं। बारिश से प्रकृति जीवंत हो उठती है।",
+            "Students learn about onomatopoeia in Hindi — टिप-टिप, छप-छप, गड़गड़, बिजली कड़की. These sound words bring language alive and make Hindi reading more vivid and enjoyable. Students collect sound words from their own environment.",
+            "The water cycle is revisited through this story — rain falling, water flowing, plants growing, ponds filling, animals drinking. Students connect the science of water (evaporation, condensation, precipitation) to the enjoyment of monsoon rain. Hindi becomes a bridge between emotional experience and scientific understanding.",
+          ],
+          keyConcepts: [
+            {
+              title: "ध्वनि अनुकरण शब्द",
+              description: "Onomatopoeia in Hindi: टिप-टिप, छप-छप",
+            },
+            {
+              title: "मानसून",
+              description: "Monsoon season and its importance in India",
+            },
+            {
+              title: "प्रकृति वर्णन",
+              description: "Describing nature scenes in Hindi",
+            },
+            {
+              title: "जल चक्र",
+              description: "Water cycle through the lens of Hindi story",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "ध्वनि अनुकरण",
+              definition:
+                "Onomatopoeia — words imitating the sound they describe",
+            },
+            {
+              term: "मानसून (Monsoon)",
+              definition:
+                "The rainy season in India, usually June to September",
+            },
+            {
+              term: "वर्षा (Varsha)",
+              definition: "Rain — water falling from clouds",
+            },
+          ],
+        },
+        {
+          id: "3-hin-8",
+          number: 8,
+          name: "बंदर बाँट",
+          subject: "Hindi",
+          classNum: 3,
+          explanation: [
+            "दो बिल्लियाँ एक रोटी को लेकर झगड़ रही हैं। एक चालाक बंदर न्यायाधीश बनकर दोनों टुकड़ों को 'बराबर' करने के नाम पर खुद खाता जाता है, जब तक रोटी खत्म नहीं हो जाती। बिल्लियाँ खाली हाथ रह जाती हैं।",
+            "The story teaches a powerful lesson about greed and the danger of letting a third party decide disputes between friends. When two people quarrel, outsiders often benefit at both their expenses. Students discuss how the cats should have resolved their dispute fairly between themselves.",
+            "Grammar focus: संवाद लेखन (dialogue writing) in Hindi. Students write the conversation between the two cats and the monkey, using correct punctuation for dialogue (speech marks in Hindi text). This develops Hindi writing skills along with understanding of moral reasoning.",
+          ],
+          keyConcepts: [
+            {
+              title: "लालच का परिणाम",
+              description: "Greed and deception lead to loss for everyone",
+            },
+            {
+              title: "विवाद समाधान",
+              description: "How to resolve disagreements fairly",
+            },
+            {
+              title: "संवाद लेखन",
+              description: "Writing dialogue between characters in Hindi",
+            },
+            {
+              title: "नैतिक पाठ",
+              description: "Moral lesson about fairness and trust",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "बाँट (Baant)",
+              definition: "Division or sharing of something between people",
+            },
+            {
+              term: "संवाद (Samvaad)",
+              definition:
+                "Dialogue — conversation between two or more characters",
+            },
+            {
+              term: "न्याय (Nyaay)",
+              definition: "Justice or fairness in resolving disputes",
             },
           ],
         },
@@ -1332,6 +3265,136 @@ const class5: NCERTClass = {
       icon: "🔢",
       chapters: [
         {
+          id: "5-math-1",
+          number: 1,
+          name: "The Fish Tale",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Through the story of a fishing village, students explore large numbers, estimation, and multiplication. If one fisherman catches 45 fish per day and there are 200 fishermen, how many fish are caught in a week? These practical problems show multiplication's power.",
+            "Estimation is a key skill — before calculating exactly, we estimate to check if an answer is reasonable. 'About 200 × 50 = about 10,000' is faster than exact calculation and helps catch errors. Mental math strategies using rounding make everyday calculations more manageable.",
+            "The chapter introduces data handling through the fishing context. Students learn to collect data (how many fish different people catch), organize it in tables, and represent it in bar graphs. These are foundational data literacy skills for the modern world.",
+          ],
+          keyConcepts: [
+            {
+              title: "Large Number Multiplication",
+              description: "Multiplying 3-4 digit numbers",
+            },
+            {
+              title: "Estimation",
+              description: "Rounding to find approximate answers",
+            },
+            {
+              title: "Data Collection",
+              description: "Gathering and organizing information",
+            },
+            { title: "Bar Graphs", description: "Representing data visually" },
+          ],
+          importantTerms: [
+            {
+              term: "Estimation",
+              definition: "An approximate calculation or judgment",
+            },
+            { term: "Data", definition: "Information collected for analysis" },
+            {
+              term: "Bar Graph",
+              definition: "A chart using bars to represent quantities",
+            },
+          ],
+        },
+        {
+          id: "5-math-2",
+          number: 2,
+          name: "Shapes and Angles",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "An angle is formed when two rays meet at a common point (the vertex). Angles are measured in degrees (°). Students learn to identify and name different types of angles: acute angle (less than 90°), right angle (exactly 90°), obtuse angle (between 90° and 180°), and straight angle (exactly 180°).",
+            "A protractor is the tool used to measure angles. Students learn to place a protractor correctly — aligning the centre with the vertex and the baseline with one ray — and read the scale. They measure angles in shapes around them, discovering that all triangles have angles summing to 180°.",
+            "Students explore angles in everyday life — the hands of a clock, the opening of a book, a door swinging open, the corner of a table. Identifying angles in real-world contexts builds geometric intuition and makes abstract concepts concrete.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Angles",
+              description: "Acute, right, obtuse, and straight angles",
+            },
+            {
+              title: "Measuring Angles",
+              description: "Using a protractor correctly",
+            },
+            {
+              title: "Angle Sum in Triangle",
+              description: "All three angles in any triangle add up to 180°",
+            },
+            {
+              title: "Angles in Daily Life",
+              description: "Finding angles in clocks, doors, shapes",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Angle",
+              definition:
+                "The space between two rays sharing a common vertex, measured in degrees",
+            },
+            {
+              term: "Right Angle",
+              definition:
+                "An angle of exactly 90°, like the corner of a square",
+            },
+            {
+              term: "Protractor",
+              definition: "A semicircular tool used to measure angles",
+            },
+          ],
+        },
+        {
+          id: "5-math-3",
+          number: 3,
+          name: "How Many Squares?",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Area is the amount of surface a shape covers. This chapter introduces area by counting unit squares inside shapes. Students place a square grid over shapes and count full squares, then estimate partial squares. This hands-on approach makes area intuitive.",
+            "Students discover that the area of a rectangle can be found by multiplying its length by its width: Area = Length × Width. This formula is derived from counting — a 4×3 rectangle has 4 rows of 3 squares = 12 squares. Understanding why the formula works is more valuable than just using it.",
+            "Comparing areas of irregular shapes by counting squares shows that two shapes with different perimeters can have the same area, and vice versa. Students design their own shapes on grid paper and compare areas, building flexible geometric thinking.",
+          ],
+          keyConcepts: [
+            {
+              title: "Area by Counting",
+              description: "Counting unit squares inside a shape",
+            },
+            {
+              title: "Area Formula",
+              description: "Area = Length × Width for rectangles",
+            },
+            {
+              title: "Area vs Perimeter",
+              description: "Different shapes can have equal area",
+            },
+            {
+              title: "Unit of Area",
+              description: "Square centimetre (cm²) as unit of area",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Area",
+              definition:
+                "The amount of surface a shape covers, measured in square units",
+            },
+            {
+              term: "Square Centimetre (cm²)",
+              definition: "A unit of area equal to a square with sides of 1 cm",
+            },
+            {
+              term: "Unit Square",
+              definition:
+                "A square with sides of 1 unit, used as the basic measure of area",
+            },
+          ],
+        },
+        {
           id: "5-math-4",
           number: 4,
           name: "Parts and Wholes (Fractions)",
@@ -1376,6 +3439,471 @@ const class5: NCERTClass = {
             },
           ],
           videoKeyword: "fractions",
+        },
+        {
+          id: "5-math-5",
+          number: 5,
+          name: "Does It Look The Same?",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Symmetry means a shape looks the same when reflected in a mirror line. A shape has a line of symmetry if folding along that line makes both halves match perfectly. Students explore how many lines of symmetry different shapes have — a square has 4, a rectangle has 2, a circle has infinitely many.",
+            "Mirror images and reflections are explored practically — students hold a mirror against shapes and letters and observe what happens. They notice that some letters (A, H, M) look the same in a mirror while others (b, d, p, q) change. This connects symmetry to reading and visual perception.",
+            "Rotation symmetry is introduced — a shape has rotational symmetry if it looks the same after being rotated by less than 360°. A square looks the same after rotation by 90°, 180°, and 270°. Students investigate rotational symmetry in patterns found in rangoli, tiles, and nature.",
+          ],
+          keyConcepts: [
+            {
+              title: "Line of Symmetry",
+              description: "The fold line that creates two identical halves",
+            },
+            {
+              title: "Mirror Images",
+              description: "Reflection of a shape across a line",
+            },
+            {
+              title: "Rotational Symmetry",
+              description: "A shape looking the same after partial rotation",
+            },
+            {
+              title: "Symmetry in Nature",
+              description:
+                "Symmetry in leaves, butterflies, flowers, snowflakes",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Symmetry",
+              definition:
+                "A shape has symmetry if it looks the same after reflection or rotation",
+            },
+            {
+              term: "Line of Symmetry",
+              definition:
+                "A line dividing a shape into two mirror-image halves",
+            },
+            {
+              term: "Rotation",
+              definition: "Turning a shape around a central point",
+            },
+          ],
+        },
+        {
+          id: "5-math-6",
+          number: 6,
+          name: "Be My Multiple, I'll Be Your Factor",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "A factor of a number divides it exactly without any remainder. Factors of 12 are 1, 2, 3, 4, 6, and 12. A multiple of a number is found by multiplying it by 1, 2, 3... The multiples of 4 are 4, 8, 12, 16... Every number is both a factor and multiple of itself.",
+            "The Highest Common Factor (HCF) is the largest factor shared by two or more numbers. HCF of 12 and 18 is 6. The Lowest Common Multiple (LCM) is the smallest multiple shared by two or more numbers. LCM of 4 and 6 is 12. These concepts are essential for simplifying fractions and solving real-world sharing problems.",
+            "Prime numbers have exactly two factors: 1 and themselves. 2, 3, 5, 7, 11, 13 are primes. Composite numbers have more than two factors. The Sieve of Eratosthenes is an ancient method for finding all primes up to any number. Prime factorisation expresses any number as a product of prime factors.",
+          ],
+          keyConcepts: [
+            {
+              title: "Factors and Multiples",
+              description: "Factors divide exactly; multiples are products",
+            },
+            {
+              title: "HCF",
+              description: "Highest Common Factor of two or more numbers",
+            },
+            {
+              title: "LCM",
+              description: "Lowest Common Multiple of two or more numbers",
+            },
+            {
+              title: "Prime Numbers",
+              description: "Numbers with exactly two factors: 1 and itself",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Factor",
+              definition: "A number that divides another number exactly",
+            },
+            {
+              term: "Multiple",
+              definition: "A number obtained by multiplying a given number",
+            },
+            {
+              term: "HCF",
+              definition:
+                "Highest Common Factor — largest factor shared by two numbers",
+            },
+            {
+              term: "LCM",
+              definition:
+                "Lowest Common Multiple — smallest multiple shared by two numbers",
+            },
+          ],
+        },
+        {
+          id: "5-math-7",
+          number: 7,
+          name: "Can You See The Pattern?",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Number patterns appear everywhere in mathematics. The simplest are arithmetic sequences (adding the same number each time: 3, 6, 9, 12...) and geometric sequences (multiplying by the same number: 2, 4, 8, 16...). Identifying the rule in a pattern allows us to predict future terms.",
+            "More complex patterns include triangular numbers (1, 3, 6, 10, 15...) formed by triangular arrangements of dots, and square numbers (1, 4, 9, 16...) formed by square arrangements. Students draw these visually to understand why numbers behave as they do.",
+            "Magic squares, where all rows, columns, and diagonals add to the same total, challenge students to apply systematic thinking. Finding the pattern in each row and column develops algebraic thinking — the foundation of algebra in higher classes.",
+          ],
+          keyConcepts: [
+            {
+              title: "Arithmetic Sequences",
+              description: "Adding same amount each time",
+            },
+            {
+              title: "Geometric Sequences",
+              description: "Multiplying by same amount each time",
+            },
+            {
+              title: "Triangular and Square Numbers",
+              description: "Special number patterns based on shapes",
+            },
+            {
+              title: "Magic Squares",
+              description: "Grid where all rows/columns/diagonals sum equally",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Pattern",
+              definition:
+                "A repeating or predictable sequence of numbers or shapes",
+            },
+            {
+              term: "Sequence",
+              definition: "An ordered list of numbers following a rule",
+            },
+            {
+              term: "Magic Square",
+              definition:
+                "A grid where all rows, columns, and diagonals add to the same number",
+            },
+          ],
+        },
+        {
+          id: "5-math-8",
+          number: 8,
+          name: "Mapping Your Way",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Maps are scaled representations of real areas as seen from above. Scale shows the relationship between map distance and real distance — for example, 1 cm on the map = 1 km in real life. Students calculate real distances using map scale: if the map distance is 5 cm and scale is 1:100,000, the real distance is 5 km.",
+            "Map directions use cardinal (N, S, E, W) and intermediate (NE, NW, SE, SW) points. Grid references (like A3, B5) identify exact locations on a map. Students read and draw simple maps of their school, neighbourhood, or an imaginary town, applying direction and scale.",
+            "Maps have different purposes — political maps show country and state boundaries, physical maps show terrain and rivers, weather maps show rainfall and temperature, and treasure maps show paths to hidden things. Understanding how map type serves its purpose builds critical geographic thinking.",
+          ],
+          keyConcepts: [
+            {
+              title: "Map Scale",
+              description: "Ratio between map distance and real distance",
+            },
+            {
+              title: "Directions on Maps",
+              description: "N, S, E, W and intermediate directions",
+            },
+            {
+              title: "Grid References",
+              description: "Finding locations using letter-number coordinates",
+            },
+            {
+              title: "Types of Maps",
+              description: "Political, physical, weather, and thematic maps",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Scale",
+              definition: "Ratio of map distance to real-world distance",
+            },
+            {
+              term: "Grid Reference",
+              definition:
+                "A letter-number code identifying a location on a map",
+            },
+            {
+              term: "Legend",
+              definition: "A map key explaining what symbols represent",
+            },
+          ],
+        },
+        {
+          id: "5-math-9",
+          number: 9,
+          name: "Boxes and Sketches",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "3D shapes (cubes, cuboids, cylinders, cones, spheres) have three dimensions: length, width, and height. Students learn to identify these shapes from different views — top, front, and side view. The same 3D object looks very different depending on the viewing angle.",
+            "A net is a 2D shape that can be folded to make a 3D shape. Students cut out nets of cubes and cuboids from squared paper and fold them to verify the shapes. This hands-on activity builds spatial reasoning — a skill essential for engineering, architecture, and design.",
+            "Students count faces, edges, and vertices of 3D shapes. Euler's Formula connects these: Vertices - Edges + Faces = 2 for all convex polyhedra. A cube has 8 vertices, 12 edges, and 6 faces: 8 - 12 + 6 = 2. This elegant formula shows the deep connection between shape properties.",
+          ],
+          keyConcepts: [
+            {
+              title: "3D Shapes",
+              description: "Cube, cuboid, cylinder, cone, sphere",
+            },
+            {
+              title: "Nets of 3D Shapes",
+              description: "Flat patterns that fold into 3D shapes",
+            },
+            {
+              title: "Views of 3D Objects",
+              description: "Top, front, and side views",
+            },
+            {
+              title: "Faces, Edges, Vertices",
+              description: "Properties of 3D shapes; Euler's formula",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Net",
+              definition: "A 2D pattern that folds up to make a 3D shape",
+            },
+            {
+              term: "Vertex",
+              definition: "A corner where two or more edges of a shape meet",
+            },
+            {
+              term: "Edge",
+              definition: "A line where two faces of a 3D shape meet",
+            },
+          ],
+        },
+        {
+          id: "5-math-10",
+          number: 10,
+          name: "Tenths and Hundredths",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Decimals extend the place value system beyond the ones column. A decimal point separates the whole number part from the fractional part. The first column after the decimal is tenths (1/10), the second is hundredths (1/100). So 3.47 means 3 ones, 4 tenths, and 7 hundredths.",
+            "Decimals and fractions represent the same values: 0.5 = 5/10 = 1/2, 0.25 = 25/100 = 1/4. Converting between them is an important skill. Students use a 10×10 grid to visualise decimals — shading 47 out of 100 squares shows 0.47.",
+            "Comparing and ordering decimals requires careful attention to place value. 0.3 is not the same as 0.30 (they are equal) but 0.3 is greater than 0.25 because 3 tenths is more than 2 tenths. Students practice addition and subtraction of decimals, keeping the decimal point aligned.",
+          ],
+          keyConcepts: [
+            {
+              title: "Decimal Place Value",
+              description: "Tenths (1/10) and hundredths (1/100)",
+            },
+            {
+              title: "Fractions and Decimals",
+              description: "Converting between decimal and fraction notation",
+            },
+            {
+              title: "Comparing Decimals",
+              description: "Ordering decimal numbers by place value",
+            },
+            {
+              title: "Decimal Operations",
+              description: "Adding and subtracting decimals",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Decimal",
+              definition:
+                "A number with a decimal point separating whole from fractional part",
+            },
+            {
+              term: "Tenths",
+              definition: "The first decimal place; one tenth = 0.1 = 1/10",
+            },
+            {
+              term: "Hundredths",
+              definition:
+                "The second decimal place; one hundredth = 0.01 = 1/100",
+            },
+          ],
+        },
+        {
+          id: "5-math-11",
+          number: 11,
+          name: "Area and Its Boundary",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Perimeter is the total distance around the outside of a shape — the sum of all its sides. For a rectangle: Perimeter = 2 × (Length + Width). For a square: Perimeter = 4 × Side. Students measure perimeters in practical contexts: fencing a garden, framing a photo.",
+            "Area is the surface covered by a shape. For a rectangle: Area = Length × Width. Students discover that increasing perimeter doesn't necessarily increase area. A 6×1 rectangle has perimeter 14 and area 6; a 4×3 rectangle also has perimeter 14 but area 12.",
+            "Real-world problems connect area and perimeter: how much paint to buy for a wall (area), how much fencing for a garden (perimeter). Students measure their classroom and calculate both. The distinction between 'around' (perimeter) and 'inside' (area) is fundamental to spatial reasoning.",
+          ],
+          keyConcepts: [
+            {
+              title: "Perimeter",
+              description: "Total distance around the boundary of a shape",
+            },
+            {
+              title: "Area",
+              description: "Surface covered by a shape; Area = L × W",
+            },
+            {
+              title: "Perimeter vs Area",
+              description:
+                "Different measures; same perimeter can give different areas",
+            },
+            {
+              title: "Real-World Application",
+              description: "Fencing (perimeter) and painting (area)",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Perimeter",
+              definition:
+                "The total distance around the outside boundary of a shape",
+            },
+            {
+              term: "Area",
+              definition: "The amount of surface enclosed within a boundary",
+            },
+            {
+              term: "Square Metre (m²)",
+              definition: "Unit of area for larger surfaces",
+            },
+          ],
+        },
+        {
+          id: "5-math-12",
+          number: 12,
+          name: "Smart Charts",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Data is information collected and organized for a purpose. Students learn the data handling process: collecting (through surveys, counting), organizing (in tally marks and tables), representing (in graphs), and interpreting (drawing conclusions from graphs).",
+            "Bar graphs use rectangular bars of different heights to compare quantities. Each bar represents a category; the height shows the value. Students draw bar graphs on squared paper, labelling axes, giving a title, and choosing an appropriate scale.",
+            "Pie charts (circle graphs) show data as proportions of a whole circle. They are ideal for showing 'what fraction of the total' each category represents. Students interpret pie charts and discuss their strengths and limitations compared to bar graphs.",
+          ],
+          keyConcepts: [
+            {
+              title: "Data Collection",
+              description:
+                "Surveys, tally marks, and organising data in tables",
+            },
+            {
+              title: "Bar Graphs",
+              description: "Comparing quantities using rectangular bars",
+            },
+            {
+              title: "Pie Charts",
+              description:
+                "Showing proportions of a whole using circle sectors",
+            },
+            {
+              title: "Interpreting Data",
+              description: "Drawing conclusions from graphs and tables",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tally Marks",
+              definition:
+                "Marks used to count in groups of five for easy totalling",
+            },
+            {
+              term: "Bar Graph",
+              definition: "A chart using rectangular bars to show data",
+            },
+            {
+              term: "Pie Chart",
+              definition:
+                "A circular chart divided into sectors showing proportions",
+            },
+          ],
+        },
+        {
+          id: "5-math-13",
+          number: 13,
+          name: "Ways to Multiply and Divide",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Multiplication can be done in many ways. The standard algorithm (column multiplication) is one method, but mental math strategies like breaking numbers apart are often faster. For example: 23 × 4 = (20 × 4) + (3 × 4) = 80 + 12 = 92. The distributive property makes this possible.",
+            "Long division breaks the process into steps: Divide the first digit(s), Multiply, Subtract, Bring down — and repeat. Students practice dividing 3 and 4-digit numbers by 1 and 2-digit divisors, always checking their answer by multiplying back.",
+            "Estimation is valuable in both multiplication and division: rounding numbers before calculating gives a quick approximate answer to check if the exact answer is reasonable. 'Is 234 × 17 about 200 × 20 = 4,000? My answer of 3,978 seems right!'",
+          ],
+          keyConcepts: [
+            {
+              title: "Multiplication Strategies",
+              description:
+                "Standard algorithm and mental math using distribution",
+            },
+            {
+              title: "Long Division",
+              description: "Divide, multiply, subtract, bring down — repeat",
+            },
+            {
+              title: "Estimation in Calculation",
+              description: "Using rounding to check exact answers",
+            },
+            {
+              title: "Distributive Property",
+              description: "a × (b + c) = a×b + a×c",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Distributive Property",
+              definition:
+                "Multiplying a sum by breaking it into parts: a(b+c) = ab + ac",
+            },
+            {
+              term: "Quotient",
+              definition: "The result of a division",
+            },
+            {
+              term: "Remainder",
+              definition:
+                "What is left over when a number cannot be divided exactly",
+            },
+          ],
+        },
+        {
+          id: "5-math-14",
+          number: 14,
+          name: "How Big? How Heavy?",
+          subject: "Mathematics",
+          classNum: 5,
+          explanation: [
+            "Volume is the amount of 3D space an object occupies. Students build cuboids from unit cubes and count the cubes to find volume. A cuboid of length 4, width 3, and height 2 contains 4×3×2 = 24 unit cubes. Volume = Length × Width × Height, and is measured in cubic units.",
+            "Mass is how much matter an object contains. It is measured in grams (g) and kilograms (kg). Weight is the force of gravity on an object — heavier objects have more weight. Students weigh classroom objects and estimate mass before measuring, building strong mass intuition.",
+            "Estimating size and mass is a practical skill: Is a bag of rice closer to 1 kg or 5 kg? Is a swimming pool closer to 1,000 litres or 1,000,000 litres? Students develop the ability to make reasonable estimates in everyday contexts, knowing when precision is needed and when an estimate is enough.",
+          ],
+          keyConcepts: [
+            {
+              title: "Volume",
+              description: "3D space occupied; Volume = L × W × H",
+            },
+            {
+              title: "Cubic Units",
+              description: "cm³ and m³ as units of volume",
+            },
+            {
+              title: "Mass vs Weight",
+              description: "Mass = amount of matter; weight = gravity's force",
+            },
+            {
+              title: "Estimation",
+              description: "Making reasonable guesses about size and mass",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Volume",
+              definition:
+                "The amount of 3D space an object occupies, measured in cubic units",
+            },
+            {
+              term: "Cubic Centimetre (cm³)",
+              definition: "A unit of volume; a cube with 1 cm sides",
+            },
+            {
+              term: "Mass",
+              definition:
+                "The amount of matter in an object, measured in grams or kilograms",
+            },
+          ],
         },
       ],
     },
@@ -1429,6 +3957,51 @@ const class5: NCERTClass = {
           ],
         },
         {
+          id: "5-eng-2",
+          number: 2,
+          name: "Wonderful Waste!",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "This story explores how what we consider 'waste' can be a wonderful resource if we think creatively. Orange peels become marmalade, vegetable water becomes soup stock, torn cloth becomes a rag rug. The story celebrates ingenuity and sustainability.",
+            "Students learn about recycling (processing waste into new materials), reusing (using the same object again), and reducing (buying and consuming less). These three R's are the foundation of environmental responsibility. Students audit their own home waste and identify opportunities for the three R's.",
+            "The story develops vocabulary related to sustainability and household economy. Students write a 'Wonderful Waste' story of their own, imagining creative uses for something usually thrown away. This creative non-fiction writing builds imagination and environmental thinking simultaneously.",
+          ],
+          keyConcepts: [
+            {
+              title: "Three R's",
+              description: "Reduce, Reuse, Recycle for sustainable living",
+            },
+            {
+              title: "Sustainability",
+              description: "Using resources wisely for future generations",
+            },
+            {
+              title: "Creative Reuse",
+              description: "Finding new uses for 'waste' materials",
+            },
+            {
+              title: "Environmental Responsibility",
+              description: "Individual actions that help the planet",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Recycle",
+              definition: "Process waste materials into new products",
+            },
+            {
+              term: "Reuse",
+              definition: "Use something again rather than throwing it away",
+            },
+            {
+              term: "Sustainability",
+              definition:
+                "Using resources in ways that can be maintained long-term",
+            },
+          ],
+        },
+        {
           id: "5-eng-3",
           number: 3,
           name: "My Shadow",
@@ -1466,6 +4039,237 @@ const class5: NCERTClass = {
             {
               term: "Stanza",
               definition: "A group of lines in a poem (like a paragraph)",
+            },
+          ],
+        },
+        {
+          id: "5-eng-4",
+          number: 4,
+          name: "Robinson Crusoe Discovers a Footprint",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "Adapted from Daniel Defoe's classic novel, this excerpt follows Robinson Crusoe — a man stranded alone on an island — who discovers a human footprint in the sand. The discovery brings both hope (he is not alone) and terror (who is it?). The tension and suspense make this a masterclass in descriptive writing.",
+            "Students analyse how the author builds suspense — short sentences, repeated questions, vivid description of Crusoe's physical reactions (heart pounding, legs trembling). These techniques are identified and then applied in students' own adventure writing.",
+            "The chapter introduces the genre of adventure fiction. Students discuss what makes an adventure story gripping: an isolated hero, a problem or mystery, dangerous circumstances, and the hero's internal thoughts and fears. Students plan an adventure story of their own using these elements.",
+          ],
+          keyConcepts: [
+            {
+              title: "Building Suspense",
+              description: "Short sentences, questions, physical reactions",
+            },
+            {
+              title: "Adventure Fiction",
+              description: "Genre features: isolated hero, mystery, danger",
+            },
+            {
+              title: "Descriptive Writing",
+              description: "Using vivid details to create tension",
+            },
+            {
+              title: "First-Person Narrative",
+              description: "Story told from the perspective of 'I'",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Suspense",
+              definition:
+                "A feeling of excited uncertainty about what will happen",
+            },
+            {
+              term: "First-Person Narrative",
+              definition:
+                "A story told from the narrator's own perspective using 'I'",
+            },
+            {
+              term: "Adventure Fiction",
+              definition:
+                "A story genre featuring exciting challenges and danger",
+            },
+          ],
+        },
+        {
+          id: "5-eng-5",
+          number: 5,
+          name: "Flying Together",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "This poem describes a flock of geese flying together in a V-formation. The lead goose breaks the air resistance for those behind, and when the leader tires, another takes the front. The formation allows the whole flock to fly much farther than any one goose could alone.",
+            "The poem is a sustained metaphor for human cooperation and teamwork. Just as geese support each other by flying together, people support each other through cooperation. Students identify the metaphorical meaning and discuss how it applies to family, classroom, sports teams, and communities.",
+            "Students learn about onomatopoeia through the sounds of wings beating, about imagery through the visual of geese in the sky, and about extended metaphor (metaphor sustained throughout a poem). These poetic devices are practiced in students' own cooperative-themed poems.",
+          ],
+          keyConcepts: [
+            {
+              title: "Extended Metaphor",
+              description: "A comparison sustained throughout an entire poem",
+            },
+            {
+              title: "Cooperation Theme",
+              description: "Working together achieves more than working alone",
+            },
+            {
+              title: "Geese and Formation Flying",
+              description: "Science of V-formation and air resistance",
+            },
+            {
+              title: "Poetic Devices",
+              description: "Metaphor, imagery, and onomatopoeia in the poem",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Extended Metaphor",
+              definition:
+                "A metaphor carried through the whole poem or passage",
+            },
+            {
+              term: "Cooperation",
+              definition: "Working together with others for mutual benefit",
+            },
+            {
+              term: "Formation",
+              definition: "An arrangement or pattern, especially of a group",
+            },
+          ],
+        },
+        {
+          id: "5-eng-6",
+          number: 6,
+          name: "Rip Van Winkle",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "In this famous story, Rip Van Winkle falls asleep in the mountains and wakes up 20 years later to find his world completely changed — his village is different, his wife and dog are gone, his children are grown adults. The story explores the theme of time passing and the impossibility of escaping change.",
+            "Students learn about Washington Irving's original story and its cultural context. They discuss how the world changes over 20 years — technology, society, fashion, politics — and imagine what Rip must have felt. This builds empathy and historical thinking.",
+            "The chapter introduces vocabulary about change, time, and confusion. Grammar focus: narrative tenses (simple past, past continuous, past perfect) are all used in retelling the story. Students write a modern retelling — what would Rip find if he woke up in today's world after a 20-year sleep?",
+          ],
+          keyConcepts: [
+            {
+              title: "Theme of Change",
+              description: "How the world changes over time",
+            },
+            {
+              title: "Narrative Tenses",
+              description: "Past simple, past continuous, past perfect",
+            },
+            {
+              title: "Folk Tale",
+              description: "Traditional story with a moral or cultural message",
+            },
+            {
+              title: "Creative Retelling",
+              description: "Reimagining a classic story in a modern setting",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Folk Tale",
+              definition:
+                "A traditional story passed down through oral tradition",
+            },
+            {
+              term: "Nostalgia",
+              definition: "A feeling of longing for the past",
+            },
+            {
+              term: "Past Perfect",
+              definition:
+                "Tense describing an action completed before another past action",
+            },
+          ],
+        },
+        {
+          id: "5-eng-7",
+          number: 7,
+          name: "The Lazy Frog",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "This humorous poem describes a frog who refuses to do anything energetic — he won't jump, swim, or catch flies. He only wants to sit on a lily pad and complain about how tired he is. The comedy comes from the gap between the frog's dramatic laziness and the simplicity of what is asked of him.",
+            "Students explore humour in poetry — exaggeration (hyperbole), comic situations, irony, and repetition for comic effect. They identify which techniques make the poem funny and try to incorporate humour into their own writing. Comedy is a sophisticated literary skill.",
+            "Describing words (adjectives and adverbs) are the grammar focus. The lazy frog is described with vivid adjectives. Students practise using adverbs to describe verbs: the frog complained bitterly, sat lazily, yawned dramatically. This enriches their descriptive writing vocabulary.",
+          ],
+          keyConcepts: [
+            {
+              title: "Humour in Poetry",
+              description: "Exaggeration, irony, comic situations",
+            },
+            {
+              title: "Hyperbole",
+              description:
+                "Deliberate exaggeration for comic or dramatic effect",
+            },
+            {
+              title: "Adjectives and Adverbs",
+              description: "Describing words for nouns and verbs",
+            },
+            {
+              title: "Comic Writing",
+              description: "Techniques for making writing funny",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Hyperbole",
+              definition:
+                "Exaggerated statements not meant to be taken literally",
+            },
+            {
+              term: "Adverb",
+              definition:
+                "A word that modifies a verb, adjective, or other adverb",
+            },
+            {
+              term: "Irony",
+              definition:
+                "When words or situations mean the opposite of what is expected",
+            },
+          ],
+        },
+        {
+          id: "5-eng-8",
+          number: 8,
+          name: "Teamwork",
+          subject: "English",
+          classNum: 5,
+          explanation: [
+            "In this story, a group of animals with different strengths — an elephant's power, a monkey's agility, a parrot's sharp eyesight, and a turtle's patience — must work together to help their friend cross a dangerous river. No single animal can do it alone, but together they succeed.",
+            "Each animal's unique contribution is valued equally. The story challenges the idea that only certain skills (usually strength or intelligence) are valuable. Students identify their own unique strengths and how they contribute to group projects.",
+            "The story introduces the concept of synergy — the idea that a team can achieve more than the sum of its parts. Students apply this to group work in class, discussing how different roles (leader, organiser, creator, supporter) are all necessary for a successful team project.",
+          ],
+          keyConcepts: [
+            {
+              title: "Synergy",
+              description: "A team achieves more together than individually",
+            },
+            {
+              title: "Valuing Different Strengths",
+              description: "All skills and contributions matter",
+            },
+            {
+              title: "Character Values",
+              description: "Cooperation, patience, and respect for others",
+            },
+            {
+              title: "Story Moral",
+              description: "Identifying and applying a story's moral lesson",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Synergy",
+              definition:
+                "Combined effort producing a greater result than the sum of individual efforts",
+            },
+            {
+              term: "Collaboration",
+              definition: "Working with others to achieve a shared goal",
+            },
+            {
+              term: "Moral",
+              definition: "The lesson or message a story teaches",
             },
           ],
         },
@@ -1612,47 +4416,1178 @@ const class5: NCERTClass = {
             },
           ],
         },
-      ],
-    },
-    {
-      name: "Mathematics",
-      icon: "🔢",
-      chapters: [
         {
-          id: "5-math-1",
-          number: 1,
-          name: "The Fish Tale",
-          subject: "Mathematics",
+          id: "5-evs-2",
+          number: 2,
+          name: "A Snake Charmer's Story",
+          subject: "EVS",
           classNum: 5,
           explanation: [
-            "Through the story of a fishing village, students explore large numbers, estimation, and multiplication. If one fisherman catches 45 fish per day and there are 200 fishermen, how many fish are caught in a week? These practical problems show multiplication's power.",
-            "Estimation is a key skill — before calculating exactly, we estimate to check if an answer is reasonable. 'About 200 × 50 = about 10,000' is faster than exact calculation and helps catch errors. Mental math strategies using rounding make everyday calculations more manageable.",
-            "The chapter introduces data handling through the fishing context. Students learn to collect data (how many fish different people catch), organize it in tables, and represent it in bar graphs. These are foundational data literacy skills for the modern world.",
+            "Snake charming is a traditional occupation in India practised by the Sapera community. Using a flute (pungi), the snake charmer coaxes a cobra to sway. The snake doesn't actually hear the music (snakes have no external ears) but responds to the movement of the instrument. This ancient art form is part of India's cultural heritage.",
+            "Snakes are misunderstood creatures. Most are harmless; only a few Indian species are venomous. Snakes are essential to agriculture — they control rodent populations that destroy grain. The chapter builds scientific understanding of snakes and reduces irrational fear.",
+            "Snake charming as an occupation is declining due to the Wildlife Protection Act (1972), which makes keeping wild snakes illegal. Many Sapera families face economic hardship. The chapter raises questions about cultural heritage vs wildlife protection — a complex issue with no easy answers.",
           ],
           keyConcepts: [
             {
-              title: "Large Number Multiplication",
-              description: "Multiplying 3-4 digit numbers",
+              title: "Snake Charming Tradition",
+              description: "Sapera community's traditional occupation",
             },
             {
-              title: "Estimation",
-              description: "Rounding to find approximate answers",
+              title: "Snake Biology",
+              description: "How snakes hear and move; venomous vs non-venomous",
             },
             {
-              title: "Data Collection",
-              description: "Gathering and organizing information",
+              title: "Wildlife Protection",
+              description: "Laws protecting wild animals in India",
             },
-            { title: "Bar Graphs", description: "Representing data visually" },
+            {
+              title: "Occupation at Risk",
+              description: "Traditional livelihoods threatened by modern laws",
+            },
           ],
           importantTerms: [
             {
-              term: "Estimation",
-              definition: "An approximate calculation or judgment",
+              term: "Sapera",
+              definition: "A traditional snake-charmer community in India",
             },
-            { term: "Data", definition: "Information collected for analysis" },
             {
-              term: "Bar Graph",
-              definition: "A chart using bars to represent quantities",
+              term: "Wildlife Protection Act",
+              definition:
+                "Indian law (1972) protecting wildlife from exploitation",
+            },
+            {
+              term: "Venom",
+              definition:
+                "Poisonous substance produced by certain snakes and other animals",
+            },
+          ],
+        },
+        {
+          id: "5-evs-4",
+          number: 4,
+          name: "Mangoes Round the Year",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Mangoes are available for only a few months a year, but people in India have developed clever methods to preserve them for use throughout the year. Pickling (mixing with oil, salt, and spices), making amchur (drying and powdering raw mango), preparing aam papad (mango leather), and bottling juice all extend the fruit's availability.",
+            "Food preservation works by preventing the growth of microorganisms that cause spoilage. Salt, oil, vinegar, and sugar create conditions where bacteria and fungi cannot thrive. Drying removes the water that microorganisms need. Refrigeration slows their growth. Understanding these principles helps students appreciate why preserved foods stay safe.",
+            "Different cultures around the world preserve foods in unique ways — Korean kimchi, German sauerkraut, Italian sun-dried tomatoes, Indian pickles and chutneys. This global perspective shows food preservation as a universal human response to seasonal abundance and scarcity.",
+          ],
+          keyConcepts: [
+            {
+              title: "Food Preservation Methods",
+              description:
+                "Pickling, drying, freezing, canning, and fermenting",
+            },
+            {
+              title: "Why Food Spoils",
+              description: "Microorganisms need moisture and warmth to grow",
+            },
+            {
+              title: "Mango Preservation",
+              description: "Pickle, amchur, aam papad, juice from mangoes",
+            },
+            {
+              title: "Global Food Traditions",
+              description: "Preservation methods in different cultures",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Preservation",
+              definition:
+                "Preventing food from spoiling so it can be stored longer",
+            },
+            {
+              term: "Fermentation",
+              definition:
+                "Using microorganisms to transform food (yogurt, pickles)",
+            },
+            {
+              term: "Dehydration",
+              definition: "Removing water from food to prevent spoilage",
+            },
+          ],
+        },
+        {
+          id: "5-evs-5",
+          number: 5,
+          name: "Seeds and Seeds",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Seeds are the beginning of most plants' lives. Inside a seed is an embryo (baby plant) and stored food to support early growth. Seeds come in an enormous variety of sizes, shapes, and colours — from the tiny mustard seed to the massive coconut.",
+            "Seeds disperse (travel away from the parent plant) in many ways. Wind dispersal: dandelion and maple seeds have wings or parachutes. Water dispersal: coconuts float. Animal dispersal: berries are eaten and seeds pass through the digestive system; burr seeds cling to fur. Explosive dispersal: touch-me-not and squirting cucumber pods burst open to scatter seeds.",
+            "Agriculture depends on understanding seeds. Farmers select the best seeds for planting — large, healthy, disease-free seeds give better crops. Seed banks store thousands of varieties of crop seeds for preservation and future use. Students understand seeds as the foundation of food security.",
+          ],
+          keyConcepts: [
+            {
+              title: "Seed Structure",
+              description: "Embryo, stored food, and seed coat",
+            },
+            {
+              title: "Seed Dispersal",
+              description: "Wind, water, animal, and explosive methods",
+            },
+            {
+              title: "Germination",
+              description: "Conditions needed for a seed to sprout",
+            },
+            {
+              title: "Seed Banks",
+              description: "Storing seed varieties for food security",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Embryo",
+              definition: "The tiny plant contained within a seed",
+            },
+            {
+              term: "Dispersal",
+              definition: "Movement of seeds away from the parent plant",
+            },
+            {
+              term: "Germination",
+              definition:
+                "The process of a seed sprouting and beginning to grow",
+            },
+          ],
+        },
+        {
+          id: "5-evs-6",
+          number: 6,
+          name: "Every Drop Counts",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "India has faced water scarcity throughout its history, and communities have developed remarkable traditional water harvesting systems. Kunds (underground tanks in Rajasthan), stepwells (baolis) in Gujarat and Delhi, johads (earthen check dams) in Haryana, and bamboo drip irrigation in Meghalaya are all ingenious traditional systems.",
+            "Traditional knowledge about water was often more effective and sustainable than modern alternatives. Rainwater harvesting — collecting rainwater from rooftops or land surfaces into storage tanks — is being revived in cities to combat water shortages. Chennai, Bangalore, and Jaipur have made rooftop rainwater harvesting mandatory.",
+            "Students calculate their household water use and compare it to the water available. They design a simple rainwater harvesting system for their school. This connects science, mathematics (volume and capacity calculations), and social awareness — water is a right for all living beings, not a commodity.",
+          ],
+          keyConcepts: [
+            {
+              title: "Traditional Water Harvesting",
+              description: "Kunds, baolis, johads — India's water wisdom",
+            },
+            {
+              title: "Rainwater Harvesting",
+              description: "Collecting and storing rainwater for use",
+            },
+            {
+              title: "Water Scarcity",
+              description: "Why clean water is increasingly scarce",
+            },
+            {
+              title: "Water as a Right",
+              description: "Access to clean water as a basic human right",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Baoli (Stepwell)",
+              definition:
+                "A traditional stepped well for water storage in India",
+            },
+            {
+              term: "Johad",
+              definition:
+                "A community rainwater pond used in Rajasthan and Haryana",
+            },
+            {
+              term: "Rainwater Harvesting",
+              definition:
+                "Collecting rainwater from surfaces for storage and use",
+            },
+          ],
+        },
+        {
+          id: "5-evs-7",
+          number: 7,
+          name: "Experiments with Water",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Water has fascinating physical properties. Surface tension — the force that pulls water molecules together at the surface — allows insects like pond skaters to walk on water and causes water to form drops. A needle can float on water if placed gently, as surface tension holds it up.",
+            "Objects float or sink depending on density. If an object is denser than water, it sinks; if less dense, it floats. A large ship floats despite being made of steel because its shape traps air, making the average density less than water. Students test floating and sinking with various objects.",
+            "Water pressure increases with depth — deeper water pushes harder. Students observe this with a plastic bottle with holes at different heights — water shoots further from the bottom hole (greatest depth, most pressure). Understanding water pressure is essential for plumbing, dams, and submarine design.",
+          ],
+          keyConcepts: [
+            {
+              title: "Surface Tension",
+              description: "Force holding water surface molecules together",
+            },
+            {
+              title: "Floating and Sinking",
+              description: "Density determines whether objects float",
+            },
+            {
+              title: "Water Pressure",
+              description: "Pressure increases with water depth",
+            },
+            {
+              title: "Scientific Investigation",
+              description: "Conducting experiments to test predictions",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Surface Tension",
+              definition:
+                "The force making water surface act like a stretched elastic film",
+            },
+            {
+              term: "Density",
+              definition:
+                "Mass per unit volume; determines if object floats or sinks",
+            },
+            {
+              term: "Buoyancy",
+              definition: "Upward force exerted by water on submerged objects",
+            },
+          ],
+        },
+        {
+          id: "5-evs-8",
+          number: 8,
+          name: "A Treat for Mosquitoes",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Malaria and dengue are serious diseases spread by mosquitoes. In malaria, the female Anopheles mosquito carries the Plasmodium parasite; in dengue, the Aedes mosquito carries a virus. Understanding the life cycle of mosquitoes (egg → larva → pupa → adult) reveals when and how to interrupt it.",
+            "Prevention is better than cure. Mosquitoes breed in still water — empty pots, flower vase water, blocked drains, puddles. Removing stagnant water near homes eliminates breeding sites. Using mosquito nets, repellents, and full-covering clothes reduces biting. Community awareness and government mosquito-control programmes work together.",
+            "Students investigate breeding sites around their school and home, map them, and plan a clean-up campaign. They design an anti-mosquito awareness poster with facts about the diseases, prevention methods, and the mosquito's life cycle. This combines health education, science, and civic responsibility.",
+          ],
+          keyConcepts: [
+            {
+              title: "Mosquito Life Cycle",
+              description: "Egg → larva → pupa → adult mosquito",
+            },
+            {
+              title: "Malaria and Dengue",
+              description: "Diseases spread by different mosquito species",
+            },
+            {
+              title: "Prevention Methods",
+              description: "Eliminating stagnant water, nets, repellents",
+            },
+            {
+              title: "Community Health",
+              description: "Collective action to prevent disease spread",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Malaria",
+              definition:
+                "A disease caused by Plasmodium parasite, spread by Anopheles mosquito",
+            },
+            {
+              term: "Dengue",
+              definition:
+                "A viral disease spread by Aedes mosquito; causes high fever",
+            },
+            {
+              term: "Larva",
+              definition:
+                "The worm-like immature stage of an insect before pupation",
+            },
+          ],
+        },
+        {
+          id: "5-evs-9",
+          number: 9,
+          name: "Up You Go!",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "As altitude increases, air pressure decreases. There is less oxygen at high altitudes, making breathing difficult. People living in high mountain areas like Ladakh, Uttarakhand, and Nepal have adapted over generations — their bodies produce more red blood cells to carry more oxygen. Visitors may get altitude sickness until they acclimatise.",
+            "Temperature drops about 6°C for every 1,000 metres of altitude. Mountains can have snow at the top while the valley below is warm. Different zones of vegetation exist at different altitudes — tropical forests at the base, temperate forests higher up, alpine meadows still higher, and bare rock and snow above that.",
+            "Mountain communities have unique cultures, foods, architecture, and clothing adapted to cold, high-altitude life. Thick woollen clothes, high-energy foods like ghee and dried meat, and small, sturdy stone houses are adaptations to mountain living. Students compare mountain life with their own and appreciate the diversity of human adaptation.",
+          ],
+          keyConcepts: [
+            {
+              title: "Altitude and Air Pressure",
+              description: "Less oxygen and lower pressure at high altitudes",
+            },
+            {
+              title: "Temperature and Altitude",
+              description: "Temperature drops 6°C per 1000m of altitude",
+            },
+            {
+              title: "Vegetation Zones",
+              description: "Different plants at different altitude bands",
+            },
+            {
+              title: "Mountain Adaptations",
+              description: "How life adapts to high-altitude conditions",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Altitude",
+              definition: "Height above sea level",
+            },
+            {
+              term: "Acclimatisation",
+              definition:
+                "The body's gradual adjustment to high-altitude conditions",
+            },
+            {
+              term: "Vegetation Zone",
+              definition:
+                "A band of similar plant life at a particular altitude range",
+            },
+          ],
+        },
+        {
+          id: "5-evs-11",
+          number: 11,
+          name: "Sunita in Space",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Sunita Williams is an American astronaut of Indian origin who spent 322 days in space across two missions, including time on the International Space Station. Her story inspires children — especially girls — to dream of science and space careers. India has its own space agency ISRO (Indian Space Research Organisation).",
+            "In space, there is no gravity. Astronauts float, water forms spheres instead of drops, and sleeping in a sleeping bag attached to a wall is normal. Without gravity, muscles and bones weaken, so astronauts exercise 2 hours daily. Simple things like eating, drinking, and going to the bathroom require special techniques.",
+            "India's space programme has achieved remarkable milestones: Aryabhata (first satellite, 1975), Chandrayaan (moon mission), Mangalyaan (Mars Orbiter Mission, 2014 — the first Mars mission to succeed on its first attempt). ISRO is known for conducting missions at a fraction of the cost of other space agencies.",
+          ],
+          keyConcepts: [
+            {
+              title: "Space and Zero Gravity",
+              description:
+                "Life in zero gravity on the International Space Station",
+            },
+            {
+              title: "ISRO",
+              description: "India's space agency and its achievements",
+            },
+            {
+              title: "Gravity",
+              description: "The force that pulls objects toward Earth",
+            },
+            {
+              title: "Satellites",
+              description:
+                "Objects orbiting Earth used for communication and science",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "ISRO",
+              definition:
+                "Indian Space Research Organisation — India's national space agency",
+            },
+            {
+              term: "Zero Gravity",
+              definition: "A state of weightlessness experienced in orbit",
+            },
+            {
+              term: "Orbit",
+              definition:
+                "The curved path of an object around a planet or star",
+            },
+          ],
+        },
+        {
+          id: "5-evs-12",
+          number: 12,
+          name: "What If It Finishes...?",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Fossil fuels — coal, petroleum, and natural gas — were formed over millions of years from the remains of ancient organisms under heat and pressure. They are non-renewable: once used, they cannot be replaced on any human timescale. At current rates of consumption, coal reserves may last ~130 years, oil ~50 years.",
+            "Burning fossil fuels releases carbon dioxide and other greenhouse gases, causing climate change. Pollution from vehicles, factories, and power plants harms human health. The depletion and pollution caused by fossil fuels make transitioning to renewable energy (solar, wind, hydroelectric) essential.",
+            "Conservation is the first step — using less energy by insulating homes, using efficient appliances, driving less, and switching off lights saves resources. Students audit their household energy use and identify specific ways to reduce it. Every unit of energy saved reduces pollution and extends fossil fuel reserves.",
+          ],
+          keyConcepts: [
+            {
+              title: "Fossil Fuels",
+              description:
+                "Coal, petroleum, natural gas — non-renewable energy sources",
+            },
+            {
+              title: "Non-Renewable Resources",
+              description: "Resources that cannot be replaced once used",
+            },
+            {
+              title: "Renewable Energy",
+              description:
+                "Solar, wind, and water power as sustainable alternatives",
+            },
+            {
+              title: "Energy Conservation",
+              description:
+                "Using less energy through efficiency and habit change",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Fossil Fuel",
+              definition:
+                "Fuel formed from ancient organic remains; coal, oil, natural gas",
+            },
+            {
+              term: "Non-Renewable",
+              definition:
+                "A resource that cannot be replenished in a human lifetime",
+            },
+            {
+              term: "Renewable Energy",
+              definition:
+                "Energy from sources naturally replenished: sun, wind, water",
+            },
+          ],
+        },
+        {
+          id: "5-evs-14",
+          number: 14,
+          name: "When the Earth Shook",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Earthquakes occur when tectonic plates — massive pieces of Earth's crust — move suddenly against each other. The point underground where the earthquake starts is the focus (or hypocenter); directly above it on the surface is the epicentre. Seismic waves radiate outward, causing the shaking we feel.",
+            "The Richter scale measures earthquake magnitude (strength). Each whole number increase represents 10 times more ground shaking. An earthquake of magnitude 6 is 100 times stronger than magnitude 4. Major earthquakes in India include Bhuj (2001, magnitude 7.7), Latur (1993), and Chamoli (1999).",
+            "Earthquake safety includes: Drop (get low), Cover (under a table), Hold On. Buildings in earthquake-prone areas are constructed with flexible foundations and reinforced materials. Students learn about early warning systems and how communities recover from earthquakes. Preparedness saves lives.",
+          ],
+          keyConcepts: [
+            {
+              title: "Tectonic Plates",
+              description:
+                "Large sections of Earth's crust that move and cause earthquakes",
+            },
+            {
+              title: "Epicentre and Focus",
+              description:
+                "The surface point and underground origin of an earthquake",
+            },
+            {
+              title: "Richter Scale",
+              description: "Scale measuring earthquake magnitude",
+            },
+            {
+              title: "Earthquake Safety",
+              description:
+                "Drop, Cover, Hold On and earthquake-resistant buildings",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tectonic Plate",
+              definition:
+                "A large section of Earth's crust that moves over the mantle",
+            },
+            {
+              term: "Epicentre",
+              definition:
+                "The point on Earth's surface directly above an earthquake's focus",
+            },
+            {
+              term: "Richter Scale",
+              definition:
+                "A scale measuring the magnitude (energy release) of earthquakes",
+            },
+          ],
+        },
+        {
+          id: "5-evs-16",
+          number: 16,
+          name: "Who Will Do This Work?",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "Sanitation workers — those who collect garbage, clean drains, and maintain toilets — perform essential work that keeps communities healthy and disease-free. Without them, cities would quickly become uninhabitable. Yet they are often among the least respected and most poorly paid workers.",
+            "The caste system in India has historically assigned certain types of work to specific communities, often trapping people in hereditary occupations without choice. Manual scavenging — manually cleaning human waste — was assigned to certain castes and has been legally banned but still exists in some places.",
+            "The chapter challenges students to examine their own attitudes toward different kinds of work and workers. Every job that contributes to society deserves respect and fair pay. Students discuss who in their community does the 'invisible work' that keeps things running — cleaners, cooks, security guards — and how to show appreciation and respect.",
+          ],
+          keyConcepts: [
+            {
+              title: "Dignity of Labour",
+              description: "All work has value and deserves respect",
+            },
+            {
+              title: "Sanitation and Public Health",
+              description: "Why cleanliness workers are essential",
+            },
+            {
+              title: "Caste and Occupation",
+              description:
+                "Historical link between caste and assigned work in India",
+            },
+            {
+              title: "Rights of Workers",
+              description:
+                "Fair wages, safe conditions, and respect for all workers",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Sanitation",
+              definition:
+                "Conditions relating to public health, especially clean water and waste disposal",
+            },
+            {
+              term: "Manual Scavenging",
+              definition:
+                "The banned practice of manually cleaning human waste by hand",
+            },
+            {
+              term: "Dignity of Labour",
+              definition: "The principle that all work is honourable",
+            },
+          ],
+        },
+        {
+          id: "5-evs-20",
+          number: 20,
+          name: "Whose Forests?",
+          subject: "EVS",
+          classNum: 5,
+          explanation: [
+            "India's forests are home to hundreds of tribal (Adivasi) communities who have lived in and cared for forests for centuries. The Scheduled Tribes and Other Traditional Forest Dwellers (Recognition of Forest Rights) Act, 2006 recognises their rights to live in and use forests. However, conflicts between conservation, development, and tribal rights continue.",
+            "Forests are biodiversity hotspots — they contain more species of plants and animals per area than almost any other ecosystem. Biodiversity provides us with food, medicine, clean air and water, and stable climate. Deforestation reduces biodiversity and increases vulnerability to floods, droughts, and disease.",
+            "The Chipko Movement (1973) in Uttarakhand, where villagers (especially women) hugged trees to prevent logging, showed that communities can protect forests through collective action. Students explore their own relationship with forests — through the wood in their homes, fruits they eat, medicines they take — and understand that forests are everyone's responsibility.",
+          ],
+          keyConcepts: [
+            {
+              title: "Forest Rights",
+              description:
+                "Tribal communities' rights to live in and use forests",
+            },
+            {
+              title: "Biodiversity",
+              description: "Forests as habitat for enormous variety of life",
+            },
+            {
+              title: "Chipko Movement",
+              description: "Tree-hugging protest against deforestation in 1973",
+            },
+            {
+              title: "Deforestation",
+              description: "Loss of forests and its consequences",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Adivasi",
+              definition:
+                "Indigenous/tribal people — original inhabitants of a region",
+            },
+            {
+              term: "Chipko Movement",
+              definition:
+                "1973 grassroots movement where people hugged trees to save forests",
+            },
+            {
+              term: "Biodiversity",
+              definition: "The variety of plant and animal species in an area",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Hindi",
+      icon: "🔤",
+      chapters: [
+        {
+          id: "5-hin-1",
+          number: 1,
+          name: "राख की रस्सी",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "यह एक चतुराई भरी लोककथा है जिसमें एक बुद्धिमान व्यक्ति राख से रस्सी बनाने की असंभव चुनौती को स्वीकार करता है और अपनी बुद्धि से उसे पूरा करता है। कहानी यह सिखाती है कि जहाँ चाह है वहाँ राह है।",
+            "Students learn about folk tales (लोककथाएँ) as a genre of Hindi literature. Folk tales are stories passed down orally through generations, often teaching moral lessons through clever characters and impossible challenges. Students identify the moral of the story and discuss how it applies to their own lives.",
+            "Grammar focus: वाक्य की रचना (sentence structure) in Hindi. Students identify कर्ता (subject), क्रिया (verb), and कर्म (object) in sentences from the story. They practice writing their own sentences using this structure to retell the story.",
+          ],
+          keyConcepts: [
+            {
+              title: "लोककथा",
+              description: "Folk tales in Hindi oral tradition",
+            },
+            {
+              title: "बुद्धि और चतुराई",
+              description: "Using cleverness to solve problems",
+            },
+            {
+              title: "वाक्य संरचना",
+              description: "Subject, verb, object in Hindi sentences",
+            },
+            {
+              title: "नैतिक पाठ",
+              description: "Moral lessons in folk stories",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "लोककथा (Lokkatha)",
+              definition:
+                "A folk tale — a traditional story passed down orally",
+            },
+            {
+              term: "कर्ता (Karta)",
+              definition:
+                "The subject of a Hindi sentence — who does the action",
+            },
+            {
+              term: "चतुराई (Chaturai)",
+              definition: "Cleverness or wit used to solve problems",
+            },
+          ],
+        },
+        {
+          id: "5-hin-2",
+          number: 2,
+          name: "फसलों के त्योहार",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "भारत में कटाई के समय मनाए जाने वाले त्योहार हर क्षेत्र की खुशी और कृतज्ञता का प्रतीक हैं। पंजाब का बैसाखी, तमिलनाडु का पोंगल, केरल का ओणम, असम का बिहू — ये सभी फसल के त्योहार हैं जो अलग-अलग तरीकों से मनाए जाते हैं।",
+            "Students learn about India's cultural diversity through harvest festivals. Each festival reflects its region's staple crops, climate, and traditions. Comparing festivals from different states builds national integration and respect for regional cultures.",
+            "Hindi writing activity: students write a short descriptive paragraph about one harvest festival, using vivid details about food, clothing, music, dance, and community celebrations. This builds descriptive writing in Hindi while developing cultural knowledge.",
+          ],
+          keyConcepts: [
+            {
+              title: "फसल त्योहार",
+              description:
+                "Harvest festivals celebrating India's agricultural heritage",
+            },
+            {
+              title: "क्षेत्रीय विविधता",
+              description: "Different festivals in different states of India",
+            },
+            {
+              title: "वर्णनात्मक लेखन",
+              description: "Descriptive writing about festivals in Hindi",
+            },
+            {
+              title: "राष्ट्रीय एकता",
+              description: "How diverse celebrations unite India",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "बैसाखी (Baisakhi)",
+              definition:
+                "Harvest festival of Punjab celebrating the wheat harvest",
+            },
+            {
+              term: "पोंगल (Pongal)",
+              definition:
+                "Harvest festival of Tamil Nadu celebrating the rice harvest",
+            },
+            {
+              term: "ओणम (Onam)",
+              definition:
+                "Harvest festival of Kerala celebrated with boat races and feasts",
+            },
+          ],
+        },
+        {
+          id: "5-hin-3",
+          number: 3,
+          name: "खिलौनेवाला",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "यह कविता एक खिलौने बेचने वाले की आवाज़ और बच्चों में उसे सुनकर उमड़ती उत्सुकता को चित्रित करती है। खिलौनेवाला बाज़ार में घूम-घूमकर खिलौने बेचता है — गाय, घोड़ा, हाथी, मोर — जो मिट्टी के बने होते हैं।",
+            "The poem celebrates traditional Indian toys — earthen animals, spinning tops, cloth dolls — and the cultural heritage they represent. Students compare traditional toys with modern plastic toys and discuss what has been gained and lost in this change.",
+            "This chapter introduces बाल साहित्य (children's literature) as a genre. Students read more poems from this tradition and discuss what makes a poem appeal to children. They write their own children's poem about something they loved in childhood — a toy, a game, a food.",
+          ],
+          keyConcepts: [
+            {
+              title: "पारंपरिक खिलौने",
+              description:
+                "Traditional Indian toys and their cultural significance",
+            },
+            {
+              title: "बाल साहित्य",
+              description: "Children's literature as a literary genre",
+            },
+            {
+              title: "बचपन की यादें",
+              description: "Childhood memories in Hindi poetry",
+            },
+            {
+              title: "शब्द-चित्र",
+              description: "Creating vivid images through words",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "खिलौनेवाला (Khilonewaala)",
+              definition: "A toy seller — a traditional street vendor",
+            },
+            {
+              term: "बाल साहित्य",
+              definition:
+                "Children's literature — stories and poems written for children",
+            },
+            {
+              term: "पारंपरिक",
+              definition: "Traditional — passed down through generations",
+            },
+          ],
+        },
+        {
+          id: "5-hin-4",
+          number: 4,
+          name: "नन्हा फनकार",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "यह कहानी एक नन्हे मूर्तिकार की है जो पत्थर तराशकर सुंदर मूर्तियाँ बनाता है। वह दिन-रात मेहनत करता है और अपनी कला में डूबा रहता है। कहानी समर्पण और कला के प्रति प्रेम को दर्शाती है।",
+            "Students learn about different art forms in India — sculpture, painting, music, dance, pottery. They discuss how artists develop their skills through years of practice and dedication. The chapter connects art appreciation with the value of hard work and perseverance.",
+            "Hindi grammar: विशेषण (adjectives) used in describing art and artists. Students identify adjectives in the story and use them in their own sentences. They write a paragraph describing a piece of art they find beautiful, using vivid adjectives in Hindi.",
+          ],
+          keyConcepts: [
+            {
+              title: "कला और समर्पण",
+              description: "Art requires dedication and years of practice",
+            },
+            {
+              title: "भारतीय कला रूप",
+              description: "Sculpture, painting, music, dance in India",
+            },
+            {
+              title: "विशेषण",
+              description: "Adjectives in Hindi grammar",
+            },
+            {
+              title: "परिश्रम",
+              description: "The value of hard work and persistence",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "फनकार (Fankar)",
+              definition: "An artist or skilled craftsperson",
+            },
+            {
+              term: "मूर्तिकार (Murtikaar)",
+              definition: "A sculptor — an artist who creates 3D works",
+            },
+            {
+              term: "विशेषण (Visheshan)",
+              definition: "Adjective — a word describing a noun in Hindi",
+            },
+          ],
+        },
+        {
+          id: "5-hin-5",
+          number: 5,
+          name: "जहाँ चाह वहाँ राह",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "यह कहानी ऐसे बच्चों के बारे में है जो शारीरिक चुनौतियों के बावजूद अपने सपने पूरे करते हैं। एक बच्चा जो चल नहीं सकता, वह चित्रकारी में राष्ट्रीय पुरस्कार जीतता है। एक बच्ची जो देख नहीं सकती, वह उत्कृष्ट संगीतकार बनती है। कहानी दृढ़ संकल्प का महत्व बताती है।",
+            "The story celebrates differently-abled children who achieve extraordinary things through determination. Students discuss the concept of disability vs ability — every person has different strengths and challenges. This builds empathy, inclusion, and appreciation for diverse abilities.",
+            "The Hindi proverb 'जहाँ चाह वहाँ राह' (Where there is a will, there is a way) is the theme. Students collect other Hindi proverbs (कहावतें) and discuss their meanings. Writing activity: write a true or imagined story about overcoming a challenge, using this proverb as the theme.",
+          ],
+          keyConcepts: [
+            {
+              title: "दृढ़ संकल्प",
+              description:
+                "Determination enables achieving dreams despite challenges",
+            },
+            {
+              title: "विविध क्षमताएँ",
+              description: "Every person has different strengths",
+            },
+            {
+              title: "हिंदी कहावतें",
+              description: "Hindi proverbs and their meanings",
+            },
+            {
+              title: "समानुभूति",
+              description: "Empathy and inclusion for differently-abled people",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "दृढ़ संकल्प (Dridh Sankalp)",
+              definition: "Strong determination or firm resolve",
+            },
+            {
+              term: "कहावत (Kahawat)",
+              definition: "A proverb — a short traditional saying with wisdom",
+            },
+            {
+              term: "विकलांग (Vikalang)",
+              definition: "A person with a physical or mental disability",
+            },
+          ],
+        },
+        {
+          id: "5-hin-6",
+          number: 6,
+          name: "चिट्ठी का सफर",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "एक चिट्ठी अपनी यात्रा का वर्णन करती है — लिफाफे में बंद होने से लेकर पते पर पहुँचने तक। डाकघर, डाकिया, ट्रेन, हवाई जहाज़ — इन सबका वर्णन कविता के रूप में किया गया है। यह चिट्ठी की नज़र से लिखा गया है।",
+            "Students learn about first-person narration from an object's perspective (object personification). Writing from the point of view of a non-human — a letter, a coin, a bus — is a creative writing technique that builds imagination and narrative skills.",
+            "The chapter connects to the postal system and how letters travel. Students learn about addressing letters correctly in Hindi — प्रेषक (sender), प्राप्तकर्ता (receiver), पता (address), पिन कोड (PIN code). They practice writing a letter to a friend or relative in Hindi.",
+          ],
+          keyConcepts: [
+            {
+              title: "वस्तु का दृष्टिकोण",
+              description: "Writing from an object's point of view",
+            },
+            {
+              title: "पत्र-लेखन",
+              description: "Writing letters in Hindi",
+            },
+            {
+              title: "डाक प्रणाली",
+              description: "How the postal system works",
+            },
+            {
+              title: "प्रथम पुरुष कथन",
+              description: "First-person narration in Hindi",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "चिट्ठी (Chitthi)",
+              definition: "A letter — a written message sent by post",
+            },
+            {
+              term: "प्रेषक (Preshak)",
+              definition: "The sender — the person who sends a letter",
+            },
+            {
+              term: "पत्र-लेखन (Patra Lekhan)",
+              definition: "Letter writing — a formal writing skill in Hindi",
+            },
+          ],
+        },
+        {
+          id: "5-hin-7",
+          number: 7,
+          name: "डाकिए की कहानी, कँवरसिंह की जुबानी",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "यह पाठ एक अनुभवी डाकिए कँवरसिंह की जीवन कहानी है जो उन्हीं की ज़बानी सुनाई गई है। वे बताते हैं कि 30 साल तक वे हर घर में चिट्ठी पहुँचाते रहे, लोगों की खुशियाँ और ग़म जाने, और उनके परिवारों के बारे में जाना।",
+            "This chapter introduces the oral history genre — recording real people's life stories in their own words. Students discuss the value of oral histories as historical sources. They conduct an oral history interview with an elder family member or community member about their work.",
+            "Grammar focus: प्रत्यक्ष कथन और अप्रत्यक्ष कथन (direct and indirect speech) in Hindi. The postman's words are given in direct speech; students practice converting them to indirect speech. This is an important skill for Hindi writing and comprehension.",
+          ],
+          keyConcepts: [
+            {
+              title: "मौखिक इतिहास",
+              description: "Recording people's life stories in their own words",
+            },
+            {
+              title: "डाकिए का जीवन",
+              description: "The life and work of a postman in India",
+            },
+            {
+              title: "प्रत्यक्ष-अप्रत्यक्ष कथन",
+              description: "Direct and indirect speech in Hindi",
+            },
+            {
+              title: "साक्षात्कार",
+              description: "Conducting an interview as a language skill",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "मौखिक इतिहास",
+              definition:
+                "Oral history — accounts of the past told in spoken form",
+            },
+            {
+              term: "प्रत्यक्ष कथन",
+              definition: "Direct speech — the exact words a person said",
+            },
+            {
+              term: "अप्रत्यक्ष कथन",
+              definition:
+                "Indirect speech — reporting what was said without exact words",
+            },
+          ],
+        },
+        {
+          id: "5-hin-8",
+          number: 8,
+          name: "वे दिन भी क्या दिन थे",
+          subject: "Hindi",
+          classNum: 5,
+          explanation: [
+            "यह पाठ बचपन की यादों पर आधारित एक संस्मरण है। लेखक पुराने दिनों को याद करते हुए बताते हैं — दादी की गोद, पड़ोसियों से पुराना रिश्ता, बिना मोबाइल के जीवन, गली में खेल — वे दिन कितने सरल और खुशहाल थे।",
+            "Students explore nostalgia as a literary theme and a human emotion. They discuss what makes people remember the past fondly, and whether the past was really better or just different. This critical thinking activity balances emotional response with rational analysis.",
+            "Students write their own संस्मरण (memoir) about a happy childhood memory. They focus on specific sensory details — the smell of rain, the taste of a favourite food, the sound of a particular place. Vivid, specific details are what bring memoir writing to life.",
+          ],
+          keyConcepts: [
+            {
+              title: "संस्मरण",
+              description: "Memoir — personal writing about real memories",
+            },
+            {
+              title: "बचपन और नॉस्टेल्जिया",
+              description: "Childhood and nostalgia as literary themes",
+            },
+            {
+              title: "इंद्रिय विवरण",
+              description: "Sensory details that make writing vivid",
+            },
+            {
+              title: "व्यक्तिगत लेखन",
+              description: "Personal writing connecting experience to language",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "संस्मरण (Smaran)",
+              definition:
+                "A memoir — personal writing about remembered experiences",
+            },
+            {
+              term: "नॉस्टेल्जिया",
+              definition: "A wistful longing for the past",
+            },
+            {
+              term: "इंद्रिय (Indriya)",
+              definition: "The senses — sight, sound, smell, taste, touch",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Social Science",
+      icon: "🗺️",
+      chapters: [
+        {
+          id: "5-sst-1",
+          number: 1,
+          name: "Our Environment",
+          subject: "Social Science",
+          classNum: 5,
+          explanation: [
+            "The environment includes everything around us — the air we breathe, the water we drink, the land we live on, and all living things. It can be divided into the natural environment (mountains, rivers, forests, oceans) and the human-made environment (houses, roads, schools, factories).",
+            "India has extraordinary environmental diversity: the Himalayan mountains in the north, the Thar Desert in the west, the Deccan Plateau in the centre, and the coastal plains in the south and east. Each region has its own climate, vegetation, wildlife, and human culture adapted to those conditions.",
+            "Human activities can damage the environment through deforestation, pollution, overuse of natural resources, and climate change. Students are introduced to the concept that humans are part of the environment, not separate from it, and that protecting the environment means protecting ourselves.",
+          ],
+          keyConcepts: [
+            {
+              title: "Natural Environment",
+              description: "Mountains, rivers, forests, deserts, oceans",
+            },
+            {
+              title: "Human-Made Environment",
+              description: "Houses, roads, cities, farms",
+            },
+            {
+              title: "India's Environmental Diversity",
+              description: "Varied landscapes across India",
+            },
+            {
+              title: "Environmental Protection",
+              description: "Why and how we protect our environment",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Environment",
+              definition:
+                "Everything surrounding and affecting living organisms",
+            },
+            {
+              term: "Natural Resource",
+              definition:
+                "A material or energy found in nature that humans use",
+            },
+            {
+              term: "Ecosystem",
+              definition:
+                "A community of living things and their physical environment",
+            },
+          ],
+        },
+        {
+          id: "5-sst-2",
+          number: 2,
+          name: "Globe: Latitudes and Longitudes",
+          subject: "Social Science",
+          classNum: 5,
+          explanation: [
+            "Earth is a sphere (technically an oblate spheroid — slightly flattened at the poles). A globe is a scale model of Earth. To locate any point on Earth's surface, we use a grid of imaginary lines: latitudes (running east-west, parallel to the Equator) and longitudes (running north-south, meeting at the poles).",
+            "The Equator (0° latitude) divides Earth into Northern and Southern hemispheres. Latitudes range from 0° at the Equator to 90° at each pole. The Tropic of Cancer (23.5°N) and Tropic of Capricorn (23.5°S) mark where the sun is directly overhead on solstices. The Arctic Circle (66.5°N) and Antarctic Circle (66.5°S) mark where there is at least one day of 24-hour daylight or darkness.",
+            "The Prime Meridian (0° longitude) runs through Greenwich, London. Longitudes range from 0° to 180° East and West. Time zones are based on longitudes — every 15° equals one hour difference. India's standard time (IST) is based on the 82.5°E meridian, passing through Allahabad.",
+          ],
+          keyConcepts: [
+            {
+              title: "Latitudes",
+              description: "Imaginary horizontal lines parallel to the Equator",
+            },
+            {
+              title: "Longitudes",
+              description: "Imaginary vertical lines meeting at the poles",
+            },
+            {
+              title: "Equator",
+              description: "0° latitude dividing Earth into two hemispheres",
+            },
+            {
+              title: "Time Zones",
+              description: "Based on longitude; every 15° = 1 hour",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Equator",
+              definition:
+                "Imaginary line at 0° latitude dividing Earth into two hemispheres",
+            },
+            {
+              term: "Prime Meridian",
+              definition: "0° longitude passing through Greenwich, London",
+            },
+            {
+              term: "Hemisphere",
+              definition:
+                "Half of a sphere; Earth is divided into Northern and Southern hemispheres",
+            },
+          ],
+        },
+        {
+          id: "5-sst-3",
+          number: 3,
+          name: "Motions of the Earth",
+          subject: "Social Science",
+          classNum: 5,
+          explanation: [
+            "Earth has two main motions. Rotation is Earth spinning on its own axis (an imaginary line from North to South Pole). Earth rotates once in 24 hours, causing day and night. The side facing the sun experiences day; the opposite side experiences night. Earth rotates from west to east, so the sun appears to rise in the east.",
+            "Revolution is Earth's orbit around the sun, taking 365.25 days (one year). Earth's axis is tilted at 23.5°. This tilt causes seasons — when the Northern Hemisphere tilts toward the sun, it receives more direct sunlight (summer); when it tilts away, it receives less (winter). The Southern Hemisphere has opposite seasons.",
+            "Solstices and equinoxes mark special positions in Earth's orbit. Summer solstice (June 21) — longest day in Northern Hemisphere; Winter solstice (December 22) — shortest day. Spring equinox (March 21) and Autumn equinox (September 23) — day and night are equal everywhere. These dates are celebrated in many cultures.",
+          ],
+          keyConcepts: [
+            {
+              title: "Rotation",
+              description: "Earth spinning on its axis; causes day and night",
+            },
+            {
+              title: "Revolution",
+              description: "Earth orbiting the sun in 365.25 days",
+            },
+            {
+              title: "Axial Tilt",
+              description: "23.5° tilt causes seasons in each hemisphere",
+            },
+            {
+              title: "Solstices and Equinoxes",
+              description: "Special positions in Earth's annual orbit",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Rotation",
+              definition: "Earth spinning on its axis once every 24 hours",
+            },
+            {
+              term: "Revolution",
+              definition: "Earth's orbit around the sun taking 365.25 days",
+            },
+            {
+              term: "Solstice",
+              definition:
+                "Day when the sun is farthest north or south; longest or shortest day",
+            },
+          ],
+        },
+        {
+          id: "5-sst-4",
+          number: 4,
+          name: "Maps",
+          subject: "Social Science",
+          classNum: 5,
+          explanation: [
+            "Maps are drawings of Earth's surface or parts of it as seen from above. Different types of maps serve different purposes. Physical maps show natural features — mountains, plains, rivers, and deserts using colour codes (green for plains, brown for highlands, blue for water). Political maps show countries, states, and cities.",
+            "Every map has three essential elements: Scale (ratio of map distance to real distance), Direction indicator (usually a compass rose showing North), and Legend/Key (explaining what each symbol represents). Reading these correctly is essential for understanding and using maps accurately.",
+            "Sketch maps are rough, hand-drawn maps of small areas — a classroom, school, or neighbourhood. Students draw sketch maps of their school grounds, including buildings, playground, garden, and gates. This practical activity builds map skills: choosing scale, using symbols, showing direction.",
+          ],
+          keyConcepts: [
+            {
+              title: "Types of Maps",
+              description: "Physical, political, weather, and thematic maps",
+            },
+            {
+              title: "Map Elements",
+              description: "Scale, direction indicator, and legend",
+            },
+            {
+              title: "Map Symbols",
+              description: "Standard symbols representing real features",
+            },
+            {
+              title: "Sketch Maps",
+              description: "Drawing simple maps of familiar areas",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Scale",
+              definition:
+                "The ratio between distances on a map and on the real ground",
+            },
+            {
+              term: "Legend",
+              definition: "A map key explaining what each symbol represents",
+            },
+            {
+              term: "Compass Rose",
+              definition: "A symbol on a map showing the cardinal directions",
+            },
+          ],
+        },
+        {
+          id: "5-sst-5",
+          number: 5,
+          name: "Major Domains of the Earth",
+          subject: "Social Science",
+          classNum: 5,
+          explanation: [
+            "Earth has four major domains: Lithosphere (the solid land — continents and ocean floors), Hydrosphere (all water on Earth — oceans, lakes, rivers, ice, groundwater — covering 71% of the surface), Atmosphere (the layer of gases surrounding Earth — nitrogen 78%, oxygen 21%, other gases 1%), and Biosphere (the zone where life exists, where the other three domains interact).",
+            "The lithosphere consists of seven continents: Asia (largest), Africa, North America, South America, Antarctica, Europe, and Australia. Oceans cover 71% of Earth: Pacific (largest), Atlantic, Indian, Southern, and Arctic oceans. Continents and oceans are not evenly distributed — most land is in the Northern Hemisphere.",
+            "The atmosphere has several layers: Troposphere (0-12 km, where weather occurs), Stratosphere (12-50 km, contains ozone layer that blocks UV radiation), Mesosphere (50-80 km), Thermosphere (80-500 km), and Exosphere (outer edge). Without the ozone layer, harmful ultraviolet radiation would make life on Earth impossible.",
+          ],
+          keyConcepts: [
+            {
+              title: "Four Domains",
+              description: "Lithosphere, hydrosphere, atmosphere, biosphere",
+            },
+            {
+              title: "Seven Continents",
+              description:
+                "Asia, Africa, North America, South America, Antarctica, Europe, Australia",
+            },
+            {
+              title: "Five Oceans",
+              description: "Pacific, Atlantic, Indian, Southern, Arctic",
+            },
+            {
+              title: "Atmospheric Layers",
+              description:
+                "Troposphere, stratosphere, mesosphere, thermosphere",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Lithosphere",
+              definition:
+                "The solid outer layer of Earth including continents and ocean floors",
+            },
+            {
+              term: "Atmosphere",
+              definition:
+                "The layer of gases surrounding Earth, held by gravity",
+            },
+            {
+              term: "Biosphere",
+              definition:
+                "The zone of Earth where life exists; where other domains interact",
             },
           ],
         },

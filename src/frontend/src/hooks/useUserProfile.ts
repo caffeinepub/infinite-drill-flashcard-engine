@@ -1,7 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
 import type { UserProfile } from "../backend.d";
-import { useActor } from "./useActor";
-import { useInternetIdentity } from "./useInternetIdentity";
+import { useUserProfileContext } from "../context/UserProfileContext";
 
 export interface UseUserProfileResult {
   profile: UserProfile | null;
@@ -10,32 +8,8 @@ export interface UseUserProfileResult {
   setProfile: (profile: UserProfile | null) => void;
 }
 
+// Thin wrapper that reads from the shared context so all components
+// (AuthGuard, Onboarding, etc.) share the same profile state.
 export function useUserProfile(): UseUserProfileResult {
-  const { identity } = useInternetIdentity();
-  const { actor, isFetching } = useActor();
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const fetchProfile = useCallback(async () => {
-    if (!actor || isFetching || !identity) return;
-    setLoading(true);
-    try {
-      const result = await actor.getCallerUserProfile();
-      setProfile(result ?? null);
-    } catch {
-      setProfile(null);
-    } finally {
-      setLoading(false);
-    }
-  }, [actor, isFetching, identity]);
-
-  useEffect(() => {
-    if (identity && actor && !isFetching) {
-      void fetchProfile();
-    } else if (!identity) {
-      setProfile(null);
-    }
-  }, [identity, actor, isFetching, fetchProfile]);
-
-  return { profile, loading, refetch: fetchProfile, setProfile };
+  return useUserProfileContext();
 }
