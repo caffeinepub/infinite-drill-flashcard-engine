@@ -17,7 +17,19 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    minify: false,
+    minify: "esbuild",
+    target: "es2020",
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-router": ["@tanstack/react-router", "@tanstack/react-query"],
+          "vendor-motion": ["motion"],
+          "vendor-ui": ["lucide-react", "clsx", "tailwind-merge", "class-variance-authority"],
+        },
+      },
+    },
   },
   css: {
     postcss: "./postcss.config.js",

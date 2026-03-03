@@ -10,7 +10,8 @@
        local("Bricolage Grotesque");
   font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -19,7 +20,8 @@
        local("Outfit");
   font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -28,7 +30,8 @@
        local("JetBrains Mono");
   font-weight: 100 800;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
+  size-adjust: 100%;
 }
 
 /* ── Design Tokens ──────────────────────────────────── */
@@ -152,40 +155,58 @@
 
 /* ── Custom Utilities ───────────────────────────────── */
 @layer utilities {
-  /* Glassmorphism */
+  /* Glassmorphism — backdrop-filter only on non-mobile to save GPU */
   .glass {
-    background: oklch(var(--card) / 0.6);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background: oklch(var(--card) / 0.85);
     border: 1px solid oklch(var(--border));
   }
 
+  @media (min-width: 768px) {
+    .glass {
+      background: oklch(var(--card) / 0.6);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+    }
+  }
+
   .glass-dark {
-    background: oklch(var(--card) / 0.4);
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    background: oklch(var(--card) / 0.85);
     border: 1px solid oklch(1 0 0 / 8%);
   }
 
-  /* Neon glow effects */
-  .glow-purple {
-    box-shadow: 0 0 20px oklch(var(--neon-purple) / 0.4), 0 0 40px oklch(var(--neon-purple) / 0.15);
+  @media (min-width: 768px) {
+    .glass-dark {
+      background: oklch(var(--card) / 0.5);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+    }
   }
 
-  .glow-green {
-    box-shadow: 0 0 20px oklch(var(--neon-green) / 0.4), 0 0 40px oklch(var(--neon-green) / 0.15);
+  /* Neon glow effects — desktop only, too expensive on mobile */
+  .glow-purple, .glow-green, .glow-red, .glow-blue, .glow-amber {
+    /* no-op on mobile */
   }
 
-  .glow-red {
-    box-shadow: 0 0 20px oklch(var(--neon-red) / 0.4), 0 0 40px oklch(var(--neon-red) / 0.15);
-  }
+  @media (min-width: 768px) {
+    .glow-purple {
+      box-shadow: 0 0 16px oklch(var(--neon-purple) / 0.35), 0 0 32px oklch(var(--neon-purple) / 0.12);
+    }
 
-  .glow-blue {
-    box-shadow: 0 0 20px oklch(var(--neon-blue) / 0.4), 0 0 40px oklch(var(--neon-blue) / 0.15);
-  }
+    .glow-green {
+      box-shadow: 0 0 16px oklch(var(--neon-green) / 0.35), 0 0 32px oklch(var(--neon-green) / 0.12);
+    }
 
-  .glow-amber {
-    box-shadow: 0 0 20px oklch(var(--neon-amber) / 0.4), 0 0 40px oklch(var(--neon-amber) / 0.15);
+    .glow-red {
+      box-shadow: 0 0 16px oklch(var(--neon-red) / 0.35), 0 0 32px oklch(var(--neon-red) / 0.12);
+    }
+
+    .glow-blue {
+      box-shadow: 0 0 16px oklch(var(--neon-blue) / 0.35), 0 0 32px oklch(var(--neon-blue) / 0.12);
+    }
+
+    .glow-amber {
+      box-shadow: 0 0 16px oklch(var(--neon-amber) / 0.35), 0 0 32px oklch(var(--neon-amber) / 0.12);
+    }
   }
 
   /* Text gradients */
@@ -214,21 +235,27 @@
     border-radius: inherit;
   }
 
-  /* Mesh gradient backgrounds */
+  /* Mesh gradient backgrounds — only on desktop to avoid mobile paint cost */
   .bg-mesh-dark {
     background-color: oklch(0.095 0.025 272);
-    background-image:
-      radial-gradient(ellipse at 20% 50%, oklch(0.62 0.26 283 / 0.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, oklch(0.62 0.22 240 / 0.1) 0%, transparent 55%),
-      radial-gradient(ellipse at 60% 80%, oklch(0.62 0.2 162 / 0.06) 0%, transparent 50%);
   }
 
   .bg-mesh-light {
     background-color: oklch(0.98 0.004 250);
-    background-image:
-      radial-gradient(ellipse at 20% 50%, oklch(0.52 0.24 283 / 0.06) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, oklch(0.55 0.2 240 / 0.05) 0%, transparent 55%),
-      radial-gradient(ellipse at 60% 80%, oklch(0.56 0.18 162 / 0.04) 0%, transparent 50%);
+  }
+
+  @media (min-width: 768px) {
+    .bg-mesh-dark {
+      background-image:
+        radial-gradient(ellipse at 20% 50%, oklch(0.62 0.26 283 / 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, oklch(0.62 0.22 240 / 0.08) 0%, transparent 50%);
+    }
+
+    .bg-mesh-light {
+      background-image:
+        radial-gradient(ellipse at 20% 50%, oklch(0.52 0.24 283 / 0.05) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, oklch(0.55 0.2 240 / 0.04) 0%, transparent 50%);
+    }
   }
 
   /* Display font */
@@ -260,9 +287,10 @@
 }
 
 .flashcard-inner {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   position: relative;
+  will-change: transform;
 }
 
 .flashcard-inner.flipped {
@@ -305,25 +333,43 @@
 
 /* ── Pulse dot (for stats) ──────────────────────────── */
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; box-shadow: 0 0 6px oklch(var(--neon-green) / 0.6); }
-  50% { opacity: 0.5; box-shadow: 0 0 12px oklch(var(--neon-green) / 0.9); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .pulse-dot {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: pulse-glow 2.5s ease-in-out infinite;
+  will-change: opacity;
 }
 
 /* ── Streak fire ─────────────────────────────────────── */
 @keyframes fire-flicker {
   0%, 100% { transform: scale(1) rotate(-2deg); }
-  25% { transform: scale(1.1) rotate(2deg); }
-  50% { transform: scale(0.95) rotate(-1deg); }
-  75% { transform: scale(1.05) rotate(1deg); }
+  50% { transform: scale(1.08) rotate(2deg); }
 }
 
 .fire-anim {
-  animation: fire-flicker 0.8s ease-in-out infinite;
+  animation: fire-flicker 1.2s ease-in-out infinite;
   display: inline-block;
+  will-change: transform;
+}
+
+/* ── Respect reduced motion ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fire-anim, .pulse-dot, .progress-shimmer, .xp-popup {
+    animation: none !important;
+  }
+}
+
+/* ── Content visibility for below-fold sections ──────── */
+.content-below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
 }
 
 /* ── Print styles ─────────────────────────────────────── */
@@ -376,5 +422,6 @@
     oklch(var(--neon-purple)) 100%
   );
   background-size: 200% auto;
-  animation: shimmer 2s linear infinite;
+  animation: shimmer 2.5s linear infinite;
+  will-change: background-position;
 }
