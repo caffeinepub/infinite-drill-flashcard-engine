@@ -23,7 +23,30 @@ import {
   ncertClasses,
 } from "../data/ncertContent";
 import { getVideoByContext } from "../data/videoLinks";
-import { useSEO } from "../hooks/useSEO";
+import { updateChapterSEO, useSEO } from "../hooks/useSEO";
+
+// ─── SEO H1 Builder ───────────────────────────────────────────────────────────
+
+/**
+ * Builds the SEO-optimised H1 string based on current navigation level.
+ * Task 1 + 2: Dynamic H1 Template with high-volume keyword integration.
+ */
+function buildH1(
+  classNum: number | null,
+  subject: string | null,
+  chapter?: NCERTChapter | null,
+): string {
+  if (chapter) {
+    return `NCERT Solutions for Class ${classNum} ${subject} Chapter ${chapter.number}: ${chapter.name} — Notes, PDF & Important Questions`;
+  }
+  if (classNum && subject) {
+    return `NCERT Solutions for Class ${classNum} ${subject} — Notes, PDF & Important Questions`;
+  }
+  if (classNum) {
+    return `NCERT Class ${classNum} Solutions — All Subjects Notes, PDF & Important Questions`;
+  }
+  return "NCERT Solutions Class 1 to 12 — Free Notes, PDF & Important Questions | NCERT Bhaiya";
+}
 
 // ─── Class Selector ───────────────────────────────────────────────────────────
 
@@ -196,11 +219,35 @@ function SubjectSelector({
 function ChapterCard({
   chapter,
   index,
-}: { chapter: NCERTChapter; index: number }) {
+  onExpand,
+}: {
+  chapter: NCERTChapter;
+  index: number;
+  onExpand?: (chapter: NCERTChapter | null) => void;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
   const video = getVideoByContext(chapter.subject, chapter.name);
+
+  const handleToggle = () => {
+    const nextExpanded = !isExpanded;
+    setIsExpanded(nextExpanded);
+
+    if (nextExpanded) {
+      // Task 4: document.querySelector-based DOM update
+      updateChapterSEO({
+        classNum: chapter.classNum,
+        subject: chapter.subject,
+        chapterNum: chapter.number,
+        chapterName: chapter.name,
+      });
+      // Lift state up for React-controlled SEO
+      onExpand?.(chapter);
+    } else {
+      onExpand?.(null);
+    }
+  };
 
   return (
     <motion.div
@@ -213,7 +260,7 @@ function ChapterCard({
       {/* Chapter Header */}
       <button
         type="button"
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={handleToggle}
         className="w-full text-left p-5 flex items-start gap-4 hover:bg-muted/10 transition-colors group"
       >
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-purple/30 to-neon-blue/30 flex items-center justify-center font-display font-bold text-sm text-neon-purple shrink-0">
@@ -382,11 +429,13 @@ function ChapterList({
   classNum,
   subjectName,
   onBack,
+  onChapterExpand,
 }: {
   subjectData: NCERTSubject;
   classNum: number;
   subjectName: string;
   onBack: () => void;
+  onChapterExpand?: (chapter: NCERTChapter | null) => void;
 }) {
   return (
     <div>
@@ -424,7 +473,12 @@ function ChapterList({
 
       <div className="space-y-3">
         {subjectData.chapters.map((chapter, i) => (
-          <ChapterCard key={chapter.id} chapter={chapter} index={i} />
+          <ChapterCard
+            key={chapter.id}
+            chapter={chapter}
+            index={i}
+            onExpand={onChapterExpand}
+          />
         ))}
       </div>
     </div>
@@ -436,28 +490,39 @@ function ChapterList({
 export default function NCERT() {
   const [selectedClass, setSelectedClass] = useState<number | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  // Task 3: Track actively expanded chapter for per-chapter meta tags
+  const [activeChapter, setActiveChapter] = useState<NCERTChapter | null>(null);
 
-  // Dynamic SEO based on selected class/subject
-  const seoTitle =
-    selectedClass && selectedSubject
-      ? `Class ${selectedClass} ${selectedSubject} NCERT Notes, Chapter Explanations & Key Concepts`
-      : selectedClass
-        ? `Class ${selectedClass} NCERT Chapters — Science, Maths, Social Science, English, Hindi`
-        : "NCERT Solutions Class 1 to 12 — All Chapters, Subjects & Explanations | NCERT Bhaiya";
+  // ── Dynamic H1 (Task 1 + 2) ────────────────────────────────────────────────
+  const h1Text = buildH1(selectedClass, selectedSubject, activeChapter);
 
-  const seoDescription =
-    selectedClass && selectedSubject
-      ? `Free NCERT Class ${selectedClass} ${selectedSubject} chapter-wise notes, key concepts, important terms, definitions and step-by-step explanations. Best study resource for CBSE Class ${selectedClass} ${selectedSubject} board exam preparation on NCERT Bhaiya.`
+  // ── Dynamic SEO (Task 3) ───────────────────────────────────────────────────
+  const seoTitle = activeChapter
+    ? `NCERT Solutions for Class ${selectedClass} ${selectedSubject} Chapter ${activeChapter.number}: ${activeChapter.name} — Notes, PDF & Important Questions`
+    : selectedClass && selectedSubject
+      ? `NCERT Solutions for Class ${selectedClass} ${selectedSubject} — Notes, PDF & Important Questions`
       : selectedClass
-        ? `Browse all NCERT subjects for Class ${selectedClass} on NCERT Bhaiya — Science, Maths, Social Science, English, Hindi. Chapter-wise explanations, key concepts, important formulas and free MCQ quizzes for CBSE board exam.`
-        : "Free NCERT chapter notes, explanations and key concepts for Class 1 to 12 on NCERT Bhaiya. All CBSE subjects covered — Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology. Download-free, ad-supported study resource for CBSE students in India.";
+        ? `NCERT Class ${selectedClass} Solutions — All Subjects Notes, PDF & Important Questions`
+        : "NCERT Solutions Class 1 to 12 — Free Notes, PDF & Important Questions | NCERT Bhaiya";
 
-  const seoKeywords =
-    selectedClass && selectedSubject
-      ? `NCERT Class ${selectedClass} ${selectedSubject}, Class ${selectedClass} ${selectedSubject} chapter names, NCERT Class ${selectedClass} ${selectedSubject} notes, CBSE Class ${selectedClass} ${selectedSubject} solutions, Class ${selectedClass} ${selectedSubject} important questions, NCERT ${selectedSubject} Class ${selectedClass} PDF`
+  const seoDescription = activeChapter
+    ? `Free NCERT Class ${selectedClass} ${selectedSubject} Ch ${activeChapter.number} ${activeChapter.name} Notes & Solutions. Key Concepts, Important Questions & PDF Summary. Best CBSE Class ${selectedClass} prep.`.slice(
+        0,
+        160,
+      )
+    : selectedClass && selectedSubject
+      ? `Free NCERT Class ${selectedClass} ${selectedSubject} chapter-wise notes, solutions, important questions and PDF summary. Best CBSE Class ${selectedClass} ${selectedSubject} board exam preparation on NCERT Bhaiya.`
       : selectedClass
-        ? `NCERT Class ${selectedClass}, Class ${selectedClass} chapter names, NCERT Class ${selectedClass} notes, CBSE Class ${selectedClass} solutions, Class ${selectedClass} science chapters, Class ${selectedClass} maths chapters, Class ${selectedClass} important questions`
-        : "NCERT solutions class 1 to 12, NCERT chapter notes, CBSE NCERT notes, free NCERT explanations, NCERT class 9 10 11 12, NCERT Science Maths Social Science, CBSE board exam preparation, NCERT Bhaiya";
+        ? `Browse all NCERT subjects for Class ${selectedClass} — Science, Maths, Social Science, English, Hindi. Chapter notes, important questions, PDF summaries and MCQ quizzes for CBSE board exam.`
+        : "Free NCERT solutions, chapter notes, important questions and PDF summaries for Class 1 to 12 on NCERT Bhaiya. All CBSE subjects — Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology.";
+
+  const seoKeywords = activeChapter
+    ? `NCERT Class ${selectedClass} ${selectedSubject} Chapter ${activeChapter.number}, ${activeChapter.name} NCERT solutions, ${activeChapter.name} notes PDF, Class ${selectedClass} ${selectedSubject} important questions, NCERT ${selectedSubject} Class ${selectedClass} chapter wise solutions`
+    : selectedClass && selectedSubject
+      ? `NCERT Class ${selectedClass} ${selectedSubject}, NCERT Class ${selectedClass} ${selectedSubject} solutions, Class ${selectedClass} ${selectedSubject} notes PDF, Class ${selectedClass} ${selectedSubject} important questions, NCERT ${selectedSubject} Class ${selectedClass} chapter wise solutions`
+      : selectedClass
+        ? `NCERT Class ${selectedClass} Solutions, Class ${selectedClass} Notes PDF, Class ${selectedClass} Important Questions, NCERT Class ${selectedClass} chapter wise solutions`
+        : "NCERT solutions class 1 to 12, NCERT notes PDF, CBSE important questions, free NCERT explanations, NCERT class 9 10 11 12, NCERT Bhaiya";
 
   useSEO({
     title: seoTitle,
@@ -476,6 +541,7 @@ export default function NCERT() {
   const handleClassSelect = (c: number) => {
     setSelectedClass(c);
     setSelectedSubject(null);
+    setActiveChapter(null);
   };
 
   const handleSubjectSelect = (s: string) => {
@@ -485,30 +551,48 @@ export default function NCERT() {
     } else {
       setSelectedSubject(s);
     }
+    setActiveChapter(null);
   };
 
   const handleBackToSubjects = () => {
     setSelectedSubject(null);
+    setActiveChapter(null);
+  };
+
+  // Task 3: Callback lifted from ChapterCard → ChapterList → NCERT
+  const handleChapterExpand = (chapter: NCERTChapter | null) => {
+    setActiveChapter(chapter);
   };
 
   return (
     <Layout>
       <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-6">
-        {/* Page Header */}
+        {/* Page Header — Dynamic SEO H1 (Tasks 1, 2, 4) */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 mb-8"
+          className="flex items-start gap-3 mb-8"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center shrink-0 mt-0.5">
             <GraduationCap size={20} className="text-white" />
           </div>
-          <div>
-            <h1 className="font-display text-2xl font-bold">
-              <span className="text-gradient-purple">NCERT</span> Content
-              Browser
+          <div className="flex-1 min-w-0">
+            {/* Task 1, 2 & 4: Dynamic H1 with data-ocid for document.querySelector targeting */}
+            <h1
+              data-ocid="ncert.page_h1"
+              className="font-display text-2xl font-bold leading-snug"
+            >
+              {/* Render with gradient on "NCERT Solutions" prefix when possible */}
+              {h1Text.startsWith("NCERT") ? (
+                <>
+                  <span className="text-gradient-purple">NCERT</span>
+                  {h1Text.slice(5)}
+                </>
+              ) : (
+                h1Text
+              )}
             </h1>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground mt-0.5">
               Class 1–12 · All subjects · Chapter explanations + animated videos
             </p>
           </div>
@@ -558,6 +642,7 @@ export default function NCERT() {
                 classNum={selectedClass}
                 subjectName={selectedSubject}
                 onBack={handleBackToSubjects}
+                onChapterExpand={handleChapterExpand}
               />
             </motion.div>
           )}

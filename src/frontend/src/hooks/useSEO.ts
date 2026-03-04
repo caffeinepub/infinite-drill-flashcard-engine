@@ -80,3 +80,62 @@ function setMeta(attr: "name" | "property", key: string, value: string) {
   }
   el.content = value;
 }
+
+/**
+ * Drop-in equivalent of the JS snippet the user requested.
+ * Call this inside any "Load Chapter" function with the chapter details.
+ * Uses document.querySelector to directly update H1 and browser tab title.
+ */
+export function updateChapterSEO(params: {
+  classNum: number;
+  subject: string;
+  chapterNum: number | string;
+  chapterName: string;
+}) {
+  const { classNum, subject, chapterNum, chapterName } = params;
+
+  // H1 update via document.querySelector
+  const h1 = document.querySelector<HTMLHeadingElement>(
+    '[data-ocid="ncert.page_h1"]',
+  );
+  if (h1) {
+    h1.textContent = `NCERT Solutions for Class ${classNum} ${subject} Chapter ${chapterNum}: ${chapterName} — Notes, PDF & Important Questions`;
+  }
+
+  // Browser tab title update
+  document.title = `NCERT Solutions for Class ${classNum} ${subject} Chapter ${chapterNum}: ${chapterName} — Notes, PDF & Important Questions | NCERT Bhaiya`;
+
+  // Meta description update
+  const metaDesc = document.querySelector<HTMLMetaElement>(
+    'meta[name="description"]',
+  );
+  if (metaDesc) {
+    metaDesc.content =
+      `Free NCERT Class ${classNum} ${subject} Ch ${chapterNum} ${chapterName} Notes & Solutions. Key Concepts, Important Questions & PDF Summary. Best CBSE Class ${classNum} prep.`.slice(
+        0,
+        160,
+      );
+  }
+
+  // Open Graph sync
+  const ogTitle = document.querySelector<HTMLMetaElement>(
+    'meta[property="og:title"]',
+  );
+  if (ogTitle) ogTitle.content = document.title;
+
+  const ogDesc = document.querySelector<HTMLMetaElement>(
+    'meta[property="og:description"]',
+  );
+  if (ogDesc && metaDesc) ogDesc.content = metaDesc.content;
+
+  // Twitter Card sync
+  const twTitle = document.querySelector<HTMLMetaElement>(
+    'meta[name="twitter:title"]',
+  );
+  if (twTitle) twTitle.content = document.title;
+
+  const twDesc = document.querySelector<HTMLMetaElement>(
+    'meta[name="twitter:description"]',
+  );
+  if (twDesc && metaDesc) twDesc.content = metaDesc.content;
+}

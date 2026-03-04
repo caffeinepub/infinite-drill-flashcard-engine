@@ -13,6 +13,7 @@ import {
   Trophy,
   Zap,
 } from "lucide-react";
+import logoImg from "/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useUserProfile } from "../hooks/useUserProfile";
 import { useTheme } from "./ThemeProvider";
@@ -62,7 +63,7 @@ export function NavBar() {
           data-ocid="nav.home_link"
         >
           <img
-            src="/assets/generated/ncrt-bhaiya-logo-transparent.dim_512x512.png"
+            src={logoImg}
             alt="NCRT Bhaiya Logo"
             className="w-8 h-8 rounded-lg object-contain"
           />
