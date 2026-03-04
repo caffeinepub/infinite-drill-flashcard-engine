@@ -104,9 +104,9 @@ export default function Quiz() {
   const questions = topic.questions;
 
   useSEO({
-    title: `${topic.chapter} MCQ Quiz — ${topic.className} ${topic.subject} NCERT`,
-    description: `Practice ${topic.chapter} MCQ questions for ${topic.className} ${topic.subject} NCERT. Timed quiz with explanations, XP rewards and instant feedback for CBSE exam preparation.`,
-    keywords: `${topic.chapter} MCQ, ${topic.className} ${topic.subject} quiz, NCERT ${topic.chapter} questions, CBSE ${topic.className} practice test, ${topic.chapter} important questions`,
+    title: `${topic.chapter} MCQ Quiz — ${topic.className} ${topic.subject} NCERT | NCERT Bhaiya`,
+    description: `Practice free MCQ questions on ${topic.chapter} for ${topic.className} ${topic.subject} NCERT on NCERT Bhaiya. Timed quiz with detailed answer explanations, XP rewards and instant feedback. Best online MCQ practice for CBSE board exam ${topic.className}.`,
+    keywords: `${topic.chapter} MCQ, ${topic.className} ${topic.subject} MCQ quiz, NCERT ${topic.chapter} questions, CBSE ${topic.className} practice test, ${topic.chapter} important questions, ${topic.chapter} objective questions, ${topic.className} ${topic.subject} online test, NCERT Bhaiya quiz`,
     canonical: `/quiz/${topicId}`,
   });
 

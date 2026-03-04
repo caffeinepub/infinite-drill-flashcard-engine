@@ -527,20 +527,30 @@ export default function IIT() {
 
   const seoTitle =
     selectedSubject && selectedUnit
-      ? `IIT JEE ${selectedSubject.name} Unit ${selectedUnit.number}: ${selectedUnit.name} — Notes & Formulas`
+      ? `IIT JEE ${selectedSubject.name} — ${selectedUnit.name}: Notes, Formulas & Concept Videos | NCERT Bhaiya`
       : selectedSubject
-        ? `IIT JEE ${selectedSubject.name} Syllabus — Complete Notes & Formulas`
-        : "IIT JEE Syllabus 2024 — Physics, Chemistry, Maths Notes & Formulas";
+        ? `IIT JEE ${selectedSubject.name} Syllabus 2025 — Complete Notes, Formulas & Key Concepts | NCERT Bhaiya`
+        : "IIT JEE Syllabus 2025 — Free Physics, Chemistry, Maths Notes, Formulas & Concept Videos | NCERT Bhaiya";
 
-  const seoDescription = selectedSubject
-    ? `Free IIT JEE ${selectedSubject.name} notes, formulas, key concepts, and concept videos. Complete JEE Main and JEE Advanced syllabus coverage.`
-    : "Free IIT JEE preparation — complete syllabus for Physics, Chemistry, Mathematics with notes, important formulas, key concepts, and video explanations. Covers JEE Main and JEE Advanced.";
+  const seoDescription =
+    selectedSubject && selectedUnit
+      ? `Free IIT JEE ${selectedSubject.name} notes for ${selectedUnit.name}. Covers all key concepts, important formulas, solved examples and concept videos for JEE Main and JEE Advanced 2025. Study smart on NCERT Bhaiya.`
+      : selectedSubject
+        ? `Free IIT JEE ${selectedSubject.name} complete syllabus on NCERT Bhaiya — chapter-wise notes, important formulas, key concepts and concept videos for JEE Main and JEE Advanced 2025 preparation.`
+        : "Free IIT JEE 2025 preparation on NCERT Bhaiya — complete syllabus for Physics, Chemistry and Mathematics. Chapter-wise notes, important formulas, key concepts and concept videos for JEE Main and JEE Advanced. Best free resource for IIT JEE aspirants in India.";
+
+  const seoKeywords =
+    selectedSubject && selectedUnit
+      ? `IIT JEE ${selectedSubject.name} ${selectedUnit.name}, JEE ${selectedSubject.name} notes, JEE ${selectedSubject.name} formulas, IIT JEE ${selectedUnit.name} key concepts, JEE Main ${selectedSubject.name} syllabus, JEE Advanced ${selectedSubject.name}`
+      : selectedSubject
+        ? `IIT JEE ${selectedSubject.name} syllabus 2025, JEE ${selectedSubject.name} notes, JEE ${selectedSubject.name} formulas, IIT JEE ${selectedSubject.name} important topics, JEE Main ${selectedSubject.name}, JEE Advanced ${selectedSubject.name}`
+        : "IIT JEE syllabus 2025, JEE Main syllabus, JEE Advanced syllabus, IIT JEE Physics notes, IIT JEE Chemistry notes, IIT JEE Maths formulas, JEE preparation free, IIT entrance exam 2025, JEE Physics Chemistry Maths, NCERT Bhaiya IIT JEE";
 
   useSEO({
     title: seoTitle,
     description: seoDescription,
-    keywords:
-      "IIT JEE syllabus, JEE Main syllabus, JEE Advanced syllabus, IIT JEE Physics notes, IIT JEE Chemistry notes, IIT JEE Maths formulas, JEE preparation, IIT entrance exam, JEE 2024 syllabus",
+    keywords: seoKeywords,
+    canonical: "/iit",
   });
 
   const handleSubjectSelect = (s: IITSubject) => {

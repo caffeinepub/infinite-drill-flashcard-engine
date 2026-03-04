@@ -1,8 +1,10 @@
 import { cn } from "@/lib/utils";
 import { Crown, Flame, Star, Trophy } from "lucide-react";
 import { motion } from "motion/react";
+import { useEffect } from "react";
 import { Layout } from "../components/Layout";
 import { leaderboardData, levelColors } from "../data/demoData";
+import { useSEO } from "../hooks/useSEO";
 
 // ─── Rank Badge ────────────────────────────────────────────────────────────────
 
@@ -75,6 +77,15 @@ function UserAvatar({ username, rank }: { username: string; rank: number }) {
 // ─── Leaderboard Page ─────────────────────────────────────────────────────────
 
 export default function Leaderboard() {
+  useSEO({
+    title: "NCERT Bhaiya Leaderboard — Top CBSE Students & XP Rankings",
+    description:
+      "See who's topping the NCERT Bhaiya leaderboard! Weekly rankings of top CBSE students by XP earned from MCQ quizzes, flashcards and lessons. Compete, earn points and win rewards on NCERT Bhaiya.",
+    keywords:
+      "NCERT Bhaiya leaderboard, CBSE student rankings, NCERT quiz XP leaderboard, best CBSE students, online study competition, gamified CBSE learning, NCERT Bhaiya top students",
+    canonical: "/leaderboard",
+  });
+
   return (
     <Layout>
       <div className="max-w-3xl mx-auto px-4 py-8">

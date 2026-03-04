@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Layout } from "../components/Layout";
 import { topicsData } from "../data/demoData";
 import { useGenerateContent } from "../hooks/useQueries";
+import { useSEO } from "../hooks/useSEO";
 
 // ─── Generation Steps ─────────────────────────────────────────────────────────
 
@@ -27,6 +28,16 @@ const generationSteps = [
 // ─── Generate Page ────────────────────────────────────────────────────────────
 
 export default function Generate() {
+  useSEO({
+    title:
+      "AI Content Generator — Create NCERT MCQs, Flashcards & Cheat Sheets | NCERT Bhaiya",
+    description:
+      "Paste any NCERT chapter text and instantly generate MCQ quiz questions, flashcards and cheat sheets using AI on NCERT Bhaiya. Free AI-powered study tool for CBSE Class 1 to 12 students.",
+    keywords:
+      "NCERT MCQ generator, AI flashcard generator, NCERT quiz maker, CBSE study material generator, AI NCERT notes, auto MCQ from NCERT, NCERT Bhaiya generate, AI study tool CBSE",
+    canonical: "/generate",
+  });
+
   const [rawText, setRawText] = useState("");
   const [selectedTopicId, setSelectedTopicId] = useState("1");
   const [isGenerating, setIsGenerating] = useState(false);

@@ -111,9 +111,9 @@ export default function CheatSheet() {
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
 
   useSEO({
-    title: `${topic.chapter} Cheat Sheet — ${topic.className} ${topic.subject} NCERT`,
-    description: `Quick reference cheat sheet for ${topic.chapter} (${topic.className} ${topic.subject} NCERT). Definitions, formulas, key examples and tips for CBSE board exam preparation.`,
-    keywords: `${topic.chapter} cheat sheet, ${topic.className} ${topic.subject} notes, NCERT ${topic.chapter}, CBSE ${topic.className} ${topic.subject} cheat sheet, ${topic.chapter} important points`,
+    title: `${topic.chapter} Cheat Sheet & Quick Notes — ${topic.className} ${topic.subject} NCERT | NCERT Bhaiya`,
+    description: `Free quick-reference cheat sheet for ${topic.chapter} — ${topic.className} ${topic.subject} NCERT. Covers all key definitions, important formulas, solved examples, tips and tricks for CBSE board exam preparation. Printable format on NCERT Bhaiya.`,
+    keywords: `${topic.chapter} cheat sheet, ${topic.chapter} quick notes, ${topic.className} ${topic.subject} cheat sheet, NCERT ${topic.chapter} important points, CBSE ${topic.className} ${topic.subject} summary, ${topic.chapter} formulas and definitions, ${topic.chapter} board exam notes, NCERT Bhaiya cheat sheet`,
     canonical: `/cheatsheet/${topicId}`,
   });
 

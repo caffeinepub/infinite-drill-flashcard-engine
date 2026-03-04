@@ -8,8 +8,9 @@ interface SEOOptions {
 }
 
 /**
- * Sets document <title>, meta description, keywords, and canonical link
- * for each page to maximise Google indexing of NCERT content.
+ * Sets document <title>, meta description, keywords, canonical link,
+ * Open Graph and Twitter Card tags for each page to maximise Google
+ * indexing of NCERT / IIT JEE content on NCERT Bhaiya.
  */
 export function useSEO({
   title,
@@ -21,28 +22,36 @@ export function useSEO({
     const BASE = "https://ncrtbhaiya-8d1.caffeine.xyz";
     const SITE_NAME = "NCERT Bhaiya";
 
-    // Title
-    if (title) {
-      document.title = `${title} | ${SITE_NAME}`;
-    }
+    const fullTitle = title
+      ? `${title} | ${SITE_NAME}`
+      : `${SITE_NAME} | Free NCERT Solutions, MCQ Quiz & Notes Class 1-12 | CBSE Study`;
+    const finalDescription =
+      description ??
+      "Free NCERT solutions, chapter notes, MCQ quizzes, flashcards and AI explanations for Class 1 to 12. CBSE Science, Maths, Social Science, English, Hindi — all in one place on NCERT Bhaiya.";
 
-    // Meta description
-    setMeta("name", "description", description ?? "");
+    // ── Title ────────────────────────────────────────────────────────────────
+    document.title = fullTitle;
 
-    // Meta keywords
+    // ── Meta description ─────────────────────────────────────────────────────
+    setMeta("name", "description", finalDescription);
+
+    // ── Meta keywords ────────────────────────────────────────────────────────
     if (keywords) {
       setMeta("name", "keywords", keywords);
     }
 
-    // OG tags
-    if (title) {
-      setMeta("property", "og:title", `${title} | ${SITE_NAME}`);
-    }
-    if (description) {
-      setMeta("property", "og:description", description);
-    }
+    // ── Open Graph ───────────────────────────────────────────────────────────
+    setMeta("property", "og:title", fullTitle);
+    setMeta("property", "og:description", finalDescription);
+    setMeta("property", "og:site_name", SITE_NAME);
+    setMeta("property", "og:type", "website");
 
-    // Canonical
+    // ── Twitter Card ─────────────────────────────────────────────────────────
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", fullTitle);
+    setMeta("name", "twitter:description", finalDescription);
+
+    // ── Canonical ────────────────────────────────────────────────────────────
     const canonicalHref = canonical
       ? `${BASE}${canonical}`
       : BASE + window.location.pathname;
@@ -55,9 +64,9 @@ export function useSEO({
     link.href = canonicalHref;
 
     return () => {
-      // Reset to defaults on unmount
+      // Reset to global defaults on unmount
       document.title =
-        "NCERT Bhaiya — Free NCERT Solutions & MCQ Quiz for Class 1 to 12";
+        "NCRT Bhaiya | Free NCERT Solutions, MCQ Quiz & Notes Class 1-12 | CBSE Study";
     };
   }, [title, description, keywords, canonical]);
 }

@@ -122,9 +122,9 @@ export default function Flashcards() {
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
 
   useSEO({
-    title: `${topic.chapter} Flashcards — ${topic.className} ${topic.subject} NCERT`,
-    description: `Study ${topic.chapter} with interactive flashcards. ${topic.className} ${topic.subject} NCERT key terms and concepts for CBSE board exam revision.`,
-    keywords: `${topic.chapter} flashcards, ${topic.className} ${topic.subject} revision, NCERT ${topic.chapter} key terms, CBSE ${topic.className} flashcards`,
+    title: `${topic.chapter} Flashcards — ${topic.className} ${topic.subject} NCERT | NCERT Bhaiya`,
+    description: `Study ${topic.chapter} with free interactive flashcards on NCERT Bhaiya. ${topic.className} ${topic.subject} NCERT key terms, definitions and concepts for quick CBSE board exam revision. Flip-card spaced repetition learning.`,
+    keywords: `${topic.chapter} flashcards, ${topic.className} ${topic.subject} flashcards, NCERT ${topic.chapter} key terms, CBSE ${topic.className} revision cards, ${topic.chapter} key concepts, ${topic.className} ${topic.subject} study cards, NCERT Bhaiya flashcards`,
     canonical: `/flashcards/${topicId}`,
   });
 

@@ -200,11 +200,11 @@ export default function Home() {
   const studentClass = profile?.studentClass ?? null;
 
   useSEO({
-    title: "Free NCERT Solutions, Notes & MCQ Quiz for Class 1 to 12",
+    title: "Free NCERT Solutions, MCQ Quiz & Notes — Class 1 to 12 CBSE",
     description:
-      "NCERT Bhaiya — Free NCERT chapter notes, MCQ practice quizzes, flashcards and cheat sheets for all CBSE classes 1 to 12. Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology.",
+      "NCERT Bhaiya — India's best free NCERT study platform. Get NCERT solutions, chapter notes, MCQ practice tests, flashcards and AI explanations for Class 1 to 12 CBSE. Covers Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology and IIT JEE.",
     keywords:
-      "NCERT solutions, NCERT notes, free NCERT, CBSE study material, class 9 science chapters, class 10 maths chapters, NCERT MCQ quiz, NCERT flashcards, CBSE board exam preparation, NCERT cheat sheet, class 9 chapter names, class 10 chapter names, NCERT class 1 to 12",
+      "NCERT solutions Class 1 to 12, free NCERT notes, CBSE study material, NCERT Bhaiya, class 9 science chapter names, class 9 science MCQ, class 10 maths chapters, class 10 science chapters, class 11 physics notes, class 12 chemistry notes, NCERT MCQ quiz, NCERT flashcards, CBSE board exam preparation 2024, NCERT cheat sheet, NCERT chapter explanation, free CBSE online study, gamified learning CBSE, NCERT class 9 10 11 12",
     canonical: "/",
   });
   // Filter topics by class if possible

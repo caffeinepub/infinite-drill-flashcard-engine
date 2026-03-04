@@ -440,21 +440,24 @@ export default function NCERT() {
   // Dynamic SEO based on selected class/subject
   const seoTitle =
     selectedClass && selectedSubject
-      ? `Class ${selectedClass} ${selectedSubject} NCERT Notes & Explanations`
+      ? `Class ${selectedClass} ${selectedSubject} NCERT Notes, Chapter Explanations & Key Concepts`
       : selectedClass
-        ? `Class ${selectedClass} NCERT Chapters — All Subjects`
-        : "NCERT Content Browser — Class 1 to 12 All Subjects";
+        ? `Class ${selectedClass} NCERT Chapters — Science, Maths, Social Science, English, Hindi`
+        : "NCERT Solutions Class 1 to 12 — All Chapters, Subjects & Explanations | NCERT Bhaiya";
 
   const seoDescription =
     selectedClass && selectedSubject
-      ? `Free NCERT Class ${selectedClass} ${selectedSubject} chapter notes, key concepts, important terms and explanations. CBSE board exam preparation.`
+      ? `Free NCERT Class ${selectedClass} ${selectedSubject} chapter-wise notes, key concepts, important terms, definitions and step-by-step explanations. Best study resource for CBSE Class ${selectedClass} ${selectedSubject} board exam preparation on NCERT Bhaiya.`
       : selectedClass
-        ? `Browse all NCERT subjects for Class ${selectedClass} — Science, Maths, Social Science, English, Hindi. Chapter explanations, key concepts and MCQ quizzes.`
-        : "Free NCERT chapter notes, explanations and key concepts for Class 1 to 12. All CBSE subjects covered — Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology.";
+        ? `Browse all NCERT subjects for Class ${selectedClass} on NCERT Bhaiya — Science, Maths, Social Science, English, Hindi. Chapter-wise explanations, key concepts, important formulas and free MCQ quizzes for CBSE board exam.`
+        : "Free NCERT chapter notes, explanations and key concepts for Class 1 to 12 on NCERT Bhaiya. All CBSE subjects covered — Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology. Download-free, ad-supported study resource for CBSE students in India.";
 
-  const seoKeywords = selectedClass
-    ? `NCERT class ${selectedClass}, class ${selectedClass} ${selectedSubject ?? "science"} chapters, NCERT class ${selectedClass} notes, CBSE class ${selectedClass} ${selectedSubject ?? "science"}, class ${selectedClass} chapter names`
-    : "NCERT solutions class 1 to 12, NCERT chapter notes, CBSE NCERT notes, free NCERT explanations";
+  const seoKeywords =
+    selectedClass && selectedSubject
+      ? `NCERT Class ${selectedClass} ${selectedSubject}, Class ${selectedClass} ${selectedSubject} chapter names, NCERT Class ${selectedClass} ${selectedSubject} notes, CBSE Class ${selectedClass} ${selectedSubject} solutions, Class ${selectedClass} ${selectedSubject} important questions, NCERT ${selectedSubject} Class ${selectedClass} PDF`
+      : selectedClass
+        ? `NCERT Class ${selectedClass}, Class ${selectedClass} chapter names, NCERT Class ${selectedClass} notes, CBSE Class ${selectedClass} solutions, Class ${selectedClass} science chapters, Class ${selectedClass} maths chapters, Class ${selectedClass} important questions`
+        : "NCERT solutions class 1 to 12, NCERT chapter notes, CBSE NCERT notes, free NCERT explanations, NCERT class 9 10 11 12, NCERT Science Maths Social Science, CBSE board exam preparation, NCERT Bhaiya";
 
   useSEO({
     title: seoTitle,
