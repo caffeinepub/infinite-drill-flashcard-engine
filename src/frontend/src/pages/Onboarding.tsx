@@ -67,10 +67,13 @@ export default function Onboarding() {
     }
   };
 
-  const classes = Array.from({ length: 12 }, (_, i) => ({
-    value: `Class ${i + 1}`,
-    label: `Class ${i + 1}`,
-  }));
+  const classes = [
+    ...Array.from({ length: 12 }, (_, i) => ({
+      value: `Class ${i + 1}`,
+      label: `Class ${i + 1}`,
+    })),
+    { value: "JEE", label: "JEE (IIT Entrance)" },
+  ];
 
   return (
     <div className="min-h-screen bg-mesh-dark flex flex-col items-center justify-center px-4 relative overflow-hidden">

@@ -8,6 +8,7 @@ import {
   ChevronDown,
   ChevronRight,
   FileText,
+  FlaskConical,
   GraduationCap,
   Library,
   Sparkles,
@@ -317,7 +318,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.3 }}
-              className="mb-8 p-5 glass-dark rounded-2xl border border-neon-blue/20 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10"
+              className="mb-4 p-5 glass-dark rounded-2xl border border-neon-blue/20 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10"
             >
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-start gap-3">
@@ -341,6 +342,40 @@ export default function Home() {
                   >
                     <Library size={14} />
                     Browse NCERT
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* IIT JEE CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.3 }}
+              className="mb-8 p-5 glass-dark rounded-2xl border border-neon-amber/20 bg-gradient-to-r from-neon-amber/10 to-neon-purple/10"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-amber to-neon-purple flex items-center justify-center shrink-0">
+                    <FlaskConical size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h2 className="font-display font-bold text-base mb-1">
+                      IIT JEE Exam Preparation
+                    </h2>
+                    <p className="text-xs text-muted-foreground">
+                      Full JEE Main + Advanced syllabus — Physics, Chemistry,
+                      Maths with key formulas and concept videos
+                    </p>
+                  </div>
+                </div>
+                <Link to="/iit" data-ocid="home.iit_link">
+                  <Button
+                    size="sm"
+                    className="shrink-0 bg-gradient-to-r from-neon-amber to-neon-purple text-white hover:opacity-90 gap-1.5 rounded-lg"
+                  >
+                    <FlaskConical size={14} />
+                    IIT JEE Hub
                   </Button>
                 </Link>
               </div>

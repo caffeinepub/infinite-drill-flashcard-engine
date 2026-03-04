@@ -12,6 +12,7 @@ import CheatSheet from "./pages/CheatSheet";
 import Flashcards from "./pages/Flashcards";
 import Generate from "./pages/Generate";
 import Home from "./pages/Home";
+import IIT from "./pages/IIT";
 import Leaderboard from "./pages/Leaderboard";
 import NCERT from "./pages/NCERT";
 import Quiz from "./pages/Quiz";
@@ -64,6 +65,12 @@ const leaderboardRoute = createRoute({
   component: Leaderboard,
 });
 
+const iitRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/iit",
+  component: IIT,
+});
+
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
@@ -74,6 +81,7 @@ const routeTree = rootRoute.addChildren([
   cheatsheetRoute,
   generateRoute,
   leaderboardRoute,
+  iitRoute,
 ]);
 
 const router = createRouter({ routeTree });

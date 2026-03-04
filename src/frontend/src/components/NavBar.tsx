@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
-  BookOpen,
+  FlaskConical,
   GraduationCap,
   Home,
   Library,
@@ -28,9 +28,15 @@ export function NavBar() {
     { href: "/", label: "Home", icon: Home, ocid: "nav.home_link" },
     {
       href: "/ncert",
-      label: "NCERT Browse",
+      label: "NCERT",
       icon: Library,
       ocid: "nav.ncert_link",
+    },
+    {
+      href: "/iit",
+      label: "IIT JEE",
+      icon: FlaskConical,
+      ocid: "nav.iit_link",
     },
     {
       href: "/leaderboard",
@@ -55,12 +61,14 @@ export function NavBar() {
           className="flex items-center gap-2.5 group shrink-0"
           data-ocid="nav.home_link"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center shadow-sm">
-            <BookOpen size={16} className="text-white" />
-          </div>
+          <img
+            src="/assets/generated/ncrt-bhaiya-logo-transparent.dim_512x512.png"
+            alt="NCRT Bhaiya Logo"
+            className="w-8 h-8 rounded-lg object-contain"
+          />
           <span className="font-display font-bold text-lg tracking-tight hidden sm:block">
-            <span className="text-gradient-purple">NCERT</span>
-            <span className="text-foreground/80"> Learn</span>
+            <span className="text-gradient-purple">NCRT</span>
+            <span className="text-foreground/80"> Bhaiya</span>
           </span>
         </Link>
 
@@ -115,7 +123,9 @@ export function NavBar() {
                 className="text-[9px] px-1.5 py-0.5 bg-neon-purple/15 text-neon-purple border-neon-purple/30 font-mono-custom shrink-0"
               >
                 <GraduationCap size={8} className="mr-1" />
-                {profile.studentClass.replace("Class ", "Cl.")}
+                {profile.studentClass === "JEE"
+                  ? "JEE"
+                  : profile.studentClass.replace("Class ", "Cl.")}
               </Badge>
             </div>
           )}
