@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
+  BookText,
   FlaskConical,
   GraduationCap,
   Home,
@@ -44,6 +45,12 @@ export function NavBar() {
       label: "Leaderboard",
       icon: Trophy,
       ocid: "nav.leaderboard_link",
+    },
+    {
+      href: "/blog",
+      label: "Blog",
+      icon: BookText,
+      ocid: "nav.blog_link",
     },
     {
       href: "/generate",

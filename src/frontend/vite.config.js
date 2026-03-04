@@ -20,39 +20,29 @@ export default defineConfig({
     minify: "terser",
     terserOptions: {
       compress: {
+        passes: 2,
         drop_console: true,
         drop_debugger: true,
-        passes: 2,
         pure_funcs: ["console.log", "console.warn", "console.info"],
       },
-      mangle: { safari10: true },
-      format: { comments: false },
+      mangle: true,
     },
-    cssMinify: true,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom") || id.includes("node_modules/scheduler")) {
-            return "vendor-react";
-          }
-          if (id.includes("node_modules/@tanstack/react-router") || id.includes("node_modules/@tanstack/router")) {
-            return "vendor-router";
-          }
-          if (id.includes("node_modules/@tanstack/react-query")) {
-            return "vendor-query";
-          }
-          if (id.includes("node_modules/framer-motion") || id.includes("node_modules/motion")) {
-            return "vendor-motion";
-          }
-          if (id.includes("node_modules/lucide-react")) {
-            return "vendor-icons";
-          }
-          if (id.includes("node_modules/@dfinity") || id.includes("node_modules/@internet-identity")) {
-            return "vendor-dfinity";
-          }
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-router": ["@tanstack/react-router"],
+          "vendor-query": ["@tanstack/react-query"],
+          "vendor-motion": ["motion"],
+          "vendor-icons": ["lucide-react"],
+          "vendor-dfinity": [
+            "@dfinity/agent",
+            "@dfinity/auth-client",
+            "@dfinity/candid",
+            "@dfinity/identity",
+            "@dfinity/principal",
+          ],
         },
-        chunkFileNames: "assets/[name]-[hash].js",
-        assetFileNames: "assets/[name]-[hash][extname]",
       },
     },
     chunkSizeWarningLimit: 600,

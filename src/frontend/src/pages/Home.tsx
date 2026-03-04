@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router";
 import {
   Activity,
   BookOpen,
+  BookText,
   CheckCircle,
   ChevronDown,
   ChevronRight,
@@ -326,6 +327,35 @@ export default function Home() {
                   >
                     <Library size={14} />
                     Browse NCERT
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Blog CTA */}
+            <div className="mb-4 p-5 glass-dark rounded-2xl border border-neon-green/20 bg-gradient-to-r from-neon-green/10 to-neon-blue/10">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-green to-neon-blue flex items-center justify-center shrink-0">
+                    <BookText size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h2 className="font-display font-bold text-base mb-1">
+                      Free NCERT Study Blog
+                    </h2>
+                    <p className="text-xs text-muted-foreground">
+                      Chapter notes, comparison tables, exam tips — Class 6 to
+                      12. Searchable and free.
+                    </p>
+                  </div>
+                </div>
+                <Link to="/blog" data-ocid="home.blog_link">
+                  <Button
+                    size="sm"
+                    className="shrink-0 bg-gradient-to-r from-neon-green to-neon-blue text-white hover:opacity-90 gap-1.5 rounded-lg"
+                  >
+                    <BookText size={14} />
+                    Read Blog
                   </Button>
                 </Link>
               </div>

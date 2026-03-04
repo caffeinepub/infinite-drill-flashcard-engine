@@ -19,6 +19,8 @@ const IIT = lazy(() => import("./pages/IIT"));
 const Leaderboard = lazy(() => import("./pages/Leaderboard"));
 const NCERT = lazy(() => import("./pages/NCERT"));
 const Quiz = lazy(() => import("./pages/Quiz"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 // Minimal page-level loading fallback
 function PageLoader() {
@@ -83,6 +85,18 @@ const iitRoute = createRoute({
   component: IIT,
 });
 
+const blogRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog",
+  component: Blog,
+});
+
+const blogPostRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog/$slug",
+  component: BlogPost,
+});
+
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
@@ -94,6 +108,8 @@ const routeTree = rootRoute.addChildren([
   generateRoute,
   leaderboardRoute,
   iitRoute,
+  blogRoute,
+  blogPostRoute,
 ]);
 
 const router = createRouter({ routeTree });
