@@ -17,7 +17,25 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    minify: false,
+    minify: "esbuild",
+    cssMinify: true,
+    target: "es2020",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-router": ["@tanstack/react-router"],
+          "vendor-query": ["@tanstack/react-query"],
+          "vendor-motion": ["motion/react"],
+          "vendor-dfinity": [
+            "@dfinity/agent",
+            "@dfinity/candid",
+            "@dfinity/principal",
+          ],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 800,
   },
   css: {
     postcss: "./postcss.config.js",

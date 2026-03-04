@@ -5,17 +5,29 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
+import { Suspense, lazy } from "react";
 import { AuthGuard } from "./components/AuthGuard";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { UserProfileProvider } from "./context/UserProfileContext";
-import CheatSheet from "./pages/CheatSheet";
-import Flashcards from "./pages/Flashcards";
-import Generate from "./pages/Generate";
-import Home from "./pages/Home";
-import IIT from "./pages/IIT";
-import Leaderboard from "./pages/Leaderboard";
-import NCERT from "./pages/NCERT";
-import Quiz from "./pages/Quiz";
+
+// Lazy-load all pages to enable code splitting
+const CheatSheet = lazy(() => import("./pages/CheatSheet"));
+const Flashcards = lazy(() => import("./pages/Flashcards"));
+const Generate = lazy(() => import("./pages/Generate"));
+const Home = lazy(() => import("./pages/Home"));
+const IIT = lazy(() => import("./pages/IIT"));
+const Leaderboard = lazy(() => import("./pages/Leaderboard"));
+const NCERT = lazy(() => import("./pages/NCERT"));
+const Quiz = lazy(() => import("./pages/Quiz"));
+
+// Minimal page-level loading fallback
+function PageLoader() {
+  return (
+    <div className="min-h-screen bg-mesh-dark flex items-center justify-center">
+      <div className="w-8 h-8 rounded-full border-2 border-neon-purple/40 border-t-neon-purple animate-spin" />
+    </div>
+  );
+}
 
 // ─── Root Route ───────────────────────────────────────────────────────────────
 
@@ -99,7 +111,9 @@ export default function App() {
     <ThemeProvider>
       <UserProfileProvider>
         <AuthGuard>
-          <RouterProvider router={router} />
+          <Suspense fallback={<PageLoader />}>
+            <RouterProvider router={router} />
+          </Suspense>
         </AuthGuard>
       </UserProfileProvider>
       <Toaster richColors position="top-right" />

@@ -79,42 +79,34 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-mesh-dark flex flex-col overflow-hidden relative">
-      {/* Particle background */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Particle background — only on desktop (mobile perf) */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         {particles.map((p) => (
           <FloatingParticle key={`particle-${p.x}-${p.y}`} {...p} />
         ))}
       </div>
 
-      {/* Large decorative orbs */}
-      <div className="absolute top-1/4 -left-32 w-64 h-64 rounded-full bg-neon-purple/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-64 h-64 rounded-full bg-neon-blue/10 blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-neon-purple/5 blur-3xl pointer-events-none" />
+      {/* Large decorative orbs — blur disabled on mobile for GPU performance */}
+      <div className="absolute top-1/4 -left-32 w-64 h-64 rounded-full bg-neon-purple/10 hidden md:block blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-64 h-64 rounded-full bg-neon-blue/10 hidden md:block blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-neon-purple/5 hidden md:block blur-3xl pointer-events-none" />
 
       {/* Main content */}
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-12 relative z-10">
         {/* Logo + Badge */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.25 }}
           className="flex flex-col items-center mb-10"
         >
           <div className="relative mb-6">
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center shadow-neon-purple glow-purple">
               <BookOpen size={36} className="text-white" />
             </div>
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 8,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-              }}
-              className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-neon-amber flex items-center justify-center"
-            >
+            <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-neon-amber flex items-center justify-center">
               <Sparkles size={12} className="text-background" />
-            </motion.div>
+            </div>
           </div>
 
           <div className="flex items-center gap-2 mb-3">
@@ -128,7 +120,7 @@ export default function Login() {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.05, duration: 0.25 }}
             className="font-display text-5xl md:text-6xl font-bold text-center leading-tight mb-4"
           >
             <span className="text-gradient-purple">NCERT</span>
@@ -139,7 +131,7 @@ export default function Login() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.25 }}
             className="text-muted-foreground text-center text-base md:text-lg max-w-md leading-relaxed"
           >
             Complete NCERT content for Classes 1–12, AI-powered teacher,
@@ -149,17 +141,14 @@ export default function Login() {
 
         {/* Feature cards */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          transition={{ delay: 0.15, duration: 0.25 }}
           className="grid grid-cols-2 gap-3 mb-10 max-w-md w-full"
         >
-          {features.map(({ icon: Icon, label, desc, color }, i) => (
-            <motion.div
+          {features.map(({ icon: Icon, label, desc, color }) => (
+            <div
               key={label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
               className="glass-dark rounded-xl p-3 flex items-start gap-2.5"
             >
               <Icon size={18} className={`${color} shrink-0 mt-0.5`} />
@@ -171,15 +160,15 @@ export default function Login() {
                   {desc}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
 
         {/* Login button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.25 }}
           className="flex flex-col items-center gap-4 w-full max-w-sm"
         >
           <Button
@@ -211,7 +200,7 @@ export default function Login() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.6 }}
+          transition={{ delay: 0.3, duration: 0.25 }}
           className="flex items-center gap-8 mt-10"
         >
           {[
