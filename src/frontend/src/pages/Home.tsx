@@ -16,7 +16,6 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { AdZone } from "../components/AdZone";
 import { Layout } from "../components/Layout";
@@ -227,12 +226,7 @@ export default function Home() {
         <div className="flex gap-6">
           {/* Left Sidebar: Topic Tree */}
           <aside className="hidden lg:flex flex-col w-64 shrink-0">
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.25 }}
-              className="glass-dark rounded-2xl p-4 sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-thin"
-            >
+            <div className="glass-dark rounded-2xl p-4 sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar-thin">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen size={14} className="text-neon-purple" />
                 <h2 className="text-xs font-display font-semibold uppercase tracking-wider text-muted-foreground">
@@ -255,18 +249,13 @@ export default function Home() {
                   <ChevronRight size={10} className="ml-auto" />
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </aside>
 
           {/* Main Content */}
           <main className="flex-1 min-w-0">
-            {/* Personalized Hero */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mb-8"
-            >
+            {/* Personalized Hero — no animation so LCP element renders immediately */}
+            <div className="mb-8">
               {profile ? (
                 <div className="flex items-start gap-3 mb-4 p-4 glass-dark rounded-2xl border border-neon-green/20">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center text-white font-bold shrink-0">
@@ -311,15 +300,10 @@ export default function Home() {
                 through gamified practice — earn XP, climb the leaderboard, and
                 track your mastery.
               </p>
-            </motion.div>
+            </div>
 
             {/* NCERT Browse CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.3 }}
-              className="mb-4 p-5 glass-dark rounded-2xl border border-neon-blue/20 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10"
-            >
+            <div className="mb-4 p-5 glass-dark rounded-2xl border border-neon-blue/20 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-blue to-neon-purple flex items-center justify-center shrink-0">
@@ -345,15 +329,10 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
             {/* IIT JEE CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.3 }}
-              className="mb-8 p-5 glass-dark rounded-2xl border border-neon-amber/20 bg-gradient-to-r from-neon-amber/10 to-neon-purple/10"
-            >
+            <div className="mb-8 p-5 glass-dark rounded-2xl border border-neon-amber/20 bg-gradient-to-r from-neon-amber/10 to-neon-purple/10">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-amber to-neon-purple flex items-center justify-center shrink-0">
@@ -379,7 +358,7 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
             {/* Featured Topics */}
             <section className="mb-10">
@@ -394,14 +373,8 @@ export default function Home() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {displayedTopics.map((topic, index) => (
-                  <motion.div
+                  <div
                     key={topic.id}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: Math.min(index * 0.05, 0.3),
-                    }}
                     data-ocid={`home.topic_card.${index + 1}`}
                     className={cn(
                       "glass-dark rounded-2xl p-5 border bg-gradient-to-br",
@@ -482,7 +455,7 @@ export default function Home() {
                         <span className="text-[10px] font-bold">Sheet</span>
                       </Link>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </section>
@@ -503,12 +476,9 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                {stats.map((stat, index) => (
-                  <motion.div
+                {stats.map((stat) => (
+                  <div
                     key={stat.label}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.15 + index * 0.04 }}
                     className="glass-dark rounded-xl p-4 border border-border/50"
                   >
                     <stat.icon size={18} className={cn("mb-2", stat.color)} />
@@ -523,7 +493,7 @@ export default function Home() {
                     <div className="text-xs text-muted-foreground mt-0.5">
                       {stat.label}
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </section>

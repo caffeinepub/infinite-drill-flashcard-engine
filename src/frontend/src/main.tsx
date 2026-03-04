@@ -14,7 +14,20 @@ declare global {
   }
 }
 
-const queryClient = new QueryClient();
+// Optimized QueryClient: reduce unnecessary refetch churn that wastes main-thread time.
+// staleTime 5 min: avoid re-fetching data that's still fresh (critical for backend round-trips).
+// gcTime 10 min: keep cached data in memory to avoid redundant re-renders on navigation.
+// retry 1: don't hammer the network on failure (reduces JS execution on errors).
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes — fresh data window
+      gcTime: 1000 * 60 * 10, // 10 minutes — garbage collection window
+      retry: 1, // only retry once to reduce blocked JS time
+      refetchOnWindowFocus: false, // don't refetch on tab switch (reduces repaints)
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>

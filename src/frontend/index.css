@@ -372,6 +372,24 @@
   contain-intrinsic-size: 0 400px;
 }
 
+/* ── Prevent unnecessary GPU layer promotion on layout containers ──────── */
+/* will-change: auto is the default but making it explicit avoids accidental promotion */
+.min-h-screen, main, header, footer, aside {
+  will-change: auto;
+}
+
+/* ── AI Teacher panel: blur only on desktop to avoid mobile GPU cost ──── */
+.ai-teacher-panel {
+  /* no backdrop-filter on mobile */
+}
+
+@media (min-width: 768px) {
+  .ai-teacher-panel {
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+  }
+}
+
 /* ── Print styles ─────────────────────────────────────── */
 @media print {
   .no-print {

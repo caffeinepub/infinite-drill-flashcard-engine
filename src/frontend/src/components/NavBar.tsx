@@ -66,6 +66,11 @@ export function NavBar() {
             src={logoImg}
             alt="NCRT Bhaiya Logo"
             className="w-8 h-8 rounded-lg object-contain"
+            fetchPriority="high"
+            loading="eager"
+            width={32}
+            height={32}
+            decoding="async"
           />
           <span className="font-display font-bold text-lg tracking-tight hidden sm:block">
             <span className="text-gradient-purple">NCRT</span>

@@ -17,25 +17,45 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    minify: "esbuild",
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        passes: 2,
+        pure_funcs: ["console.log", "console.warn", "console.info"],
+      },
+      mangle: { safari10: true },
+      format: { comments: false },
+    },
     cssMinify: true,
-    target: "es2020",
     rollupOptions: {
       output: {
-        manualChunks: {
-          "vendor-react": ["react", "react-dom"],
-          "vendor-router": ["@tanstack/react-router"],
-          "vendor-query": ["@tanstack/react-query"],
-          "vendor-motion": ["motion/react"],
-          "vendor-dfinity": [
-            "@dfinity/agent",
-            "@dfinity/candid",
-            "@dfinity/principal",
-          ],
+        manualChunks(id) {
+          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom") || id.includes("node_modules/scheduler")) {
+            return "vendor-react";
+          }
+          if (id.includes("node_modules/@tanstack/react-router") || id.includes("node_modules/@tanstack/router")) {
+            return "vendor-router";
+          }
+          if (id.includes("node_modules/@tanstack/react-query")) {
+            return "vendor-query";
+          }
+          if (id.includes("node_modules/framer-motion") || id.includes("node_modules/motion")) {
+            return "vendor-motion";
+          }
+          if (id.includes("node_modules/lucide-react")) {
+            return "vendor-icons";
+          }
+          if (id.includes("node_modules/@dfinity") || id.includes("node_modules/@internet-identity")) {
+            return "vendor-dfinity";
+          }
         },
+        chunkFileNames: "assets/[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash][extname]",
       },
     },
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 600,
   },
   css: {
     postcss: "./postcss.config.js",

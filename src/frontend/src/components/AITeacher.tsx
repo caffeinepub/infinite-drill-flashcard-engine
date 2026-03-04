@@ -103,10 +103,9 @@ export function AITeacher() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             data-ocid="ai_teacher.panel"
-            className="fixed bottom-20 right-4 z-50 w-80 md:w-96 rounded-2xl overflow-hidden border border-border/50"
+            className="fixed bottom-20 right-4 z-50 w-80 md:w-96 rounded-2xl overflow-hidden border border-border/50 ai-teacher-panel"
             style={{
-              background: "oklch(0.13 0.03 272 / 0.95)",
-              backdropFilter: "blur(20px)",
+              background: "oklch(0.13 0.03 272 / 0.98)",
             }}
           >
             {/* Header */}

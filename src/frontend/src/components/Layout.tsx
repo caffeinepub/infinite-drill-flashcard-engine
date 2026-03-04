@@ -1,5 +1,11 @@
-import { AITeacher } from "./AITeacher";
+import { Suspense, lazy } from "react";
 import { NavBar } from "./NavBar";
+
+// Lazy-load AITeacher — it imports motion/react + aiTeacherResponses data.
+// Deferring this keeps the critical JS bundle lean and speeds up LCP/TTI.
+const AITeacher = lazy(() =>
+  import("./AITeacher").then((m) => ({ default: m.AITeacher })),
+);
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -41,8 +47,10 @@ export function Layout({ children, hideNav = false }: LayoutProps) {
         </div>
       </footer>
 
-      {/* AI Teacher floating widget */}
-      <AITeacher />
+      {/* AI Teacher floating widget — lazy-loaded after main content is interactive */}
+      <Suspense fallback={null}>
+        <AITeacher />
+      </Suspense>
     </div>
   );
 }
