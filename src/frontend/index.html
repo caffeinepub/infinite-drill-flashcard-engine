@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="dark light" />
 
     <!-- ── Resource hints for faster connections ── -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://identity.internetcomputer.org" />
 
     <!-- ── Critical font preload (fetchpriority=high to unblock LCP) ── -->
@@ -69,15 +69,6 @@
       /* font-display:optional avoids invisible text during font load (key for LCP) */
       @font-face{font-family:'Outfit';src:url('/assets/fonts/Outfit[wght].woff2') format('woff2');font-display:optional;font-weight:100 900}
     </style>
-
-    <!-- ── Google Analytics ── -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N06PE137X9"></script>
-    <script>
-      window.dataLayer=window.dataLayer||[];
-      function gtag(){dataLayer.push(arguments)}
-      gtag('js',new Date());
-      gtag('config','G-N06PE137X9',{send_page_view:true});
-    </script>
 
     <!-- ── Structured Data: WebSite + SearchAction ── -->
     <script type="application/ld+json">
@@ -259,6 +250,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- ── Google Analytics: deferred to after load to avoid blocking FCP/LCP ── -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-N06PE137X9"></script>
+    <script>
+      window.addEventListener('load', function() {
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments)}
+        gtag('js',new Date());
+        gtag('config','G-N06PE137X9',{send_page_view:true});
+      });
+    </script>
     <!-- ── Google AdSense: loaded after window.load to avoid blocking LCP/FCP ── -->
     <script>
       window.addEventListener('load', function() {

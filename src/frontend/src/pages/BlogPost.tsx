@@ -12,15 +12,31 @@ import {
   Info,
   Lightbulb,
 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "../components/Layout";
-import {
-  type BlogPost as BlogPostType,
-  type BlogSection,
-  blogPosts,
-  getBlogPostBySlug,
-} from "../data/blogData";
+import type { BlogPost as BlogPostType, BlogSection } from "../data/blogData";
 import { useSEO } from "../hooks/useSEO";
+
+// ─── Dynamic data loader ──────────────────────────────────────────────────────
+
+type BlogModule = typeof import("../data/blogData");
+
+function useBlogPost(slug: string) {
+  const [blogModule, setBlogModule] = useState<BlogModule | null>(null);
+
+  useEffect(() => {
+    import("../data/blogData").then(setBlogModule);
+  }, []);
+
+  const post = blogModule?.getBlogPostBySlug(slug) ?? null;
+  const allPosts = blogModule?.blogPosts ?? [];
+
+  return {
+    post,
+    allPosts,
+    isLoaded: blogModule !== null,
+  };
+}
 
 // ─── Section Renderers ────────────────────────────────────────────────────────
 
@@ -179,8 +195,14 @@ function renderSection(section: BlogSection, index: number) {
 
 // ─── Related Posts ─────────────────────────────────────────────────────────────
 
-function RelatedPosts({ current }: { current: BlogPostType }) {
-  const related = blogPosts
+function RelatedPosts({
+  current,
+  allPosts,
+}: {
+  current: BlogPostType;
+  allPosts: BlogPostType[];
+}) {
+  const related = allPosts
     .filter(
       (p) =>
         p.slug !== current.slug &&
@@ -265,11 +287,38 @@ function ArticleSchema({ post }: { post: BlogPostType }) {
   return null;
 }
 
+// ─── Loading Skeleton ─────────────────────────────────────────────────────────
+
+function BlogPostSkeleton() {
+  return (
+    <div
+      className="max-w-[780px] mx-auto px-4 py-8 lg:py-12"
+      data-ocid="blog.loading_state"
+    >
+      <div className="h-4 w-40 bg-muted/30 rounded animate-pulse mb-6" />
+      <div className="space-y-3 mb-8">
+        <div className="h-4 w-24 bg-muted/30 rounded animate-pulse" />
+        <div className="h-8 w-full bg-muted/40 rounded animate-pulse" />
+        <div className="h-8 w-3/4 bg-muted/30 rounded animate-pulse" />
+        <div className="h-4 w-full bg-muted/20 rounded animate-pulse mt-2" />
+      </div>
+      <div className="space-y-3">
+        {Array.from({ length: 6 }, (_, i) => `sk-${i}`).map((k) => (
+          <div
+            key={k}
+            className="h-4 bg-muted/20 rounded animate-pulse w-3/4"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Blog Post Page ───────────────────────────────────────────────────────────
 
 export default function BlogPost() {
   const { slug } = useParams({ from: "/blog/$slug" });
-  const post = getBlogPostBySlug(slug);
+  const { post, allPosts, isLoaded } = useBlogPost(slug);
 
   useSEO(
     post
@@ -279,11 +328,25 @@ export default function BlogPost() {
           keywords: post.keywords.join(", "),
           canonical: `/blog/${post.slug}`,
         }
-      : {
-          title: "Article Not Found | NCERT Bhaiya",
-          description: "This article could not be found.",
-        },
+      : isLoaded
+        ? {
+            title: "Article Not Found | NCERT Bhaiya",
+            description: "This article could not be found.",
+          }
+        : {
+            title: "Loading Article | NCERT Bhaiya",
+            description: "Loading article content...",
+          },
   );
+
+  // Show skeleton while loading
+  if (!isLoaded) {
+    return (
+      <Layout>
+        <BlogPostSkeleton />
+      </Layout>
+    );
+  }
 
   if (!post) {
     return (
@@ -431,7 +494,7 @@ export default function BlogPost() {
         </div>
 
         {/* Related Posts */}
-        <RelatedPosts current={post} />
+        <RelatedPosts current={post} allPosts={allPosts} />
       </div>
     </Layout>
   );

@@ -16,16 +16,28 @@ import {
   Zap,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "../components/Layout";
-import {
-  type IITSubject,
-  type IITTopic,
-  type IITUnit,
-  iitSubjects,
-} from "../data/iitData";
+import type { IITSubject, IITTopic, IITUnit } from "../data/iitData";
 import { getVideoByContext } from "../data/videoLinks";
 import { useSEO } from "../hooks/useSEO";
+
+// ─── Dynamic data loader ──────────────────────────────────────────────────────
+
+type IITModule = typeof import("../data/iitData");
+
+function useIITData() {
+  const [iitModule, setIitModule] = useState<IITModule | null>(null);
+
+  useEffect(() => {
+    import("../data/iitData").then(setIitModule);
+  }, []);
+
+  return {
+    iitSubjects: iitModule?.iitSubjects ?? [],
+    isLoaded: iitModule !== null,
+  };
+}
 
 // ─── Subject Icons ────────────────────────────────────────────────────────────
 
@@ -59,12 +71,28 @@ const subjectTextMap: Record<string, string> = {
   Mathematics: "text-neon-purple",
 };
 
+// ─── Loading Skeleton ─────────────────────────────────────────────────────────
+
+function IITSkeleton() {
+  return (
+    <div className="space-y-4" data-ocid="iit.loading_state">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {Array.from({ length: 3 }, (_, i) => `sk-${i}`).map((k) => (
+          <div key={k} className="h-40 bg-muted/30 rounded-2xl animate-pulse" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Subject Selector ────────────────────────────────────────────────────────
 
 function SubjectSelector({
   onSelect,
+  iitSubjects,
 }: {
   onSelect: (s: IITSubject) => void;
+  iitSubjects: IITSubject[];
 }) {
   return (
     <div>
@@ -130,12 +158,7 @@ function SubjectSelector({
       </div>
 
       {/* JEE Info Banner */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="mt-8 p-5 glass-dark rounded-2xl border border-neon-amber/30 bg-gradient-to-r from-neon-amber/10 to-neon-purple/10"
-      >
+      <div className="mt-8 p-5 glass-dark rounded-2xl border border-neon-amber/30 bg-gradient-to-r from-neon-amber/10 to-neon-purple/10 fade-in">
         <div className="flex items-start gap-3">
           <Sigma size={20} className="text-neon-amber shrink-0 mt-0.5" />
           <div>
@@ -151,7 +174,7 @@ function SubjectSelector({
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -269,12 +292,9 @@ function TopicCard({
   );
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.05 }}
+    <div
       data-ocid={`iit.topic_card.${index + 1}`}
-      className="glass-dark rounded-2xl border border-border/40 overflow-hidden"
+      className="glass-dark rounded-2xl border border-border/40 overflow-hidden fade-in"
     >
       {/* Header */}
       <button
@@ -430,6 +450,7 @@ function TopicCard({
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           className="w-full h-full"
+                          loading="lazy"
                         />
                       </div>
                     </motion.div>
@@ -440,7 +461,7 @@ function TopicCard({
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }
 
@@ -525,6 +546,9 @@ export default function IIT() {
   );
   const [selectedUnit, setSelectedUnit] = useState<IITUnit | null>(null);
 
+  // Lazy-loaded IIT data
+  const { iitSubjects, isLoaded } = useIITData();
+
   const seoTitle =
     selectedSubject && selectedUnit
       ? `IIT JEE ${selectedSubject.name} — ${selectedUnit.name}: Notes, Formulas & Concept Videos | NCERT Bhaiya`
@@ -574,12 +598,8 @@ export default function IIT() {
   return (
     <Layout>
       <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-6">
-        {/* Page Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 mb-8"
-        >
+        {/* Page Header — CSS fade-in instead of motion for LCP element */}
+        <div className="flex items-center gap-3 mb-8 fade-in">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-amber to-neon-purple flex items-center justify-center">
             <BookMarked size={20} className="text-white" />
           </div>
@@ -591,78 +611,92 @@ export default function IIT() {
               Complete Syllabus · JEE Main + Advanced · Notes, Formulas & Videos
             </p>
           </div>
-        </motion.div>
-
-        {/* Stats Bar */}
-        <div className="grid grid-cols-3 gap-3 mb-8">
-          {[
-            { label: "Subjects", value: "3", color: "text-neon-purple" },
-            {
-              label: "Total Units",
-              value: `${iitSubjects.reduce((a, s) => a + s.units.length, 0)}`,
-              color: "text-neon-blue",
-            },
-            {
-              label: "Topics",
-              value: `${iitSubjects.reduce((a, s) => a + s.units.reduce((b, u) => b + u.topics.length, 0), 0)}+`,
-              color: "text-neon-green",
-            },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="glass-dark rounded-xl p-3 border border-border/40 text-center"
-            >
-              <div className={cn("font-display text-xl font-bold", stat.color)}>
-                {stat.value}
-              </div>
-              <div className="text-xs text-muted-foreground">{stat.label}</div>
-            </div>
-          ))}
         </div>
 
-        {/* Content */}
-        <AnimatePresence mode="wait">
-          {!selectedSubject && (
-            <motion.div
-              key="subject-selector"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-            >
-              <SubjectSelector onSelect={handleSubjectSelect} />
-            </motion.div>
-          )}
+        {/* Stats Bar — only rendered when data is loaded to avoid CLS */}
+        {isLoaded && iitSubjects.length > 0 && (
+          <div className="grid grid-cols-3 gap-3 mb-8">
+            {[
+              { label: "Subjects", value: "3", color: "text-neon-purple" },
+              {
+                label: "Total Units",
+                value: `${iitSubjects.reduce((a, s) => a + s.units.length, 0)}`,
+                color: "text-neon-blue",
+              },
+              {
+                label: "Topics",
+                value: `${iitSubjects.reduce((a, s) => a + s.units.reduce((b, u) => b + u.topics.length, 0), 0)}+`,
+                color: "text-neon-green",
+              },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="glass-dark rounded-xl p-3 border border-border/40 text-center"
+              >
+                <div
+                  className={cn("font-display text-xl font-bold", stat.color)}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
-          {selectedSubject && !selectedUnit && (
-            <motion.div
-              key="unit-browser"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-            >
-              <UnitBrowser
-                subject={selectedSubject}
-                onSelectUnit={handleUnitSelect}
-                onBack={handleBackToSubjects}
-              />
-            </motion.div>
-          )}
+        {/* Loading skeleton */}
+        {!isLoaded && <IITSkeleton />}
 
-          {selectedSubject && selectedUnit && (
-            <motion.div
-              key="topic-list"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-            >
-              <TopicList
-                unit={selectedUnit}
-                subject={selectedSubject}
-                onBack={handleBackToUnits}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Content — only shown once data is loaded */}
+        {isLoaded && (
+          <AnimatePresence mode="wait">
+            {!selectedSubject && (
+              <motion.div
+                key="subject-selector"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+              >
+                <SubjectSelector
+                  onSelect={handleSubjectSelect}
+                  iitSubjects={iitSubjects}
+                />
+              </motion.div>
+            )}
+
+            {selectedSubject && !selectedUnit && (
+              <motion.div
+                key="unit-browser"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+              >
+                <UnitBrowser
+                  subject={selectedSubject}
+                  onSelectUnit={handleUnitSelect}
+                  onBack={handleBackToSubjects}
+                />
+              </motion.div>
+            )}
+
+            {selectedSubject && selectedUnit && (
+              <motion.div
+                key="topic-list"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+              >
+                <TopicList
+                  unit={selectedUnit}
+                  subject={selectedSubject}
+                  onBack={handleBackToUnits}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
       </div>
     </Layout>
   );

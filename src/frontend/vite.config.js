@@ -17,35 +17,71 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    minify: "terser",
+    minify: 'terser',
     terserOptions: {
       compress: {
         passes: 2,
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ["console.log", "console.warn", "console.info"],
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        dead_code: true,
       },
-      mangle: true,
+      mangle: { toplevel: true },
+      format: { comments: false },
     },
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        manualChunks: {
-          "vendor-react": ["react", "react-dom"],
-          "vendor-router": ["@tanstack/react-router"],
-          "vendor-query": ["@tanstack/react-query"],
-          "vendor-motion": ["motion"],
-          "vendor-icons": ["lucide-react"],
-          "vendor-dfinity": [
-            "@dfinity/agent",
-            "@dfinity/auth-client",
-            "@dfinity/candid",
-            "@dfinity/identity",
-            "@dfinity/principal",
-          ],
+        manualChunks(id) {
+          // Core React runtime — highest priority, always cached
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/scheduler/')) {
+            return 'vendor-react';
+          }
+          // Router
+          if (id.includes('@tanstack/react-router') || id.includes('@tanstack/react-query')) {
+            return 'vendor-router';
+          }
+          // Animation — framer/motion is large, isolate it
+          if (id.includes('motion/') || id.includes('framer-motion')) {
+            return 'vendor-motion';
+          }
+          // 3D — Three.js is enormous, isolate completely
+          if (id.includes('node_modules/three/') || id.includes('@react-three/') || id.includes('@react-spring/')) {
+            return 'vendor-three';
+          }
+          // Icons
+          if (id.includes('lucide-react') || id.includes('react-icons')) {
+            return 'vendor-icons';
+          }
+          // DFINITY / ICP SDK
+          if (id.includes('@dfinity/') || id.includes('@icp-sdk/')) {
+            return 'vendor-dfinity';
+          }
+          // Radix UI and shadcn — can share a chunk since they're always needed
+          if (id.includes('@radix-ui/')) {
+            return 'vendor-radix';
+          }
+          // Recharts / charts
+          if (id.includes('recharts') || id.includes('d3-')) {
+            return 'vendor-charts';
+          }
+          // Large data files — split into own async chunks
+          if (id.includes('src/data/ncertContent')) {
+            return 'data-ncert';
+          }
+          if (id.includes('src/data/iitData')) {
+            return 'data-iit';
+          }
+          if (id.includes('src/data/blogData')) {
+            return 'data-blog';
+          }
+          if (id.includes('src/data/aiTeacherResponses')) {
+            return 'data-ai-teacher';
+          }
         },
       },
     },
-    chunkSizeWarningLimit: 600,
   },
   css: {
     postcss: "./postcss.config.js",

@@ -13,17 +13,33 @@ import {
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "../components/Layout";
-import {
-  type NCERTChapter,
-  type NCERTClass,
-  type NCERTSubject,
-  getSubjectsForClass,
-  ncertClasses,
+import type {
+  NCERTChapter,
+  NCERTClass,
+  NCERTSubject,
 } from "../data/ncertContent";
 import { getVideoByContext } from "../data/videoLinks";
 import { updateChapterSEO, useSEO } from "../hooks/useSEO";
+
+// ─── Dynamic data loader ──────────────────────────────────────────────────────
+
+type NCERTModule = typeof import("../data/ncertContent");
+
+function useNCERTData() {
+  const [ncertModule, setNcertModule] = useState<NCERTModule | null>(null);
+
+  useEffect(() => {
+    import("../data/ncertContent").then(setNcertModule);
+  }, []);
+
+  return {
+    ncertClasses: ncertModule?.ncertClasses ?? [],
+    getSubjectsForClass: ncertModule?.getSubjectsForClass ?? (() => []),
+    isLoaded: ncertModule !== null,
+  };
+}
 
 // ─── SEO H1 Builder ───────────────────────────────────────────────────────────
 
@@ -48,14 +64,34 @@ function buildH1(
   return "NCERT Solutions Class 1 to 12 — Free Notes, PDF & Important Questions | NCERT Bhaiya";
 }
 
+// ─── Loading Skeleton ─────────────────────────────────────────────────────────
+
+function NCERTSkeleton() {
+  return (
+    <div className="space-y-4" data-ocid="ncert.loading_state">
+      <div className="mb-6">
+        <div className="h-7 w-48 bg-muted/40 rounded-lg animate-pulse mb-2" />
+        <div className="h-4 w-80 bg-muted/30 rounded animate-pulse" />
+      </div>
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+        {Array.from({ length: 12 }, (_, i) => `sk-${i}`).map((k) => (
+          <div key={k} className="h-16 bg-muted/30 rounded-2xl animate-pulse" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Class Selector ───────────────────────────────────────────────────────────
 
 function ClassSelector({
   selected,
   onSelect,
+  ncertClasses,
 }: {
   selected: number | null;
   onSelect: (c: number) => void;
+  ncertClasses: NCERTClass[];
 }) {
   const allClasses = Array.from({ length: 12 }, (_, i) => i + 1);
   const hasData = (c: number) => ncertClasses.some((nc) => nc.classNum === c);
@@ -122,11 +158,13 @@ function SubjectSelector({
   selected,
   onSelect,
   classNum,
+  getSubjectsForClass,
 }: {
   classData: NCERTClass;
   selected: string | null;
   onSelect: (s: string) => void;
   classNum: number;
+  getSubjectsForClass: (classNum: number) => string[];
 }) {
   const availableSubjects = classData.subjects;
   const allSubjects = getSubjectsForClass(classNum);
@@ -250,12 +288,9 @@ function ChapterCard({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.06 }}
+    <div
       data-ocid={`ncert.chapter_card.${index + 1}`}
-      className="glass-dark rounded-2xl border border-border/40 overflow-hidden"
+      className="glass-dark rounded-2xl border border-border/40 overflow-hidden fade-in"
     >
       {/* Chapter Header */}
       <button
@@ -408,6 +443,7 @@ function ChapterCard({
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           className="w-full h-full"
+                          loading="lazy"
                         />
                       </div>
                     </motion.div>
@@ -418,7 +454,7 @@ function ChapterCard({
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }
 
@@ -492,6 +528,9 @@ export default function NCERT() {
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   // Task 3: Track actively expanded chapter for per-chapter meta tags
   const [activeChapter, setActiveChapter] = useState<NCERTChapter | null>(null);
+
+  // Lazy-loaded NCERT data
+  const { ncertClasses, getSubjectsForClass, isLoaded } = useNCERTData();
 
   // ── Dynamic H1 (Task 1 + 2) ────────────────────────────────────────────────
   const h1Text = buildH1(selectedClass, selectedSubject, activeChapter);
@@ -567,12 +606,8 @@ export default function NCERT() {
   return (
     <Layout>
       <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-6">
-        {/* Page Header — Dynamic SEO H1 (Tasks 1, 2, 4) */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-start gap-3 mb-8"
-        >
+        {/* Page Header — Dynamic SEO H1 (Tasks 1, 2, 4) — CSS fade-in instead of motion */}
+        <div className="flex items-start gap-3 mb-8 fade-in">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center shrink-0 mt-0.5">
             <GraduationCap size={20} className="text-white" />
           </div>
@@ -596,83 +631,90 @@ export default function NCERT() {
               Class 1–12 · All subjects · Chapter explanations + animated videos
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Content */}
-        <AnimatePresence mode="wait">
-          {!selectedClass && (
-            <motion.div
-              key="class-selector"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-            >
-              <ClassSelector
-                selected={selectedClass}
-                onSelect={handleClassSelect}
-              />
-            </motion.div>
-          )}
+        {/* Loading state while NCERT data chunk loads */}
+        {!isLoaded && <NCERTSkeleton />}
 
-          {selectedClass && !selectedSubject && classData && (
-            <motion.div
-              key="subject-selector"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-            >
-              <SubjectSelector
-                classData={classData}
-                selected={selectedSubject}
-                onSelect={handleSubjectSelect}
-                classNum={selectedClass}
-              />
-            </motion.div>
-          )}
-
-          {selectedClass && selectedSubject && subjectData && (
-            <motion.div
-              key="chapter-list"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-            >
-              <ChapterList
-                subjectData={subjectData}
-                classNum={selectedClass}
-                subjectName={selectedSubject}
-                onBack={handleBackToSubjects}
-                onChapterExpand={handleChapterExpand}
-              />
-            </motion.div>
-          )}
-
-          {selectedClass && selectedSubject && !subjectData && (
-            <motion.div
-              key="no-content"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-16"
-              data-ocid="ncert.empty_state"
-            >
-              <div className="text-4xl mb-4">📚</div>
-              <h3 className="font-display text-lg font-bold mb-2">
-                Content Coming Soon
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                We're adding chapters for {selectedSubject} Class{" "}
-                {selectedClass} soon!
-              </p>
-              <Button
-                variant="outline"
-                onClick={handleBackToSubjects}
-                className="border-neon-purple/40 text-neon-purple hover:bg-neon-purple/10"
+        {/* Content — only shown once data is loaded */}
+        {isLoaded && (
+          <AnimatePresence mode="wait">
+            {!selectedClass && (
+              <motion.div
+                key="class-selector"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
               >
-                Choose Another Subject
-              </Button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <ClassSelector
+                  selected={selectedClass}
+                  onSelect={handleClassSelect}
+                  ncertClasses={ncertClasses}
+                />
+              </motion.div>
+            )}
+
+            {selectedClass && !selectedSubject && classData && (
+              <motion.div
+                key="subject-selector"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+              >
+                <SubjectSelector
+                  classData={classData}
+                  selected={selectedSubject}
+                  onSelect={handleSubjectSelect}
+                  classNum={selectedClass}
+                  getSubjectsForClass={getSubjectsForClass}
+                />
+              </motion.div>
+            )}
+
+            {selectedClass && selectedSubject && subjectData && (
+              <motion.div
+                key="chapter-list"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+              >
+                <ChapterList
+                  subjectData={subjectData}
+                  classNum={selectedClass}
+                  subjectName={selectedSubject}
+                  onBack={handleBackToSubjects}
+                  onChapterExpand={handleChapterExpand}
+                />
+              </motion.div>
+            )}
+
+            {selectedClass && selectedSubject && !subjectData && (
+              <motion.div
+                key="no-content"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-16"
+                data-ocid="ncert.empty_state"
+              >
+                <div className="text-4xl mb-4">📚</div>
+                <h3 className="font-display text-lg font-bold mb-2">
+                  Content Coming Soon
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  We're adding chapters for {selectedSubject} Class{" "}
+                  {selectedClass} soon!
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={handleBackToSubjects}
+                  className="border-neon-purple/40 text-neon-purple hover:bg-neon-purple/10"
+                >
+                  Choose Another Subject
+                </Button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
       </div>
     </Layout>
   );

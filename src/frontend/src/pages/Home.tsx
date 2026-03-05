@@ -20,9 +20,27 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { AdZone } from "../components/AdZone";
 import { Layout } from "../components/Layout";
-import { difficultyColors, subjectColors, topicsData } from "../data/demoData";
 import { useSEO } from "../hooks/useSEO";
 import { useUserProfile } from "../hooks/useUserProfile";
+
+// ─── Dynamic data loader ──────────────────────────────────────────────────────
+
+type DemoModule = typeof import("../data/demoData");
+
+function useDemoData() {
+  const [demoModule, setDemoModule] = useState<DemoModule | null>(null);
+
+  useEffect(() => {
+    import("../data/demoData").then(setDemoModule);
+  }, []);
+
+  return {
+    topicsData: demoModule?.topicsData ?? [],
+    subjectColors: demoModule?.subjectColors ?? {},
+    difficultyColors: demoModule?.difficultyColors ?? {},
+    isLoaded: demoModule !== null,
+  };
+}
 
 // ─── Animated Counter ─────────────────────────────────────────────────────────
 
@@ -192,10 +210,30 @@ const stats = [
   },
 ];
 
+// ─── Topic Card Skeleton ─────────────────────────────────────────────────────
+
+function TopicCardSkeleton() {
+  return (
+    <div className="glass-dark rounded-2xl p-5 border border-border/40 h-52 animate-pulse">
+      <div className="h-3 w-24 bg-muted/30 rounded mb-2" />
+      <div className="h-5 w-full bg-muted/40 rounded mb-1" />
+      <div className="h-4 w-2/3 bg-muted/30 rounded mb-4" />
+      <div className="h-3 w-full bg-muted/20 rounded mb-5" />
+      <div className="grid grid-cols-3 gap-2">
+        <div className="h-10 bg-muted/20 rounded-xl" />
+        <div className="h-10 bg-muted/15 rounded-xl" />
+        <div className="h-10 bg-muted/15 rounded-xl" />
+      </div>
+    </div>
+  );
+}
+
 // ─── Home Page ────────────────────────────────────────────────────────────────
 
 export default function Home() {
   const { profile } = useUserProfile();
+  const { topicsData, subjectColors, difficultyColors, isLoaded } =
+    useDemoData();
 
   const studentClass = profile?.studentClass ?? null;
 
@@ -207,6 +245,7 @@ export default function Home() {
       "NCERT solutions Class 1 to 12, free NCERT notes, CBSE study material, NCERT Bhaiya, class 9 science chapter names, class 9 science MCQ, class 10 maths chapters, class 10 science chapters, class 11 physics notes, class 12 chemistry notes, NCERT MCQ quiz, NCERT flashcards, CBSE board exam preparation 2024, NCERT cheat sheet, NCERT chapter explanation, free CBSE online study, gamified learning CBSE, NCERT class 9 10 11 12",
     canonical: "/",
   });
+
   // Filter topics by class if possible
   const filteredTopics = studentClass
     ? topicsData.filter(
@@ -396,97 +435,103 @@ export default function Home() {
                 <h2 className="font-display font-semibold text-lg">
                   {studentClass ? `${studentClass} Topics` : "Featured Topics"}
                 </h2>
-                <span className="text-xs text-muted-foreground font-mono-custom">
-                  {displayedTopics.length} topics available
-                </span>
+                {isLoaded && (
+                  <span className="text-xs text-muted-foreground font-mono-custom">
+                    {displayedTopics.length} topics available
+                  </span>
+                )}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                {displayedTopics.map((topic, index) => (
-                  <div
-                    key={topic.id}
-                    data-ocid={`home.topic_card.${index + 1}`}
-                    className={cn(
-                      "glass-dark rounded-2xl p-5 border bg-gradient-to-br",
-                      subjectColors[topic.subject] ||
-                        "from-primary/10 to-secondary/10 border-border",
-                      "hover:scale-[1.01] transition-transform duration-200 shadow-card-glow group",
-                    )}
-                  >
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[10px] font-mono-custom text-muted-foreground uppercase tracking-widest">
-                            {topic.board} · {topic.className}
-                          </span>
-                        </div>
-                        <h3 className="font-display font-bold text-base leading-tight truncate">
-                          {topic.chapter}
-                        </h3>
-                        <p className="text-xs text-neon-purple mt-0.5 font-medium truncate">
-                          {topic.microTopic}
-                        </p>
-                      </div>
-                      <span
+                {!isLoaded
+                  ? Array.from({ length: 6 }, (_, i) => `sk-${i}`).map((k) => (
+                      <TopicCardSkeleton key={k} />
+                    ))
+                  : displayedTopics.map((topic, index) => (
+                      <div
+                        key={topic.id}
+                        data-ocid={`home.topic_card.${index + 1}`}
                         className={cn(
-                          "text-[10px] font-bold px-2 py-0.5 rounded-full ml-2 shrink-0",
-                          difficultyColors[topic.difficulty],
+                          "glass-dark rounded-2xl p-5 border bg-gradient-to-br",
+                          subjectColors[topic.subject] ||
+                            "from-primary/10 to-secondary/10 border-border",
+                          "hover:scale-[1.01] transition-transform duration-200 shadow-card-glow group",
                         )}
                       >
-                        {topic.difficulty}
-                      </span>
-                    </div>
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="text-[10px] font-mono-custom text-muted-foreground uppercase tracking-widest">
+                                {topic.board} · {topic.className}
+                              </span>
+                            </div>
+                            <h3 className="font-display font-bold text-base leading-tight truncate">
+                              {topic.chapter}
+                            </h3>
+                            <p className="text-xs text-neon-purple mt-0.5 font-medium truncate">
+                              {topic.microTopic}
+                            </p>
+                          </div>
+                          <span
+                            className={cn(
+                              "text-[10px] font-bold px-2 py-0.5 rounded-full ml-2 shrink-0",
+                              difficultyColors[topic.difficulty],
+                            )}
+                          >
+                            {topic.difficulty}
+                          </span>
+                        </div>
 
-                    {/* Description */}
-                    <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2">
-                      {topic.description}
-                    </p>
+                        {/* Description */}
+                        <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+                          {topic.description}
+                        </p>
 
-                    {/* Meta */}
-                    <div className="flex items-center gap-3 mb-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Target size={10} />
-                        {topic.questionCount} questions
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <BookOpen size={10} />
-                        {topic.flashcards.length} flashcards
-                      </span>
-                    </div>
+                        {/* Meta */}
+                        <div className="flex items-center gap-3 mb-4 text-xs text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <Target size={10} />
+                            {topic.questionCount} questions
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <BookOpen size={10} />
+                            {topic.flashcards.length} flashcards
+                          </span>
+                        </div>
 
-                    {/* Mode buttons */}
-                    <div className="grid grid-cols-3 gap-2">
-                      <Link
-                        to="/quiz/$topicId"
-                        params={{ topicId: topic.id }}
-                        data-ocid={`home.quiz_button.${index + 1}`}
-                        className="flex flex-col items-center gap-1 py-2 px-1 rounded-xl bg-neon-purple/15 hover:bg-neon-purple/25 border border-neon-purple/30 hover:border-neon-purple/60 text-neon-purple transition-all hover:shadow-neon-purple group/btn"
-                      >
-                        <Zap size={14} />
-                        <span className="text-[10px] font-bold">Quiz</span>
-                      </Link>
-                      <Link
-                        to="/flashcards/$topicId"
-                        params={{ topicId: topic.id }}
-                        data-ocid={`home.flashcard_button.${index + 1}`}
-                        className="flex flex-col items-center gap-1 py-2 px-1 rounded-xl bg-neon-blue/15 hover:bg-neon-blue/25 border border-neon-blue/30 hover:border-neon-blue/60 text-neon-blue transition-all hover:shadow-neon-blue"
-                      >
-                        <BookOpen size={14} />
-                        <span className="text-[10px] font-bold">Cards</span>
-                      </Link>
-                      <Link
-                        to="/cheatsheet/$topicId"
-                        params={{ topicId: topic.id }}
-                        data-ocid={`home.cheatsheet_button.${index + 1}`}
-                        className="flex flex-col items-center gap-1 py-2 px-1 rounded-xl bg-neon-green/15 hover:bg-neon-green/25 border border-neon-green/30 hover:border-neon-green/60 text-neon-green transition-all hover:shadow-neon-green"
-                      >
-                        <FileText size={14} />
-                        <span className="text-[10px] font-bold">Sheet</span>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
+                        {/* Mode buttons */}
+                        <div className="grid grid-cols-3 gap-2">
+                          <Link
+                            to="/quiz/$topicId"
+                            params={{ topicId: topic.id }}
+                            data-ocid={`home.quiz_button.${index + 1}`}
+                            className="flex flex-col items-center gap-1 py-2 px-1 rounded-xl bg-neon-purple/15 hover:bg-neon-purple/25 border border-neon-purple/30 hover:border-neon-purple/60 text-neon-purple transition-all hover:shadow-neon-purple group/btn"
+                          >
+                            <Zap size={14} />
+                            <span className="text-[10px] font-bold">Quiz</span>
+                          </Link>
+                          <Link
+                            to="/flashcards/$topicId"
+                            params={{ topicId: topic.id }}
+                            data-ocid={`home.flashcard_button.${index + 1}`}
+                            className="flex flex-col items-center gap-1 py-2 px-1 rounded-xl bg-neon-blue/15 hover:bg-neon-blue/25 border border-neon-blue/30 hover:border-neon-blue/60 text-neon-blue transition-all hover:shadow-neon-blue"
+                          >
+                            <BookOpen size={14} />
+                            <span className="text-[10px] font-bold">Cards</span>
+                          </Link>
+                          <Link
+                            to="/cheatsheet/$topicId"
+                            params={{ topicId: topic.id }}
+                            data-ocid={`home.cheatsheet_button.${index + 1}`}
+                            className="flex flex-col items-center gap-1 py-2 px-1 rounded-xl bg-neon-green/15 hover:bg-neon-green/25 border border-neon-green/30 hover:border-neon-green/60 text-neon-green transition-all hover:shadow-neon-green"
+                          >
+                            <FileText size={14} />
+                            <span className="text-[10px] font-bold">Sheet</span>
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
               </div>
             </section>
 
