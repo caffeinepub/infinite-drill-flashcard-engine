@@ -256,18 +256,18 @@ function ArticleSchema({ post }: { post: BlogPostType }) {
       author: {
         "@type": "Organization",
         name: "NCERT Bhaiya",
-        url: "https://ncrtbhaiya-8d1.caffeine.xyz",
+        url: "https://ncertbhaiya-8d1.caffeine.xyz",
       },
       publisher: {
         "@type": "Organization",
         name: "NCERT Bhaiya",
-        url: "https://ncrtbhaiya-8d1.caffeine.xyz",
+        url: "https://ncertbhaiya-8d1.caffeine.xyz",
       },
       datePublished: post.publishedAt,
       dateModified: post.publishedAt,
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": `https://ncrtbhaiya-8d1.caffeine.xyz/blog/${post.slug}`,
+        "@id": `https://ncertbhaiya-8d1.caffeine.xyz/blog/${post.slug}`,
       },
       keywords: post.keywords.join(", "),
     };

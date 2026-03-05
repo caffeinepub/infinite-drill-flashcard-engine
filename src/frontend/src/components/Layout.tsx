@@ -37,7 +37,7 @@ export function Layout({ children, hideNav = false }: LayoutProps) {
             companion
           </span>
           <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
+            href="https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=ncertbhaiya-8d1.caffeine.xyz"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-foreground transition-colors"

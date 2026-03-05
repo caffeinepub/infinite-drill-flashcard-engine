@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ncrtbhaiya-8d1.caffeine.xyz/sitemap.xml
+Sitemap: https://ncertbhaiya-8d1.caffeine.xyz/sitemap.xml

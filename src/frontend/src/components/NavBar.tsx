@@ -14,7 +14,7 @@ import {
   Trophy,
   Zap,
 } from "lucide-react";
-import logoImg from "/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png";
+import logoImg from "/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useUserProfile } from "../hooks/useUserProfile";
 import { useTheme } from "./ThemeProvider";
@@ -71,7 +71,7 @@ export function NavBar() {
         >
           <img
             src={logoImg}
-            alt="NCRT Bhaiya Logo"
+            alt="NCERT Bhaiya Logo"
             className="w-8 h-8 rounded-lg object-contain"
             fetchPriority="high"
             loading="eager"
@@ -80,7 +80,7 @@ export function NavBar() {
             decoding="async"
           />
           <span className="font-display font-bold text-lg tracking-tight hidden sm:block">
-            <span className="text-gradient-purple">NCRT</span>
+            <span className="text-gradient-purple">NCERT</span>
             <span className="text-foreground/80"> Bhaiya</span>
           </span>
         </Link>

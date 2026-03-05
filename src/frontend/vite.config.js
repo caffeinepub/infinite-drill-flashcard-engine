@@ -17,68 +17,22 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        passes: 2,
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-        dead_code: true,
-      },
-      mangle: { toplevel: true },
-      format: { comments: false },
-    },
-    cssCodeSplit: true,
-    assetsInlineLimit: 4096,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // Core React runtime — highest priority, always cached
-          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/scheduler/')) {
-            return 'vendor-react';
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) return 'vendor-react';
+            if (id.includes('@tanstack/react-router') || id.includes('@tanstack/router')) return 'vendor-router';
+            if (id.includes('framer-motion') || id.includes('motion')) return 'vendor-motion';
+            if (id.includes('lucide')) return 'vendor-icons';
+            if (id.includes('@dfinity') || id.includes('@ic') || id.includes('agent-js')) return 'vendor-dfinity';
+            if (id.includes('@radix-ui')) return 'vendor-radix';
+            return 'vendor';
           }
-          // Router
-          if (id.includes('@tanstack/react-router') || id.includes('@tanstack/react-query')) {
-            return 'vendor-router';
-          }
-          // Animation — framer/motion is large, isolate it
-          if (id.includes('motion/') || id.includes('framer-motion')) {
-            return 'vendor-motion';
-          }
-          // 3D — Three.js is enormous, isolate completely
-          if (id.includes('node_modules/three/') || id.includes('@react-three/') || id.includes('@react-spring/')) {
-            return 'vendor-three';
-          }
-          // Icons
-          if (id.includes('lucide-react') || id.includes('react-icons')) {
-            return 'vendor-icons';
-          }
-          // DFINITY / ICP SDK
-          if (id.includes('@dfinity/') || id.includes('@icp-sdk/')) {
-            return 'vendor-dfinity';
-          }
-          // Radix UI and shadcn — can share a chunk since they're always needed
-          if (id.includes('@radix-ui/')) {
-            return 'vendor-radix';
-          }
-          // Recharts / charts
-          if (id.includes('recharts') || id.includes('d3-')) {
-            return 'vendor-charts';
-          }
-          // Large data files — split into own async chunks
-          if (id.includes('src/data/ncertContent')) {
-            return 'data-ncert';
-          }
-          if (id.includes('src/data/iitData')) {
-            return 'data-iit';
-          }
-          if (id.includes('src/data/blogData')) {
-            return 'data-blog';
-          }
-          if (id.includes('src/data/aiTeacherResponses')) {
-            return 'data-ai-teacher';
-          }
+          if (id.includes('/data/ncertData')) return 'data-ncert';
+          if (id.includes('/data/iitData') || id.includes('/data/iitJeeData')) return 'data-iit';
+          if (id.includes('/data/blogData') || id.includes('/data/demoData')) return 'data-demo';
         },
       },
     },

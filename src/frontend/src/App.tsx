@@ -8,6 +8,7 @@ import {
 import { Suspense, lazy } from "react";
 import { AuthGuard } from "./components/AuthGuard";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { WebVitals } from "./components/WebVitals";
 import { UserProfileProvider } from "./context/UserProfileContext";
 
 // Lazy-load all pages to enable code splitting
@@ -125,6 +126,7 @@ declare module "@tanstack/react-router" {
 export default function App() {
   return (
     <ThemeProvider>
+      <WebVitals />
       <UserProfileProvider>
         <AuthGuard>
           <Suspense fallback={<PageLoader />}>

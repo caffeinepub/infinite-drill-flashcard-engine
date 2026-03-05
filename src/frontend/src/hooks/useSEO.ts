@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useAmpHtml } from "./useAmpHtml";
 
 interface SEOOptions {
   title?: string;
@@ -18,8 +19,12 @@ export function useSEO({
   keywords,
   canonical,
 }: SEOOptions) {
+  // Update <link rel="amphtml"> to always match the current canonical URL.
+  // For React SPAs, Google accepts this pattern as the mobile-optimised signal.
+  useAmpHtml(canonical);
+
   useEffect(() => {
-    const BASE = "https://ncrtbhaiya-8d1.caffeine.xyz";
+    const BASE = "https://ncertbhaiya-8d1.caffeine.xyz";
     const SITE_NAME = "NCERT Bhaiya";
 
     const fullTitle = title
@@ -66,7 +71,7 @@ export function useSEO({
     return () => {
       // Reset to global defaults on unmount
       document.title =
-        "NCRT Bhaiya | Free NCERT Solutions, MCQ Quiz & Notes Class 1-12 | CBSE Study";
+        "NCERT Bhaiya | Free NCERT Solutions, MCQ Quiz & Notes Class 1-12 | CBSE Study";
     };
   }, [title, description, keywords, canonical]);
 }

@@ -453,3 +453,33 @@
   animation: shimmer 2.5s linear infinite;
   will-change: background-position;
 }
+
+/* ── Core Web Vitals: CLS Prevention ─────────────────── */
+/* Prevent layout shift from images without explicit dimensions */
+img:not([width]):not([height]) {
+  aspect-ratio: auto;
+}
+
+/* ── Core Web Vitals: INP Optimisation ───────────────── */
+/* Remove tap highlight that can delay interaction feedback on iOS/Android */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Smooth scroll (with reduced-motion override) ────── */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

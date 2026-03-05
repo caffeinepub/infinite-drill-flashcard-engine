@@ -1041,6 +1041,811 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: "ncert-class-9-science-chapter-5-fundamental-unit-of-life-notes",
+    title:
+      "NCERT Class 9 Science Chapter 5: The Fundamental Unit of Life — Notes & Important Questions",
+    metaTitle:
+      "The Fundamental Unit of Life Class 9 Notes — NCERT Ch 5 Science | CBSE",
+    metaDescription:
+      "Easy notes for NCERT Class 9 Science Chapter 5 The Fundamental Unit of Life. Cell theory, organelles, plant vs animal cell — important questions for CBSE board.",
+    excerpt:
+      "Complete notes and important questions for NCERT Class 9 Science Chapter 5 — The Fundamental Unit of Life. Covers cell theory, cell organelles, and differences between plant and animal cells.",
+    category: "Science",
+    classTag: "Class 9",
+    subject: "Science",
+    readTime: 7,
+    publishedAt: "2026-03-05",
+    keywords: [
+      "the fundamental unit of life class 9 notes",
+      "NCERT class 9 science chapter 5",
+      "cell organelles class 9",
+      "fundamental unit of life important questions",
+      "class 9 science chapter 5 CBSE",
+    ],
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 9 Science Chapter 5 — 'The Fundamental Unit of Life' — introduces students to the cell: the basic building block of all living organisms. This is one of the highest-scoring chapters for CBSE exams. Mastering it gives a strong foundation for Class 10 Biology.",
+      },
+      {
+        type: "h2",
+        heading: "What is a Cell?",
+        text: "A cell is the smallest structural and functional unit of living organisms. All living things are made of cells. The study of cells is called cytology.",
+      },
+      {
+        type: "h2",
+        heading: "Cell Theory — 3 Key Points",
+      },
+      {
+        type: "ol",
+        items: [
+          "All living organisms are made up of one or more cells.",
+          "The cell is the basic unit of life.",
+          "All cells arise from pre-existing cells.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Types of Cells",
+      },
+      {
+        type: "table",
+        headers: ["Feature", "Prokaryotic Cell", "Eukaryotic Cell"],
+        rows: [
+          { cells: ["Nuclear membrane", "Absent", "Present"] },
+          {
+            cells: [
+              "Membrane-bound organelles",
+              "Absent",
+              "Present (mitochondria, ER, Golgi, etc.)",
+            ],
+          },
+          {
+            cells: [
+              "Examples",
+              "Bacteria, Blue-green algae",
+              "Plant cells, Animal cells, Fungi",
+            ],
+          },
+          { cells: ["Size", "Smaller (1–10 µm)", "Larger (10–100 µm)"] },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Cell Organelles and Their Functions",
+      },
+      {
+        type: "table",
+        headers: ["Organelle", "Function"],
+        rows: [
+          {
+            cells: [
+              "Cell membrane",
+              "Selectively permeable — controls what enters/exits the cell",
+            ],
+          },
+          {
+            cells: [
+              "Cell wall",
+              "Provides rigidity and protection — present only in plant cells",
+            ],
+          },
+          {
+            cells: [
+              "Nucleus",
+              "Controls all cell activities; contains DNA (genetic material)",
+            ],
+          },
+          {
+            cells: [
+              "Mitochondria",
+              "Site of cellular respiration — produces energy (ATP). Called the powerhouse of the cell.",
+            ],
+          },
+          {
+            cells: [
+              "Chloroplast",
+              "Site of photosynthesis — found only in plant cells. Contains chlorophyll.",
+            ],
+          },
+          {
+            cells: [
+              "Endoplasmic Reticulum (ER)",
+              "Rough ER: protein synthesis. Smooth ER: lipid synthesis.",
+            ],
+          },
+          {
+            cells: [
+              "Golgi apparatus",
+              "Packages and ships proteins and lipids out of the cell.",
+            ],
+          },
+          {
+            cells: [
+              "Lysosome",
+              "Contains digestive enzymes — destroys waste and foreign particles. Called the suicide bag.",
+            ],
+          },
+          {
+            cells: [
+              "Vacuole",
+              "Stores water, food, waste. Large in plant cells, small in animal cells.",
+            ],
+          },
+          {
+            cells: [
+              "Ribosome",
+              "Site of protein synthesis — found in all cells (prokaryotes and eukaryotes).",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Plasma Membrane (Cell Membrane)",
+        text: "The plasma membrane is a thin, flexible, selectively permeable membrane made of lipids and proteins. It controls the movement of substances in and out of the cell.",
+      },
+      {
+        type: "h3",
+        heading: "Osmosis and Diffusion",
+      },
+      {
+        type: "ul",
+        items: [
+          "Diffusion: Movement of substances from high concentration to low concentration (e.g. CO₂ and O₂ movement in/out of cells)",
+          "Osmosis: Movement of water through a semi-permeable membrane from low concentration to high concentration",
+          "Hypotonic solution: Less concentrated than cell — cell swells (endosmosis)",
+          "Hypertonic solution: More concentrated than cell — cell shrinks (exosmosis/plasmolysis)",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Exam tip: 'Lysosome is called the suicide bag' and 'Mitochondria is called the powerhouse of the cell' are the two most commonly asked 1-mark MCQ questions in CBSE Class 9.",
+      },
+      {
+        type: "h2",
+        heading: "Important Exam Questions",
+      },
+      {
+        type: "ol",
+        items: [
+          "Who discovered the cell and how?",
+          "What is the difference between prokaryotic and eukaryotic cells?",
+          "What is the function of the nucleus in a cell?",
+          "Why is mitochondria called the powerhouse of the cell?",
+          "Why is the lysosome called a suicide bag?",
+          "What is osmosis? Distinguish between endosmosis and exosmosis.",
+          "Name the organelle that is the site of photosynthesis.",
+          "What are chromosomes? What do they contain?",
+          "Draw a well-labelled diagram of a plant cell.",
+        ],
+      },
+      {
+        type: "note",
+        text: "This chapter connects directly to Class 8 Ch 8 (Cell Structure and Functions). Revise both together for maximum retention.",
+      },
+    ],
+  },
+  {
+    slug: "difference-between-acids-bases-and-salts-class-7-science",
+    title:
+      "Difference Between Acids, Bases and Salts — NCERT Class 7 Science Notes",
+    metaTitle:
+      "Acids Bases and Salts Class 7 Notes — Difference, Examples | NCERT Science",
+    metaDescription:
+      "Easy notes on Acids, Bases and Salts for NCERT Class 7 Science. Properties, differences, natural indicators, pH scale — important questions for CBSE exam prep.",
+    excerpt:
+      "Simple and clear notes on Acids, Bases and Salts from NCERT Class 7 Science. Covers properties, natural indicators, neutralisation, and important exam questions.",
+    category: "Science",
+    classTag: "Class 7",
+    subject: "Science",
+    readTime: 6,
+    publishedAt: "2026-03-05",
+    keywords: [
+      "difference between acids bases and salts class 7",
+      "NCERT class 7 science acids bases salts",
+      "acids and bases class 7 notes",
+      "neutralisation reaction class 7",
+      "natural indicators class 7 science",
+    ],
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 7 Science Chapter 5 — 'Acids, Bases and Salts' — is a very important chapter for CBSE exams. It explains the properties of acids and bases, how to identify them using indicators, and how they react with each other to form salts.",
+      },
+      {
+        type: "h2",
+        heading: "What are Acids?",
+        text: "Acids are substances that taste sour and turn blue litmus paper red. They have a pH less than 7. Examples: lemon juice (citric acid), vinegar (acetic acid), hydrochloric acid (HCl).",
+      },
+      {
+        type: "h2",
+        heading: "What are Bases?",
+        text: "Bases are substances that taste bitter and feel slippery. They turn red litmus paper blue. They have a pH greater than 7. Examples: baking soda (sodium bicarbonate), soap, lime water (calcium hydroxide).",
+      },
+      {
+        type: "h2",
+        heading: "Acids vs Bases vs Salts — Comparison Table",
+      },
+      {
+        type: "table",
+        headers: ["Property", "Acid", "Base", "Salt"],
+        rows: [
+          { cells: ["Taste", "Sour", "Bitter", "Salty"] },
+          { cells: ["pH", "Less than 7", "More than 7", "Around 7 (neutral)"] },
+          {
+            cells: [
+              "Effect on litmus",
+              "Turns blue litmus red",
+              "Turns red litmus blue",
+              "No change",
+            ],
+          },
+          { cells: ["Texture", "Corrosive", "Slippery/soapy", "Crystalline"] },
+          {
+            cells: [
+              "Examples",
+              "HCl, H₂SO₄, citric acid, acetic acid",
+              "NaOH, Ca(OH)₂, soap, baking soda",
+              "NaCl, Na₂SO₄, NaHCO₃",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Natural Indicators",
+        text: "Natural indicators are substances obtained from nature that change colour in the presence of acids and bases.",
+      },
+      {
+        type: "table",
+        headers: ["Indicator", "Colour in Acid", "Colour in Base"],
+        rows: [
+          { cells: ["Litmus (purple)", "Red", "Blue"] },
+          { cells: ["Turmeric", "Yellow (no change)", "Red/brown"] },
+          { cells: ["China rose (Gurhal)", "Dark pink/magenta", "Green"] },
+          {
+            cells: ["Red cabbage juice", "Pink/red", "Green/yellow"],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Neutralisation Reaction",
+        text: "When an acid reacts with a base, they cancel each other out to form a salt and water. This reaction is called neutralisation.",
+      },
+      {
+        type: "ul",
+        items: [
+          "General equation: Acid + Base → Salt + Water",
+          "Example: HCl + NaOH → NaCl + H₂O",
+          "The product (salt) is neutral — neither acidic nor basic",
+          "Real-life examples: Ant bite (formic acid) treated with baking soda; Acidity in stomach treated with antacids",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Exam tip: Ants inject formic acid when they bite. That is why applying a base like baking soda relieves the pain. This is a very common 2-mark application question in CBSE Class 7.",
+      },
+      {
+        type: "h2",
+        heading: "Salts in Everyday Life",
+      },
+      {
+        type: "ul",
+        items: [
+          "Common salt (NaCl): Used in food, making soap, and preserving food",
+          "Baking soda (NaHCO₃): Used in cooking (makes dough rise), relieves acidity",
+          "Washing soda (Na₂CO₃): Used in cleaning clothes and softening hard water",
+          "Bleaching powder (CaOCl₂): Used to disinfect water and bleach fabrics",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Important Exam Questions",
+      },
+      {
+        type: "ol",
+        items: [
+          "Define acid and base. Give two examples of each.",
+          "What happens when an acid and a base are mixed? Write the equation.",
+          "Name two natural indicators. What colour does each turn in an acidic solution?",
+          "Why does a bee sting hurt? How can you relieve the pain?",
+          "What is litmus? How is it obtained?",
+          "Classify the following as acid, base or salt: vinegar, soap, common salt, lemon juice, milk of magnesia.",
+          "What is the pH scale? What does a pH of 7 mean?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-10-maths-chapter-3-pair-of-linear-equations-notes",
+    title:
+      "NCERT Class 10 Maths Chapter 3: Pair of Linear Equations in Two Variables — Notes & Solutions",
+    metaTitle:
+      "Pair of Linear Equations Class 10 Maths Notes — NCERT Ch 3 | Methods & Examples",
+    metaDescription:
+      "Complete notes for NCERT Class 10 Maths Chapter 3 Pair of Linear Equations. Graphical, substitution, elimination methods with solved examples and important questions.",
+    excerpt:
+      "Full notes for NCERT Class 10 Maths Chapter 3 — Pair of Linear Equations in Two Variables. Covers graphical, substitution, and elimination methods with solved examples.",
+    category: "Mathematics",
+    classTag: "Class 10",
+    subject: "Mathematics",
+    readTime: 8,
+    publishedAt: "2026-03-05",
+    keywords: [
+      "pair of linear equations class 10 notes",
+      "NCERT class 10 maths chapter 3",
+      "linear equations two variables class 10",
+      "substitution elimination method class 10",
+      "class 10 maths chapter 3 important questions",
+    ],
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 10 Maths Chapter 3 — 'Pair of Linear Equations in Two Variables' — is one of the highest-weightage chapters in CBSE Class 10 boards. It is also foundational for algebra in Class 11. This chapter teaches you how to solve two equations with two unknowns using multiple methods.",
+      },
+      {
+        type: "h2",
+        heading: "What is a Linear Equation in Two Variables?",
+        text: "A linear equation in two variables has the form ax + by + c = 0, where a, b, c are real numbers and a, b are not both zero. Example: 2x + 3y = 12.",
+      },
+      {
+        type: "h2",
+        heading: "Types of Solutions — Graphical Understanding",
+      },
+      {
+        type: "table",
+        headers: ["Type of Lines", "Number of Solutions", "Type of Equations"],
+        rows: [
+          {
+            cells: [
+              "Intersecting lines",
+              "Exactly one solution (unique)",
+              "Consistent",
+            ],
+          },
+          {
+            cells: [
+              "Parallel lines (no intersection)",
+              "No solution",
+              "Inconsistent",
+            ],
+          },
+          {
+            cells: [
+              "Coincident lines (same line)",
+              "Infinitely many solutions",
+              "Dependent/Consistent",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Condition for Type of Solution",
+      },
+      {
+        type: "p",
+        text: "For a pair of linear equations a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Unique solution (intersecting): a₁/a₂ ≠ b₁/b₂",
+          "No solution (parallel): a₁/a₂ = b₁/b₂ ≠ c₁/c₂",
+          "Infinitely many solutions (coincident): a₁/a₂ = b₁/b₂ = c₁/c₂",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Method 1 — Substitution Method",
+      },
+      {
+        type: "ol",
+        items: [
+          "From one equation, express one variable in terms of the other (e.g. x = 3 - 2y)",
+          "Substitute this expression into the second equation",
+          "Solve for the remaining variable",
+          "Substitute back to find the first variable",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Method 2 — Elimination Method",
+      },
+      {
+        type: "ol",
+        items: [
+          "Multiply both equations by suitable constants to make the coefficient of one variable equal",
+          "Add or subtract the equations to eliminate that variable",
+          "Solve the resulting equation for the remaining variable",
+          "Substitute back to find the eliminated variable",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Method 3 — Cross-Multiplication Method",
+      },
+      {
+        type: "p",
+        text: "For equations a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0, the solution is given by the cross-multiplication formula:",
+      },
+      {
+        type: "ul",
+        items: [
+          "x = (b₁c₂ - b₂c₁) / (a₁b₂ - a₂b₁)",
+          "y = (c₁a₂ - c₂a₁) / (a₁b₂ - a₂b₁)",
+          "This method works for any pair of linear equations and is fastest for multiple-choice questions",
+        ],
+      },
+      {
+        type: "tip",
+        text: "For board exams: Substitution and elimination methods are most commonly tested. Practice 5–6 word problems from the NCERT exercises — they appear almost every year in the 3-mark or 4-mark section.",
+      },
+      {
+        type: "h2",
+        heading: "Common Word Problem Types",
+      },
+      {
+        type: "ul",
+        items: [
+          "Age problems: Find ages of two people given their sum/difference and relationship",
+          "Number problems: Find two numbers given their sum, difference, or ratio",
+          "Speed-distance-time: Boats in streams, trains, walking speed problems",
+          "Money problems: Cost of items, change problems",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Important Exam Questions",
+      },
+      {
+        type: "ol",
+        items: [
+          "Solve: 2x + 3y = 11 and 2x - 4y = -24 by elimination method.",
+          "For what value of k do the equations 2x + 3y = 7 and (k+1)x + (2k-1)y = 4k+1 have infinitely many solutions?",
+          "A boat covers 32 km upstream and 36 km downstream in 7 hours. Also, it covers 40 km upstream and 48 km downstream in 9 hours. Find the speed of the boat in still water and the speed of the stream.",
+          "Solve the system 3x - 5y = 4 and 9x - 2y = 7 using the cross-multiplication method.",
+          "The sum of two numbers is 35 and their difference is 13. Find the numbers.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-8-science-chapter-6-combustion-and-flame-notes",
+    title:
+      "NCERT Class 8 Science Chapter 6: Combustion and Flame — Complete Notes",
+    metaTitle:
+      "Combustion and Flame Class 8 Notes — NCERT Science Ch 6 | Types & Fire Triangle",
+    metaDescription:
+      "Easy notes for NCERT Class 8 Science Chapter 6 Combustion and Flame. Types of combustion, fire triangle, ignition temperature, zones of a flame — CBSE board prep.",
+    excerpt:
+      "Clear and easy notes for NCERT Class 8 Science Chapter 6 — Combustion and Flame. Covers types of combustion, fire triangle, ignition temperature, and zones of a candle flame.",
+    category: "Science",
+    classTag: "Class 8",
+    subject: "Science",
+    readTime: 5,
+    publishedAt: "2026-03-05",
+    keywords: [
+      "combustion and flame class 8 notes",
+      "NCERT class 8 science chapter 6",
+      "types of combustion class 8",
+      "fire triangle class 8",
+      "zones of flame class 8 CBSE",
+    ],
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 8 Science Chapter 6 — 'Combustion and Flame' — covers how things burn, what conditions are needed for burning, and why different fuels burn in different ways. This chapter is important for CBSE exams and everyday safety knowledge.",
+      },
+      {
+        type: "h2",
+        heading: "What is Combustion?",
+        text: "Combustion is a chemical process in which a substance reacts with oxygen to give off heat and light. The substance that burns is called a fuel. Example: burning wood, coal, LPG.",
+      },
+      {
+        type: "h2",
+        heading: "Conditions Required for Combustion",
+      },
+      {
+        type: "ul",
+        items: [
+          "Fuel — a combustible substance (wood, petrol, coal, wax)",
+          "Supporter of combustion — oxygen (usually from air)",
+          "Ignition temperature — the minimum temperature at which a substance starts burning",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "The Fire Triangle",
+        text: "For a fire to start and keep burning, three things must be present at the same time: fuel, oxygen, and heat (ignition temperature). If you remove any one of these, the fire goes out. This is called the Fire Triangle.",
+      },
+      {
+        type: "tip",
+        text: "This is why water puts out fire — it cools the fuel below ignition temperature. CO₂ fire extinguishers cut off oxygen supply. Sand smothers small fires by removing both oxygen and cooling the fuel.",
+      },
+      {
+        type: "h2",
+        heading: "Types of Combustion",
+      },
+      {
+        type: "table",
+        headers: ["Type", "Description", "Example"],
+        rows: [
+          {
+            cells: [
+              "Rapid combustion",
+              "Burns quickly with heat and light",
+              "Burning LPG, candle",
+            ],
+          },
+          {
+            cells: [
+              "Spontaneous combustion",
+              "Catches fire on its own without external heat",
+              "Phosphorus burns in air at room temperature",
+            ],
+          },
+          {
+            cells: [
+              "Explosive combustion",
+              "Burns suddenly with a loud sound and large amount of heat and light",
+              "Crackers, dynamite",
+            ],
+          },
+          {
+            cells: [
+              "Slow combustion",
+              "Burning very slowly without flame or light",
+              "Rusting of iron, digestion of food in body",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Zones of a Candle Flame",
+      },
+      {
+        type: "table",
+        headers: ["Zone", "Colour", "Description"],
+        rows: [
+          {
+            cells: [
+              "Innermost zone (dark zone)",
+              "Black/dark blue",
+              "Unburnt wax vapours — lowest temperature",
+            ],
+          },
+          {
+            cells: [
+              "Middle zone (luminous zone)",
+              "Yellow/orange",
+              "Partial combustion — bright due to glowing carbon particles",
+            ],
+          },
+          {
+            cells: [
+              "Outer zone (non-luminous zone)",
+              "Blue",
+              "Complete combustion — hottest part of the flame",
+            ],
+          },
+        ],
+      },
+      {
+        type: "note",
+        text: "Goldsmith uses the outermost (blue) zone of the flame to melt gold and silver — because it is the hottest zone where complete combustion takes place.",
+      },
+      {
+        type: "h2",
+        heading: "Fuels and Their Calorific Values",
+        text: "The amount of heat energy produced by complete combustion of 1 kg of a fuel is called its calorific value (in kJ/kg). Higher calorific value = better fuel.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Wood: ~17,000 kJ/kg",
+          "Charcoal: ~33,000 kJ/kg",
+          "Diesel: ~45,000 kJ/kg",
+          "Petrol: ~45,000 kJ/kg",
+          "CNG: ~50,000 kJ/kg",
+          "Hydrogen: ~150,000 kJ/kg (highest known calorific value)",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Important Exam Questions",
+      },
+      {
+        type: "ol",
+        items: [
+          "What is combustion? Write the conditions necessary for combustion.",
+          "What is ignition temperature? Why do we store LPG in sealed cylinders?",
+          "Explain the fire triangle with a diagram.",
+          "Why is CO₂ used in fire extinguishers?",
+          "Describe the three zones of a candle flame. Which zone is the hottest?",
+          "What is the difference between rapid combustion and explosive combustion?",
+          "Why is hydrogen considered an ideal fuel for the future?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-10-science-photosynthesis-light-reaction-dark-reaction",
+    title:
+      "Photosynthesis in Class 10 Science — Light Reaction, Dark Reaction & Notes",
+    metaTitle:
+      "Photosynthesis Class 10 Notes — Light & Dark Reaction | NCERT Life Processes",
+    metaDescription:
+      "Easy notes on Photosynthesis for NCERT Class 10 Science (Life Processes). Light reaction, dark reaction, chlorophyll, stomata — with important CBSE exam questions.",
+    excerpt:
+      "Clear notes on Photosynthesis from NCERT Class 10 Science Chapter 6 — Life Processes. Covers light and dark reactions, raw materials, and important exam questions.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 6,
+    publishedAt: "2026-03-05",
+    keywords: [
+      "photosynthesis class 10 notes",
+      "light reaction dark reaction class 10",
+      "photosynthesis NCERT class 10 science",
+      "photosynthesis important questions class 10",
+      "life processes photosynthesis CBSE",
+    ],
+    content: [
+      {
+        type: "p",
+        text: "Photosynthesis is the process by which green plants make their own food using sunlight, carbon dioxide, and water. It is covered in NCERT Class 10 Science Chapter 6 (Life Processes) and is one of the most commonly tested topics in CBSE board exams.",
+      },
+      {
+        type: "h2",
+        heading: "Photosynthesis — The Simple Definition",
+        text: "Photosynthesis is the process in which plants use sunlight, water, and carbon dioxide to produce glucose (food) and oxygen. It occurs in the chloroplasts of green plant cells.",
+      },
+      {
+        type: "h2",
+        heading: "Photosynthesis Equation",
+      },
+      {
+        type: "p",
+        text: "6CO₂ + 6H₂O + Light energy (sunlight) → C₆H₁₂O₆ (Glucose) + 6O₂",
+      },
+      {
+        type: "h2",
+        heading: "Raw Materials and Products",
+      },
+      {
+        type: "table",
+        headers: ["Component", "Role", "Source"],
+        rows: [
+          {
+            cells: [
+              "Carbon dioxide (CO₂)",
+              "Raw material",
+              "Enters through stomata in leaves",
+            ],
+          },
+          {
+            cells: [
+              "Water (H₂O)",
+              "Raw material",
+              "Absorbed by roots, transported by xylem",
+            ],
+          },
+          {
+            cells: [
+              "Sunlight",
+              "Energy source",
+              "Absorbed by chlorophyll in chloroplasts",
+            ],
+          },
+          {
+            cells: [
+              "Chlorophyll",
+              "Light-absorbing pigment",
+              "Present in chloroplasts (green colour)",
+            ],
+          },
+          {
+            cells: [
+              "Glucose (C₆H₁₂O₆)",
+              "Product — stored as food",
+              "Produced in the leaf",
+            ],
+          },
+          {
+            cells: [
+              "Oxygen (O₂)",
+              "By-product — released into air",
+              "Released through stomata",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Two Stages of Photosynthesis",
+      },
+      {
+        type: "h3",
+        heading: "Stage 1 — Light Reaction (Light-Dependent Reaction)",
+      },
+      {
+        type: "ul",
+        items: [
+          "Occurs in the thylakoid membranes of chloroplasts",
+          "Requires direct sunlight",
+          "Water molecules are split (photolysis): 2H₂O → 4H⁺ + 4e⁻ + O₂",
+          "Oxygen is released as a by-product — this is the source of O₂ in the air we breathe",
+          "ATP and NADPH are produced and used in the next stage",
+        ],
+      },
+      {
+        type: "h3",
+        heading:
+          "Stage 2 — Dark Reaction (Calvin Cycle / Light-Independent Reaction)",
+      },
+      {
+        type: "ul",
+        items: [
+          "Occurs in the stroma of chloroplasts",
+          "Does NOT require direct sunlight (but still happens in daytime using ATP and NADPH from light reaction)",
+          "CO₂ is fixed (combined with organic molecules) using ATP and NADPH",
+          "Glucose (C₆H₁₂O₆) is produced",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Memory trick: 'Light reaction = Light + Water → Oxygen + ATP'. 'Dark reaction = CO₂ + ATP → Glucose'. The dark reaction is not dark — it just doesn't need light directly.",
+      },
+      {
+        type: "h2",
+        heading: "Factors Affecting Photosynthesis",
+      },
+      {
+        type: "ul",
+        items: [
+          "Light intensity: More light → faster photosynthesis (up to a limit)",
+          "CO₂ concentration: More CO₂ → faster photosynthesis",
+          "Temperature: Optimum temperature (25–35°C) gives maximum rate",
+          "Water availability: Shortage of water slows photosynthesis",
+          "Chlorophyll content: More chlorophyll → more light absorbed → faster photosynthesis",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Why is Photosynthesis Important?",
+      },
+      {
+        type: "ul",
+        items: [
+          "It is the primary source of food and energy for almost all life on Earth",
+          "It releases oxygen — essential for all aerobic organisms",
+          "It removes CO₂ from the atmosphere — helps regulate climate",
+          "All fossil fuels (coal, petroleum) are stored solar energy from ancient photosynthesis",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Important Exam Questions",
+      },
+      {
+        type: "ol",
+        items: [
+          "Write the equation for photosynthesis. Name all the raw materials.",
+          "What role does chlorophyll play in photosynthesis?",
+          "How does CO₂ enter the leaf? Draw a labelled diagram of a stomatal pore.",
+          "Distinguish between the light reaction and dark reaction of photosynthesis.",
+          "Why do plants appear green?",
+          "What would happen to photosynthesis if all the stomata in a leaf were blocked?",
+          "Explain why leaves are broad and flat in most plants.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "ncert-class-6-science-chapter-1-food-where-does-it-come-from",
     title:
       "NCERT Class 6 Science Chapter 1: Food — Where Does It Come From? Notes",

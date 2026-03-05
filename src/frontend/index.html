@@ -12,9 +12,9 @@
     <link rel="preload" href="/assets/fonts/Outfit[wght].woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
 
     <!-- ── Favicon / App Icon ── -->
-    <link rel="icon" type="image/png" sizes="64x64" href="/assets/generated/ncrt-bhaiya-icon-transparent.dim_64x64.png" />
-    <link rel="icon" type="image/png" href="/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png" />
-    <link rel="apple-touch-icon" href="/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/generated/ncert-bhaiya-icon-transparent.dim_64x64.png" />
+    <link rel="icon" type="image/png" href="/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png" />
+    <link rel="apple-touch-icon" href="/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png" />
 
     <!-- ── Primary SEO ── -->
     <title>NCERT Bhaiya | Free NCERT Solutions, MCQ Quiz &amp; Notes Class 1-12 | CBSE Study</title>
@@ -22,28 +22,42 @@
     <meta name="keywords" content="NCERT Bhaiya, NCERT solutions Class 1 to 12, free NCERT notes, CBSE study material 2025, class 9 science chapter names, class 9 science MCQ, class 9 maths chapters, class 10 science chapters, class 10 maths chapters, class 10 science MCQ, class 11 physics notes, class 11 chemistry notes, class 12 physics notes, class 12 chemistry notes, class 12 biology notes, NCERT chapter explanation, free NCERT MCQ quiz, NCERT flashcards, CBSE board exam preparation 2025, NCERT cheat sheet, NCERT summary notes, NCERT important questions, CBSE online study, gamified learning CBSE, IIT JEE syllabus 2025, JEE Main syllabus, JEE Advanced preparation, NCERT Science class 9 Matter in Our Surroundings, NCERT Science class 9 Atoms and Molecules, NCERT Science class 9 Gravitation, NCERT Science class 9 Motion, NCERT Science class 10 Chemical Reactions, NCERT Science class 10 Life Processes, NCERT Science class 10 Electricity, NCERT Maths class 9 Number Systems, NCERT Maths class 10 Quadratic Equations, NCERT Maths class 10 Triangles, EVS class 3 4 5, Hindi NCERT, English NCERT, Social Science NCERT, CBSE exam tips, NCERT class 9 10 11 12 free" />
     <meta name="author" content="NCERT Bhaiya" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://ncrtbhaiya-8d1.caffeine.xyz/" />
+    <link rel="canonical" href="https://ncertbhaiya-8d1.caffeine.xyz/" />
+
+    <!-- AMP HTML equivalent link (signals mobile-optimised canonical to Google) -->
+    <link rel="amphtml" href="https://ncertbhaiya-8d1.caffeine.xyz/" />
+
+    <!-- DNS prefetch for AdSense to reduce connection time -->
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+
+    <!-- Preconnect for Google Analytics -->
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
 
     <!-- ── Open Graph (Facebook / WhatsApp) ── -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ncrtbhaiya-8d1.caffeine.xyz/" />
+    <meta property="og:url" content="https://ncertbhaiya-8d1.caffeine.xyz/" />
     <meta property="og:site_name" content="NCERT Bhaiya" />
     <meta property="og:title" content="NCERT Bhaiya | Free NCERT Solutions, MCQ Quiz &amp; Notes Class 1-12 | CBSE Study" />
     <meta property="og:description" content="India's #1 free NCERT study platform. Chapter notes, MCQ quizzes, flashcards, cheat sheets for CBSE Class 1-12. Covers Science, Maths, Social Science, English, Hindi, IIT JEE 2025." />
-    <meta property="og:image" content="https://ncrtbhaiya-8d1.caffeine.xyz/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png" />
+    <meta property="og:image" content="https://ncertbhaiya-8d1.caffeine.xyz/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png" />
     <meta property="og:locale" content="en_IN" />
 
     <!-- ── Twitter Card ── -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NCERT Bhaiya | Free NCERT Solutions, MCQ Quiz &amp; Notes Class 1-12 | CBSE Study" />
     <meta name="twitter:description" content="India's #1 free NCERT study platform — NCERT solutions, MCQ quizzes, flashcards for CBSE Class 1-12 and IIT JEE. Study smarter on NCERT Bhaiya!" />
-    <meta name="twitter:image" content="https://ncrtbhaiya-8d1.caffeine.xyz/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png" />
+    <meta name="twitter:image" content="https://ncertbhaiya-8d1.caffeine.xyz/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png" />
 
     <!-- ── Theme & PWA ── -->
     <meta name="theme-color" content="#0F0B1A" />
     <meta name="application-name" content="NCERT Bhaiya" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="NCERT Bhaiya" />
+
+    <!-- Mobile performance hints -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta name="format-detection" content="telephone=no" />
 
     <!-- ── Inline critical CSS: prevents FOUC, establishes background immediately, unblocks LCP ── -->
     <style>
@@ -68,6 +82,16 @@
       @keyframes spin{to{transform:rotate(360deg)}}
       /* font-display:optional avoids invisible text during font load (key for LCP) */
       @font-face{font-family:'Outfit';src:url('/assets/fonts/Outfit[wght].woff2') format('woff2');font-display:optional;font-weight:100 900}
+      /* Explicit size reservation for logo to prevent CLS */
+      .navbar-logo{width:32px;height:32px;aspect-ratio:1;display:block}
+      /* Prevent CLS from nav bar rendering */
+      .critical-header{contain:layout style}
+      /* Touch action optimization for INP */
+      a,button{touch-action:manipulation}
+      /* Prevent invisible text while font loads (CLS source) */
+      html{font-family:'Outfit',system-ui,-apple-system,sans-serif}
+      /* Image rendering hint */
+      img{display:block;max-width:100%}
     </style>
 
     <!-- ── Structured Data: WebSite + SearchAction ── -->
@@ -76,8 +100,8 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "NCERT Bhaiya",
-      "alternateName": ["NCRTBhaiya", "NCRT Bhaiya", "ncrtbhaiya", "Ncert Bhaiya"],
-      "url": "https://ncrtbhaiya-8d1.caffeine.xyz/",
+      "alternateName": ["NCERTBhaiya", "NCERT Bhaiya", "ncertbhaiya", "Ncert Bhaiya"],
+      "url": "https://ncertbhaiya-8d1.caffeine.xyz/",
       "description": "Free NCERT solutions, chapter notes, MCQ quizzes and flashcards for Class 1 to 12 CBSE students. India's best free study platform for CBSE and IIT JEE.",
       "inLanguage": "en-IN",
       "publisher": {
@@ -85,7 +109,7 @@
         "name": "NCERT Bhaiya",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://ncrtbhaiya-8d1.caffeine.xyz/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png",
+          "url": "https://ncertbhaiya-8d1.caffeine.xyz/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png",
           "width": 512,
           "height": 512
         }
@@ -94,7 +118,7 @@
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://ncrtbhaiya-8d1.caffeine.xyz/ncert?q={search_term_string}"
+          "urlTemplate": "https://ncertbhaiya-8d1.caffeine.xyz/ncert?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
@@ -107,10 +131,10 @@
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "NCERT Bhaiya",
-      "alternateName": ["NCRTBhaiya", "NCRT Bhaiya", "ncrtbhaiya", "Ncert Bhaiya"],
-      "url": "https://ncrtbhaiya-8d1.caffeine.xyz/",
-      "logo": "https://ncrtbhaiya-8d1.caffeine.xyz/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png",
-      "image": "https://ncrtbhaiya-8d1.caffeine.xyz/assets/generated/ncrtbhaiya-logo-transparent.dim_512x512.png",
+      "alternateName": ["NCERTBhaiya", "NCERT Bhaiya", "ncertbhaiya", "Ncert Bhaiya"],
+      "url": "https://ncertbhaiya-8d1.caffeine.xyz/",
+      "logo": "https://ncertbhaiya-8d1.caffeine.xyz/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png",
+      "image": "https://ncertbhaiya-8d1.caffeine.xyz/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png",
       "description": "AI-powered free learning platform for CBSE students from Class 1 to Class 12 covering all NCERT subjects including Science, Maths, Social Science, English, Hindi, Physics, Chemistry, Biology and IIT JEE.",
       "foundingDate": "2024",
       "areaServed": "IN",
@@ -132,13 +156,13 @@
       "@type": "ItemList",
       "name": "NCERT Bhaiya Site Navigation",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"NCERT Solutions Class 1-12","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":2,"name":"Class 9 NCERT Solutions","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":3,"name":"Class 10 NCERT Solutions","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":4,"name":"IIT JEE Preparation 2025","url":"https://ncrtbhaiya-8d1.caffeine.xyz/iit"},
-        {"@type":"ListItem","position":5,"name":"MCQ Quiz Practice","url":"https://ncrtbhaiya-8d1.caffeine.xyz/quiz/class9-science"},
-        {"@type":"ListItem","position":6,"name":"Leaderboard","url":"https://ncrtbhaiya-8d1.caffeine.xyz/leaderboard"},
-        {"@type":"ListItem","position":7,"name":"NCERT Study Blog","url":"https://ncrtbhaiya-8d1.caffeine.xyz/blog"}
+        {"@type":"ListItem","position":1,"name":"NCERT Solutions Class 1-12","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":2,"name":"Class 9 NCERT Solutions","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":3,"name":"Class 10 NCERT Solutions","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":4,"name":"IIT JEE Preparation 2025","url":"https://ncertbhaiya-8d1.caffeine.xyz/iit"},
+        {"@type":"ListItem","position":5,"name":"MCQ Quiz Practice","url":"https://ncertbhaiya-8d1.caffeine.xyz/quiz/class9-science"},
+        {"@type":"ListItem","position":6,"name":"Leaderboard","url":"https://ncertbhaiya-8d1.caffeine.xyz/leaderboard"},
+        {"@type":"ListItem","position":7,"name":"NCERT Study Blog","url":"https://ncertbhaiya-8d1.caffeine.xyz/blog"}
       ]
     }
     </script>
@@ -149,7 +173,7 @@
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"NCERT Bhaiya Home","item":"https://ncrtbhaiya-8d1.caffeine.xyz/"}
+        {"@type":"ListItem","position":1,"name":"NCERT Bhaiya Home","item":"https://ncertbhaiya-8d1.caffeine.xyz/"}
       ]
     }
     </script>
@@ -227,21 +251,21 @@
       "@type": "ItemList",
       "name": "Class 9 Science NCERT Chapters — Notes, MCQ & Important Questions",
       "description": "All chapter notes, MCQs, flashcards and important questions for NCERT Class 9 Science",
-      "url": "https://ncrtbhaiya-8d1.caffeine.xyz/ncert",
+      "url": "https://ncertbhaiya-8d1.caffeine.xyz/ncert",
       "numberOfItems": 12,
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Chapter 1: Matter in Our Surroundings — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":2,"name":"Chapter 2: Is Matter Around Us Pure — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":3,"name":"Chapter 3: Atoms and Molecules — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":4,"name":"Chapter 4: Structure of the Atom — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":5,"name":"Chapter 5: The Fundamental Unit of Life — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":6,"name":"Chapter 6: Tissues — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":7,"name":"Chapter 7: Motion — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":8,"name":"Chapter 8: Force and Laws of Motion — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":9,"name":"Chapter 9: Gravitation — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":10,"name":"Chapter 10: Work and Energy — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":11,"name":"Chapter 11: Sound — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"},
-        {"@type":"ListItem","position":12,"name":"Chapter 12: Improvement in Food Resources — Notes & MCQ","url":"https://ncrtbhaiya-8d1.caffeine.xyz/ncert"}
+        {"@type":"ListItem","position":1,"name":"Chapter 1: Matter in Our Surroundings — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":2,"name":"Chapter 2: Is Matter Around Us Pure — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":3,"name":"Chapter 3: Atoms and Molecules — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":4,"name":"Chapter 4: Structure of the Atom — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":5,"name":"Chapter 5: The Fundamental Unit of Life — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":6,"name":"Chapter 6: Tissues — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":7,"name":"Chapter 7: Motion — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":8,"name":"Chapter 8: Force and Laws of Motion — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":9,"name":"Chapter 9: Gravitation — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":10,"name":"Chapter 10: Work and Energy — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":11,"name":"Chapter 11: Sound — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"},
+        {"@type":"ListItem","position":12,"name":"Chapter 12: Improvement in Food Resources — Notes & MCQ","url":"https://ncertbhaiya-8d1.caffeine.xyz/ncert"}
       ]
     }
     </script>
