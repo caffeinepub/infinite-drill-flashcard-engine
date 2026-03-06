@@ -29,8 +29,7 @@ const generationSteps = [
 
 export default function Generate() {
   useSEO({
-    title:
-      "AI Content Generator — Create NCERT MCQs, Flashcards & Cheat Sheets | NCERT Bhaiya",
+    title: "AI Content Generator — NCERT MCQs, Flashcards & Cheat Sheets",
     description:
       "Paste any NCERT chapter text and instantly generate MCQ quiz questions, flashcards and cheat sheets using AI on NCERT Bhaiya. Free AI-powered study tool for CBSE Class 1 to 12 students.",
     keywords:
@@ -119,7 +118,10 @@ export default function Generate() {
               Admin Panel
             </span>
           </div>
-          <h1 className="font-display text-3xl font-bold mb-2">
+          <h1
+            data-ocid="generate.page_h1"
+            className="font-display text-3xl font-bold mb-2"
+          >
             <span className="text-gradient-purple">AI Content</span> Generator
           </h1>
           <p className="text-muted-foreground text-sm">
@@ -392,6 +394,39 @@ export default function Generate() {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        {/* SEO content section */}
+        <div className="mt-8 glass-dark rounded-2xl p-6 border border-border/40">
+          <h2 className="font-display text-lg font-bold mb-3 text-foreground">
+            About the AI NCERT Content Generator
+          </h2>
+          <div className="text-sm text-muted-foreground space-y-3 leading-relaxed">
+            <p>
+              The NCERT Bhaiya AI Content Generator lets teachers, students, and
+              content creators instantly convert NCERT chapter text into
+              structured study materials. Paste any section from a CBSE textbook
+              and the system produces MCQ quiz questions with four options and
+              correct answers, flashcard pairs for spaced repetition review, and
+              concise cheat sheet summaries.
+            </p>
+            <p>
+              This tool is designed for CBSE students from Class 6 to Class 12
+              covering all NCERT subjects: Science, Mathematics, Social Science,
+              English, Hindi, Physics, Chemistry, and Biology. It is especially
+              useful for Class 10 and Class 12 board exam preparation, where
+              quickly turning dense chapter text into quiz practice is a proven
+              way to improve retention.
+            </p>
+            <p>
+              For IIT JEE aspirants, the generator can process JEE-level
+              Physics, Chemistry, and Mathematics content to produce
+              high-difficulty MCQs aligned with JEE Main and Advanced question
+              patterns. All generated content is automatically linked to the
+              selected topic so it appears in the NCERT Bhaiya quiz, flashcard,
+              and cheat sheet sections immediately after generation.
+            </p>
+          </div>
         </div>
       </div>
     </Layout>

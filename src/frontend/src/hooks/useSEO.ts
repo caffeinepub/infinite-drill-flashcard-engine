@@ -29,7 +29,7 @@ export function useSEO({
 
     const fullTitle = title
       ? `${title} | ${SITE_NAME}`
-      : `${SITE_NAME} | Free NCERT Solutions, MCQ Quiz & Notes Class 1-12 | CBSE Study`;
+      : `${SITE_NAME} | Free NCERT Solutions Class 1-12`;
     const finalDescription =
       description ??
       "Free NCERT solutions, chapter notes, MCQ quizzes, flashcards and AI explanations for Class 1 to 12. CBSE Science, Maths, Social Science, English, Hindi — all in one place on NCERT Bhaiya.";
@@ -70,8 +70,7 @@ export function useSEO({
 
     return () => {
       // Reset to global defaults on unmount
-      document.title =
-        "NCERT Bhaiya | Free NCERT Solutions, MCQ Quiz & Notes Class 1-12 | CBSE Study";
+      document.title = "NCERT Bhaiya | Free NCERT Solutions Class 1-12";
     };
   }, [title, description, keywords, canonical]);
 }

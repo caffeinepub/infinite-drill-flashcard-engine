@@ -124,8 +124,7 @@ export default function Blog() {
   const { blogPosts, blogCategories, isLoaded } = useBlogData();
 
   useSEO({
-    title:
-      "NCERT Blog — Free Study Notes, Tips & Chapter Summaries for Class 6 to 12",
+    title: "NCERT Blog — Free Study Notes & Chapter Summaries",
     description:
       "Free NCERT blog with chapter notes, study tips, concept explanations and important questions for Class 6 to 12 CBSE. Covers Science, Maths, Social Science and more.",
     keywords:

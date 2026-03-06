@@ -604,7 +604,10 @@ export default function IIT() {
             <BookMarked size={20} className="text-white" />
           </div>
           <div>
-            <h1 className="font-display text-2xl font-bold">
+            <h1
+              data-ocid="iit.page_h1"
+              className="font-display text-2xl font-bold"
+            >
               <span className="text-gradient-purple">IIT JEE</span> Exam Hub
             </h1>
             <p className="text-xs text-muted-foreground">

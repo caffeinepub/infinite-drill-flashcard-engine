@@ -102,7 +102,10 @@ export default function Leaderboard() {
               Global Rankings
             </span>
           </div>
-          <h1 className="font-display text-3xl font-bold mb-2">
+          <h1
+            data-ocid="leaderboard.page_h1"
+            className="font-display text-3xl font-bold mb-2"
+          >
             <span className="text-gradient-fire">Leaderboard</span>
           </h1>
           <p className="text-muted-foreground text-sm">
@@ -305,6 +308,45 @@ export default function Leaderboard() {
         <p className="text-center text-xs text-muted-foreground/50 mt-4 font-mono-custom">
           Rankings updated every hour · Practice to earn XP and climb the ranks
         </p>
+
+        {/* SEO content section */}
+        <div className="mt-10 glass-dark rounded-2xl p-6 border border-border/40">
+          <h2 className="font-display text-lg font-bold mb-3 text-foreground">
+            How the NCERT Bhaiya Leaderboard Works
+          </h2>
+          <div className="text-sm text-muted-foreground space-y-3 leading-relaxed">
+            <p>
+              The NCERT Bhaiya leaderboard ranks students based on XP
+              (experience points) earned by completing MCQ quizzes, flashcard
+              sessions, and reading chapter notes. Every correct answer in a
+              quiz earns you XP, and longer streaks multiply your score — so
+              consistent daily practice is the fastest way to climb the
+              rankings.
+            </p>
+            <p>
+              CBSE students from Class 6 to Class 12 compete on the same
+              leaderboard. Whether you are preparing for your Class 10 board
+              exam, revising Class 9 Science chapters, or working through Class
+              12 Physics — every session you complete adds to your total score.
+              IIT JEE aspirants can also earn XP by practicing JEE Main and
+              Advanced level topics in the IIT JEE Hub.
+            </p>
+            <p>
+              Gamified learning has been shown to improve retention and study
+              consistency. When you can see your rank rising alongside other
+              students, it creates a healthy motivation to keep practicing.
+              NCERT Bhaiya rewards the students who practice the most, not just
+              the ones who already know the most — so even beginners can climb
+              quickly by putting in regular effort.
+            </p>
+            <p>
+              Keep completing quizzes and flashcards every day to earn streak
+              bonuses, unlock higher levels, and rise through the ranks. The top
+              performers each week are highlighted on the podium — your name
+              could be next.
+            </p>
+          </div>
+        </div>
       </div>
     </Layout>
   );

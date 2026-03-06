@@ -4,6 +4,7 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  redirect,
 } from "@tanstack/react-router";
 import { Suspense, lazy } from "react";
 import { AuthGuard } from "./components/AuthGuard";
@@ -98,6 +99,16 @@ const blogPostRoute = createRoute({
   component: BlogPost,
 });
 
+// 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
+const notFoundRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "*",
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
+  component: () => null,
+});
+
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
@@ -111,6 +122,7 @@ const routeTree = rootRoute.addChildren([
   iitRoute,
   blogRoute,
   blogPostRoute,
+  notFoundRoute,
 ]);
 
 const router = createRouter({ routeTree });
