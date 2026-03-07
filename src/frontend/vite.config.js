@@ -17,44 +17,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    minify: "esbuild",
-    rollupOptions: {
-      output: {
-        // Content-hash filenames for long-term browser caching
-        chunkFileNames: "assets/js/[name]-[hash].js",
-        entryFileNames: "assets/js/[name]-[hash].js",
-        assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-        manualChunks(id) {
-          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
-            return "vendor-react";
-          }
-          if (id.includes("node_modules/@tanstack/react-router")) {
-            return "vendor-router";
-          }
-          if (id.includes("node_modules/motion") || id.includes("node_modules/framer-motion")) {
-            return "vendor-motion";
-          }
-          if (id.includes("node_modules/lucide-react")) {
-            return "vendor-icons";
-          }
-          if (id.includes("node_modules/@dfinity") || id.includes("node_modules/@internet-identity")) {
-            return "vendor-dfinity";
-          }
-          if (id.includes("node_modules/@radix-ui")) {
-            return "vendor-radix";
-          }
-          if (id.includes("/src/data/ncertContent")) {
-            return "data-ncert";
-          }
-          if (id.includes("/src/data/iitData")) {
-            return "data-iit";
-          }
-          if (id.includes("/src/data/blogData")) {
-            return "data-blog";
-          }
-        },
-      },
-    },
+    minify: false,
   },
   css: {
     postcss: "./postcss.config.js",
