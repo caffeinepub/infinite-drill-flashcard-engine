@@ -58,4 +58,5 @@ export interface backendInterface {
     saveUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
     simulateAIContentGeneration(topicId: bigint, rawText: string): Promise<GeneratedContent>;
     submitQuizResult(userId: string, topicId: bigint, score: bigint): Promise<[bigint, bigint]>;
+    addBlogXP(userId: string, xpAmount: bigint): Promise<bigint>;
 }

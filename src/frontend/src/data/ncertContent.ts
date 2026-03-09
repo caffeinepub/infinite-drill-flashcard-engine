@@ -9307,6 +9307,217 @@ const class10: NCERTClass = {
           videoKeyword: "chemistry",
         },
         {
+          id: "10-sci-2",
+          number: 2,
+          name: "Acids, Bases and Salts",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Acids are substances that release H⁺ ions in aqueous solution (e.g., HCl, H₂SO₄, CH₃COOH). Bases release OH⁻ ions (e.g., NaOH, Ca(OH)₂). The pH scale (0–14) measures acidity: pH < 7 is acidic, pH 7 is neutral, pH > 7 is basic. Indicators like litmus, phenolphthalein, and methyl orange help identify acids and bases.",
+            "Neutralization: Acid + Base → Salt + Water. When HCl reacts with NaOH: HCl + NaOH → NaCl + H₂O. Salts are classified as acidic (pH < 7), basic (pH > 7), or neutral (pH = 7). Important salts: NaCl (common salt), NaHCO₃ (baking soda), Na₂CO₃ (washing soda), bleaching powder (CaOCl₂).",
+            "Baking soda (NaHCO₃) decomposes on heating to release CO₂ which makes cakes fluffy. Baking powder is a mixture of baking soda and a mild acid. Plaster of Paris (CaSO₄·½H₂O) is formed from gypsum and hardens when water is added. Water of crystallization in salts gives them their crystalline structure.",
+          ],
+          keyConcepts: [
+            {
+              title: "pH Scale",
+              description: "0–14 scale; <7 acidic, 7 neutral, >7 basic",
+            },
+            {
+              title: "Neutralization",
+              description: "Acid + Base → Salt + Water",
+            },
+            {
+              title: "Important Salts",
+              description: "NaCl, NaHCO₃, Na₂CO₃ and their uses",
+            },
+            {
+              title: "Indicators",
+              description: "Litmus, phenolphthalein, methyl orange",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "pH",
+              definition:
+                "Measure of hydrogen ion concentration; <7 acidic, >7 basic",
+            },
+            {
+              term: "Neutralization",
+              definition:
+                "Reaction between acid and base to form salt and water",
+            },
+            {
+              term: "Baking Soda",
+              definition: "NaHCO₃ — used in cooking and as antacid",
+            },
+            {
+              term: "Washing Soda",
+              definition: "Na₂CO₃·10H₂O — used in glass and soap making",
+            },
+          ],
+          videoKeyword: "acids bases",
+        },
+        {
+          id: "10-sci-3",
+          number: 3,
+          name: "Metals and Non-metals",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Metals are lustrous, malleable, ductile, good conductors of heat and electricity, and generally solid at room temperature (except mercury). They lose electrons to form positive ions. Non-metals are generally poor conductors, brittle in solid state, and gain electrons to form negative ions. Some elements like silicon, germanium are metalloids (semiconductors).",
+            "Reactivity series orders metals by their tendency to react: K > Na > Ca > Mg > Al > Zn > Fe > Ni > Sn > Pb > H > Cu > Hg > Ag > Au > Pt. More reactive metals displace less reactive ones from their salts. Highly reactive metals react with water; moderately reactive metals react with dilute acids; least reactive do not react.",
+            "Minerals are naturally occurring compounds containing metals; ores are minerals from which metals can be profitably extracted. Metallurgy involves: Concentration of ore → Reduction to metal → Refining. Iron is extracted in blast furnaces; electrolysis is used for highly reactive metals like aluminium and sodium. Corrosion (rusting) and alloys (brass, bronze, steel) are important applications.",
+          ],
+          keyConcepts: [
+            {
+              title: "Properties of Metals",
+              description: "Lustre, malleability, ductility, conductivity",
+            },
+            {
+              title: "Reactivity Series",
+              description: "K > Na > Ca > Mg > Al > Zn > Fe > Cu > Ag > Au",
+            },
+            {
+              title: "Extraction of Metals",
+              description: "Concentration, reduction, refining",
+            },
+            {
+              title: "Corrosion and Alloys",
+              description: "Rusting of iron; brass, bronze, steel",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Ore",
+              definition:
+                "Mineral from which a metal can be economically extracted",
+            },
+            {
+              term: "Reactivity Series",
+              definition: "List of metals in order of decreasing reactivity",
+            },
+            {
+              term: "Alloy",
+              definition:
+                "Mixture of two or more metals or a metal and non-metal",
+            },
+            {
+              term: "Corrosion",
+              definition:
+                "Gradual deterioration of metal by chemical reaction with environment",
+            },
+          ],
+          videoKeyword: "metals non-metals",
+        },
+        {
+          id: "10-sci-4",
+          number: 4,
+          name: "Carbon and its Compounds",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Carbon is unique because of its tetravalency (forms 4 bonds) and catenation (ability to form long chains with itself). This gives rise to millions of organic compounds. Carbon forms single, double, and triple bonds. Hydrocarbons (compounds of C and H only) include alkanes (single bonds, CₙH₂ₙ₊₂), alkenes (one double bond, CₙH₂ₙ), and alkynes (one triple bond, CₙH₂ₙ₋₂).",
+            "Functional groups change the properties of carbon compounds: Alcohols (-OH), Aldehydes (-CHO), Ketones (>C=O), Carboxylic acids (-COOH), Esters (-COO-). Homologous series are groups of compounds with the same functional group, differing by -CH₂- units, showing gradual change in properties.",
+            "Important reactions: Combustion (burning in oxygen, releasing CO₂ and energy); Addition reactions (adding atoms across double/triple bonds); Substitution reactions (replacing H with another atom, e.g., chlorination of methane). Ethanol (alcohol in drinks, also fuel) and Ethanoic acid (vinegar) are important compounds. Soaps are sodium/potassium salts of fatty acids; detergents work in hard water unlike soaps.",
+          ],
+          keyConcepts: [
+            {
+              title: "Catenation",
+              description:
+                "Ability of carbon to bond with itself forming long chains",
+            },
+            {
+              title: "Functional Groups",
+              description: "-OH (alcohol), -COOH (acid), -CHO (aldehyde)",
+            },
+            {
+              title: "Homologous Series",
+              description: "Series differing by CH₂ with same functional group",
+            },
+            {
+              title: "Soaps and Detergents",
+              description: "Micelle formation; soaps vs hard water",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tetravalency",
+              definition: "Carbon's ability to form 4 covalent bonds",
+            },
+            {
+              term: "Isomers",
+              definition:
+                "Compounds with same molecular formula but different structures",
+            },
+            {
+              term: "Saponification",
+              definition:
+                "Process of making soap by hydrolysis of fats with alkali",
+            },
+            {
+              term: "Functional Group",
+              definition:
+                "Atom or group that determines chemical properties of compound",
+            },
+          ],
+          videoKeyword: "carbon compounds",
+        },
+        {
+          id: "10-sci-5",
+          number: 5,
+          name: "Periodic Classification of Elements",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Döbereiner's Triads (1817) grouped elements in sets of three with similar properties. Newlands' Law of Octaves (1866) noted every 8th element had similar properties. Mendeleev's Periodic Table (1869) arranged 63 known elements by atomic mass and predicted properties of undiscovered elements (Ga, Sc, Ge) — a major achievement.",
+            "Modern Periodic Table is based on atomic number (Moseley, 1913). The periodic law states: properties of elements are a periodic function of their atomic numbers. The table has 18 groups (columns) and 7 periods (rows). Elements in the same group have the same number of valence electrons and similar chemical properties.",
+            "Periodic trends: Atomic radius decreases across a period (increasing nuclear charge pulls electrons closer) and increases down a group (new shells added). Ionization energy increases across a period and decreases down a group. Metallic character decreases across a period and increases down a group. Reactivity of metals increases down Group 1; reactivity of non-metals decreases down Group 17.",
+          ],
+          keyConcepts: [
+            {
+              title: "Mendeleev's Table",
+              description:
+                "Elements arranged by atomic mass; predicted new elements",
+            },
+            {
+              title: "Modern Periodic Law",
+              description:
+                "Properties depend on atomic number, not atomic mass",
+            },
+            {
+              title: "Periodic Trends",
+              description:
+                "Atomic radius, ionization energy trends across period/group",
+            },
+            {
+              title: "Groups and Periods",
+              description:
+                "18 groups (same valence e⁻); 7 periods (same shells)",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Atomic Number",
+              definition: "Number of protons in the nucleus of an atom",
+            },
+            {
+              term: "Valence Electrons",
+              definition:
+                "Electrons in the outermost shell; determine reactivity",
+            },
+            {
+              term: "Ionization Energy",
+              definition: "Energy required to remove an electron from an atom",
+            },
+            {
+              term: "Periodic Law",
+              definition:
+                "Properties repeat periodically with increasing atomic number",
+            },
+          ],
+          videoKeyword: "periodic table",
+        },
+        {
           id: "10-sci-6",
           number: 6,
           name: "Life Processes",
@@ -9361,6 +9572,171 @@ const class10: NCERTClass = {
           videoKeyword: "photosynthesis",
         },
         {
+          id: "10-sci-7",
+          number: 7,
+          name: "Control and Coordination",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "In animals, the nervous system and endocrine system coordinate body activities. The nervous system uses electrical signals (nerve impulses) for fast responses. Neurons are the functional units; they transmit impulses through synapses. Reflex actions are automatic responses that bypass the brain — the reflex arc goes: receptor → sensory nerve → spinal cord → motor nerve → effector.",
+            "The human brain has three main parts: Cerebrum (thinking, learning, voluntary actions, largest part), Cerebellum (balance and coordination), Medulla oblongata (involuntary actions like heartbeat, breathing). The spinal cord connects the brain to the rest of the body and controls reflex actions.",
+            "The endocrine system produces hormones — chemical messengers that travel in blood. Key glands: Pituitary (master gland, controls others), Thyroid (thyroxin for metabolism), Pancreas (insulin for blood sugar), Adrenal (adrenaline for fight-or-flight). Plants also respond to stimuli through hormones: auxin (phototropism), gibberellin (stem growth), cytokinin (cell division), abscisic acid (dormancy).",
+          ],
+          keyConcepts: [
+            {
+              title: "Nervous System",
+              description:
+                "Brain, spinal cord, nerves; fast electrical signals",
+            },
+            {
+              title: "Reflex Action",
+              description:
+                "Automatic response via spinal cord, bypassing brain",
+            },
+            {
+              title: "Human Brain",
+              description:
+                "Cerebrum, cerebellum, medulla oblongata and functions",
+            },
+            {
+              title: "Hormones",
+              description: "Chemical messengers from endocrine glands in blood",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Neuron",
+              definition:
+                "Basic structural and functional unit of the nervous system",
+            },
+            {
+              term: "Synapse",
+              definition:
+                "Junction between two neurons where impulses are transmitted",
+            },
+            {
+              term: "Reflex Arc",
+              definition:
+                "Neural pathway for automatic responses connecting receptor and effector",
+            },
+            {
+              term: "Hormone",
+              definition:
+                "Chemical substance produced by endocrine glands; carried in blood",
+            },
+          ],
+          videoKeyword: "nervous system",
+        },
+        {
+          id: "10-sci-8",
+          number: 8,
+          name: "How do Organisms Reproduce?",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Reproduction is essential for the continuation of species. Asexual reproduction involves a single parent and produces genetically identical offspring (clones). Types include: fission (Amoeba splits), budding (Hydra, yeast), fragmentation (Spirogyra), regeneration (Planaria), vegetative propagation (plants from runners, tubers), spore formation (Rhizopus).",
+            "Sexual reproduction involves two parents and produces genetically diverse offspring through fusion of male and female gametes (fertilization). In flowering plants: pollination transfers pollen to stigma, fertilization occurs in ovary, seeds form containing the embryo. The flower has male stamen (anther + filament) and female carpel (stigma + style + ovary).",
+            "In humans: male reproductive system produces sperm (testes); female system produces eggs (ovaries). Menstrual cycle (28 days): ovulation releases egg; if not fertilized, uterus lining sheds (menstruation). Contraception includes barrier methods (condom), hormonal (pills), surgical (tubectomy, vasectomy). STDs like HIV/AIDS, syphilis must be prevented. Puberty brings physical and hormonal changes.",
+          ],
+          keyConcepts: [
+            {
+              title: "Asexual Reproduction",
+              description:
+                "Fission, budding, vegetative propagation — one parent",
+            },
+            {
+              title: "Sexual Reproduction",
+              description:
+                "Two parents, gametes, fertilization, genetic diversity",
+            },
+            {
+              title: "Flower Parts",
+              description:
+                "Stamen (male) and Carpel (female); pollination and fertilization",
+            },
+            {
+              title: "Human Reproduction",
+              description:
+                "Male and female systems, menstrual cycle, contraception",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Fertilization",
+              definition: "Fusion of male and female gametes to form zygote",
+            },
+            {
+              term: "Pollination",
+              definition:
+                "Transfer of pollen from anther to stigma of a flower",
+            },
+            {
+              term: "Puberty",
+              definition:
+                "Stage of development when sexual maturity is reached",
+            },
+            {
+              term: "Gamete",
+              definition:
+                "Reproductive cell (sperm or egg) with half the normal chromosomes",
+            },
+          ],
+          videoKeyword: "reproduction",
+        },
+        {
+          id: "10-sci-9",
+          number: 9,
+          name: "Heredity and Evolution",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Heredity is the transmission of characteristics from parents to offspring through genes. Gregor Mendel's experiments with pea plants established the Laws of Inheritance: Law of Segregation (each parent carries two alleles, only one is passed to offspring) and Law of Independent Assortment (genes for different traits are inherited independently). Dominant alleles (T) mask recessive alleles (t); only tt shows recessive trait.",
+            "Variations arise from sexual reproduction (mixing of genes) and mutations (changes in DNA). Accumulated variations over generations lead to evolution. Speciation occurs when populations are geographically isolated and evolve separately. Charles Darwin's Theory of Natural Selection: organisms with favorable variations survive and reproduce more (survival of the fittest); unfavorable variations are eliminated.",
+            "Evidence for evolution: Homologous organs (same structure, different functions — human arm, whale flipper, bat wing — show common ancestry); Analogous organs (different structure, same function — bird wing and butterfly wing — show convergent evolution); Fossils (preserved remains showing gradual changes over time). Human evolution: Homo sapiens evolved in Africa about 300,000 years ago.",
+          ],
+          keyConcepts: [
+            {
+              title: "Mendel's Laws",
+              description: "Segregation and Independent Assortment",
+            },
+            {
+              title: "Natural Selection",
+              description: "Survival of organisms with favorable traits",
+            },
+            {
+              title: "Homologous Organs",
+              description:
+                "Same structure, different function — common ancestry",
+            },
+            {
+              title: "Speciation",
+              description: "Formation of new species by geographic isolation",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Gene",
+              definition:
+                "Unit of heredity; segment of DNA coding for a specific protein",
+            },
+            {
+              term: "Allele",
+              definition: "Alternative form of a gene; dominant or recessive",
+            },
+            {
+              term: "Natural Selection",
+              definition:
+                "Process by which favorable traits become more common",
+            },
+            {
+              term: "Fossil",
+              definition:
+                "Preserved remains or traces of organisms from the past",
+            },
+          ],
+          videoKeyword: "heredity evolution",
+        },
+        {
           id: "10-sci-10",
           number: 10,
           name: "Light – Reflection and Refraction",
@@ -9413,6 +9789,321 @@ const class10: NCERTClass = {
           ],
           videoKeyword: "light",
         },
+        {
+          id: "10-sci-11",
+          number: 11,
+          name: "Human Eye and the Colourful World",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "The human eye is a natural optical instrument. Key parts: Cornea (transparent front layer), Iris (colored ring controlling pupil size), Pupil (opening controlling light entry), Lens (flexible biconvex lens for focusing), Retina (screen where image forms), Cones (color vision, bright light), Rods (dim light vision). The optic nerve sends signals to the brain.",
+            "Power of accommodation: the ciliary muscles adjust the eye lens curvature to focus on near and far objects. The near point (25 cm) is the closest distance for clear vision. Far point is infinity for a normal eye. Defects: Myopia (near-sightedness, eyeball too long, corrected by concave lens), Hypermetropia (far-sightedness, eyeball too short, corrected by convex lens), Presbyopia (old age, loss of accommodation).",
+            "Dispersion of white light through a prism: white light splits into VIBGYOR (Violet, Indigo, Blue, Green, Yellow, Orange, Red) due to different refractive indices for different wavelengths. Atmospheric refraction causes twinkling of stars (not planets). Scattering of light: Tyndall effect scatters blue light most (blue sky), red light least (red sunrise/sunset, danger signals use red).",
+          ],
+          keyConcepts: [
+            {
+              title: "Power of Accommodation",
+              description:
+                "Eye lens adjusts shape to focus near and far objects",
+            },
+            {
+              title: "Dispersion of Light",
+              description: "White light splits into VIBGYOR via prism",
+            },
+            {
+              title: "Scattering of Light",
+              description: "Blue light scattered most — explains blue sky",
+            },
+            {
+              title: "Eye Defects",
+              description: "Myopia, hypermetropia, presbyopia and corrections",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Retina",
+              definition: "Screen at the back of eye where image is formed",
+            },
+            {
+              term: "Dispersion",
+              definition: "Splitting of white light into its component colors",
+            },
+            {
+              term: "Tyndall Effect",
+              definition:
+                "Scattering of light by colloidal particles; explains blue sky",
+            },
+            {
+              term: "Accommodation",
+              definition:
+                "Ability of eye lens to change focal length for near/far objects",
+            },
+          ],
+          videoKeyword: "human eye",
+        },
+        {
+          id: "10-sci-12",
+          number: 12,
+          name: "Electricity",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Electric current (I) is the rate of flow of charge: I = Q/t, measured in Amperes (A). Potential difference (V) is the work done per unit charge: V = W/Q, measured in Volts (V). Ohm's Law states V = IR, where R is resistance in ohms (Ω). Resistance depends on material, length, and cross-sectional area: R = ρl/A, where ρ is resistivity.",
+            "Resistors in series: R_total = R₁ + R₂ + R₃ (current same, voltage divides). Resistors in parallel: 1/R_total = 1/R₁ + 1/R₂ + 1/R₃ (voltage same, current divides). Domestic wiring uses parallel connections so each appliance gets full voltage and operates independently.",
+            "Heating effect of current: H = I²Rt (Joule's law). Applications: electric bulb (tungsten filament), electric iron, electric fuse (thin wire that melts to protect circuit). Power P = VI = I²R = V²/R, measured in Watts. Commercial unit of energy is kilowatt-hour (kWh) = 1 unit. 1 kWh = 3.6 × 10⁶ J.",
+          ],
+          keyConcepts: [
+            {
+              title: "Ohm's Law",
+              description: "V = IR; voltage, current, resistance relationship",
+            },
+            {
+              title: "Series and Parallel",
+              description: "Series: R adds; Parallel: 1/R adds",
+            },
+            {
+              title: "Joule's Heating Law",
+              description: "H = I²Rt; used in heaters, bulbs, fuses",
+            },
+            {
+              title: "Electric Power",
+              description: "P = VI; commercial unit is kWh (1 unit)",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Electric Current",
+              definition:
+                "Rate of flow of electric charge; measured in Amperes",
+            },
+            {
+              term: "Resistance",
+              definition: "Opposition to flow of current; measured in Ohms",
+            },
+            {
+              term: "Ohm's Law",
+              definition: "V = IR: voltage equals current times resistance",
+            },
+            {
+              term: "Kilowatt-Hour",
+              definition:
+                "Commercial unit of electrical energy; 1 kWh = 3.6 × 10⁶ J",
+            },
+          ],
+          videoKeyword: "electricity",
+        },
+        {
+          id: "10-sci-13",
+          number: 13,
+          name: "Magnetic Effects of Electric Current",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "A current-carrying conductor produces a magnetic field around it. The direction of field is given by the right-hand thumb rule (thumb in direction of current, fingers curl in direction of field). A circular loop produces a field like a bar magnet. A solenoid (many loops) acts like a bar magnet with a strong, uniform field inside.",
+            "Electromagnets are temporary magnets made by passing current through a solenoid with an iron core. They are used in electric bells, loudspeakers, cranes. The force on a current-carrying conductor in a magnetic field (Fleming's Left Hand Rule: F⃗ = IL × B⃗) is the basis of electric motors (converts electrical to mechanical energy).",
+            "Electromagnetic induction (Faraday's law): A changing magnetic field induces an EMF in a conductor. Fleming's Right Hand Rule gives the direction of induced current. This is the basis of electric generators (converts mechanical to electrical energy). AC (alternating current) changes direction periodically; DC (direct current) flows in one direction. India uses 220V, 50 Hz AC supply.",
+          ],
+          keyConcepts: [
+            {
+              title: "Magnetic Field of Current",
+              description: "Right-hand thumb rule; solenoid acts as bar magnet",
+            },
+            {
+              title: "Electromagnetic Force",
+              description: "Fleming's Left Hand Rule; basis of electric motor",
+            },
+            {
+              title: "Electromagnetic Induction",
+              description: "Faraday's law; changing B induces EMF",
+            },
+            {
+              title: "AC vs DC",
+              description: "AC changes direction; DC flows one way",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Solenoid",
+              definition:
+                "Coil of wire that acts as an electromagnet when current flows",
+            },
+            {
+              term: "Electromagnetic Induction",
+              definition: "Production of EMF by a changing magnetic field",
+            },
+            {
+              term: "Electric Motor",
+              definition:
+                "Device converting electrical energy to mechanical energy",
+            },
+            {
+              term: "Electric Generator",
+              definition:
+                "Device converting mechanical energy to electrical energy",
+            },
+          ],
+          videoKeyword: "magnetic effect",
+        },
+        {
+          id: "10-sci-14",
+          number: 14,
+          name: "Sources of Energy",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "A good source of energy should have high calorific value, be easily available, cheap, safe, and cause minimal pollution. Conventional sources: fossil fuels (coal, petroleum, natural gas — formed over millions of years, non-renewable, major polluters); thermal power plants (burn coal to produce steam to drive turbines); hydroelectric power (water stored in dams falls to drive turbines).",
+            "Nuclear energy: fission of heavy atoms (U-235) releases enormous energy. Advantages: no air pollution, high energy density. Disadvantages: radioactive waste, nuclear accidents (Chernobyl, Fukushima). Renewable sources: solar energy (photovoltaic cells, solar heaters), wind energy (windmills for electricity, pumping water), tidal energy, wave energy, ocean thermal energy.",
+            "Biomass: organic matter burned for fuel (wood, cow dung). Biogas plants produce methane from organic waste (gobar gas); residue is good fertilizer. Geothermal energy: heat from within Earth used in Iceland, New Zealand. Environmental impact: fossil fuels cause global warming, acid rain, and pollution. Energy conservation and efficiency are crucial for sustainable development.",
+          ],
+          keyConcepts: [
+            {
+              title: "Fossil Fuels",
+              description:
+                "Coal, petroleum, natural gas — non-renewable, polluting",
+            },
+            {
+              title: "Nuclear Energy",
+              description:
+                "Fission releases huge energy; radioactive waste is a concern",
+            },
+            {
+              title: "Renewable Sources",
+              description: "Solar, wind, tidal, geothermal, biomass",
+            },
+            {
+              title: "Biogas",
+              description:
+                "Methane from organic waste; clean fuel, good fertilizer residue",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Calorific Value",
+              definition:
+                "Amount of heat produced by complete combustion of 1 kg of fuel",
+            },
+            {
+              term: "Nuclear Fission",
+              definition:
+                "Splitting of heavy nucleus releasing enormous energy",
+            },
+            {
+              term: "Biogas",
+              definition:
+                "Mixture of methane and CO₂ produced from organic waste",
+            },
+            {
+              term: "Photovoltaic Cell",
+              definition:
+                "Device that converts solar energy directly into electricity",
+            },
+          ],
+          videoKeyword: "sources of energy",
+        },
+        {
+          id: "10-sci-15",
+          number: 15,
+          name: "Our Environment",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "An ecosystem consists of all living organisms (biotic) and non-living factors (abiotic) in an area interacting with each other. Producers (plants, algae) make their own food through photosynthesis. Consumers eat producers or other consumers. Decomposers (bacteria, fungi) break down dead organic matter, recycling nutrients.",
+            "Food chains show the flow of energy through an ecosystem: Grass → Grasshopper → Frog → Snake → Eagle. Food webs are interconnected food chains. Each feeding level is a trophic level. Only 10% of energy transfers to the next level (10% rule) — this is why food chains rarely exceed 4-5 levels. Bioaccumulation occurs when non-biodegradable chemicals (pesticides) concentrate in higher trophic levels.",
+            "Ozone layer (O₃ in stratosphere) protects Earth from harmful UV radiation. Chlorofluorocarbons (CFCs) from refrigerants and aerosols destroy ozone, creating the 'ozone hole'. This leads to increased UV radiation causing skin cancer, cataracts. Waste management: biodegradable waste decomposes naturally; non-biodegradable waste (plastics, metals) persists and must be reduced, reused, recycled (3Rs).",
+          ],
+          keyConcepts: [
+            {
+              title: "Ecosystem",
+              description: "Biotic + abiotic components interacting in an area",
+            },
+            {
+              title: "Food Chain and Web",
+              description: "Energy flow through trophic levels; 10% rule",
+            },
+            {
+              title: "Ozone Layer Depletion",
+              description:
+                "CFCs destroy O₃, increase UV radiation reaching Earth",
+            },
+            {
+              title: "Biodegradable vs Non-biodegradable",
+              description: "Natural decomposition vs persistent pollutants",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Trophic Level",
+              definition: "Position of an organism in a food chain",
+            },
+            {
+              term: "Bioaccumulation",
+              definition:
+                "Increase of toxin concentration at higher trophic levels",
+            },
+            {
+              term: "Ozone Layer",
+              definition:
+                "Layer of O₃ in stratosphere that absorbs harmful UV rays",
+            },
+            {
+              term: "Decomposer",
+              definition:
+                "Organism that breaks down dead organic matter, recycling nutrients",
+            },
+          ],
+          videoKeyword: "ecosystem",
+        },
+        {
+          id: "10-sci-16",
+          number: 16,
+          name: "Management of Natural Resources",
+          subject: "Science",
+          classNum: 10,
+          explanation: [
+            "Natural resources (forests, wildlife, water, coal, petroleum) must be managed sustainably so future generations can also use them. Sustainable development means meeting present needs without compromising future needs. The 3 Rs — Reduce (use less), Reuse (use again), Recycle (convert waste into useful product) — help conserve resources.",
+            "Forests are biodiversity hotspots providing oxygen, climate regulation, water conservation, and livelihood to tribal communities. Deforestation causes soil erosion, loss of biodiversity, climate change. The Chipko Movement (1970s, Uttarakhand) showed community-based forest protection. Stakeholders: local people, forest department, industrialists, wildlife enthusiasts.",
+            "Water is life — fresh water is only 2.7% of total water. Rainwater harvesting (collecting rainwater in tanks, ponds, check dams) helps recharge groundwater. Dams provide water and electricity but also displace communities and damage ecosystems. Coal and petroleum are finite — conservation is urgent. Sustainable management requires balancing development with environmental protection.",
+          ],
+          keyConcepts: [
+            {
+              title: "Sustainable Development",
+              description: "Meeting present needs without compromising future",
+            },
+            {
+              title: "3 Rs",
+              description: "Reduce, Reuse, Recycle to minimize waste",
+            },
+            {
+              title: "Rainwater Harvesting",
+              description: "Collecting rain to recharge groundwater",
+            },
+            {
+              title: "Chipko Movement",
+              description: "Community-based forest conservation in Uttarakhand",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Sustainable Development",
+              definition:
+                "Development that meets present needs without depleting future resources",
+            },
+            {
+              term: "Rainwater Harvesting",
+              definition: "Collection and storage of rainwater for later use",
+            },
+            {
+              term: "Biodiversity",
+              definition: "Variety of life forms in an ecosystem",
+            },
+            {
+              term: "Fossil Fuels",
+              definition:
+                "Non-renewable energy sources formed from ancient organisms",
+            },
+          ],
+          videoKeyword: "natural resources",
+        },
       ],
     },
     {
@@ -9420,9 +10111,110 @@ const class10: NCERTClass = {
       icon: "🔢",
       chapters: [
         {
+          id: "10-math-1",
+          number: 1,
+          name: "Real Numbers",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Real numbers include all rational numbers (fractions, integers) and irrational numbers (like √2, π). Euclid's Division Lemma states: for any two positive integers a and b, there exist unique integers q and r such that a = bq + r, where 0 ≤ r < b. This is used in the Euclid's Division Algorithm to find HCF (Highest Common Factor) of two numbers.",
+            "Fundamental Theorem of Arithmetic: Every composite number can be expressed as a product of prime numbers in exactly one way (ignoring order). This is used to find HCF and LCM: HCF × LCM = product of the two numbers. To find HCF, take the product of smallest powers of common primes; for LCM, take product of highest powers of all primes.",
+            "Irrational numbers cannot be expressed as p/q (rational form). Proof that √2 is irrational uses contradiction. Decimal representations: rational numbers have terminating or recurring decimals; irrational numbers have non-terminating, non-recurring decimals. Logarithm laws: log(mn) = log m + log n; log(m/n) = log m - log n; log mⁿ = n log m.",
+          ],
+          keyConcepts: [
+            {
+              title: "Euclid's Division Lemma",
+              description: "a = bq + r; used to find HCF",
+            },
+            {
+              title: "Fundamental Theorem of Arithmetic",
+              description: "Unique prime factorization of composite numbers",
+            },
+            {
+              title: "Irrational Numbers",
+              description: "Non-terminating, non-recurring decimals like √2, π",
+            },
+            {
+              title: "HCF and LCM",
+              description: "HCF × LCM = product of two numbers",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "HCF",
+              definition:
+                "Highest Common Factor: largest number dividing both numbers",
+            },
+            {
+              term: "LCM",
+              definition:
+                "Lowest Common Multiple: smallest number divisible by both",
+            },
+            {
+              term: "Irrational Number",
+              definition:
+                "Number that cannot be expressed as p/q where p, q are integers",
+            },
+            {
+              term: "Prime Factorization",
+              definition: "Expressing a number as product of its prime factors",
+            },
+          ],
+          videoKeyword: "real numbers",
+        },
+        {
+          id: "10-math-2",
+          number: 2,
+          name: "Polynomials",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "A polynomial is an algebraic expression of the form aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₁x + a₀. The degree is the highest power. Linear polynomial: degree 1 (one zero); Quadratic polynomial: degree 2 (two zeros); Cubic polynomial: degree 3 (three zeros). The zeros of a polynomial p(x) are the values of x where p(x) = 0 — they are the x-intercepts on the graph.",
+            "Relationship between zeros and coefficients of quadratic polynomial ax² + bx + c: Sum of zeros (α + β) = -b/a; Product of zeros (αβ) = c/a. For cubic polynomial ax³ + bx² + cx + d: Sum = -b/a; Sum of products taken two at a time = c/a; Product = -d/a. These relations help form polynomials given their zeros.",
+            "Division Algorithm for polynomials: dividend = divisor × quotient + remainder. p(x) = g(x) × q(x) + r(x), where degree r < degree g. If r = 0, g(x) is a factor of p(x). This is used to find the third zero when two zeros of a cubic polynomial are known. Remainder theorem: remainder when p(x) divided by (x-a) is p(a).",
+          ],
+          keyConcepts: [
+            {
+              title: "Zeros of Polynomial",
+              description: "Values of x where p(x) = 0; x-intercepts of graph",
+            },
+            {
+              title: "Sum and Product of Zeros",
+              description: "For ax²+bx+c: α+β = -b/a; αβ = c/a",
+            },
+            {
+              title: "Division Algorithm",
+              description: "p(x) = g(x)·q(x) + r(x); remainder theorem",
+            },
+            {
+              title: "Degree of Polynomial",
+              description: "Highest power; determines number of zeros",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Zero of Polynomial",
+              definition: "Value of x for which polynomial equals zero",
+            },
+            {
+              term: "Degree",
+              definition: "Highest power of variable in the polynomial",
+            },
+            {
+              term: "Remainder Theorem",
+              definition: "Remainder when p(x) ÷ (x−a) is equal to p(a)",
+            },
+            {
+              term: "Factor Theorem",
+              definition: "(x−a) is a factor of p(x) if and only if p(a) = 0",
+            },
+          ],
+          videoKeyword: "polynomials",
+        },
+        {
           id: "10-math-3",
           number: 3,
-          name: "Pair of Linear Equations",
+          name: "Pair of Linear Equations in Two Variables",
           subject: "Mathematics",
           classNum: 10,
           explanation: [
@@ -9509,6 +10301,561 @@ const class10: NCERTClass = {
             },
           ],
           videoKeyword: "quadratic",
+        },
+        {
+          id: "10-math-5",
+          number: 5,
+          name: "Arithmetic Progressions",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "An Arithmetic Progression (AP) is a sequence where each term differs from the previous by a fixed amount called the common difference (d). General form: a, a+d, a+2d, a+3d... The nth term formula: aₙ = a + (n-1)d, where a is the first term. To find common difference: d = a₂ - a₁ (any consecutive pair).",
+            "Sum of first n terms: Sₙ = n/2 × [2a + (n-1)d] or Sₙ = n/2 × (a + l), where l is the last term. This is derived by writing the sum forwards and backwards, adding to get n pairs each summing to (a + l). The sum formula is crucial for many problems involving totals and averages.",
+            "Real-life applications: saving money in equal installments, seats in an auditorium arranged in rows, bounce heights of a ball, distances covered each day. Identifying if a sequence is AP: check if differences between consecutive terms are constant. If Sₙ is given, aₙ = Sₙ - Sₙ₋₁ for n ≥ 2, and a₁ = S₁.",
+          ],
+          keyConcepts: [
+            {
+              title: "General Term",
+              description: "aₙ = a + (n-1)d; find any term",
+            },
+            { title: "Sum Formula", description: "Sₙ = n/2 × [2a + (n-1)d]" },
+            {
+              title: "Common Difference",
+              description: "d = aₙ₊₁ - aₙ; constant for all terms",
+            },
+            { title: "AP from Sₙ", description: "aₙ = Sₙ - Sₙ₋₁" },
+          ],
+          importantTerms: [
+            {
+              term: "Arithmetic Progression",
+              definition:
+                "Sequence where difference between consecutive terms is constant",
+            },
+            {
+              term: "Common Difference",
+              definition: "Fixed difference between consecutive terms of an AP",
+            },
+            {
+              term: "nth Term",
+              definition: "aₙ = a + (n-1)d; general term formula of AP",
+            },
+            { term: "Sum of AP", definition: "Sₙ = n/2 [2a + (n-1)d]" },
+          ],
+          videoKeyword: "arithmetic progression",
+        },
+        {
+          id: "10-math-6",
+          number: 6,
+          name: "Triangles",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Two figures are similar if they have the same shape but not necessarily the same size (corresponding angles equal, corresponding sides proportional). Criteria for similar triangles: AA (Angle-Angle) — if two angles of one triangle equal two angles of another; SAS (Side-Angle-Side) — if two sides proportional and included angle equal; SSS — all three sides proportional.",
+            "Basic Proportionality Theorem (Thales' theorem): If a line is drawn parallel to one side of a triangle, it divides the other two sides in the same ratio. Converse is also true. If DE || BC in triangle ABC, then AD/DB = AE/EC. This is extensively used in similarity problems.",
+            "Areas of similar triangles: ratio of areas equals the square of the ratio of corresponding sides (if triangles are similar with ratio k, areas are in ratio k²). Pythagoras Theorem: In a right-angled triangle, hypotenuse² = sum of squares of other two sides (a² + b² = c²). Converse: if a² + b² = c², the triangle is right-angled. Applications in trigonometry, coordinate geometry, real-life height/distance problems.",
+          ],
+          keyConcepts: [
+            {
+              title: "Similar Triangles",
+              description:
+                "Equal angles, proportional sides; AA, SAS, SSS criteria",
+            },
+            {
+              title: "BPT (Thales' Theorem)",
+              description:
+                "Line parallel to one side divides other two sides proportionally",
+            },
+            {
+              title: "Areas of Similar Triangles",
+              description: "Area ratio = square of side ratio",
+            },
+            {
+              title: "Pythagoras Theorem",
+              description: "a² + b² = c² in right-angled triangles",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Similar Triangles",
+              definition:
+                "Triangles with same shape; equal angles and proportional sides",
+            },
+            {
+              term: "BPT",
+              definition:
+                "Basic Proportionality Theorem — DE || BC implies AD/DB = AE/EC",
+            },
+            {
+              term: "Pythagoras Theorem",
+              definition:
+                "In right triangle, (hypotenuse)² = (base)² + (height)²",
+            },
+            {
+              term: "Scale Factor",
+              definition: "Ratio of corresponding sides of two similar figures",
+            },
+          ],
+          videoKeyword: "similar triangles",
+        },
+        {
+          id: "10-math-7",
+          number: 7,
+          name: "Coordinate Geometry",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Coordinate geometry links algebra and geometry using a coordinate plane. Distance Formula: distance between (x₁,y₁) and (x₂,y₂) = √[(x₂-x₁)² + (y₂-y₁)²]. This is derived from the Pythagorean theorem. Applications: finding the length of a line segment, proving a figure is a square/rectangle/rhombus by comparing side lengths.",
+            "Section Formula: point P dividing line joining (x₁,y₁) and (x₂,y₂) in ratio m:n is P = [(mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)]. For midpoint (m=n=1): M = [(x₁+x₂)/2, (y₁+y₂)/2]. Used to find centroid of triangle (point dividing each median in 2:1 ratio from vertex).",
+            "Area of triangle with vertices (x₁,y₁), (x₂,y₂), (x₃,y₃): Area = ½|x₁(y₂-y₃) + x₂(y₃-y₁) + x₃(y₁-y₂)|. If area = 0, the points are collinear. These formulas are applied to solve problems about shapes: squares, rectangles, parallelograms, rhombuses by checking side lengths, diagonals.",
+          ],
+          keyConcepts: [
+            {
+              title: "Distance Formula",
+              description: "d = √[(x₂-x₁)² + (y₂-y₁)²]",
+            },
+            {
+              title: "Section Formula",
+              description: "P = [(mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)]",
+            },
+            {
+              title: "Midpoint Formula",
+              description: "M = [(x₁+x₂)/2, (y₁+y₂)/2]",
+            },
+            {
+              title: "Area of Triangle",
+              description: "½|x₁(y₂-y₃) + x₂(y₃-y₁) + x₃(y₁-y₂)|",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Distance Formula",
+              definition:
+                "Formula to find distance between two coordinate points",
+            },
+            {
+              term: "Section Formula",
+              definition:
+                "Formula to find point dividing a segment in given ratio",
+            },
+            {
+              term: "Collinear Points",
+              definition:
+                "Three or more points lying on the same straight line",
+            },
+            {
+              term: "Centroid",
+              definition:
+                "Point where medians of a triangle intersect; divides each median 2:1",
+            },
+          ],
+          videoKeyword: "coordinate geometry",
+        },
+        {
+          id: "10-math-8",
+          number: 8,
+          name: "Introduction to Trigonometry",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Trigonometry studies the relationships between angles and sides of right-angled triangles. For an acute angle θ in a right triangle: sin θ = opposite/hypotenuse; cos θ = adjacent/hypotenuse; tan θ = opposite/adjacent. Reciprocals: cosec θ = 1/sin θ; sec θ = 1/cos θ; cot θ = 1/tan θ. Also, tan θ = sin θ/cos θ; cot θ = cos θ/sin θ.",
+            "Standard values (must memorize): sin 0° = 0, sin 30° = ½, sin 45° = 1/√2, sin 60° = √3/2, sin 90° = 1. Cos values are sin values in reverse: cos 0° = 1, ..., cos 90° = 0. Tan 0° = 0, tan 30° = 1/√3, tan 45° = 1, tan 60° = √3, tan 90° = undefined.",
+            "Trigonometric identities: sin²θ + cos²θ = 1; 1 + tan²θ = sec²θ; 1 + cot²θ = cosec²θ. These are derived from Pythagoras theorem. Complementary angles: sin(90°-θ) = cosθ; cos(90°-θ) = sinθ; tan(90°-θ) = cotθ. These relationships help simplify complex trigonometric expressions.",
+          ],
+          keyConcepts: [
+            {
+              title: "Trig Ratios",
+              description: "sin, cos, tan, cosec, sec, cot — ratios of sides",
+            },
+            {
+              title: "Standard Values Table",
+              description: "Values for 0°, 30°, 45°, 60°, 90°",
+            },
+            {
+              title: "Trigonometric Identities",
+              description: "sin²θ + cos²θ = 1 and derived identities",
+            },
+            {
+              title: "Complementary Angles",
+              description: "sin(90°-θ) = cosθ; cos(90°-θ) = sinθ",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Sine",
+              definition:
+                "Ratio of opposite side to hypotenuse in a right triangle",
+            },
+            {
+              term: "Cosine",
+              definition:
+                "Ratio of adjacent side to hypotenuse in a right triangle",
+            },
+            {
+              term: "Tangent",
+              definition: "Ratio of opposite side to adjacent side; sin/cos",
+            },
+            {
+              term: "Pythagorean Identity",
+              definition:
+                "sin²θ + cos²θ = 1; fundamental trigonometric identity",
+            },
+          ],
+          videoKeyword: "trigonometry",
+        },
+        {
+          id: "10-math-9",
+          number: 9,
+          name: "Some Applications of Trigonometry",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Trigonometry is applied to find heights and distances of objects that cannot be measured directly. Angle of elevation: angle made by the line of sight with the horizontal when looking up at an object. Angle of depression: angle made by the line of sight with the horizontal when looking down at an object.",
+            "The angle of elevation from a point to the top of a tower, and the angle of depression from the top to the point, are equal (alternate interior angles). Standard problem types: finding height of a tower/tree/building given angle of elevation and distance; finding distance between two towers given heights and angle.",
+            "For a tower of height h, if angle of elevation from a point at distance d is θ, then tan θ = h/d. Problems may involve two angles from the same point (to find height and distance) or the same angle from two different points. Drawing a clear diagram is crucial for solving these problems correctly.",
+          ],
+          keyConcepts: [
+            {
+              title: "Angle of Elevation",
+              description:
+                "Angle above horizontal when looking up at an object",
+            },
+            {
+              title: "Angle of Depression",
+              description:
+                "Angle below horizontal when looking down at an object",
+            },
+            {
+              title: "Height-Distance Formula",
+              description: "tan θ = height/distance; core formula",
+            },
+            {
+              title: "Two-Observer Problems",
+              description: "Finding height from two different vantage points",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Angle of Elevation",
+              definition:
+                "Angle between horizontal and line of sight looking upward",
+            },
+            {
+              term: "Angle of Depression",
+              definition:
+                "Angle between horizontal and line of sight looking downward",
+            },
+            {
+              term: "Line of Sight",
+              definition:
+                "Imaginary line from observer's eye to observed object",
+            },
+            {
+              term: "Horizontal Level",
+              definition: "Imaginary horizontal line from the observer's eye",
+            },
+          ],
+          videoKeyword: "height distance trigonometry",
+        },
+        {
+          id: "10-math-10",
+          number: 10,
+          name: "Circles",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "A circle is a set of all points in a plane equidistant from a fixed point (centre). Key terms: radius, diameter, chord (line joining two points on circle), arc (part of circle), sector (pie-shaped region), segment (region between chord and arc). A tangent is a line that touches the circle at exactly one point (point of tangency).",
+            "Theorems on tangents: The tangent to a circle is perpendicular to the radius at the point of tangency. From an external point, two tangents can be drawn to a circle, and they are equal in length. The angle between two tangents from an external point and the line joining that point to the centre are supplementary.",
+            "Angle subtended by a chord: the angle subtended by a chord at the centre is twice the angle subtended at any point on the remaining arc. Angles in the same segment are equal. The angle in a semicircle is 90°. Cyclic quadrilateral: opposite angles sum to 180°. These theorems are used extensively in circle problems.",
+          ],
+          keyConcepts: [
+            {
+              title: "Tangent Properties",
+              description:
+                "Tangent ⊥ radius; equal tangents from external point",
+            },
+            {
+              title: "Angle in Semicircle",
+              description: "Angle in semicircle is always 90°",
+            },
+            {
+              title: "Cyclic Quadrilateral",
+              description: "Opposite angles sum to 180°",
+            },
+            {
+              title: "Central and Inscribed Angles",
+              description: "Central angle = twice inscribed angle on same arc",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Tangent",
+              definition:
+                "Line touching circle at exactly one point; ⊥ to radius",
+            },
+            {
+              term: "Chord",
+              definition: "Line segment joining two points on a circle",
+            },
+            {
+              term: "Cyclic Quadrilateral",
+              definition: "Quadrilateral with all vertices on a circle",
+            },
+            {
+              term: "Arc",
+              definition: "Part of the circumference of a circle",
+            },
+          ],
+          videoKeyword: "circles theorems",
+        },
+        {
+          id: "10-math-11",
+          number: 11,
+          name: "Constructions",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Geometric constructions use only a compass and straightedge (no measurements). Division of a line segment: to divide AB in ratio m:n, draw a ray from A, mark (m+n) equal parts, connect the last point to B, draw parallel line through the mth point. This uses the Basic Proportionality Theorem.",
+            "Construction of tangent to a circle: (1) Tangent at a given point on circle — draw radius to point, construct ⊥ at that point. (2) Tangent from external point — find midpoint M of the line joining external point P to centre O, draw circle with radius OM, its intersection with original circle gives the tangent points.",
+            "Construction of a triangle similar to a given triangle in a given scale ratio: If scale factor is m/n, use m arcs when m > n (for enlargement) and n arcs for reduction. First construct the divided line, then complete the triangle using parallel lines and the BPT. Step-by-step construction accuracy is essential.",
+          ],
+          keyConcepts: [
+            {
+              title: "Division of Line Segment",
+              description: "Divide in ratio m:n using arcs and parallel lines",
+            },
+            {
+              title: "Tangent to Circle",
+              description: "At point on circle: ⊥ to radius at that point",
+            },
+            {
+              title: "Tangent from External Point",
+              description: "Use semicircle construction; two equal tangents",
+            },
+            {
+              title: "Similar Triangle Construction",
+              description: "Scale factor determines number of arc divisions",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Scale Factor",
+              definition: "Ratio m:n used to construct similar triangle",
+            },
+            {
+              term: "BPT Application",
+              definition:
+                "BPT used to ensure proportional division in construction",
+            },
+            {
+              term: "Tangent Point",
+              definition: "Point where tangent touches the circle",
+            },
+            {
+              term: "Compass and Straightedge",
+              definition: "Only tools used in geometric constructions",
+            },
+          ],
+          videoKeyword: "geometric constructions",
+        },
+        {
+          id: "10-math-12",
+          number: 12,
+          name: "Areas Related to Circles",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Perimeter and area of a circle: Circumference = 2πr; Area = πr² (where π ≈ 22/7 or 3.14159). Area of a semicircle = πr²/2. Length of an arc of angle θ: Arc length = (θ/360°) × 2πr. Area of a sector (pie slice): Sector area = (θ/360°) × πr². The sector is bounded by two radii and an arc.",
+            "Area of a segment: Segment area = Area of sector - Area of triangle formed by the chord and two radii. For a sector with angle θ and radius r: Triangle area = ½r² sin θ (using formula). Minor segment: smaller region between chord and arc; Major segment: larger region.",
+            "Combined figures: find the total area by adding or subtracting standard areas. Examples: Area of a horse-grazing problem (sector from a square corner), shaded regions in complex figures, area swept by a wiper on a windshield. Common exam questions involve finding shaded areas by combining circle and polygon formulas.",
+          ],
+          keyConcepts: [
+            {
+              title: "Sector Area",
+              description: "(θ/360°) × πr²; sector = pie slice of circle",
+            },
+            {
+              title: "Arc Length",
+              description: "(θ/360°) × 2πr; part of circumference",
+            },
+            {
+              title: "Segment Area",
+              description: "Sector area minus triangle area",
+            },
+            {
+              title: "Combined Areas",
+              description:
+                "Combining circle and polygon formulas for complex shapes",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Sector",
+              definition: "Region of circle between two radii and an arc",
+            },
+            {
+              term: "Segment",
+              definition: "Region between a chord and the arc it cuts off",
+            },
+            {
+              term: "Arc Length",
+              definition: "Length of a portion of the circumference",
+            },
+            {
+              term: "Quadrant",
+              definition: "Quarter of a circle (sector with 90° angle)",
+            },
+          ],
+          videoKeyword: "areas circles",
+        },
+        {
+          id: "10-math-13",
+          number: 13,
+          name: "Surface Areas and Volumes",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Surface area and volume formulas for basic solids: Cube (edge a): SA = 6a², V = a³; Cuboid (l×b×h): SA = 2(lb+bh+lh), V = lbh; Cylinder (r,h): Curved SA = 2πrh, Total SA = 2πr(r+h), V = πr²h; Cone (r,l,h): Curved SA = πrl, Total SA = πr(r+l), V = ⅓πr²h; Sphere (r): SA = 4πr², V = ⁴⁄₃πr³; Hemisphere: Curved SA = 2πr², Total SA = 3πr², V = ²⁄₃πr³.",
+            "Combination of solids: When a solid is formed by combining two shapes (e.g., cone on top of cylinder), add their volumes and appropriate surface areas. For a hemisphere placed on a cylinder, total surface area = curved SA of cylinder + base area + curved SA of hemisphere (the common base is not counted).",
+            "Conversion of solids: When one shape is melted and recast into another, the volume is conserved. e.g., if a sphere is melted into cylinders of given dimensions, find how many cylinders are formed. Frustum (cone with top cut off): Volume = ⅓πh(r₁² + r₂² + r₁r₂); Curved SA = πl(r₁+r₂) where l is slant height = √[h²+(r₁-r₂)²].",
+          ],
+          keyConcepts: [
+            {
+              title: "Solid Formulas",
+              description: "SA and Volume of cube, cylinder, cone, sphere",
+            },
+            {
+              title: "Combination of Solids",
+              description: "Add volumes; surface areas need careful analysis",
+            },
+            {
+              title: "Conversion of Solids",
+              description: "Volume conserved when melted and recast",
+            },
+            {
+              title: "Frustum",
+              description: "Cone with top removed; special formulas apply",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Slant Height",
+              definition:
+                "Length from apex of cone to a point on its circular base",
+            },
+            {
+              term: "Frustum",
+              definition: "Portion of cone between two parallel planes",
+            },
+            {
+              term: "Total Surface Area",
+              definition: "Sum of all faces (lateral + base areas) of a solid",
+            },
+            {
+              term: "Volume",
+              definition: "Amount of space occupied by a 3D solid",
+            },
+          ],
+          videoKeyword: "surface area volume",
+        },
+        {
+          id: "10-math-14",
+          number: 14,
+          name: "Statistics",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Statistics involves collecting, organizing, analyzing, and interpreting data. For grouped data, we calculate measures of central tendency. Mean by Direct Method: x̄ = Σfᵢxᵢ / Σfᵢ; Assumed Mean Method: x̄ = a + (Σfᵢdᵢ / Σfᵢ); Step Deviation Method: x̄ = a + h(Σfᵢuᵢ / Σfᵢ), where uᵢ = (xᵢ-a)/h. The assumed mean and step deviation methods simplify calculations with large numbers.",
+            "Median of grouped data: Median = l + [(n/2 - cf)/f] × h, where l = lower boundary of median class, cf = cumulative frequency before median class, f = frequency of median class, h = class width. The median class is the class containing the (n/2)th observation. Median divides the distribution into two equal halves.",
+            "Mode of grouped data: Mode = l + [(f₁-f₀)/(2f₁-f₀-f₂)] × h, where f₁ = frequency of modal class, f₀ = frequency before modal class, f₂ = frequency after modal class. Ogive (cumulative frequency curve) is used to find median graphically — the x-value corresponding to n/2 cumulative frequency is the median.",
+          ],
+          keyConcepts: [
+            {
+              title: "Mean of Grouped Data",
+              description: "Direct, assumed mean, and step deviation methods",
+            },
+            { title: "Median Formula", description: "l + [(n/2 - cf)/f] × h" },
+            {
+              title: "Mode Formula",
+              description: "l + [(f₁-f₀)/(2f₁-f₀-f₂)] × h",
+            },
+            {
+              title: "Ogive",
+              description: "Cumulative frequency graph to find median",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Mean",
+              definition:
+                "Sum of all values divided by number of values; average",
+            },
+            {
+              term: "Median",
+              definition: "Middle value when data is arranged in order",
+            },
+            {
+              term: "Mode",
+              definition: "Most frequently occurring value in a dataset",
+            },
+            {
+              term: "Ogive",
+              definition:
+                "Cumulative frequency curve used to find median graphically",
+            },
+          ],
+          videoKeyword: "statistics",
+        },
+        {
+          id: "10-math-15",
+          number: 15,
+          name: "Probability",
+          subject: "Mathematics",
+          classNum: 10,
+          explanation: [
+            "Probability measures the likelihood of an event occurring. P(E) = Number of favorable outcomes / Total number of equally likely outcomes. Probability ranges from 0 (impossible) to 1 (certain). Complementary events: P(E) + P(not E) = 1. Experimental probability is based on actual experiments; theoretical probability is based on equally likely outcomes.",
+            "Important terms: Sample space (all possible outcomes), Event (subset of sample space), Equally likely events (each outcome has same chance). For a coin: P(Heads) = 1/2. For a dice: P(getting 3) = 1/6. For a deck of 52 cards: 4 suits (Hearts, Diamonds, Clubs, Spades), each with 13 cards (A, 2-10, J, Q, K); face cards are J, Q, K.",
+            "Compound events: P(A or B) = P(A) + P(B) - P(A and B). For mutually exclusive events (can't occur simultaneously): P(A or B) = P(A) + P(B). Problems involving cards, dice, balls in bags are common. Always check: total favorable outcomes / total outcomes. When drawing without replacement, total decreases for second draw.",
+          ],
+          keyConcepts: [
+            {
+              title: "Probability Formula",
+              description: "P(E) = favorable outcomes / total outcomes",
+            },
+            {
+              title: "Complementary Probability",
+              description: "P(E) + P(not E) = 1",
+            },
+            {
+              title: "Cards and Dice",
+              description: "52-card deck; 6-faced die; standard problems",
+            },
+            {
+              title: "Mutually Exclusive Events",
+              description:
+                "P(A or B) = P(A) + P(B) if they can't occur together",
+            },
+          ],
+          importantTerms: [
+            {
+              term: "Probability",
+              definition:
+                "Measure of likelihood of an event; value between 0 and 1",
+            },
+            {
+              term: "Sample Space",
+              definition: "Set of all possible outcomes of a random experiment",
+            },
+            {
+              term: "Event",
+              definition:
+                "Subset of sample space; collection of favorable outcomes",
+            },
+            {
+              term: "Complementary Event",
+              definition: "Event that occurs when the original event does not",
+            },
+          ],
+          videoKeyword: "probability",
         },
       ],
     },

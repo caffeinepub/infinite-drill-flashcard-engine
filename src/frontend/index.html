@@ -270,6 +270,8 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Remove any amphtml link tags — they cause Google Search Console crawl errors for SPAs -->
+    <script>document.querySelectorAll('link[rel="amphtml"]').forEach(function(el){el.parentNode.removeChild(el)});</script>
     <script type="module" src="/src/main.tsx"></script>
     <!-- ── Google Analytics: deferred to after load to avoid blocking FCP/LCP ── -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-N06PE137X9"></script>

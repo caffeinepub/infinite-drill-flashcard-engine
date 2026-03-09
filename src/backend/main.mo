@@ -107,9 +107,24 @@ actor {
   let leaderboard = Map.empty<Text, LeaderboardEntry>();
   let userProfiles = Map.empty<Principal, UserProfile>();
 
-  // System Initialization
+  // Helper: compute level from XP
+  func xpToLevel(xp : Nat) : Nat {
+    if (xp >= 600) { 4 } else if (xp >= 300) { 3 } else if (xp >= 100) { 2 } else { 1 };
+  };
+
+  // Helper: compute badges from XP and streak
+  func computeBadges(xp : Nat, streak : Nat) : [Text] {
+    let badges = List.empty<Text>();
+    if (xp >= 600) { badges.add("🏆 Champion") };
+    if (xp >= 300 and xp < 600) { badges.add("⭐ Expert") };
+    if (xp >= 100 and xp < 300) { badges.add("📚 Scholar") };
+    if (streak >= 7) { badges.add("🔥 Hot Streak") };
+    if (streak >= 14) { badges.add("⚡ Unstoppable") };
+    badges.toArray();
+  };
+
+  // System Initialization — topics only, NO fake leaderboard entries
   system func postupgrade() {
-    // Topics
     topics.add(
       1,
       {
@@ -152,118 +167,6 @@ actor {
         description = "Explore the causes and effects of the French Revolution.";
       },
     );
-
-    // Leaderboard Entries
-    leaderboard.add(
-      "student1",
-      {
-        rank = 1;
-        username = "student1";
-        xp = 1500;
-        level = 10;
-        badges = ["Mathlete", "Science Whiz"];
-        streak = 15;
-      },
-    );
-    leaderboard.add(
-      "student2",
-      {
-        rank = 2;
-        username = "student2";
-        xp = 1200;
-        level = 8;
-        badges = ["Historian"];
-        streak = 10;
-      },
-    );
-    leaderboard.add(
-      "student3",
-      {
-        rank = 3;
-        username = "student3";
-        xp = 1100;
-        level = 7;
-        badges = ["Science Whiz"];
-        streak = 12;
-      },
-    );
-    leaderboard.add(
-      "student4",
-      {
-        rank = 4;
-        username = "student4";
-        xp = 950;
-        level = 6;
-        badges = [];
-        streak = 9;
-      },
-    );
-    leaderboard.add(
-      "student5",
-      {
-        rank = 5;
-        username = "student5";
-        xp = 800;
-        level = 5;
-        badges = ["Mathlete"];
-        streak = 7;
-      },
-    );
-    leaderboard.add(
-      "student6",
-      {
-        rank = 6;
-        username = "student6";
-        xp = 750;
-        level = 5;
-        badges = [];
-        streak = 6;
-      },
-    );
-    leaderboard.add(
-      "student7",
-      {
-        rank = 7;
-        username = "student7";
-        xp = 700;
-        level = 4;
-        badges = [];
-        streak = 5;
-      },
-    );
-    leaderboard.add(
-      "student8",
-      {
-        rank = 8;
-        username = "student8";
-        xp = 650;
-        level = 4;
-        badges = [];
-        streak = 4;
-      },
-    );
-    leaderboard.add(
-      "student9",
-      {
-        rank = 9;
-        username = "student9";
-        xp = 600;
-        level = 3;
-        badges = [];
-        streak = 3;
-      },
-    );
-    leaderboard.add(
-      "student10",
-      {
-        rank = 10;
-        username = "student10";
-        xp = 550;
-        level = 3;
-        badges = [];
-        streak = 2;
-      },
-    );
   };
 
   // Core Functions - Public (no auth required)
@@ -278,9 +181,24 @@ actor {
   public query ({ caller }) func getLeaderboard() : async [LeaderboardEntry] {
     let entries = leaderboard.values().toArray();
     let sortedEntries = entries.sort(LeaderboardEntry.compareByXP);
+    // Re-rank after sort
+    let ranked = List.empty<LeaderboardEntry>();
+    var rank = 1;
+    for (entry in sortedEntries.values()) {
+      ranked.add({
+        rank;
+        username = entry.username;
+        xp = entry.xp;
+        level = entry.level;
+        badges = entry.badges;
+        streak = entry.streak;
+      });
+      rank += 1;
+    };
+    // Return top 20
     let take20 = List.empty<LeaderboardEntry>();
     var count = 0;
-    for (entry in sortedEntries.values()) {
+    for (entry in ranked.toArray().values()) {
       if (count < 20) {
         take20.add(entry);
         count += 1;
@@ -294,40 +212,57 @@ actor {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz results");
     };
-    switch (userProgress.get(userId)) {
+
+    let earnedXP = score * 10;
+
+    // Update userProgress
+    let (updatedXP, updatedStreak) = switch (userProgress.get(userId)) {
       case (null) {
         let newProgress : UserProgress = {
           userId;
           topicId;
-          xp = score * 10;
-          level = 1;
+          xp = earnedXP;
+          level = xpToLevel(earnedXP);
           streak = 1;
           lastQuizScore = score;
           masteredFlashcards = [];
         };
         userProgress.add(userId, newProgress);
-        (newProgress.xp, newProgress.streak);
+        (earnedXP, 1);
       };
       case (?progress) {
-        let updatedXP = progress.xp + score * 10;
-        let updatedStreak = if (score > 0) {
-          progress.streak + 1;
-        } else {
-          0;
-        };
+        let newXP = progress.xp + earnedXP;
+        let newStreak = if (score > 0) { progress.streak + 1 } else { 0 };
         let newProgress : UserProgress = {
           userId = progress.userId;
           topicId = progress.topicId;
-          xp = updatedXP;
-          level = progress.level;
-          streak = updatedStreak;
+          xp = newXP;
+          level = xpToLevel(newXP);
+          streak = newStreak;
           lastQuizScore = score;
           masteredFlashcards = progress.masteredFlashcards;
         };
         userProgress.add(userId, newProgress);
-        (updatedXP, updatedStreak);
+        (newXP, newStreak);
       };
     };
+
+    // Update leaderboard with real user data
+    let newLevel = xpToLevel(updatedXP);
+    let newBadges = computeBadges(updatedXP, updatedStreak);
+    leaderboard.add(
+      userId,
+      {
+        rank = 0; // will be re-ranked on getLeaderboard
+        username = userId;
+        xp = updatedXP;
+        level = newLevel;
+        badges = newBadges;
+        streak = updatedStreak;
+      },
+    );
+
+    (updatedXP, updatedStreak);
   };
 
   public shared ({ caller }) func simulateAIContentGeneration(topicId : Nat, rawText : Text) : async GeneratedContent {
@@ -366,6 +301,62 @@ actor {
         Runtime.trap("User not found in progress records. Please complete a quiz or flashcard session first.");
       };
     };
+  };
+
+  // Also update leaderboard when blog XP is awarded
+  public shared ({ caller }) func addBlogXP(userId : Text, xpAmount : Nat) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can earn blog XP");
+    };
+
+    let updatedXP = switch (userProgress.get(userId)) {
+      case (null) {
+        let newProgress : UserProgress = {
+          userId;
+          topicId = 0;
+          xp = xpAmount;
+          level = xpToLevel(xpAmount);
+          streak = 0;
+          lastQuizScore = 0;
+          masteredFlashcards = [];
+        };
+        userProgress.add(userId, newProgress);
+        xpAmount;
+      };
+      case (?progress) {
+        let newXP = progress.xp + xpAmount;
+        let newProgress : UserProgress = {
+          userId = progress.userId;
+          topicId = progress.topicId;
+          xp = newXP;
+          level = xpToLevel(newXP);
+          streak = progress.streak;
+          lastQuizScore = progress.lastQuizScore;
+          masteredFlashcards = progress.masteredFlashcards;
+        };
+        userProgress.add(userId, newProgress);
+        newXP;
+      };
+    };
+
+    // Update leaderboard
+    let existingStreak = switch (leaderboard.get(userId)) {
+      case (?entry) { entry.streak };
+      case (null) { 0 };
+    };
+    leaderboard.add(
+      userId,
+      {
+        rank = 0;
+        username = userId;
+        xp = updatedXP;
+        level = xpToLevel(updatedXP);
+        badges = computeBadges(updatedXP, existingStreak);
+        streak = existingStreak;
+      },
+    );
+
+    updatedXP;
   };
 
   // User Profile Functions (following the required pattern)

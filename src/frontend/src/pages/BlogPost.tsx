@@ -12,9 +12,12 @@ import {
   Info,
   Lightbulb,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import { Layout } from "../components/Layout";
+import { useUserProfileContext } from "../context/UserProfileContext";
 import type { BlogPost as BlogPostType, BlogSection } from "../data/blogData";
+import { useSubmitQuiz } from "../hooks/useQueries";
 import { useSEO } from "../hooks/useSEO";
 
 // ─── Dynamic data loader ──────────────────────────────────────────────────────
@@ -316,9 +319,93 @@ function BlogPostSkeleton() {
 
 // ─── Blog Post Page ───────────────────────────────────────────────────────────
 
+// ─── Blog XP Tracker ─────────────────────────────────────────────────────────
+
+function useBlogXP(slug: string, isLoaded: boolean) {
+  const { profile } = useUserProfileContext();
+  const { mutate: submitQuiz } = useSubmitQuiz();
+  const readTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const milestonesHitRef = useRef<Set<number>>(new Set());
+
+  // A. 20 XP once per blog post after 30s read (localStorage, non-farmable)
+  useEffect(() => {
+    if (!isLoaded || !profile) return;
+    const key = `blog_read_${slug}`;
+    if (localStorage.getItem(key)) return;
+
+    readTimerRef.current = setTimeout(() => {
+      submitQuiz(
+        { topicId: "0", score: 2 },
+        {
+          onSuccess: () => {
+            localStorage.setItem(key, "1");
+            toast.success("+20 XP — Thanks for reading!", {
+              icon: "📚",
+              duration: 3000,
+            });
+          },
+          onError: () => {
+            // Still mark as read to avoid duplicate attempts
+            localStorage.setItem(key, "1");
+          },
+        },
+      );
+    }, 30_000);
+
+    return () => {
+      if (readTimerRef.current) clearTimeout(readTimerRef.current);
+    };
+  }, [isLoaded, profile, slug, submitQuiz]);
+
+  // B. +5 XP per scroll milestone via IntersectionObserver (session-only, 3 max)
+  useEffect(() => {
+    if (!isLoaded || !profile) return;
+    const scrollKey = `blog_scroll_xp_${slug}`;
+    const alreadyHit = Number(sessionStorage.getItem(scrollKey) ?? "0");
+    milestonesHitRef.current = new Set(
+      Array.from({ length: alreadyHit }, (_, i) => i),
+    );
+
+    const sentinels = document.querySelectorAll("[data-blog-milestone]");
+    if (!sentinels.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const idx = Number(
+            (entry.target as HTMLElement).dataset.blogMilestone,
+          );
+          if (milestonesHitRef.current.has(idx)) continue;
+          milestonesHitRef.current.add(idx);
+          sessionStorage.setItem(
+            scrollKey,
+            String(milestonesHitRef.current.size),
+          );
+          toast.success("+5 XP earned for reading!", {
+            icon: "⭐",
+            duration: 2000,
+          });
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    for (const s of Array.from(sentinels)) {
+      observer.observe(s);
+    }
+    return () => observer.disconnect();
+  }, [isLoaded, profile, slug]);
+}
+
+// ─── Blog Post Page ───────────────────────────────────────────────────────────
+
 export default function BlogPost() {
   const { slug } = useParams({ from: "/blog/$slug" });
   const { post, allPosts, isLoaded } = useBlogPost(slug);
+
+  // XP reward tracking (read timer + scroll milestones)
+  useBlogXP(slug, isLoaded && !!post);
 
   useSEO(
     post
@@ -456,9 +543,41 @@ export default function BlogPost() {
           </div>
         </header>
 
-        {/* Article Content */}
+        {/* Article Content with XP scroll milestones */}
         <article data-ocid="blog.article_content" className="prose-custom">
-          {post.content.map((section, i) => renderSection(section, i))}
+          {post.content.map((section, i) => {
+            const total = post.content.length;
+            const milestone33 = Math.floor(total * 0.33);
+            const milestone66 = Math.floor(total * 0.66);
+            const milestone100 = total - 1;
+            // biome-ignore lint/suspicious/noArrayIndexKey: blog sections have no stable id
+            return (
+              <div key={`section-${section.type}-${i}`}>
+                {renderSection(section, i)}
+                {i === milestone33 && (
+                  <div
+                    data-blog-milestone="0"
+                    aria-hidden="true"
+                    className="h-0 overflow-hidden"
+                  />
+                )}
+                {i === milestone66 && (
+                  <div
+                    data-blog-milestone="1"
+                    aria-hidden="true"
+                    className="h-0 overflow-hidden"
+                  />
+                )}
+                {i === milestone100 && (
+                  <div
+                    data-blog-milestone="2"
+                    aria-hidden="true"
+                    className="h-0 overflow-hidden"
+                  />
+                )}
+              </div>
+            );
+          })}
         </article>
 
         {/* CTA block */}
