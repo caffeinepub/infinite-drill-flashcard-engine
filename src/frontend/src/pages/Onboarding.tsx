@@ -11,6 +11,8 @@ import {
 import {
   BookOpen,
   ChevronRight,
+  Eye,
+  EyeOff,
   GraduationCap,
   Loader2,
   User,
@@ -21,11 +23,44 @@ import { toast } from "sonner";
 import { useActor } from "../hooks/useActor";
 import { useUserProfile } from "../hooks/useUserProfile";
 
+const classes = [
+  ...Array.from({ length: 12 }, (_, i) => ({
+    value: `Class ${i + 1}`,
+    label: `Class ${i + 1}`,
+  })),
+  { value: "JEE", label: "JEE (IIT Entrance)" },
+];
+
+const countries = [
+  "India",
+  "United States",
+  "United Kingdom",
+  "Canada",
+  "Australia",
+  "UAE",
+  "Singapore",
+  "Nepal",
+  "Bangladesh",
+  "Pakistan",
+  "Sri Lanka",
+  "Germany",
+  "France",
+  "Japan",
+  "China",
+  "Brazil",
+  "Nigeria",
+  "South Africa",
+  "Others",
+];
+
 export default function Onboarding() {
   const { actor } = useActor();
   const { refetch, setProfile } = useUserProfile();
   const [displayName, setDisplayName] = useState("");
   const [studentClass, setStudentClass] = useState("");
+  const [country, setCountry] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [nameError, setNameError] = useState("");
 
@@ -46,15 +81,20 @@ export default function Onboarding() {
     try {
       if (actor) {
         await actor.saveCallerUserProfile(displayName.trim(), studentClass);
-        // Directly set the profile so AuthGuard navigates immediately
+        // Store extended profile locally
+        if (country || password) {
+          localStorage.setItem(
+            "userExtendedProfile",
+            JSON.stringify({ country }),
+          );
+        }
         setProfile({
           displayName: displayName.trim(),
           studentClass,
           principal: "",
           createdAt: BigInt(0),
         });
-        toast.success("Welcome to NCERT Learn! 🎉");
-        // Also refetch in background to sync with backend
+        toast.success("Welcome to NCERT Bhaiya! 🎉");
         refetch().catch(() => {});
       } else {
         toast.error("Not connected yet. Please wait a moment and try again.");
@@ -67,17 +107,8 @@ export default function Onboarding() {
     }
   };
 
-  const classes = [
-    ...Array.from({ length: 12 }, (_, i) => ({
-      value: `Class ${i + 1}`,
-      label: `Class ${i + 1}`,
-    })),
-    { value: "JEE", label: "JEE (IIT Entrance)" },
-  ];
-
   return (
     <div className="min-h-screen bg-mesh-dark flex flex-col items-center justify-center px-4 relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-neon-purple/10 blur-3xl pointer-events-none" />
 
       <motion.div
@@ -96,20 +127,20 @@ export default function Onboarding() {
             <span className="text-foreground">Your Profile</span>
           </h1>
           <p className="text-muted-foreground text-sm">
-            Tell us your name and class to personalize your learning journey
+            Tell us about yourself to personalize your learning journey
           </p>
         </div>
 
         {/* Form Card */}
         <div className="glass-dark rounded-2xl p-6 border border-border/40">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name Input */}
-            <div className="space-y-2">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Name */}
+            <div className="space-y-1.5">
               <Label
                 htmlFor="displayName"
-                className="text-sm font-medium text-foreground/80 flex items-center gap-2"
+                className="text-sm font-medium text-foreground/80 flex items-center gap-1.5"
               >
-                <User size={14} className="text-neon-purple" />
+                <User size={13} className="text-neon-purple" />
                 Your Name
               </Label>
               <Input
@@ -128,7 +159,7 @@ export default function Onboarding() {
               />
               {nameError && (
                 <p
-                  className="text-xs text-neon-red mt-1"
+                  className="text-xs text-destructive"
                   data-ocid="onboarding.error_state"
                 >
                   {nameError}
@@ -136,10 +167,10 @@ export default function Onboarding() {
               )}
             </div>
 
-            {/* Class Selector */}
-            <div className="space-y-2">
-              <Label className="text-sm font-medium text-foreground/80 flex items-center gap-2">
-                <BookOpen size={14} className="text-neon-blue" />
+            {/* Class */}
+            <div className="space-y-1.5">
+              <Label className="text-sm font-medium text-foreground/80 flex items-center gap-1.5">
+                <BookOpen size={13} className="text-neon-blue" />
                 Your Class
               </Label>
               <Select value={studentClass} onValueChange={setStudentClass}>
@@ -159,12 +190,60 @@ export default function Onboarding() {
               </Select>
             </div>
 
+            {/* Country */}
+            <div className="space-y-1.5">
+              <Label className="text-sm font-medium text-foreground/80">
+                🌍 Country
+              </Label>
+              <Select value={country} onValueChange={setCountry}>
+                <SelectTrigger
+                  data-ocid="onboarding.country_select"
+                  className="bg-background/50 border-border/50 h-11"
+                >
+                  <SelectValue placeholder="Select your country..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {countries.map((c) => (
+                    <SelectItem key={c} value={c}>
+                      {c}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Password */}
+            <div className="space-y-1.5">
+              <Label className="text-sm font-medium text-foreground/80">
+                🔒 Password (optional)
+              </Label>
+              <div className="relative">
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Create a password"
+                  data-ocid="onboarding.password_input"
+                  className="bg-background/50 border-border/50 focus:border-neon-purple/50 h-11 pr-10"
+                  autoComplete="new-password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((s) => !s)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
+                </button>
+              </div>
+            </div>
+
             {/* Submit */}
             <Button
               type="submit"
               disabled={isSubmitting}
               data-ocid="onboarding.submit_button"
-              className="w-full h-12 font-display font-bold bg-gradient-to-r from-neon-purple to-neon-blue text-white hover:opacity-90 transition-all rounded-xl mt-2"
+              className="w-full h-12 font-bold bg-gradient-to-r from-neon-purple to-neon-blue text-white hover:opacity-90 transition-all rounded-xl mt-2"
             >
               {isSubmitting ? (
                 <span className="flex items-center gap-2">
@@ -197,6 +276,7 @@ export default function Onboarding() {
               </div>
               <div className="text-xs text-muted-foreground">
                 {studentClass || "Select class"}
+                {country ? ` · ${country}` : ""}
               </div>
             </div>
           </motion.div>
