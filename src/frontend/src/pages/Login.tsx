@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  ArrowLeft,
   BookOpen,
-  Brain,
   Eye,
   EyeOff,
   GraduationCap,
@@ -20,37 +18,9 @@ import {
   Sparkles,
   Star,
   User,
-  Zap,
 } from "lucide-react";
 import { useState } from "react";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
-
-const features = [
-  {
-    icon: BookOpen,
-    label: "Full NCERT Coverage",
-    desc: "Class 1–12, all subjects",
-    color: "text-neon-purple",
-  },
-  {
-    icon: Brain,
-    label: "AI Teacher",
-    desc: "Ask anything, get answers instantly",
-    color: "text-neon-blue",
-  },
-  {
-    icon: Zap,
-    label: "Interactive Quizzes",
-    desc: "Gamified learning with XP & ranks",
-    color: "text-neon-amber",
-  },
-  {
-    icon: GraduationCap,
-    label: "Concept Videos",
-    desc: "Animated video explanations",
-    color: "text-neon-green",
-  },
-];
 
 const classes = [
   ...Array.from({ length: 12 }, (_, i) => ({
@@ -84,7 +54,6 @@ const countries = [
 
 export default function Login() {
   const { login, isLoggingIn } = useInternetIdentity();
-  const [showAuth, setShowAuth] = useState(false);
 
   // Sign up form state
   const [name, setName] = useState("");
@@ -127,139 +96,27 @@ export default function Login() {
     }
   };
 
-  if (!showAuth) {
-    return (
-      <div className="min-h-screen bg-mesh-dark flex flex-col overflow-hidden relative">
-        {/* Decorative orbs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 rounded-full bg-neon-purple/10 hidden md:block blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-64 h-64 rounded-full bg-neon-blue/10 hidden md:block blur-3xl pointer-events-none" />
-
-        <div className="flex-1 flex flex-col items-center justify-center px-4 py-12 relative z-10">
-          {/* Logo */}
-          <div className="flex flex-col items-center mb-10">
-            <div className="relative mb-6">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center shadow-neon-purple glow-purple">
-                <BookOpen size={36} className="text-white" />
-              </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-neon-amber flex items-center justify-center">
-                <Sparkles size={12} className="text-background" />
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 mb-3">
-              <Star size={14} className="text-neon-amber fill-neon-amber" />
-              <span className="text-xs font-mono text-neon-amber uppercase tracking-widest">
-                India's #1 NCERT Platform
-              </span>
-              <Star size={14} className="text-neon-amber fill-neon-amber" />
-            </div>
-
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-center leading-tight mb-4">
-              <span className="text-gradient-purple">NCERT</span>
-              <br />
-              <span className="text-foreground">Bhaiya</span>
-            </h1>
-
-            <p className="text-muted-foreground text-center text-base md:text-lg max-w-md leading-relaxed">
-              Complete NCERT content for Classes 1–12, AI-powered teacher,
-              animated concept videos, and gamified quizzes — all in one place.
-            </p>
-          </div>
-
-          {/* Feature cards */}
-          <div className="grid grid-cols-2 gap-3 mb-10 max-w-md w-full">
-            {features.map(({ icon: Icon, label, desc, color }) => (
-              <div
-                key={label}
-                className="glass-dark rounded-xl p-3 flex items-start gap-2.5"
-              >
-                <Icon size={18} className={`${color} shrink-0 mt-0.5`} />
-                <div>
-                  <div className="text-xs font-semibold text-foreground leading-tight">
-                    {label}
-                  </div>
-                  <div className="text-[11px] text-muted-foreground mt-0.5 leading-tight">
-                    {desc}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Get Started CTA */}
-          <div className="flex flex-col items-center gap-4 w-full max-w-sm">
-            <Button
-              onClick={() => setShowAuth(true)}
-              data-ocid="landing.primary_button"
-              size="lg"
-              className="w-full h-14 text-base font-bold bg-gradient-to-r from-neon-purple to-neon-blue hover:opacity-90 text-white shadow-neon-purple transition-all duration-200 hover:shadow-lg hover:scale-[1.02] rounded-xl"
-            >
-              <GraduationCap size={20} className="mr-2" />
-              Get Started — It's Free
-            </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              Join thousands of students studying smarter
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="flex items-center gap-8 mt-10">
-            {[
-              { value: "12", label: "Classes" },
-              { value: "500+", label: "Chapters" },
-              { value: "AI", label: "Teacher" },
-            ].map(({ value, label }) => (
-              <div key={label} className="text-center">
-                <div className="font-display text-2xl font-bold text-gradient-purple">
-                  {value}
-                </div>
-                <div className="text-xs text-muted-foreground">{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <footer className="py-4 text-center text-xs text-muted-foreground relative z-10">
-          © {new Date().getFullYear()} NCERT Bhaiya — Built with ❤️ using{" "}
-          <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors underline"
-          >
-            caffeine.ai
-          </a>
-        </footer>
-      </div>
-    );
-  }
-
-  // Auth panel
   return (
     <div className="min-h-screen bg-mesh-dark flex flex-col items-center justify-center px-4 relative overflow-hidden">
+      {/* Decorative orbs */}
       <div className="absolute top-1/4 -left-32 w-64 h-64 rounded-full bg-neon-purple/10 hidden md:block blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-64 h-64 rounded-full bg-neon-blue/10 hidden md:block blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
-        {/* Back button */}
-        <button
-          type="button"
-          onClick={() => setShowAuth(false)}
-          data-ocid="auth.back_button"
-          className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
-        >
-          <ArrowLeft size={16} />
-          Back
-        </button>
-
-        {/* Logo small */}
+        {/* Compact branding header */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center">
-            <BookOpen size={20} className="text-white" />
+          <div className="relative">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center shadow-neon-purple">
+              <BookOpen size={22} className="text-white" />
+            </div>
+            <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-neon-amber flex items-center justify-center">
+              <Sparkles size={10} className="text-background" />
+            </div>
           </div>
           <div>
-            <div className="font-display font-bold text-foreground leading-tight">
+            <div className="font-display font-bold text-lg text-foreground leading-tight flex items-center gap-1.5">
               NCERT Bhaiya
+              <Star size={12} className="text-neon-amber fill-neon-amber" />
             </div>
             <div className="text-xs text-muted-foreground">
               India's #1 Free NCERT Platform
@@ -363,7 +220,10 @@ export default function Login() {
                     autoComplete="name"
                   />
                   {signupErrors.name && (
-                    <p className="text-xs text-destructive">
+                    <p
+                      className="text-xs text-destructive"
+                      data-ocid="auth.signup.name_error_state"
+                    >
                       {signupErrors.name}
                     </p>
                   )}
@@ -398,7 +258,10 @@ export default function Login() {
                     </SelectContent>
                   </Select>
                   {signupErrors.studentClass && (
-                    <p className="text-xs text-destructive">
+                    <p
+                      className="text-xs text-destructive"
+                      data-ocid="auth.signup.class_error_state"
+                    >
                       {signupErrors.studentClass}
                     </p>
                   )}
@@ -432,7 +295,10 @@ export default function Login() {
                     </SelectContent>
                   </Select>
                   {signupErrors.country && (
-                    <p className="text-xs text-destructive">
+                    <p
+                      className="text-xs text-destructive"
+                      data-ocid="auth.signup.country_error_state"
+                    >
                       {signupErrors.country}
                     </p>
                   )}
@@ -467,7 +333,10 @@ export default function Login() {
                     </button>
                   </div>
                   {signupErrors.password && (
-                    <p className="text-xs text-destructive">
+                    <p
+                      className="text-xs text-destructive"
+                      data-ocid="auth.signup.password_error_state"
+                    >
                       {signupErrors.password}
                     </p>
                   )}
@@ -497,6 +366,18 @@ export default function Login() {
             </TabsContent>
           </Tabs>
         </div>
+
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          © {new Date().getFullYear()} NCERT Bhaiya — Built with ❤️ using{" "}
+          <a
+            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground transition-colors underline"
+          >
+            caffeine.ai
+          </a>
+        </p>
       </div>
     </div>
   );
