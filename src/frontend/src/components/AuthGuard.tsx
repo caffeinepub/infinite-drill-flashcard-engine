@@ -6,6 +6,7 @@ import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useUserProfile } from "../hooks/useUserProfile";
 import Login from "../pages/Login";
 import Onboarding from "../pages/Onboarding";
+import { saveCredentials } from "../utils/credentialStore";
 
 interface AuthGuardProps {
   children: ReactNode;
@@ -44,6 +45,10 @@ export function AuthGuard({ children }: AuthGuardProps) {
         );
         sessionStorage.removeItem("pendingSignup");
         setProfile(result);
+        // Save credentials so the user can log in with username+password next time
+        saveCredentials(data.name.trim(), data.password).catch(() => {
+          // Credential saving is best-effort; ignore failures
+        });
         toast.success("Welcome to NCERT Bhaiya! 🎉");
       })
       .catch(() => {

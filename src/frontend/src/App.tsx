@@ -23,6 +23,9 @@ const NCERT = lazy(() => import("./pages/NCERT"));
 const Quiz = lazy(() => import("./pages/Quiz"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const AdminPanel = lazy(() => import("./pages/AdminPanel"));
+const PYQ = lazy(() => import("./pages/PYQ"));
+const PYQSubject = lazy(() => import("./pages/PYQSubject"));
 
 // Minimal page-level loading fallback
 function PageLoader() {
@@ -33,11 +36,11 @@ function PageLoader() {
   );
 }
 
-// ─── Root Route ───────────────────────────────────────────────────────────────
+// ─── Root Route ───────────────────────────────────────────────────────────────────
 
 const rootRoute = createRootRoute();
 
-// ─── Routes ───────────────────────────────────────────────────────────────────
+// ─── Routes ─────────────────────────────────────────────────────────────────────────
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -99,6 +102,24 @@ const blogPostRoute = createRoute({
   component: BlogPost,
 });
 
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminPanel,
+});
+
+const pyqRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/pyq",
+  component: PYQ,
+});
+
+const pyqSubjectRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/pyq/$subject",
+  component: PYQSubject,
+});
+
 // 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -109,7 +130,7 @@ const notFoundRoute = createRoute({
   component: () => null,
 });
 
-// ─── Router ───────────────────────────────────────────────────────────────────
+// ─── Router ────────────────────────────────────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
@@ -122,6 +143,9 @@ const routeTree = rootRoute.addChildren([
   iitRoute,
   blogRoute,
   blogPostRoute,
+  adminRoute,
+  pyqRoute,
+  pyqSubjectRoute,
   notFoundRoute,
 ]);
 
@@ -133,7 +157,7 @@ declare module "@tanstack/react-router" {
   }
 }
 
-// ─── App ──────────────────────────────────────────────────────────────────────
+// ─── App ────────────────────────────────────────────────────────────────────────────
 
 export default function App() {
   return (

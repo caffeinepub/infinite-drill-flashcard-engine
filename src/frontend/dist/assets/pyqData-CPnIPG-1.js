@@ -1,0 +1,501 @@
+const scienceQuestions = [
+  {
+    id: "sci-2023-1",
+    year: 2023,
+    question: "Name the type of mirror used in vehicles as rear-view mirrors. Justify your answer.",
+    answer: "Convex mirrors are used as rear-view mirrors because they always produce an erect, diminished image giving a wider field of view of traffic behind the vehicle.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "sci-2023-2",
+    year: 2023,
+    question: "A student wants to project the image of a candle flame on a screen 80 cm in front of a lens by placing it at a distance of 20 cm from the lens. Which type of lens should be used?",
+    answer: "A convex (converging) lens should be used. Using lens formula: 1/v − 1/u = 1/f. Here v = −80 cm (screen in front), u = −20 cm. 1/f = 1/(−80) − 1/(−20) = −1/80 + 1/20 = 3/80. f ≈ +26.7 cm. Positive focal length confirms a convex lens.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "sci-2023-3",
+    year: 2023,
+    question: "What is a balanced chemical equation? Why should chemical equations be balanced?",
+    answer: "A balanced chemical equation has equal numbers of atoms of each element on both sides of the equation. Chemical equations must be balanced to satisfy the Law of Conservation of Mass — matter can neither be created nor destroyed in a chemical reaction. Balancing ensures the total mass of reactants equals the total mass of products.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sci-2023-4",
+    year: 2023,
+    question: "List the differences between sexual and asexual reproduction.",
+    answer: "Sexual Reproduction: (1) Involves two parents. (2) Gametes (sex cells) are formed. (3) Fertilisation occurs. (4) Offspring have genetic variation. (5) Occurs in most animals and plants. Asexual Reproduction: (1) Involves a single parent. (2) No gametes are formed. (3) No fertilisation. (4) Offspring are genetically identical (clones). (5) Occurs in bacteria, fungi, and simple organisms.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sci-2023-5",
+    year: 2023,
+    question: "Explain with the help of a diagram the working of a human heart.",
+    answer: "The human heart is a four-chambered muscular pump. Structure: Two atria (upper chambers) and two ventricles (lower chambers). Working: (1) Deoxygenated blood from the body enters the right atrium via the superior and inferior vena cava. (2) It passes to the right ventricle, which pumps it to the lungs via the pulmonary artery for oxygenation. (3) Oxygenated blood returns from the lungs to the left atrium via pulmonary veins. (4) It passes to the left ventricle, which pumps it to the entire body through the aorta. The heart valves prevent backflow of blood. The heartbeat is controlled by the sinoatrial (SA) node — the natural pacemaker.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "sci-2023-6",
+    year: 2023,
+    question: "What are the components of the transport system in human beings? What are the functions of these components?",
+    answer: "Components of the human transport system: (1) Heart — pumps blood throughout the body. (2) Blood vessels — Arteries carry oxygenated blood away from the heart; Veins carry deoxygenated blood to the heart; Capillaries exchange materials between blood and tissues. (3) Blood — transports oxygen, nutrients, hormones, and waste products. (4) Lymphatic system — returns excess tissue fluid to the bloodstream and helps in immune response.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "sci-2022-1",
+    year: 2022,
+    question: "Define the term 'focal length' of a concave mirror.",
+    answer: "Focal length is the distance between the pole and the focus of a concave mirror.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "sci-2022-2",
+    year: 2022,
+    question: "What is meant by power of a lens?",
+    answer: "Power of a lens is the reciprocal of its focal length in metres. P = 1/f(m). It is measured in dioptres (D). A convex lens has positive power and a concave lens has negative power.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "sci-2022-3",
+    year: 2022,
+    question: "What happens when dilute hydrochloric acid is added to iron filings?",
+    answer: "When dilute hydrochloric acid is added to iron filings, iron displaces hydrogen from the acid. A displacement reaction occurs: Fe + 2HCl → FeCl₂ + H₂↑. Iron(II) chloride is formed and hydrogen gas is liberated, which burns with a pop sound.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "sci-2022-4",
+    year: 2022,
+    question: "Differentiate between displacement and double displacement reactions.",
+    answer: "Displacement Reaction: One element displaces another element from its compound. Example: Fe + CuSO₄ → FeSO₄ + Cu. Only one exchange occurs. Double Displacement Reaction: Two compounds exchange their ions to form two new compounds. Example: Na₂SO₄ + BaCl₂ → BaSO₄↓ + 2NaCl. Both cations and anions exchange partners.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sci-2022-5",
+    year: 2022,
+    question: "Explain the process of digestion in human beings.",
+    answer: "Digestion in humans is a step-by-step process: (1) Mouth — Saliva (amylase) breaks down starch into simple sugars. Food is chewed into bolus. (2) Stomach — Gastric juice (HCl + pepsin) digests proteins. HCl kills bacteria and creates acidic medium. (3) Small intestine — Pancreatic juice (amylase, lipase, trypsin) digests carbohydrates, fats and proteins. Bile from liver emulsifies fats. Villi absorb digested nutrients into the bloodstream. (4) Large intestine — Absorbs water from undigested food. Remaining waste is expelled as faeces.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "sci-2022-6",
+    year: 2022,
+    question: "What is meant by 'biodiversity'? What will happen if biodiversity is not preserved?",
+    answer: "Biodiversity refers to the variety of living organisms (plants, animals, microorganisms) found in a given region or on Earth. It includes diversity within species (genetic diversity), between species, and of ecosystems. Consequences if not preserved: (1) Loss of ecological balance — food chains and webs collapse. (2) Pollination and seed dispersal fail, reducing plant life. (3) Soil fertility declines due to loss of decomposers. (4) Loss of medicinal plants that cure diseases. (5) Oxygen levels decrease due to deforestation. (6) Climate change accelerates. (7) Economic losses as resources vanish.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "sci-2021-1",
+    year: 2021,
+    question: "What is the role of the epidermis in plants?",
+    answer: "The epidermis in plants: (1) Provides protection against mechanical injury, pathogens and water loss. (2) In roots, it has root hair cells that increase the surface area for absorption of water and minerals. (3) In leaves, it has stomata for gaseous exchange and transpiration. (4) It is usually a single layer of cells and secretes a waxy cuticle to reduce water loss.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "sci-2021-2",
+    year: 2021,
+    question: "Name the hormone secreted by the pancreas and state its function.",
+    answer: "The pancreas secretes Insulin and Glucagon. Insulin lowers blood glucose levels by stimulating cells to absorb glucose and converting excess glucose to glycogen stored in the liver. Glucagon raises blood glucose levels by breaking down glycogen back to glucose. Together, they regulate blood sugar levels.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "sci-2021-3",
+    year: 2021,
+    question: "Draw a labeled diagram of nephron.",
+    answer: "A nephron (the functional unit of the kidney) consists of: (1) Bowman's Capsule — cup-shaped structure surrounding the glomerulus. (2) Glomerulus — a network of capillaries where filtration of blood occurs. (3) Proximal Convoluted Tubule (PCT) — reabsorbs glucose, amino acids, water. (4) Loop of Henle — U-shaped tubule that concentrates the filtrate. (5) Distal Convoluted Tubule (DCT) — further reabsorption and secretion. (6) Collecting Duct — collects urine and carries it to the renal pelvis. Blood flows in from afferent arteriole and out through efferent arteriole.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sci-2021-4",
+    year: 2021,
+    question: "What is Ohm's Law? State the conditions under which Ohm's Law holds good.",
+    answer: "Ohm's Law states that the current (I) flowing through a conductor is directly proportional to the potential difference (V) applied across it, provided physical conditions (temperature, pressure) remain constant. Mathematically: V = IR, where R is resistance. Conditions: (1) Temperature must remain constant. (2) Physical state of conductor must not change. (3) The conductor must be metallic (does not apply to semiconductors, electrolytes). Devices that obey Ohm's Law are called ohmic conductors (e.g., resistors). Diodes and transistors are non-ohmic.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sci-2021-5",
+    year: 2021,
+    question: "Describe the structure and function of the brain in humans.",
+    answer: "The human brain has three main parts: (1) Cerebrum (Forebrain) — largest part; controls thinking, intelligence, memory, voluntary movements, speech, sight, hearing. Divided into left and right hemispheres. (2) Cerebellum (Hindbrain) — coordinates balance and precise voluntary movements. Responsible for muscle coordination. (3) Medulla Oblongata (Hindbrain) — controls involuntary functions like heartbeat, breathing, blood pressure, swallowing. It connects the brain to the spinal cord. Additionally, the Hypothalamus controls hunger, thirst, body temperature and links the nervous and endocrine systems. The brain is protected by the skull and three membranes (meninges) and is surrounded by cerebrospinal fluid (CSF).",
+    marks: 5,
+    type: "5mark"
+  }
+];
+const mathsQuestions = [
+  {
+    id: "math-2023-1",
+    year: 2023,
+    question: "Find the HCF and LCM of 6, 72 and 120 using the prime factorisation method.",
+    answer: "Prime factorisation: 6 = 2 × 3, 72 = 2³ × 3², 120 = 2³ × 3 × 5. HCF = product of smallest powers of common factors = 2 × 3 = 6. LCM = product of greatest powers of all prime factors = 2³ × 3² × 5 = 360.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "math-2023-2",
+    year: 2023,
+    question: "Find the zeroes of the polynomial x² + 7x + 10 and verify the relationship between zeroes and coefficients.",
+    answer: "Factorising: x² + 7x + 10 = (x + 2)(x + 5). Zeroes: x = −2 and x = −5. Verification: Sum of zeroes = −2 + (−5) = −7 = −(7)/1 = −b/a ✓. Product of zeroes = (−2)(−5) = 10 = 10/1 = c/a ✓. Relationship verified.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "math-2023-3",
+    year: 2023,
+    question: "Find the value of k for which the system of equations 3x − y = 5 and 6x − 2y = k has infinitely many solutions.",
+    answer: "For infinitely many solutions: a₁/a₂ = b₁/b₂ = c₁/c₂. Here a₁/a₂ = 3/6 = 1/2, b₁/b₂ = (−1)/(−2) = 1/2, c₁/c₂ = 5/k. So 5/k = 1/2, giving k = 10.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "math-2023-4",
+    year: 2023,
+    question: "If a circle is inscribed in a triangle, prove that the tangents from an external point to a circle are equal in length.",
+    answer: "Let P be an external point and PA and PB be tangents to the circle with centre O. In triangles OAP and OBP: OA = OB (radii), OP = OP (common), ∠OAP = ∠OBP = 90° (tangent ⊥ radius). By RHS congruence: △OAP ≅ △OBP. Therefore PA = PB (CPCT). Hence proved that tangents from an external point are equal in length.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "math-2023-5",
+    year: 2023,
+    question: "Find the area of a sector of a circle with radius 6 cm, if the angle of the sector is 60°.",
+    answer: "Area of sector = (θ/360°) × πr². = (60/360) × π × 6². = (1/6) × π × 36 = 6π. = 6 × 22/7 ≈ 18.86 cm².",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "math-2023-6",
+    year: 2023,
+    question: "A bag contains 3 red and 5 black balls. A ball is drawn at random from the bag. What is the probability that the ball drawn is red?",
+    answer: "Total balls = 3 + 5 = 8. Number of red balls = 3. P(red) = 3/8.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "math-2023-7",
+    year: 2023,
+    question: "If tan A = 4/3, find the other trigonometric ratios of angle A.",
+    answer: "tan A = 4/3 ⟹ opposite = 4, adjacent = 3, hypotenuse = √(4²+3²) = √25 = 5. sin A = 4/5, cos A = 3/5, cosec A = 5/4, sec A = 5/3, cot A = 3/4.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "math-2022-1",
+    year: 2022,
+    question: "Find the roots of the quadratic equation: 2x² − 5x + 3 = 0.",
+    answer: "Using factorisation: 2x² − 2x − 3x + 3 = 0, 2x(x−1) − 3(x−1) = 0, (2x−3)(x−1) = 0. x = 3/2 or x = 1.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "math-2022-2",
+    year: 2022,
+    question: "Prove that √3 is irrational.",
+    answer: "Assume √3 is rational. Then √3 = p/q, where p and q are coprime integers and q ≠ 0. Squaring: 3 = p²/q², so p² = 3q². This means 3 divides p², and since 3 is prime, 3 divides p. Let p = 3k. Then (3k)² = 3q², 9k² = 3q², 3k² = q². So 3 divides q² and hence 3 divides q. But this contradicts p and q being coprime. Hence √3 is irrational.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "math-2022-3",
+    year: 2022,
+    question: "Draw a pair of tangents to a circle of radius 5 cm which are inclined to each other at an angle of 60°.",
+    answer: "Steps: (1) Draw a circle with radius 5 cm and centre O. (2) The angle between tangents is 60°, so the angle at centre ∠AOB = 180° − 60° = 120°. (3) Draw two radii OA and OB making angle 120° at O. (4) Draw perpendiculars at A and B to OA and OB respectively. (5) These perpendiculars meet at external point T. TA and TB are the required tangents, each tangent making 90° with the radius at the point of tangency.",
+    marks: 4,
+    type: "5mark"
+  },
+  {
+    id: "math-2022-4",
+    year: 2022,
+    question: "A pole 6 m high casts a shadow 2√3 m long on the ground. Find the angle of elevation of the Sun.",
+    answer: "tan θ = height/shadow = 6 / (2√3) = 3/√3 = √3. Therefore θ = 60°. The angle of elevation of the Sun is 60°.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "math-2022-5",
+    year: 2022,
+    question: "Find the sum of first 20 terms of the AP: 1, 4, 7, 10…",
+    answer: "a = 1, d = 3, n = 20. S₂₀ = (n/2)[2a + (n−1)d] = (20/2)[2×1 + 19×3] = 10 × [2 + 57] = 10 × 59 = 590.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "math-2021-1",
+    year: 2021,
+    question: "Find the 11th term of the AP: 1, 3, 5, 7, 9…",
+    answer: "a₁₁ = a + (n−1)d = 1 + (11−1) × 2 = 1 + 20 = 21.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "math-2021-2",
+    year: 2021,
+    question: "Two tangents TP and TQ are drawn to a circle with centre O from an external point T. Prove that ∠PTQ = 2∠OPQ.",
+    answer: "Since tangents from an external point are equal, TP = TQ. So △TPQ is isosceles, and ∠TPQ = ∠TQP. Let ∠OPQ = α. Since OP ⊥ TP (radius ⊥ tangent), ∠OPT = 90°. So ∠TPQ = 90° − α. In △TPQ: ∠PTQ + ∠TPQ + ∠TQP = 180°. ∠PTQ + 2(90° − α) = 180°. ∠PTQ = 2α = 2∠OPQ. Hence proved.",
+    marks: 4,
+    type: "5mark"
+  },
+  {
+    id: "math-2021-3",
+    year: 2021,
+    question: "A train travels 360 km at a uniform speed. If the speed had been 5 km/h more, it would have taken 1 hour less for the same journey. Find the speed of the train.",
+    answer: "Let speed = x km/h. Time = 360/x. New time = 360/(x+5). Given: 360/x − 360/(x+5) = 1. 360(x+5) − 360x = x(x+5). 1800 = x² + 5x. x² + 5x − 1800 = 0. (x+45)(x−40) = 0. x = 40 (speed cannot be negative). Speed of the train = 40 km/h.",
+    marks: 4,
+    type: "5mark"
+  }
+];
+const sstQuestions = [
+  {
+    id: "sst-2023-1",
+    year: 2023,
+    question: "What is the meaning of 'print capitalism'?",
+    answer: "Print capitalism refers to the combination of capitalism and print technology that led to the rise of newspapers, books and printed materials as commercial products. It transformed ideas and information into mass-produced commodities, enabling the spread of nationalism.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "sst-2023-2",
+    year: 2023,
+    question: "Explain the role of the Zollverein in German unification.",
+    answer: "Zollverein (1834) was a customs union that abolished tariff barriers between German states. It: (1) Created a single economic unit with a uniform currency and system of weights. (2) Stimulated industrial growth across German states. (3) Built a network of railways, linking markets. (4) Economically unified the German states before political unification (1871) under Prussia. It demonstrated that economic cooperation could precede political unity.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sst-2023-3",
+    year: 2023,
+    question: "What is the Chipko Movement? Why was it started?",
+    answer: "The Chipko Movement was a forest conservation movement that began in the Garhwal Himalayas of Uttarakhand in 1973. Villagers (mainly women led by Gaura Devi) hugged trees to prevent them from being felled by contractors. It was started because: (1) Commercial logging was destroying the forests that local communities depended on for livelihood. (2) Deforestation was causing landslides and floods in the Himalayas. (3) Women wanted to protect their access to fodder, fuel and water. The movement succeeded in banning tree felling in the Himalayas above 1,000 m elevation.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sst-2023-4",
+    year: 2023,
+    question: "Define 'Power Sharing'. Why is it important in a democracy?",
+    answer: "Power sharing means the distribution of political power among different organs, levels and groups of government so that no single entity has absolute control. Importance in democracy: (1) It reduces conflict between different social groups by giving everyone a stake in governance. (2) It prevents tyranny of the majority — minorities have representation. (3) It ensures stability — multiple groups participate in governance, reducing the chance of violent overthrow. (4) It is the spirit of democracy — it respects the idea that all citizens should have a say in how they are governed.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sst-2023-5",
+    year: 2023,
+    question: "How does the caste system affect political outcomes in India? Explain.",
+    answer: "Caste and politics in India are deeply interlinked: (1) Caste as vote bank — political parties consider caste composition when choosing candidates, hoping caste members vote for 'their own'. (2) Caste-based mobilisation — caste groups form associations that lobby for their interests in education, employment, and politics. (3) Reservations — SC/ST/OBC reservations in legislature and government jobs emerged from caste politics. (4) Negative effects — caste-based appeals divert attention from development issues; inter-caste violence can be triggered by electoral competition. (5) Positive effects — historically oppressed castes gained political representation, reducing upper-caste monopoly on power.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "sst-2022-1",
+    year: 2022,
+    question: "Name the political party that led the unification of Germany.",
+    answer: "The National Liberal Party under Chancellor Otto von Bismarck of Prussia led German unification through a policy of 'blood and iron' (wars against Denmark, Austria, and France), culminating in the proclamation of the German Empire in 1871.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "sst-2022-2",
+    year: 2022,
+    question: "Explain the 'Rowlatt Act' and its impact on the Indian freedom struggle.",
+    answer: "The Rowlatt Act (1919) gave the British government powers to imprison any person without trial for up to 2 years on mere suspicion of sedition. Impact: (1) It united Indians across caste, class and religion in protest. (2) Mahatma Gandhi launched a nationwide Satyagraha (civil disobedience) against it. (3) Hartals (strikes) and demonstrations spread across India. (4) The Jallianwala Bagh massacre (April 13, 1919) followed, in which British troops fired on peaceful protesters, killing hundreds. (5) This incident turned many moderate Indians into ardent nationalists, strengthening the freedom struggle.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sst-2022-3",
+    year: 2022,
+    question: "What are the advantages of multi-party system?",
+    answer: "Advantages of a multi-party system: (1) Wider representation — different regional, linguistic, caste, and ideological groups find representation. (2) Better choices for voters — multiple parties with different policies allow informed choice. (3) Prevents concentration of power — no single party dominates unchecked. (4) Vibrant democracy — competition between parties keeps governments accountable. (5) Coalition governments ensure shared power, making extreme decisions less likely. However, it can lead to political instability if no party gets a majority.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sst-2022-4",
+    year: 2022,
+    question: "Describe the role of women in Indian democracy.",
+    answer: "Women in Indian democracy: (1) Voting rights — Indian women got voting rights from independence (1947), unlike many western countries. (2) Panchayati Raj — 33% reservation for women in local bodies (now 50% in many states), creating millions of elected women leaders. (3) Political representation — women serve as ministers, CMs, President (Pratibha Patil), and PM (Indira Gandhi). (4) Social movements — women lead movements for environmental conservation (Chipko), against alcohol (anti-liquor movement in Andhra), and land rights. (5) Challenges remain — Parliament representation is still low (~15%), and women face social pressure and violence that limits full participation.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "sst-2021-1",
+    year: 2021,
+    question: "What is meant by 'Globalisation'?",
+    answer: "Globalisation is the process of rapid integration and interconnection between countries through trade, investment, technology and the movement of people.",
+    marks: 1,
+    type: "1mark"
+  },
+  {
+    id: "sst-2021-2",
+    year: 2021,
+    question: "How did the global transfer of disease in the pre-modern world help in European conquest?",
+    answer: "When European colonisers arrived in the Americas in the 16th century, they unknowingly carried diseases like smallpox, measles and influenza. The native populations (Amerindians) had no immunity to these diseases since they had never been exposed to them. This caused catastrophic epidemics: (1) Up to 90% of the native population of the Americas died due to disease — far more than from direct military conquest. (2) Entire civilisations (Aztec, Inca) collapsed, making military conquest easier for the Europeans. (3) In some regions, the Spanish were able to defeat much larger armies because disease had already devastated the local populations. This biological advantage was as powerful as weapons in facilitating European colonisation.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "sst-2021-3",
+    year: 2021,
+    question: "What are the problems faced by farmers in India? Suggest measures to solve them.",
+    answer: "Problems faced by farmers: (1) Small and fragmented landholdings — most farmers own less than 2 hectares, making mechanisation uneconomical. (2) Lack of irrigation — over 60% of agricultural land depends on monsoon rains. (3) Poor credit access — farmers borrow from moneylenders at high interest rates, leading to debt. (4) Low prices — market fluctuations and middlemen exploit farmers. (5) Lack of storage — poor cold chain leads to post-harvest losses. (6) Climate change — unpredictable rainfall and extreme weather affect crop yields. Measures: (1) Land consolidation and cooperative farming. (2) Expansion of canal and drip irrigation. (3) Kisan Credit Card and low-interest institutional credit. (4) Minimum Support Price (MSP) and direct procurement. (5) Warehousing and cold storage development. (6) Crop insurance schemes (PMFBY). (7) Promotion of organic and sustainable farming.",
+    marks: 5,
+    type: "5mark"
+  }
+];
+const englishQuestions = [
+  {
+    id: "eng-2023-1",
+    year: 2023,
+    question: "What message does the poem 'Fire and Ice' convey?",
+    answer: "The poem conveys that the world could end either in fire (desire/greed) or ice (hatred/indifference). The poet uses fire and ice as metaphors for destructive human emotions.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "eng-2023-2",
+    year: 2023,
+    question: "How did the landlord system affect the peasants of Champaran?",
+    answer: "The landlord (planter) system in Champaran forced peasants to cultivate indigo on 3/20th of their land and hand over the entire indigo harvest as rent to British planters. This was called the tinkathia system. When synthetic indigo was developed, planters wanted to release peasants from this obligation — but extracted large compensation payments (sharahabeshi). Peasants were illiterate and unaware of their rights, so they suffered silently. Gandhi's visit (1917) empowered them to resist: he conducted a detailed inquiry, challenged the system legally, and helped peasants get back a portion of the compensation. The episode showed how colonial economic systems stripped peasants of dignity and livelihood.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "eng-2023-3",
+    year: 2023,
+    question: "What is the theme of the story 'The Hack Driver'?",
+    answer: "The Hack Driver (by Sinclair Lewis) explores themes of deception, trust, and the narrator's naivety. The narrator (a young lawyer) is tricked by Bill (who is actually Oliver Lutkins, the man he is searching for) into spending an entire day fruitlessly searching for 'Lutkins'. The story humorously highlights: (1) The tendency of city-educated people to be naive in the countryside. (2) How honest-looking, friendly people can be excellent deceivers. (3) The irony of the narrator praising the very person he was sent to serve a summons to. The story is a satire on blind trust and professional incompetence.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "eng-2022-1",
+    year: 2022,
+    question: "How is the poet's grandmother described in 'My Mother at Sixty-six'?",
+    answer: "In the poem by Kamala Das, the poet's mother (not grandmother) is described as: pale and wan like a 'late winter's moon', with an ashen face. The simile emphasises her old age, fading vitality and closeness to death. She sits beside her daughter in the car, mouth open, eyes closed — like a corpse. The poet feels familiar childhood fear of losing her mother.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "eng-2022-2",
+    year: 2022,
+    question: "What is the lesson that the story 'Nelson Mandela' teaches us?",
+    answer: "The chapter (excerpt from Mandela's autobiography 'Long Walk to Freedom') teaches us: (1) Courage and perseverance — Mandela spent 27 years in prison but never gave up. (2) That oppression always fails — apartheid, though powerful, was eventually defeated by the collective will of the people. (3) Forgiveness over revenge — Mandela chose reconciliation over bitterness after freedom. (4) Human dignity is non-negotiable — the struggle for equality is worth every sacrifice. (5) Leadership responsibility — freedom brings obligation to lift others. Mandela's inauguration as President marked the birth of a 'rainbow nation'.",
+    marks: 3,
+    type: "3mark"
+  },
+  {
+    id: "eng-2022-3",
+    year: 2022,
+    question: "Describe the character of Bholi in the story 'Bholi'.",
+    answer: "Bholi (Sulekha) initially appears as a simple, stammering girl who is considered the 'dullest' child in the family because she fell from a cot as a baby and suffered brain damage. She also has pockmarks from smallpox. Her parents plan to marry her off to an old widower in exchange for no dowry, thinking no one else would marry her. However, education transforms Bholi: (1) Her teacher encourages her, builds her confidence, and treats her with respect. (2) She develops self-respect and courage. (3) On her wedding day, she boldly refuses to marry a greedy groom who demands extra dowry. Her transformation from a timid, neglected girl to a confident, self-respecting woman makes her a symbol of women's empowerment through education.",
+    marks: 5,
+    type: "5mark"
+  },
+  {
+    id: "eng-2021-1",
+    year: 2021,
+    question: "Why was the young seagull afraid to fly in the beginning?",
+    answer: "The young seagull was afraid to fly because he feared that his wings would not support him over the vast sea and he might fall into the water.",
+    marks: 2,
+    type: "2mark"
+  },
+  {
+    id: "eng-2021-2",
+    year: 2021,
+    question: "What is the central idea of the poem 'Dust of Snow'?",
+    answer: "'Dust of Snow' by Robert Frost conveys that small, unexpected moments in nature can completely change our mood and outlook. A crow shaking snow from a hemlock tree onto the poet's coat jolts him out of his bad mood and brings him joy. The central idea is: nature has the power to lift our spirits and remind us that even a difficult day is not entirely lost. The choice of a crow (omen of bad luck) and hemlock (a poisonous plant) adds irony — even from seemingly negative symbols, positive transformation can come.",
+    marks: 2,
+    type: "2mark"
+  }
+];
+const pyqSubjects = [
+  {
+    id: "science",
+    label: "Science",
+    slug: "science",
+    color: "neon-green",
+    questions: scienceQuestions,
+    metaTitle: "Class 10 Science PYQ 2023 — CBSE Previous Year Questions",
+    metaDescription: "Free Class 10 Science CBSE Previous Year Questions 2021-2023 with detailed answers. Covers Light, Electricity, Life Processes, Chemical Reactions & more.",
+    keywords: [
+      "class 10 science PYQ",
+      "CBSE class 10 science previous year questions",
+      "class 10 science 2023 paper",
+      "class 10 science important questions",
+      "NCERT class 10 science questions"
+    ],
+    h1: "CBSE Class 10 Science Previous Year Questions (2021–2023) — Important Questions & Answers"
+  },
+  {
+    id: "maths",
+    label: "Mathematics",
+    slug: "maths",
+    color: "neon-blue",
+    questions: mathsQuestions,
+    metaTitle: "Class 10 Maths PYQ 2023 — CBSE Previous Year Questions with Solutions",
+    metaDescription: "Free Class 10 Maths CBSE Previous Year Questions 2021-2023 with step-by-step solutions. HCF LCM, Quadratics, Probability, Trigonometry, Arithmetic Progressions.",
+    keywords: [
+      "class 10 maths PYQ",
+      "CBSE class 10 maths previous year questions",
+      "class 10 maths 2023 solutions",
+      "class 10 maths important questions",
+      "NCERT class 10 maths board questions"
+    ],
+    h1: "CBSE Class 10 Maths Previous Year Questions (2021–2023) — Solutions & Answers"
+  },
+  {
+    id: "social-science",
+    label: "Social Science",
+    slug: "social-science",
+    color: "neon-amber",
+    questions: sstQuestions,
+    metaTitle: "Class 10 SST PYQ 2023 — CBSE Social Science Previous Year Questions",
+    metaDescription: "Free Class 10 Social Science CBSE Previous Year Questions 2021-2023 with answers. History, Geography, Civics & Economics — all chapters covered.",
+    keywords: [
+      "class 10 social science PYQ",
+      "CBSE class 10 SST previous year questions",
+      "class 10 history geography civics questions",
+      "class 10 social science 2023 paper",
+      "NCERT class 10 social science important questions"
+    ],
+    h1: "CBSE Class 10 Social Science Previous Year Questions (2021–2023)"
+  },
+  {
+    id: "english",
+    label: "English",
+    slug: "english",
+    color: "neon-purple",
+    questions: englishQuestions,
+    metaTitle: "Class 10 English PYQ 2023 — CBSE Previous Year Questions",
+    metaDescription: "Free Class 10 English CBSE Previous Year Questions 2021-2023 with answers. First Flight, Footprints Without Feet — prose and poetry questions explained.",
+    keywords: [
+      "class 10 english PYQ",
+      "CBSE class 10 english previous year questions",
+      "class 10 english 2023 board paper",
+      "first flight footprints without feet questions",
+      "NCERT class 10 english important questions"
+    ],
+    h1: "CBSE Class 10 English Previous Year Questions (2021–2023) with Answers"
+  }
+];
+function getPYQBySlug(slug) {
+  return pyqSubjects.find((s) => s.slug === slug);
+}
+export {
+  getPYQBySlug,
+  pyqSubjects
+};

@@ -12,6 +12,7 @@ export interface BlogPost {
   readTime: number; // minutes
   publishedAt: string;
   keywords: string[];
+  heroImage?: string;
   content: BlogSection[];
 }
 
@@ -1928,6 +1929,1145 @@ export const blogPosts: BlogPost[] = [
           "From which part of the plant do we get mustard oil?",
           "Where do bees collect honey from?",
           "What are ingredients? Give an example.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-10-science-chapter-1-chemical-reactions-and-equations",
+    title:
+      "NCERT Class 10 Science Chapter 1 — Chemical Reactions and Equations",
+    metaTitle:
+      "Chemical Reactions and Equations Class 10 Notes | NCERT Science Ch 1",
+    metaDescription:
+      "Easy notes for NCERT Class 10 Science Chapter 1 Chemical Reactions and Equations — types of reactions, balancing equations, examples and MCQs.",
+    excerpt:
+      "Complete notes for Class 10 Science Chapter 1 with types of chemical reactions, balancing equations, important formulas, and exam questions.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 7,
+    publishedAt: "2026-03-01",
+    keywords: [
+      "chemical reactions class 10",
+      "NCERT class 10 science chapter 1",
+      "balancing chemical equations",
+      "types of chemical reactions CBSE",
+    ],
+    heroImage: "/assets/generated/blog-chemical-reactions.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 10 Science Chapter 1 — Chemical Reactions and Equations — is one of the most scoring chapters in the CBSE Board exam. This chapter introduces you to what chemical reactions are, how to represent them as equations, and the different types of reactions. Understanding this chapter well will help you score full marks in related questions.",
+      },
+      { type: "h2", heading: "What is a Chemical Reaction?" },
+      {
+        type: "p",
+        text: "A chemical reaction is a process in which one or more substances (called reactants) are converted into new substances (called products) with different properties. Indicators of a chemical reaction include: change in colour, evolution of gas, change in temperature, formation of precipitate, and change in smell.",
+      },
+      { type: "h2", heading: "Types of Chemical Reactions — Summary Table" },
+      {
+        type: "table",
+        headers: ["Type", "Description", "Example"],
+        rows: [
+          {
+            cells: [
+              "Combination",
+              "Two or more substances combine to form one product",
+              "2Mg + O₂ → 2MgO",
+            ],
+          },
+          {
+            cells: [
+              "Decomposition",
+              "One reactant breaks into two or more products",
+              "2H₂O → 2H₂ + O₂",
+            ],
+          },
+          {
+            cells: [
+              "Displacement",
+              "One element displaces another from a compound",
+              "Fe + CuSO₄ → FeSO₄ + Cu",
+            ],
+          },
+          {
+            cells: [
+              "Double Displacement",
+              "Exchange of ions between two compounds",
+              "NaCl + AgNO₃ → AgCl + NaNO₃",
+            ],
+          },
+          {
+            cells: [
+              "Oxidation-Reduction",
+              "Transfer of oxygen/electrons between reactants",
+              "CuO + H₂ → Cu + H₂O",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "How to Balance a Chemical Equation" },
+      {
+        type: "ol",
+        items: [
+          "Write the unbalanced equation with correct formulae.",
+          "Count atoms of each element on both sides.",
+          "Add coefficients (whole numbers) to balance atoms.",
+          "Verify — atoms on left must equal atoms on right.",
+          "Write the final balanced equation with state symbols.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Memory trick: OIL RIG — Oxidation Is Loss (of electrons), Reduction Is Gain (of electrons).",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "What happens when iron reacts with copper sulphate solution? Write the balanced equation.",
+          "Differentiate between oxidation and reduction with examples.",
+          "Why does a silver spoon turn black when kept in air for a long time?",
+          "What is rancidity? How can it be prevented?",
+          "Define corrosion. Give two methods to prevent it.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-9-maths-chapter-1-number-systems-notes",
+    title: "NCERT Class 9 Maths Chapter 1 — Number Systems Notes and MCQs",
+    metaTitle:
+      "Number Systems Class 9 Notes | NCERT Maths Chapter 1 Easy Guide",
+    metaDescription:
+      "Free notes for NCERT Class 9 Maths Chapter 1 Number Systems — natural numbers, integers, rational and irrational numbers, real numbers with examples.",
+    excerpt:
+      "Clear, exam-focused notes on Class 9 Maths Number Systems — covering all number types, the real number line, and important MCQs.",
+    category: "Mathematics",
+    classTag: "Class 9",
+    subject: "Mathematics",
+    readTime: 6,
+    publishedAt: "2026-03-02",
+    keywords: [
+      "number systems class 9",
+      "NCERT class 9 maths chapter 1",
+      "rational irrational numbers class 9",
+      "real numbers notes",
+    ],
+    heroImage: "/assets/generated/blog-number-systems.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 9 Maths Chapter 1 — Number Systems — forms the foundation of all higher mathematics. This chapter explains the different categories of numbers, their properties, and how they relate to each other on the number line. Mastering this chapter is essential for scoring well in board exams and competitive exams like JEE.",
+      },
+      { type: "h2", heading: "Types of Numbers — Quick Reference Table" },
+      {
+        type: "table",
+        headers: ["Type", "Symbol", "Description", "Example"],
+        rows: [
+          {
+            cells: [
+              "Natural Numbers",
+              "N",
+              "Counting numbers starting from 1",
+              "1, 2, 3, 100",
+            ],
+          },
+          {
+            cells: [
+              "Whole Numbers",
+              "W",
+              "Natural numbers including 0",
+              "0, 1, 2, 3",
+            ],
+          },
+          {
+            cells: [
+              "Integers",
+              "Z",
+              "Whole numbers plus negative numbers",
+              "-3, -2, 0, 4",
+            ],
+          },
+          {
+            cells: [
+              "Rational Numbers",
+              "Q",
+              "Numbers of form p/q where q ≠ 0",
+              "1/2, -3/4, 5",
+            ],
+          },
+          {
+            cells: [
+              "Irrational Numbers",
+              "–",
+              "Non-terminating, non-repeating decimals",
+              "√2, π, √3",
+            ],
+          },
+          {
+            cells: [
+              "Real Numbers",
+              "R",
+              "All rational + irrational numbers",
+              "Any number on number line",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Key Properties" },
+      {
+        type: "ul",
+        items: [
+          "Every natural number is a whole number, but not every whole number is a natural number.",
+          "Every rational number can be expressed as a terminating or repeating decimal.",
+          "√2, √3, √5 are irrational — they cannot be expressed as p/q.",
+          "The sum of a rational and irrational number is always irrational.",
+          "Between any two rational numbers there are infinitely many rational numbers.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "To check if a number is rational: try expressing it as p/q. If you cannot, it is irrational. Also, all perfect square roots (√4=2, √9=3) are rational.",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "Classify the following: 2/3, √5, -7, 0, π, 1.333...",
+          "Prove that √2 is irrational.",
+          "Find three rational numbers between 1/3 and 1/2.",
+          "Represent √3 on the number line.",
+          "Simplify: (√3 + √2)(√3 - √2)",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-8-science-chapter-1-crop-production-and-management",
+    title:
+      "NCERT Class 8 Science Chapter 1 — Crop Production and Management Notes",
+    metaTitle:
+      "Crop Production and Management Class 8 Notes | NCERT Science Ch 1",
+    metaDescription:
+      "Easy notes for NCERT Class 8 Science Chapter 1 Crop Production and Management — types of crops, agricultural practices, irrigation methods and more.",
+    excerpt:
+      "Complete study notes for Class 8 Science Chapter 1 covering types of crops, agricultural practices, tools, and exam-important questions.",
+    category: "Science",
+    classTag: "Class 8",
+    subject: "Science",
+    readTime: 6,
+    publishedAt: "2026-03-03",
+    keywords: [
+      "crop production class 8",
+      "NCERT class 8 science chapter 1",
+      "agricultural practices class 8",
+      "kharif rabi crops",
+    ],
+    heroImage: "/assets/generated/blog-crop-production.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 8 Science Chapter 1 — Crop Production and Management — covers the basics of agriculture in India. This chapter is very scoring because the questions are straightforward and based on definitions, types, and comparisons. Understanding how crops are grown, irrigated, and protected from pests is the core of this chapter.",
+      },
+      { type: "h2", heading: "Kharif vs Rabi Crops — Comparison Table" },
+      {
+        type: "table",
+        headers: ["Feature", "Kharif Crops", "Rabi Crops"],
+        rows: [
+          {
+            cells: [
+              "Season",
+              "Sown in summer (June-July)",
+              "Sown in winter (October-November)",
+            ],
+          },
+          { cells: ["Harvested", "September - October", "March - April"] },
+          {
+            cells: [
+              "Water Needed",
+              "High (monsoon rain)",
+              "Low (cool weather)",
+            ],
+          },
+          {
+            cells: [
+              "Examples",
+              "Rice, Maize, Cotton, Soybean",
+              "Wheat, Gram, Mustard, Peas",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Basic Practices of Crop Production" },
+      {
+        type: "ol",
+        items: [
+          "Preparation of soil — ploughing, tilling to loosen soil and add nutrients.",
+          "Sowing — selecting good quality seeds and sowing at correct depth.",
+          "Adding manure and fertilisers — to provide nutrients like nitrogen, phosphorus, potassium.",
+          "Irrigation — supplying water to crops. Methods: canal, well, drip, sprinkler.",
+          "Protection from weeds — removing weeds (unwanted plants) by weeding or herbicides.",
+          "Harvesting — cutting mature crop using sickle or harvesting machines.",
+          "Storage — storing grains in silos or gunny bags to prevent pest damage.",
+        ],
+      },
+      { type: "h2", heading: "Types of Irrigation" },
+      {
+        type: "table",
+        headers: ["Method", "How It Works", "Best For"],
+        rows: [
+          {
+            cells: [
+              "Moat (Pulley system)",
+              "Manually pulling water from well",
+              "Small farms",
+            ],
+          },
+          {
+            cells: [
+              "Chain pump",
+              "Chain with buckets draws water",
+              "Wells and rivers",
+            ],
+          },
+          {
+            cells: [
+              "Drip irrigation",
+              "Water drips directly to roots through pipes",
+              "Water-scarce areas, vegetables",
+            ],
+          },
+          {
+            cells: [
+              "Sprinkler system",
+              "Water sprayed like rain through pipes",
+              "Lawns, large farms",
+            ],
+          },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Drip irrigation is the most water-efficient method and is commonly asked in exams.",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "What are Kharif and Rabi crops? Give two examples of each.",
+          "What is irrigation? Name any two methods of irrigation.",
+          "Differentiate between manure and fertilisers.",
+          "What are weeds? How can we control them?",
+          "What is crop rotation? What are its benefits?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-6-history-chapter-1-what-where-how-and-when",
+    title: "NCERT Class 6 History Chapter 1 — What, Where, How and When?",
+    metaTitle:
+      "Class 6 History Chapter 1 Notes | What Where How and When NCERT",
+    metaDescription:
+      "Easy notes for NCERT Class 6 History Chapter 1 What Where How and When — sources of history, past timeline, important dates and exam questions.",
+    excerpt:
+      "Simple and clear notes for Class 6 History Chapter 1 covering sources of history, how historians learn about the past, and key exam questions.",
+    category: "Social Science",
+    classTag: "Class 6",
+    subject: "History",
+    readTime: 5,
+    publishedAt: "2026-03-04",
+    keywords: [
+      "class 6 history chapter 1",
+      "NCERT class 6 history notes",
+      "what where how and when class 6",
+      "sources of history class 6",
+    ],
+    heroImage: "/assets/generated/blog-history-class6.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 6 History Chapter 1 — What, Where, How and When? — introduces students to the study of history. This chapter explains how historians find out about the past using different sources, what dates and timelines mean, and how India's long and rich history is organized. It is a short chapter but very important for building the right foundation.",
+      },
+      { type: "h2", heading: "Key Terms" },
+      {
+        type: "table",
+        headers: ["Term", "Meaning"],
+        rows: [
+          {
+            cells: [
+              "BCE",
+              "Before Common Era (years counted backwards from year 1)",
+            ],
+          },
+          { cells: ["CE", "Common Era (years counted from year 1 onwards)"] },
+          {
+            cells: [
+              "Manuscript",
+              "Handwritten books on palm leaves or birch bark",
+            ],
+          },
+          {
+            cells: [
+              "Inscription",
+              "Writing on hard surfaces like stone or metal",
+            ],
+          },
+          {
+            cells: [
+              "Archaeology",
+              "Study of objects and remains from the past",
+            ],
+          },
+          {
+            cells: [
+              "Historian",
+              "A person who studies and writes about history",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Sources of History" },
+      {
+        type: "ul",
+        items: [
+          "Manuscripts — written on palm leaves or tree bark, usually religious or scientific texts.",
+          "Inscriptions — carved on stone pillars, copper plates, or temple walls.",
+          "Coins — tell us about rulers, periods, and trade.",
+          "Buildings and monuments — give clues about architecture and society.",
+          "Archaeological finds — pots, tools, bones, and other buried objects.",
+        ],
+      },
+      { type: "h2", heading: "Important Dates and Places" },
+      {
+        type: "table",
+        headers: ["River / Region", "Significance"],
+        rows: [
+          {
+            cells: [
+              "Narmada Valley",
+              "Home to hunter-gatherers for hundreds of thousands of years",
+            ],
+          },
+          {
+            cells: [
+              "Sulaiman and Kirthar Hills",
+              "Where crops were first grown around 8000 years ago",
+            ],
+          },
+          {
+            cells: [
+              "Garo Hills",
+              "Another early farming region in northeastern India",
+            ],
+          },
+          {
+            cells: [
+              "Vindhyas",
+              "Source of stone used for tools by early humans",
+            ],
+          },
+          {
+            cells: [
+              "Magadha",
+              "Powerful kingdom about 2500 years ago (present Bihar)",
+            ],
+          },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Remember: BCE dates get larger as you go further into the past (500 BCE is older than 200 BCE). CE dates get larger as time goes forward.",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "What is the difference between manuscripts and inscriptions?",
+          "What is archaeology? How does it help us learn about the past?",
+          "Name two places where agriculture started in India.",
+          "What do BCE and CE stand for?",
+          "Why do historians use different dates and timelines?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-7-science-chapter-1-nutrition-in-plants-notes",
+    title: "NCERT Class 7 Science Chapter 1 — Nutrition in Plants Notes",
+    metaTitle:
+      "Nutrition in Plants Class 7 Notes | NCERT Science Chapter 1 Easy Guide",
+    metaDescription:
+      "Free notes for NCERT Class 7 Science Chapter 1 Nutrition in Plants — photosynthesis, modes of nutrition, parasitic plants, and exam questions.",
+    excerpt:
+      "Clear notes on Class 7 Science Chapter 1 covering photosynthesis, autotrophs, heterotrophs, parasitic and insectivorous plants.",
+    category: "Science",
+    classTag: "Class 7",
+    subject: "Science",
+    readTime: 6,
+    publishedAt: "2026-03-05",
+    keywords: [
+      "nutrition in plants class 7",
+      "NCERT class 7 science chapter 1",
+      "photosynthesis class 7",
+      "modes of nutrition class 7",
+    ],
+    heroImage: "/assets/generated/blog-nutrition-plants.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 7 Science Chapter 1 — Nutrition in Plants — is a foundational chapter in biology. It explains how plants make their own food through photosynthesis, and how some plants have other special ways of getting nutrients. This is one of the easiest chapters to score full marks in, as the concepts are clear and factual.",
+      },
+      { type: "h2", heading: "Photosynthesis — The Process" },
+      {
+        type: "p",
+        text: "Photosynthesis is the process by which green plants make their own food using sunlight, carbon dioxide from air, and water from soil. The chlorophyll in leaves absorbs sunlight to power this reaction.",
+      },
+      {
+        type: "note",
+        text: "Photosynthesis equation: 6CO₂ + 6H₂O + Sunlight → C₆H₁₂O₆ (Glucose) + 6O₂",
+      },
+      {
+        type: "h2",
+        heading: "Modes of Nutrition in Plants — Comparison Table",
+      },
+      {
+        type: "table",
+        headers: ["Mode", "Type", "How it gets food", "Example"],
+        rows: [
+          {
+            cells: [
+              "Autotrophic",
+              "Makes own food",
+              "Photosynthesis using sunlight + CO₂ + water",
+              "All green plants",
+            ],
+          },
+          {
+            cells: [
+              "Parasitic",
+              "Gets food from host",
+              "Attaches to host plant and absorbs nutrients",
+              "Cuscuta (Amarbel)",
+            ],
+          },
+          {
+            cells: [
+              "Insectivorous",
+              "Traps and digests insects",
+              "Special leaves trap insects for nitrogen",
+              "Venus flytrap, Pitcher plant",
+            ],
+          },
+          {
+            cells: [
+              "Saprotrophic",
+              "Feeds on dead matter",
+              "Absorbs nutrients from decaying organic matter",
+              "Mushroom, Bread mould",
+            ],
+          },
+          {
+            cells: [
+              "Symbiotic",
+              "Mutual benefit with another organism",
+              "Both organisms benefit from each other",
+              "Lichens (fungi + algae)",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Parts of a Leaf and Their Role in Photosynthesis",
+      },
+      {
+        type: "ul",
+        items: [
+          "Chloroplast — contains chlorophyll pigment that absorbs sunlight.",
+          "Stomata — tiny pores on leaf surface that allow CO₂ to enter and O₂ to exit.",
+          "Veins — carry water from roots to leaf and food from leaf to other parts.",
+          "Epidermis — outer protective layer of the leaf.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Cuscuta (Amarbel) is a common parasitic plant example in exams. It has no chlorophyll and wraps around host plants to suck nutrients.",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "What is photosynthesis? Write the equation for photosynthesis.",
+          "What is the role of chlorophyll in photosynthesis?",
+          "What are autotrophs and heterotrophs? Give examples.",
+          "What is a parasitic plant? Give one example.",
+          "How do insectivorous plants get their nutrition?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-score-90-plus-in-cbse-class-10-science",
+    title: "How to Score 90+ in CBSE Class 10 Science — Expert Study Tips",
+    metaTitle: "Score 90+ in CBSE Class 10 Science | Best Study Tips 2025",
+    metaDescription:
+      "Proven study tips and chapter-wise strategy to score 90 or above in CBSE Class 10 Science board exam — with time table, high-weightage topics, and revision tricks.",
+    excerpt:
+      "A complete guide to scoring 90+ marks in CBSE Class 10 Science — covering high-weightage chapters, study schedule, and last-minute revision tips.",
+    category: "Study Tips",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 8,
+    publishedAt: "2026-03-06",
+    keywords: [
+      "score 90 class 10 science",
+      "CBSE class 10 science tips",
+      "how to study class 10 science",
+      "board exam preparation class 10",
+    ],
+    heroImage: "/assets/generated/blog-study-tips.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "Scoring 90 or above in CBSE Class 10 Science is absolutely achievable with the right strategy. The secret is not studying more — it is studying smarter. This guide covers which chapters to prioritize, how to structure your study sessions, and how to avoid common mistakes that cost students easy marks.",
+      },
+      { type: "h2", heading: "Chapter-wise Marks Weightage (CBSE 2024-25)" },
+      {
+        type: "table",
+        headers: ["Unit", "Topics", "Marks"],
+        rows: [
+          {
+            cells: [
+              "Chemical Substances",
+              "Chapters 1-4 (Reactions, Acids, Metals, Carbon)",
+              "25",
+            ],
+          },
+          {
+            cells: [
+              "World of Living",
+              "Chapters 6-9 (Life processes, Reproduction, Heredity)",
+              "23",
+            ],
+          },
+          {
+            cells: [
+              "Natural Phenomena",
+              "Chapters 10-11 (Light, Human eye)",
+              "12",
+            ],
+          },
+          {
+            cells: [
+              "Effects of Current",
+              "Chapters 12-13 (Electricity, Magnetic effects)",
+              "13",
+            ],
+          },
+          {
+            cells: [
+              "Natural Resources",
+              "Chapter 15-16 (Environment, Management)",
+              "7",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Top 5 High-Scoring Chapters" },
+      {
+        type: "ol",
+        items: [
+          "Chemical Reactions and Equations — formulaic, predictable questions, full marks possible.",
+          "Life Processes — diagrams of digestive, respiratory, circulatory systems are always asked.",
+          "Heredity and Evolution — Mendel's laws and inheritance questions are straightforward.",
+          "Electricity — Ohm's law numerical problems are easy to crack with formula practice.",
+          "Light — reflection and refraction numericals follow standard patterns.",
+        ],
+      },
+      { type: "h2", heading: "3-Month Study Plan" },
+      {
+        type: "table",
+        headers: ["Month", "Focus", "Goal"],
+        rows: [
+          {
+            cells: [
+              "Month 1",
+              "Read all NCERT chapters once, make short notes",
+              "Complete syllabus overview",
+            ],
+          },
+          {
+            cells: [
+              "Month 2",
+              "Solve NCERT exercises + previous year questions for each chapter",
+              "Practice application",
+            ],
+          },
+          {
+            cells: [
+              "Month 3",
+              "Full mock tests, revise formulas and diagrams daily",
+              "Speed + accuracy",
+            ],
+          },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Always draw and label diagrams neatly. Examiners award partial marks for correct diagrams even if the written answer is incomplete. Practice diagrams daily for 10 minutes.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Skipping NCERT in-text exercises — 30% of board questions come directly from them.",
+          "Not learning chemical equations — balance and state symbols are often 1-2 mark questions.",
+          "Ignoring diagrams — missing a label can cost you 0.5 marks per label.",
+          "Not writing units in numerical answers — always write units like ohms, volts, metres.",
+          "Spending too long on one question — move on and return if stuck.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-10-maths-chapter-1-real-numbers-key-formulas",
+    title:
+      "NCERT Class 10 Maths Chapter 1 — Real Numbers Key Formulas and Notes",
+    metaTitle: "Real Numbers Class 10 Notes & Formulas | NCERT Maths Chapter 1",
+    metaDescription:
+      "Free notes for NCERT Class 10 Maths Chapter 1 Real Numbers — Euclid's division lemma, fundamental theorem of arithmetic, HCF, LCM formulas.",
+    excerpt:
+      "Key formulas, theorems, and solved examples for Class 10 Maths Real Numbers — Euclid's lemma, HCF, LCM, irrational numbers proof.",
+    category: "Mathematics",
+    classTag: "Class 10",
+    subject: "Mathematics",
+    readTime: 7,
+    publishedAt: "2026-03-07",
+    keywords: [
+      "real numbers class 10",
+      "NCERT class 10 maths chapter 1",
+      "Euclid division lemma",
+      "HCF LCM class 10",
+    ],
+    heroImage: "/assets/generated/blog-real-numbers.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 10 Maths Chapter 1 — Real Numbers — is a high-weightage chapter that covers important concepts like Euclid's Division Lemma, the Fundamental Theorem of Arithmetic, and proving irrationality of numbers. This chapter is entirely based on theorems and their applications, making it very formula-friendly and predictable for board exams.",
+      },
+      { type: "h2", heading: "Key Formulas at a Glance" },
+      {
+        type: "table",
+        headers: ["Formula / Theorem", "Statement"],
+        rows: [
+          {
+            cells: [
+              "Euclid's Division Lemma",
+              "For integers a and b (b > 0): a = bq + r where 0 ≤ r < b",
+            ],
+          },
+          {
+            cells: [
+              "Fundamental Theorem of Arithmetic",
+              "Every integer > 1 is either prime or a unique product of primes",
+            ],
+          },
+          { cells: ["HCF × LCM Formula", "HCF(a,b) × LCM(a,b) = a × b"] },
+          {
+            cells: [
+              "Irrational Number Proof",
+              "If p/q in lowest terms and q has factors other than 2 and 5, decimal is non-terminating",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "How to Find HCF Using Euclid's Algorithm" },
+      {
+        type: "ol",
+        items: [
+          "Apply a = bq + r to find the first remainder.",
+          "Replace a with b and b with r, repeat.",
+          "Continue until remainder = 0.",
+          "The last non-zero divisor is the HCF.",
+          "Example: HCF(26, 91) → 91 = 26×3 + 13 → 26 = 13×2 + 0 → HCF = 13",
+        ],
+      },
+      { type: "h2", heading: "Prime Factorisation Method for HCF and LCM" },
+      {
+        type: "table",
+        headers: [
+          "Number",
+          "Prime Factorisation",
+          "HCF (common, lowest power)",
+          "LCM (all, highest power)",
+        ],
+        rows: [
+          {
+            cells: [
+              "72",
+              "2³ × 3²",
+              "HCF(72,108) = 2² × 3² = 36",
+              "LCM(72,108) = 2³ × 3³ = 216",
+            ],
+          },
+          { cells: ["108", "2² × 3³", "", ""] },
+        ],
+      },
+      {
+        type: "tip",
+        text: "For board exams: the most common question type is 'Find HCF and LCM using prime factorisation'. Always write the factorisation step — it earns marks even if the final answer is wrong.",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "Use Euclid's algorithm to find HCF of 135 and 225.",
+          "Prove that √3 is irrational.",
+          "Find the LCM and HCF of 12, 15 and 21 using prime factorisation.",
+          "Check whether 6ⁿ can end with the digit 0 for any natural number n.",
+          "The HCF of two numbers is 9 and their LCM is 2016. If one number is 54, find the other.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-way-to-study-ncert-for-upsc-beginners-guide",
+    title: "Best Way to Study NCERT for UPSC — Complete Beginners Guide",
+    metaTitle: "How to Study NCERT for UPSC | Best Strategy for Beginners 2025",
+    metaDescription:
+      "Learn the best way to read NCERT books for UPSC IAS preparation — which books to start from, reading order, notes strategy, and how many times to revise.",
+    excerpt:
+      "A complete guide for UPSC aspirants on which NCERT books to read, in what order, and how to make notes efficiently for IAS Prelims and Mains.",
+    category: "Study Tips",
+    classTag: "All Classes",
+    subject: "General",
+    readTime: 9,
+    publishedAt: "2026-03-08",
+    keywords: [
+      "NCERT for UPSC",
+      "how to study NCERT for IAS",
+      "NCERT books UPSC list",
+      "UPSC preparation NCERT",
+    ],
+    heroImage: "/assets/generated/blog-upsc-ncert.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT books are the backbone of UPSC IAS preparation. Every serious UPSC topper — including Rank 1 holders — recommends reading NCERTs thoroughly before moving to advanced books. But many beginners waste months reading the wrong books in the wrong order. This guide gives you the exact strategy used by toppers.",
+      },
+      { type: "h2", heading: "Why NCERT is Essential for UPSC" },
+      {
+        type: "ul",
+        items: [
+          "30-40% of UPSC Prelims GS Paper 1 questions are directly from NCERT books.",
+          "NCERTs build conceptual clarity that makes advanced books much easier to understand.",
+          "UPSC Mains answers become sharper when your fundamentals are NCERT-strong.",
+          "NCERT language is clear, concise, and exam-appropriate.",
+          "All UPSC toppers recommend NCERTs in their interviews and strategy posts.",
+        ],
+      },
+      { type: "h2", heading: "NCERT Reading Order for UPSC" },
+      {
+        type: "table",
+        headers: ["Subject", "Classes to Read", "Priority"],
+        rows: [
+          {
+            cells: [
+              "History (Ancient, Medieval, Modern)",
+              "Class 6-12",
+              "Very High",
+            ],
+          },
+          {
+            cells: [
+              "Geography (Physical, Social, Economic)",
+              "Class 6-12",
+              "Very High",
+            ],
+          },
+          { cells: ["Political Science / Civics", "Class 9-12", "High"] },
+          { cells: ["Economics", "Class 9-12", "High"] },
+          {
+            cells: [
+              "Science (Environment, Biology basics)",
+              "Class 6-10",
+              "Medium",
+            ],
+          },
+          { cells: ["Sociology", "Class 11-12", "Medium"] },
+        ],
+      },
+      { type: "h2", heading: "How to Read NCERTs Effectively" },
+      {
+        type: "ol",
+        items: [
+          "First reading: Read the full chapter without making notes. Just understand.",
+          "Second reading: Underline key facts, dates, names, concepts.",
+          "Third reading: Convert underlined points to short notes or mind maps.",
+          "Revision: Revise your notes (not the full book) before exams.",
+          "Target: Complete all NCERTs at least 3 times before Prelims.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Do NOT highlight everything. Only highlight facts that are unique and specific — like dates, names of acts, constitutional articles, and geographical facts. Over-highlighting defeats the purpose.",
+      },
+      {
+        type: "h2",
+        heading: "Common Mistakes UPSC Aspirants Make with NCERTs",
+      },
+      {
+        type: "ul",
+        items: [
+          "Reading advanced books (Spectrum, Laxmikanth) before NCERTs — this makes concepts harder to grasp.",
+          "Skipping Class 6-8 books thinking they are too basic — they are not. Many Prelims questions come from them.",
+          "Reading once and moving on — NCERTs need at least 3 readings to retain information.",
+          "Not connecting NCERT content to current affairs — UPSC always tests NCERTs in current affairs context.",
+          "Making very long notes that become impossible to revise.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ncert-class-5-evs-chapter-1-super-senses-notes",
+    title: "NCERT Class 5 EVS Chapter 1 — Super Senses Easy Notes",
+    metaTitle:
+      "Super Senses Class 5 EVS Notes | NCERT Chapter 1 Easy Explanation",
+    metaDescription:
+      "Free notes for NCERT Class 5 EVS Chapter 1 Super Senses — animals with special senses, how animals use senses for survival, and exam questions.",
+    excerpt:
+      "Simple and fun notes on Class 5 EVS Chapter 1 Super Senses — how animals like dogs, eagles, bats, and dogs use extraordinary senses.",
+    category: "Science",
+    classTag: "Class 5",
+    subject: "EVS",
+    readTime: 4,
+    publishedAt: "2026-03-09",
+    keywords: [
+      "super senses class 5",
+      "NCERT class 5 EVS chapter 1",
+      "animals super senses",
+      "EVS class 5 notes",
+    ],
+    heroImage: "/assets/generated/blog-super-senses.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "NCERT Class 5 EVS Chapter 1 — Super Senses — is a fascinating chapter about how animals have incredibly powerful senses that help them survive in nature. While humans have 5 senses, many animals have senses that are far superior. This chapter is fun to study and very easy to score marks in.",
+      },
+      { type: "h2", heading: "Animals and Their Super Senses" },
+      {
+        type: "table",
+        headers: ["Animal", "Super Sense", "How It Helps"],
+        rows: [
+          {
+            cells: [
+              "Dog",
+              "Smell (1000x stronger than humans)",
+              "Tracks other animals, finds food, detects danger",
+            ],
+          },
+          {
+            cells: [
+              "Eagle",
+              "Sight (8x sharper than humans)",
+              "Spots prey from very high altitude",
+            ],
+          },
+          {
+            cells: [
+              "Bat",
+              "Hearing / Echolocation (ultrasound)",
+              "Flies in complete darkness, catches insects",
+            ],
+          },
+          {
+            cells: [
+              "Cat",
+              "Night vision, whiskers",
+              "Hunts in darkness, senses nearby objects",
+            ],
+          },
+          {
+            cells: [
+              "Butterfly",
+              "Taste with feet",
+              "Detects if a surface has food before landing",
+            ],
+          },
+          {
+            cells: [
+              "Snake",
+              "Senses heat through pit organs",
+              "Detects warm-blooded prey in darkness",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "What is Echolocation?" },
+      {
+        type: "p",
+        text: "Bats make very high-pitched sounds (ultrasound) that humans cannot hear. These sounds bounce off objects and return to the bat's ears. By listening to the echoes, bats can tell exactly where objects are — even in complete darkness. This is called echolocation. Dolphins also use echolocation in water.",
+      },
+      { type: "h2", heading: "How Dogs Help Humans Using Their Nose" },
+      {
+        type: "ul",
+        items: [
+          "Police dogs track missing persons and criminals using scent trails.",
+          "Dogs can smell explosives, drugs, and contraband at airports.",
+          "Medical detection dogs can smell some diseases like cancer and diabetes.",
+          "Search and rescue dogs find people buried in rubble after earthquakes.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Fun fact for exams: Silkworm moths can smell their mate from 11 kilometres away! Their antennae are specially designed for this.",
+      },
+      { type: "h2", heading: "Important Exam Questions" },
+      {
+        type: "ol",
+        items: [
+          "What is echolocation? Which animals use it?",
+          "How does a dog use its sense of smell to help humans?",
+          "Name any two animals with exceptional eyesight.",
+          "What senses do cats have that help them hunt at night?",
+          "How do butterflies taste food differently from humans?",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "free-ncert-flashcards-class-9-science-chapter-wise",
+    title: "Free NCERT Flashcards for Class 9 Science — Chapter-wise Key Terms",
+    metaTitle: "NCERT Class 9 Science Flashcards | Free Chapter-wise Key Terms",
+    metaDescription:
+      "Free flashcards for NCERT Class 9 Science all chapters — key terms, definitions, and formulas for Biology, Chemistry, and Physics chapters.",
+    excerpt:
+      "Chapter-wise flashcard study guide for Class 9 Science covering key terms, formulas, and definitions from all 15 NCERT chapters.",
+    category: "Science",
+    classTag: "Class 9",
+    subject: "Science",
+    readTime: 8,
+    publishedAt: "2026-03-10",
+    keywords: [
+      "NCERT class 9 science flashcards",
+      "class 9 science key terms",
+      "NCERT class 9 revision",
+      "class 9 science important terms",
+    ],
+    heroImage: "/assets/generated/blog-science-flashcards.dim_1200x630.jpg",
+    content: [
+      {
+        type: "p",
+        text: "Flashcards are one of the most effective tools for revising Class 9 Science. Instead of re-reading full chapters, flashcards let you test yourself on key terms and definitions in seconds. This guide gives you the most important flashcard topics for every chapter of NCERT Class 9 Science.",
+      },
+      { type: "h2", heading: "Chapter-wise Key Flashcard Topics" },
+      {
+        type: "table",
+        headers: ["Chapter", "Top Flashcard Terms"],
+        rows: [
+          {
+            cells: [
+              "Ch 1: Matter in Our Surroundings",
+              "States of matter, sublimation, evaporation, latent heat, plasma",
+            ],
+          },
+          {
+            cells: [
+              "Ch 2: Is Matter Around Us Pure",
+              "Mixture, compound, solution, suspension, colloid, Tyndall effect",
+            ],
+          },
+          {
+            cells: [
+              "Ch 3: Atoms and Molecules",
+              "Dalton's theory, atomic mass, molecular mass, mole concept, Avogadro number",
+            ],
+          },
+          {
+            cells: [
+              "Ch 4: Structure of Atom",
+              "Bohr model, electron configuration, valency, isotopes, isobars",
+            ],
+          },
+          {
+            cells: [
+              "Ch 5: Fundamental Unit of Life",
+              "Cell, cell wall, cell membrane, nucleus, organelles, diffusion, osmosis",
+            ],
+          },
+          {
+            cells: [
+              "Ch 6: Tissues",
+              "Meristematic, permanent tissue, xylem, phloem, neurons, connective tissue",
+            ],
+          },
+          {
+            cells: [
+              "Ch 8: Motion",
+              "Distance, displacement, speed, velocity, acceleration, uniform motion",
+            ],
+          },
+          {
+            cells: [
+              "Ch 9: Force and Laws of Motion",
+              "Newton's 3 laws, inertia, momentum, impulse, conservation of momentum",
+            ],
+          },
+          {
+            cells: [
+              "Ch 10: Gravitation",
+              "Gravitational force, g value, free fall, thrust, pressure, Archimedes' principle",
+            ],
+          },
+          {
+            cells: [
+              "Ch 11: Work and Energy",
+              "Work, energy, power, kinetic energy, potential energy, law of conservation",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "High-Priority Formulas to Memorise" },
+      {
+        type: "table",
+        headers: ["Formula", "Chapter", "Used For"],
+        rows: [
+          {
+            cells: [
+              "v = u + at",
+              "Motion",
+              "Final velocity after acceleration",
+            ],
+          },
+          {
+            cells: [
+              "s = ut + ½at²",
+              "Motion",
+              "Distance covered during acceleration",
+            ],
+          },
+          { cells: ["F = ma", "Force", "Newton's second law"] },
+          { cells: ["KE = ½mv²", "Energy", "Kinetic energy of moving object"] },
+          { cells: ["PE = mgh", "Energy", "Potential energy due to height"] },
+          { cells: ["P = W/t", "Power", "Power = work done per unit time"] },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Use NCERT Bhaiya's interactive flashcard feature to test yourself on these terms. Spaced repetition — reviewing at increasing intervals — is proven to double long-term retention.",
+      },
+      { type: "h2", heading: "How to Use Flashcards Effectively" },
+      {
+        type: "ol",
+        items: [
+          "Go through all flashcards for a chapter right after reading it.",
+          "Mark cards you got wrong — review those the next day.",
+          "After 3 days, test yourself on the full chapter again.",
+          "One week before exams, do a full rapid-fire session across all chapters.",
+          "Focus extra time on formula cards — write the formula from memory, then check.",
         ],
       },
     ],

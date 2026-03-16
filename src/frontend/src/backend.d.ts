@@ -39,6 +39,20 @@ export interface UserProfile {
     createdAt: bigint;
     studentClass: string;
 }
+export interface SiteSettings {
+    announcement: string;
+    announcementEnabled: boolean;
+    featuredMessage: string;
+    lastUpdated: bigint;
+    updatedBy: string;
+}
+export interface UserWithRole {
+    principal: string;
+    displayName: string;
+    studentClass: string;
+    createdAt: bigint;
+    role: string;
+}
 export enum UserRole {
     admin = "admin",
     user = "user",
@@ -53,10 +67,23 @@ export interface backendInterface {
     getTopicById(id: bigint): Promise<Topic | null>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
+    isCallerOperator(): Promise<boolean>;
     markFlashcardMastered(userId: string, flashcardId: bigint): Promise<void>;
     saveCallerUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
     saveUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
     simulateAIContentGeneration(topicId: bigint, rawText: string): Promise<GeneratedContent>;
     submitQuizResult(userId: string, topicId: bigint, score: bigint): Promise<[bigint, bigint]>;
     addBlogXP(userId: string, xpAmount: bigint): Promise<bigint>;
+    // Role management
+    getCallerRole(): Promise<string>;
+    assignOperatorRole(user: Principal): Promise<void>;
+    dismissOperator(user: Principal): Promise<void>;
+    getAllOperators(): Promise<Array<string>>;
+    getAllUsersWithRoles(): Promise<Array<UserWithRole>>;
+    deleteUserProfile(user: Principal): Promise<void>;
+    // Site settings
+    getSiteSettings(): Promise<SiteSettings | null>;
+    updateSiteSettings(announcement: string, announcementEnabled: boolean, featuredMessage: string): Promise<SiteSettings>;
+    // Admin initialization
+    _initializeAccessControlWithSecret(secret: string): Promise<void>;
 }

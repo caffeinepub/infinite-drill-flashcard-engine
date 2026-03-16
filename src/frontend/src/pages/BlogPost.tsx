@@ -543,6 +543,18 @@ export default function BlogPost() {
           </div>
         </header>
 
+        {/* Hero Image */}
+        {post.heroImage && (
+          <div className="rounded-xl overflow-hidden mb-6 border border-border/30">
+            <img
+              src={post.heroImage}
+              alt={post.title}
+              className="w-full h-48 lg:h-64 object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+
         {/* Article Content with XP scroll milestones */}
         <article data-ocid="blog.article_content" className="prose-custom">
           {post.content.map((section, i) => {

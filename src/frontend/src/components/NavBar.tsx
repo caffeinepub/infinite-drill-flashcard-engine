@@ -4,17 +4,23 @@ import { cn } from "@/lib/utils";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   BookText,
+  Check,
+  Copy,
+  FileQuestion,
   FlaskConical,
   GraduationCap,
   Home,
   Library,
   LogOut,
   Moon,
+  Shield,
   Sun,
   Trophy,
   Zap,
 } from "lucide-react";
+import { useState } from "react";
 import logoImg from "/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png";
+import { useAdminRole } from "../hooks/useAdminRole";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useUserProfile } from "../hooks/useUserProfile";
 import { useTheme } from "./ThemeProvider";
@@ -23,8 +29,20 @@ export function NavBar() {
   const { theme, setTheme } = useTheme();
   const routerState = useRouterState();
   const pathname = routerState.location.pathname;
-  const { clear } = useInternetIdentity();
+  const { clear, identity } = useInternetIdentity();
   const { profile } = useUserProfile();
+  const { isAdmin, isOperator } = useAdminRole();
+  const [copied, setCopied] = useState(false);
+
+  const principal = identity?.getPrincipal().toText();
+
+  function handleCopyPrincipal() {
+    if (!principal) return;
+    navigator.clipboard.writeText(principal).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home, ocid: "nav.home_link" },
@@ -51,6 +69,12 @@ export function NavBar() {
       label: "Blog",
       icon: BookText,
       ocid: "nav.blog_link",
+    },
+    {
+      href: "/pyq",
+      label: "PYQ",
+      icon: FileQuestion,
+      ocid: "nav.pyq_link",
     },
     {
       href: "/generate",
@@ -107,6 +131,21 @@ export function NavBar() {
               </Link>
             );
           })}
+          {(isAdmin || isOperator) && (
+            <Link
+              to="/admin"
+              data-ocid="nav.admin_link"
+              className={cn(
+                "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                pathname === "/admin"
+                  ? "bg-neon-amber/15 text-neon-amber"
+                  : "text-neon-amber/70 hover:text-neon-amber hover:bg-neon-amber/10",
+              )}
+            >
+              <Shield size={15} />
+              Admin
+            </Link>
+          )}
         </nav>
 
         {/* Right side */}
@@ -121,6 +160,37 @@ export function NavBar() {
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
+
+          {/* Copy Principal ID button — visible when logged in */}
+          {principal && (
+            <button
+              type="button"
+              onClick={handleCopyPrincipal}
+              data-ocid="nav.copy_principal_button"
+              title={`Principal ID: ${principal}`}
+              className={cn(
+                "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold border transition-all duration-200",
+                copied
+                  ? "bg-green-500/15 text-green-400 border-green-500/40"
+                  : "bg-neon-amber/10 text-neon-amber border-neon-amber/30 hover:bg-neon-amber/20 hover:border-neon-amber/60",
+              )}
+              aria-label="Copy Principal ID"
+            >
+              {copied ? (
+                <>
+                  <Check size={12} />
+                  <span className="hidden sm:inline">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy size={12} />
+                  <span className="hidden sm:inline">
+                    {principal.slice(0, 8)}…
+                  </span>
+                </>
+              )}
+            </button>
+          )}
 
           {/* User profile badge */}
           {profile && (
@@ -180,6 +250,21 @@ export function NavBar() {
             </Link>
           );
         })}
+        {(isAdmin || isOperator) && (
+          <Link
+            to="/admin"
+            data-ocid="nav.admin_link"
+            className={cn(
+              "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 shrink-0",
+              pathname === "/admin"
+                ? "bg-neon-amber/15 text-neon-amber"
+                : "text-neon-amber/70 hover:text-neon-amber hover:bg-neon-amber/10",
+            )}
+          >
+            <Shield size={13} />
+            Admin
+          </Link>
+        )}
       </nav>
     </header>
   );

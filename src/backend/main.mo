@@ -91,6 +91,41 @@ actor {
     createdAt : Int;
   };
 
+  type SiteSettings = {
+    announcement : Text;
+    announcementEnabled : Bool;
+    featuredMessage : Text;
+    lastUpdated : Int;
+    updatedBy : Text;
+  };
+
+  type UserWithRole = {
+    principal : Text;
+    displayName : Text;
+    studentClass : Text;
+    createdAt : Int;
+    role : Text;
+  };
+
+  // ─── Stable storage arrays (survive upgrades) ────────────────────────────
+  stable var userProfileEntries    : [(Principal, UserProfile)]    = [];
+  stable var userProgressEntries   : [(Text, UserProgress)]        = [];
+  stable var leaderboardEntries    : [(Text, LeaderboardEntry)]    = [];
+  stable var operatorEntries       : [(Principal, Bool)]           = [];
+  stable var siteSettingsEntries   : [(Text, SiteSettings)]        = [];
+  stable var topicEntries          : [(Nat, Topic)]                = [];
+
+  // ─── Working memory maps (rebuilt from stable arrays on upgrade) ─────────
+  var topics            = Map.empty<Nat, Topic>();
+  var questions         = Map.empty<Nat, MCQQuestion>();
+  var flashcards        = Map.empty<Nat, Flashcard>();
+  var cheatsheets       = Map.empty<Nat, CheatSheetEntry>();
+  var userProgress      = Map.empty<Text, UserProgress>();
+  var leaderboard       = Map.empty<Text, LeaderboardEntry>();
+  var userProfiles      = Map.empty<Principal, UserProfile>();
+  var operators         = Map.empty<Principal, Bool>();
+  var siteSettingsStore = Map.empty<Text, SiteSettings>();
+
   // Comparison module for LeaderboardEntry
   module LeaderboardEntry {
     public func compareByXP(a : LeaderboardEntry, b : LeaderboardEntry) : Order.Order {
@@ -98,14 +133,18 @@ actor {
     };
   };
 
-  // Storage
-  let topics = Map.empty<Nat, Topic>();
-  let questions = Map.empty<Nat, MCQQuestion>();
-  let flashcards = Map.empty<Nat, Flashcard>();
-  let cheatsheets = Map.empty<Nat, CheatSheetEntry>();
-  let userProgress = Map.empty<Text, UserProgress>();
-  let leaderboard = Map.empty<Text, LeaderboardEntry>();
-  let userProfiles = Map.empty<Principal, UserProfile>();
+  // Helper: check if a principal is an operator
+  func isOperator(p : Principal) : Bool {
+    switch (operators.get(p)) {
+      case (?true) { true };
+      case (_) { false };
+    };
+  };
+
+  // Helper: check if caller has admin or operator permission
+  func isAdminOrOperator(p : Principal) : Bool {
+    AccessControl.isAdmin(accessControlState, p) or isOperator(p);
+  };
 
   // Helper: compute level from XP
   func xpToLevel(xp : Nat) : Nat {
@@ -123,53 +162,95 @@ actor {
     badges.toArray();
   };
 
-  // System Initialization — topics only, NO fake leaderboard entries
-  system func postupgrade() {
-    topics.add(
-      1,
-      {
-        id = 1;
-        board = "CBSE";
-        className = "10";
-        subject = "Science";
-        chapter = "Carbon Compounds";
-        microTopic = "";
-        questionCount = 10;
-        difficulty = "Medium";
-        description = "Study Organic Chemistry basics and compounds.";
-      },
-    );
-    topics.add(
-      2,
-      {
-        id = 2;
-        board = "CBSE";
-        className = "10";
-        subject = "Math";
-        chapter = "Quadratic Equations";
-        microTopic = "";
-        questionCount = 10;
-        difficulty = "Hard";
-        description = "Practice solving quadratic equations.";
-      },
-    );
-    topics.add(
-      3,
-      {
-        id = 3;
-        board = "CBSE";
-        className = "9";
-        subject = "History";
-        chapter = "French Revolution";
-        microTopic = "";
-        questionCount = 10;
-        difficulty = "Medium";
-        description = "Explore the causes and effects of the French Revolution.";
-      },
-    );
+  // ─── Persist all maps to stable arrays before any upgrade ───────────────
+  system func preupgrade() {
+    userProfileEntries  := userProfiles.entries().toArray();
+    userProgressEntries := userProgress.entries().toArray();
+    leaderboardEntries  := leaderboard.entries().toArray();
+    operatorEntries     := operators.entries().toArray();
+    siteSettingsEntries := siteSettingsStore.entries().toArray();
+    topicEntries        := topics.entries().toArray();
   };
 
-  // Core Functions - Public (no auth required)
+  // ─── Restore from stable arrays after upgrade ────────────────────────────
+  system func postupgrade() {
+    // Restore user data
+    for ((k, v) in userProfileEntries.values()) {
+      userProfiles.add(k, v);
+    };
+    for ((k, v) in userProgressEntries.values()) {
+      userProgress.add(k, v);
+    };
+    for ((k, v) in leaderboardEntries.values()) {
+      leaderboard.add(k, v);
+    };
+    for ((k, v) in operatorEntries.values()) {
+      operators.add(k, v);
+    };
+    for ((k, v) in siteSettingsEntries.values()) {
+      siteSettingsStore.add(k, v);
+    };
+    for ((k, v) in topicEntries.values()) {
+      topics.add(k, v);
+    };
+
+    // Seed default topics only on first deploy (when topics is empty)
+    if (topics.size() == 0) {
+      topics.add(
+        1,
+        {
+          id = 1;
+          board = "CBSE";
+          className = "10";
+          subject = "Science";
+          chapter = "Carbon Compounds";
+          microTopic = "";
+          questionCount = 10;
+          difficulty = "Medium";
+          description = "Study Organic Chemistry basics and compounds.";
+        },
+      );
+      topics.add(
+        2,
+        {
+          id = 2;
+          board = "CBSE";
+          className = "10";
+          subject = "Math";
+          chapter = "Quadratic Equations";
+          microTopic = "";
+          questionCount = 10;
+          difficulty = "Hard";
+          description = "Practice solving quadratic equations.";
+        },
+      );
+      topics.add(
+        3,
+        {
+          id = 3;
+          board = "CBSE";
+          className = "9";
+          subject = "History";
+          chapter = "French Revolution";
+          microTopic = "";
+          questionCount = 10;
+          difficulty = "Medium";
+          description = "Explore the causes and effects of the French Revolution.";
+        },
+      );
+    };
+
+    // Free stable arrays to save memory
+    userProfileEntries  := [];
+    userProgressEntries := [];
+    leaderboardEntries  := [];
+    operatorEntries     := [];
+    siteSettingsEntries := [];
+    topicEntries        := [];
+  };
+
+  // ─── Core Functions - Public (no auth required) ──────────────────────────
+
   public query ({ caller }) func getAllTopics() : async [Topic] {
     topics.values().toArray();
   };
@@ -181,7 +262,6 @@ actor {
   public query ({ caller }) func getLeaderboard() : async [LeaderboardEntry] {
     let entries = leaderboard.values().toArray();
     let sortedEntries = entries.sort(LeaderboardEntry.compareByXP);
-    // Re-rank after sort
     let ranked = List.empty<LeaderboardEntry>();
     var rank = 1;
     for (entry in sortedEntries.values()) {
@@ -195,7 +275,6 @@ actor {
       });
       rank += 1;
     };
-    // Return top 20
     let take20 = List.empty<LeaderboardEntry>();
     var count = 0;
     for (entry in ranked.toArray().values()) {
@@ -207,7 +286,105 @@ actor {
     take20.toArray();
   };
 
-  // User-only functions (require user role)
+  // ─── Site Settings ────────────────────────────────────────────────────────
+
+  public query ({ caller }) func getSiteSettings() : async ?SiteSettings {
+    siteSettingsStore.get("main");
+  };
+
+  public shared ({ caller }) func updateSiteSettings(
+    announcement : Text,
+    announcementEnabled : Bool,
+    featuredMessage : Text,
+  ) : async SiteSettings {
+    if (not isAdminOrOperator(caller)) {
+      Runtime.trap("Unauthorized: Only admin or operator can update site settings");
+    };
+    let settings : SiteSettings = {
+      announcement;
+      announcementEnabled;
+      featuredMessage;
+      lastUpdated = Time.now();
+      updatedBy = caller.toText();
+    };
+    siteSettingsStore.add("main", settings);
+    settings;
+  };
+
+  // ─── Role Management ──────────────────────────────────────────────────────
+
+  public query ({ caller }) func getCallerRole() : async Text {
+    if (AccessControl.isAdmin(accessControlState, caller)) {
+      "admin"
+    } else if (isOperator(caller)) {
+      "operator"
+    } else {
+      "user"
+    };
+  };
+
+  public shared ({ caller }) func assignOperatorRole(user : Principal) : async () {
+    if (not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Only admin can assign the operator role");
+    };
+    operators.add(user, true);
+  };
+
+  public shared ({ caller }) func dismissOperator(user : Principal) : async () {
+    if (not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Only admin can dismiss operators");
+    };
+    ignore operators.remove(user);
+  };
+
+  public query ({ caller }) func getAllUsersWithRoles() : async [UserWithRole] {
+    if (not isAdminOrOperator(caller)) {
+      Runtime.trap("Unauthorized: Only admin or operator can view all users");
+    };
+    let result = List.empty<UserWithRole>();
+    for ((p, profile) in userProfiles.entries()) {
+      let role = if (AccessControl.isAdmin(accessControlState, p)) {
+        "admin"
+      } else if (isOperator(p)) {
+        "operator"
+      } else {
+        "user"
+      };
+      result.add({
+        principal = profile.principal;
+        displayName = profile.displayName;
+        studentClass = profile.studentClass;
+        createdAt = profile.createdAt;
+        role;
+      });
+    };
+    result.toArray();
+  };
+
+  public query ({ caller }) func getAllOperators() : async [Text] {
+    if (not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Only admin can view operator list");
+    };
+    let result = List.empty<Text>();
+    for ((p, _) in operators.entries()) {
+      result.add(p.toText());
+    };
+    result.toArray();
+  };
+
+  public query ({ caller }) func isCallerOperator() : async Bool {
+    isOperator(caller);
+  };
+
+  public shared ({ caller }) func deleteUserProfile(user : Principal) : async () {
+    if (not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Only admin can delete user profiles");
+    };
+    ignore userProfiles.remove(user);
+  };
+
+  // ─── User Functions ────────────────────────────────────────────────────────
+
   public shared ({ caller }) func submitQuizResult(userId : Text, topicId : Nat, score : Nat) : async (Nat, Nat) {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz results");
@@ -215,7 +392,6 @@ actor {
 
     let earnedXP = score * 10;
 
-    // Update userProgress
     let (updatedXP, updatedStreak) = switch (userProgress.get(userId)) {
       case (null) {
         let newProgress : UserProgress = {
@@ -247,13 +423,12 @@ actor {
       };
     };
 
-    // Update leaderboard with real user data
     let newLevel = xpToLevel(updatedXP);
     let newBadges = computeBadges(updatedXP, updatedStreak);
     leaderboard.add(
       userId,
       {
-        rank = 0; // will be re-ranked on getLeaderboard
+        rank = 0;
         username = userId;
         xp = updatedXP;
         level = newLevel;
@@ -298,12 +473,11 @@ actor {
         userProgress.add(userId, newProgress);
       };
       case (null) {
-        Runtime.trap("User not found in progress records. Please complete a quiz or flashcard session first.");
+        Runtime.trap("User not found in progress records.");
       };
     };
   };
 
-  // Also update leaderboard when blog XP is awarded
   public shared ({ caller }) func addBlogXP(userId : Text, xpAmount : Nat) : async Nat {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can earn blog XP");
@@ -339,7 +513,6 @@ actor {
       };
     };
 
-    // Update leaderboard
     let existingStreak = switch (leaderboard.get(userId)) {
       case (?entry) { entry.streak };
       case (null) { 0 };
@@ -359,7 +532,8 @@ actor {
     updatedXP;
   };
 
-  // User Profile Functions (following the required pattern)
+  // ─── User Profile Functions ─────────────────────────────────────────────
+
   public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can view profiles");
@@ -389,7 +563,6 @@ actor {
     profile;
   };
 
-  // Legacy function for backward compatibility (requires user role)
   public shared ({ caller }) func saveUserProfile(displayName : Text, studentClass : Text) : async UserProfile {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can save profiles");
