@@ -1,48 +1,27 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   BookText,
-  Check,
-  Copy,
   FileQuestion,
   FlaskConical,
-  GraduationCap,
   Home,
   Library,
-  LogOut,
   Moon,
   Shield,
   Sun,
   Trophy,
   Zap,
 } from "lucide-react";
-import { useState } from "react";
 import logoImg from "/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png";
 import { useAdminRole } from "../hooks/useAdminRole";
-import { useInternetIdentity } from "../hooks/useInternetIdentity";
-import { useUserProfile } from "../hooks/useUserProfile";
 import { useTheme } from "./ThemeProvider";
 
 export function NavBar() {
   const { theme, setTheme } = useTheme();
   const routerState = useRouterState();
   const pathname = routerState.location.pathname;
-  const { clear, identity } = useInternetIdentity();
-  const { profile } = useUserProfile();
   const { isAdmin, isOperator } = useAdminRole();
-  const [copied, setCopied] = useState(false);
-
-  const principal = identity?.getPrincipal().toText();
-
-  function handleCopyPrincipal() {
-    if (!principal) return;
-    navigator.clipboard.writeText(principal).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home, ocid: "nav.home_link" },
@@ -151,79 +130,16 @@ export function NavBar() {
         {/* Right side */}
         <div className="flex items-center gap-2">
           {/* Theme toggle */}
-          <button
-            type="button"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            data-ocid="nav.theme_toggle"
-            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-
-          {/* Copy Principal ID button — visible when logged in */}
-          {principal && (
-            <button
-              type="button"
-              onClick={handleCopyPrincipal}
-              data-ocid="nav.copy_principal_button"
-              title={`Principal ID: ${principal}`}
-              className={cn(
-                "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold border transition-all duration-200",
-                copied
-                  ? "bg-green-500/15 text-green-400 border-green-500/40"
-                  : "bg-neon-amber/10 text-neon-amber border-neon-amber/30 hover:bg-neon-amber/20 hover:border-neon-amber/60",
-              )}
-              aria-label="Copy Principal ID"
-            >
-              {copied ? (
-                <>
-                  <Check size={12} />
-                  <span className="hidden sm:inline">Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={12} />
-                  <span className="hidden sm:inline">
-                    {principal.slice(0, 8)}…
-                  </span>
-                </>
-              )}
-            </button>
-          )}
-
-          {/* User profile badge */}
-          {profile && (
-            <div className="hidden sm:flex items-center gap-2 glass-dark rounded-full pl-2 pr-3 py-1.5 border border-border/40">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neon-purple to-neon-blue flex items-center justify-center text-white text-[10px] font-bold shrink-0">
-                {profile.displayName.charAt(0).toUpperCase()}
-              </div>
-              <span className="text-xs font-medium text-foreground truncate max-w-[100px]">
-                {profile.displayName}
-              </span>
-              <Badge
-                variant="secondary"
-                className="text-[9px] px-1.5 py-0.5 bg-neon-purple/15 text-neon-purple border-neon-purple/30 font-mono-custom shrink-0"
-              >
-                <GraduationCap size={8} className="mr-1" />
-                {profile.studentClass === "JEE"
-                  ? "JEE"
-                  : profile.studentClass.replace("Class ", "Cl.")}
-              </Badge>
-            </div>
-          )}
-
-          {/* Logout button */}
           <Button
             variant="ghost"
             size="sm"
-            onClick={clear}
-            data-ocid="nav.logout_button"
-            className="p-2 h-8 w-8 rounded-lg text-muted-foreground hover:text-neon-red hover:bg-neon-red/10 transition-all"
-            aria-label="Logout"
-            title="Logout"
+            type="button"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            data-ocid="nav.theme_toggle"
+            className="p-2 h-8 w-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+            aria-label="Toggle theme"
           >
-            <LogOut size={15} />
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
         </div>
       </div>
