@@ -1,19 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
   BookText,
   FileQuestion,
   FlaskConical,
   Home,
   Library,
+  LogIn,
+  LogOut,
   Moon,
   Shield,
   Sun,
   Trophy,
+  User,
   Zap,
 } from "lucide-react";
 import logoImg from "/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png";
+import { useAuth } from "../context/AuthContext";
 import { useAdminRole } from "../hooks/useAdminRole";
 import { useTheme } from "./ThemeProvider";
 
@@ -22,15 +26,17 @@ export function NavBar() {
   const routerState = useRouterState();
   const pathname = routerState.location.pathname;
   const { isAdmin, isOperator } = useAdminRole();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate({ to: "/auth" });
+  };
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home, ocid: "nav.home_link" },
-    {
-      href: "/ncert",
-      label: "NCERT",
-      icon: Library,
-      ocid: "nav.ncert_link",
-    },
+    { href: "/ncert", label: "NCERT", icon: Library, ocid: "nav.ncert_link" },
     {
       href: "/iit",
       label: "IIT JEE",
@@ -43,18 +49,8 @@ export function NavBar() {
       icon: Trophy,
       ocid: "nav.leaderboard_link",
     },
-    {
-      href: "/blog",
-      label: "Blog",
-      icon: BookText,
-      ocid: "nav.blog_link",
-    },
-    {
-      href: "/pyq",
-      label: "PYQ",
-      icon: FileQuestion,
-      ocid: "nav.pyq_link",
-    },
+    { href: "/blog", label: "Blog", icon: BookText, ocid: "nav.blog_link" },
+    { href: "/pyq", label: "PYQ", icon: FileQuestion, ocid: "nav.pyq_link" },
     {
       href: "/generate",
       label: "Generate",
@@ -141,6 +137,38 @@ export function NavBar() {
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
+
+          {/* Auth section */}
+          {user ? (
+            <div className="flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                <User size={13} className="text-primary" />
+                <span className="text-xs font-medium text-primary max-w-[100px] truncate">
+                  {user.username}
+                </span>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                type="button"
+                onClick={handleLogout}
+                data-ocid="nav.logout_button"
+                className="p-2 h-8 w-8 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-all"
+                aria-label="Logout"
+              >
+                <LogOut size={15} />
+              </Button>
+            </div>
+          ) : (
+            <Link
+              to="/auth"
+              data-ocid="nav.login_link"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-neon-purple border border-neon-purple/30 hover:bg-neon-purple/10 transition-all"
+            >
+              <LogIn size={13} />
+              Login
+            </Link>
+          )}
         </div>
       </div>
 
@@ -179,6 +207,27 @@ export function NavBar() {
           >
             <Shield size={13} />
             Admin
+          </Link>
+        )}
+        {/* Mobile auth */}
+        {user ? (
+          <button
+            type="button"
+            onClick={handleLogout}
+            data-ocid="nav.logout_button"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-all shrink-0"
+          >
+            <LogOut size={13} />
+            Logout
+          </button>
+        ) : (
+          <Link
+            to="/auth"
+            data-ocid="nav.login_link"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-neon-purple hover:bg-neon-purple/10 transition-all shrink-0"
+          >
+            <LogIn size={13} />
+            Login
           </Link>
         )}
       </nav>

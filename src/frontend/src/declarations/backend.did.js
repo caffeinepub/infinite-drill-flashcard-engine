@@ -24,6 +24,13 @@ export const Topic = IDL.Record({
   'className' : IDL.Text,
   'questionCount' : IDL.Nat,
 });
+export const UserWithRole = IDL.Record({
+  'principal' : IDL.Text,
+  'displayName' : IDL.Text,
+  'createdAt' : IDL.Int,
+  'role' : IDL.Text,
+  'studentClass' : IDL.Text,
+});
 export const UserProfile = IDL.Record({
   'principal' : IDL.Text,
   'displayName' : IDL.Text,
@@ -38,6 +45,13 @@ export const LeaderboardEntry = IDL.Record({
   'rank' : IDL.Nat,
   'level' : IDL.Nat,
 });
+export const SiteSettings = IDL.Record({
+  'lastUpdated' : IDL.Int,
+  'announcement' : IDL.Text,
+  'updatedBy' : IDL.Text,
+  'announcementEnabled' : IDL.Bool,
+  'featuredMessage' : IDL.Text,
+});
 export const GeneratedContent = IDL.Record({
   'generatedAt' : IDL.Int,
   'mcqCount' : IDL.Nat,
@@ -48,29 +62,70 @@ export const GeneratedContent = IDL.Record({
 
 export const idlService = IDL.Service({
   '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  'addBlogXP' : IDL.Func([IDL.Nat], [IDL.Nat], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'assignOperatorRole' : IDL.Func([IDL.Principal], [], []),
+  'checkUsernameAvailability' : IDL.Func([IDL.Text], [IDL.Bool], ['query']),
+  'deleteUserProfile' : IDL.Func([IDL.Principal], [], []),
+  'dismissOperator' : IDL.Func([IDL.Principal], [], []),
+  'getAllOperators' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
   'getAllTopics' : IDL.Func([], [IDL.Vec(Topic)], ['query']),
+  'getAllUsersWithRoles' : IDL.Func([], [IDL.Vec(UserWithRole)], ['query']),
+  'getCallerRole' : IDL.Func([], [IDL.Text], ['query']),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
   'getLeaderboard' : IDL.Func([], [IDL.Vec(LeaderboardEntry)], ['query']),
+  'getSiteSettings' : IDL.Func([], [IDL.Opt(SiteSettings)], ['query']),
   'getTopicById' : IDL.Func([IDL.Nat], [IDL.Opt(Topic)], ['query']),
+  'getUserByUsername' : IDL.Func(
+      [IDL.Text],
+      [
+        IDL.Opt(
+          IDL.Record({
+            'createdAt' : IDL.Int,
+            'fullName' : IDL.Text,
+            'email' : IDL.Text,
+          })
+        ),
+      ],
+      ['query'],
+    ),
   'getUserProfile' : IDL.Func(
       [IDL.Principal],
       [IDL.Opt(UserProfile)],
       ['query'],
     ),
   'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
-  'markFlashcardMastered' : IDL.Func([IDL.Text, IDL.Nat], [], []),
+  'isCallerOperator' : IDL.Func([], [IDL.Bool], ['query']),
+  'login' : IDL.Func(
+      [IDL.Text, IDL.Text],
+      [
+        IDL.Record({
+          'ok' : IDL.Bool,
+          'fullName' : IDL.Text,
+          'email' : IDL.Text,
+          'message' : IDL.Text,
+        }),
+      ],
+      [],
+    ),
+  'markFlashcardMastered' : IDL.Func([IDL.Nat], [], []),
   'saveCallerUserProfile' : IDL.Func([IDL.Text, IDL.Text], [UserProfile], []),
   'saveUserProfile' : IDL.Func([IDL.Text, IDL.Text], [UserProfile], []),
+  'signUp' : IDL.Func(
+      [IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+      [IDL.Record({ 'ok' : IDL.Bool, 'message' : IDL.Text })],
+      [],
+    ),
   'simulateAIContentGeneration' : IDL.Func(
       [IDL.Nat, IDL.Text],
       [GeneratedContent],
       [],
     ),
-  'submitQuizResult' : IDL.Func(
-      [IDL.Text, IDL.Nat, IDL.Nat],
-      [IDL.Nat, IDL.Nat],
+  'submitQuizResult' : IDL.Func([IDL.Nat, IDL.Nat], [IDL.Nat, IDL.Nat], []),
+  'updateSiteSettings' : IDL.Func(
+      [IDL.Text, IDL.Bool, IDL.Text],
+      [SiteSettings],
       [],
     ),
 });
@@ -94,6 +149,13 @@ export const idlFactory = ({ IDL }) => {
     'className' : IDL.Text,
     'questionCount' : IDL.Nat,
   });
+  const UserWithRole = IDL.Record({
+    'principal' : IDL.Text,
+    'displayName' : IDL.Text,
+    'createdAt' : IDL.Int,
+    'role' : IDL.Text,
+    'studentClass' : IDL.Text,
+  });
   const UserProfile = IDL.Record({
     'principal' : IDL.Text,
     'displayName' : IDL.Text,
@@ -108,6 +170,13 @@ export const idlFactory = ({ IDL }) => {
     'rank' : IDL.Nat,
     'level' : IDL.Nat,
   });
+  const SiteSettings = IDL.Record({
+    'lastUpdated' : IDL.Int,
+    'announcement' : IDL.Text,
+    'updatedBy' : IDL.Text,
+    'announcementEnabled' : IDL.Bool,
+    'featuredMessage' : IDL.Text,
+  });
   const GeneratedContent = IDL.Record({
     'generatedAt' : IDL.Int,
     'mcqCount' : IDL.Nat,
@@ -118,29 +187,70 @@ export const idlFactory = ({ IDL }) => {
   
   return IDL.Service({
     '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    'addBlogXP' : IDL.Func([IDL.Nat], [IDL.Nat], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'assignOperatorRole' : IDL.Func([IDL.Principal], [], []),
+    'checkUsernameAvailability' : IDL.Func([IDL.Text], [IDL.Bool], ['query']),
+    'deleteUserProfile' : IDL.Func([IDL.Principal], [], []),
+    'dismissOperator' : IDL.Func([IDL.Principal], [], []),
+    'getAllOperators' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
     'getAllTopics' : IDL.Func([], [IDL.Vec(Topic)], ['query']),
+    'getAllUsersWithRoles' : IDL.Func([], [IDL.Vec(UserWithRole)], ['query']),
+    'getCallerRole' : IDL.Func([], [IDL.Text], ['query']),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
     'getLeaderboard' : IDL.Func([], [IDL.Vec(LeaderboardEntry)], ['query']),
+    'getSiteSettings' : IDL.Func([], [IDL.Opt(SiteSettings)], ['query']),
     'getTopicById' : IDL.Func([IDL.Nat], [IDL.Opt(Topic)], ['query']),
+    'getUserByUsername' : IDL.Func(
+        [IDL.Text],
+        [
+          IDL.Opt(
+            IDL.Record({
+              'createdAt' : IDL.Int,
+              'fullName' : IDL.Text,
+              'email' : IDL.Text,
+            })
+          ),
+        ],
+        ['query'],
+      ),
     'getUserProfile' : IDL.Func(
         [IDL.Principal],
         [IDL.Opt(UserProfile)],
         ['query'],
       ),
     'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
-    'markFlashcardMastered' : IDL.Func([IDL.Text, IDL.Nat], [], []),
+    'isCallerOperator' : IDL.Func([], [IDL.Bool], ['query']),
+    'login' : IDL.Func(
+        [IDL.Text, IDL.Text],
+        [
+          IDL.Record({
+            'ok' : IDL.Bool,
+            'fullName' : IDL.Text,
+            'email' : IDL.Text,
+            'message' : IDL.Text,
+          }),
+        ],
+        [],
+      ),
+    'markFlashcardMastered' : IDL.Func([IDL.Nat], [], []),
     'saveCallerUserProfile' : IDL.Func([IDL.Text, IDL.Text], [UserProfile], []),
     'saveUserProfile' : IDL.Func([IDL.Text, IDL.Text], [UserProfile], []),
+    'signUp' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Record({ 'ok' : IDL.Bool, 'message' : IDL.Text })],
+        [],
+      ),
     'simulateAIContentGeneration' : IDL.Func(
         [IDL.Nat, IDL.Text],
         [GeneratedContent],
         [],
       ),
-    'submitQuizResult' : IDL.Func(
-        [IDL.Text, IDL.Nat, IDL.Nat],
-        [IDL.Nat, IDL.Nat],
+    'submitQuizResult' : IDL.Func([IDL.Nat, IDL.Nat], [IDL.Nat, IDL.Nat], []),
+    'updateSiteSettings' : IDL.Func(
+        [IDL.Text, IDL.Bool, IDL.Text],
+        [SiteSettings],
         [],
       ),
   });

@@ -10,6 +10,7 @@ import { Suspense, lazy } from "react";
 import { AuthGuard } from "./components/AuthGuard";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { WebVitals } from "./components/WebVitals";
+import { AuthProvider } from "./context/AuthContext";
 import { UserProfileProvider } from "./context/UserProfileContext";
 
 // Lazy-load all pages to enable code splitting
@@ -26,6 +27,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminPanel = lazy(() => import("./pages/AdminPanel"));
 const PYQ = lazy(() => import("./pages/PYQ"));
 const PYQSubject = lazy(() => import("./pages/PYQSubject"));
+const Auth = lazy(() => import("./pages/Auth"));
 
 // Minimal page-level loading fallback
 function PageLoader() {
@@ -120,6 +122,12 @@ const pyqSubjectRoute = createRoute({
   component: PYQSubject,
 });
 
+const authRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/auth",
+  component: Auth,
+});
+
 // 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -146,6 +154,7 @@ const routeTree = rootRoute.addChildren([
   adminRoute,
   pyqRoute,
   pyqSubjectRoute,
+  authRoute,
   notFoundRoute,
 ]);
 
@@ -163,13 +172,15 @@ export default function App() {
   return (
     <ThemeProvider>
       <WebVitals />
-      <UserProfileProvider>
-        <AuthGuard>
-          <Suspense fallback={<PageLoader />}>
-            <RouterProvider router={router} />
-          </Suspense>
-        </AuthGuard>
-      </UserProfileProvider>
+      <AuthProvider>
+        <UserProfileProvider>
+          <AuthGuard>
+            <Suspense fallback={<PageLoader />}>
+              <RouterProvider router={router} />
+            </Suspense>
+          </AuthGuard>
+        </UserProfileProvider>
+      </AuthProvider>
       <Toaster richColors position="top-right" />
     </ThemeProvider>
   );

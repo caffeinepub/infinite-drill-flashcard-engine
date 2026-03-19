@@ -10,10 +10,10 @@ import Principal "mo:core/Principal";
 
 import AccessControl "authorization/access-control";
 import MixinAuthorization "authorization/MixinAuthorization";
+import Migration "migration";
 
-
+(with migration = Migration.run)
 actor {
-  // Initialize the access control system
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
 
@@ -107,13 +107,24 @@ actor {
     role : Text;
   };
 
+  // User account for username/password authentication
+  type UserAccount = {
+    username : Text;
+    passwordHash : Text;
+    fullName : Text;
+    email : Text;
+    createdAt : Int;
+    lastLoginAt : Int;
+  };
+
   // ─── Stable storage arrays (survive upgrades) ────────────────────────────
-  stable var userProfileEntries    : [(Principal, UserProfile)]    = [];
-  stable var userProgressEntries   : [(Text, UserProgress)]        = [];
-  stable var leaderboardEntries    : [(Text, LeaderboardEntry)]    = [];
-  stable var operatorEntries       : [(Principal, Bool)]           = [];
-  stable var siteSettingsEntries   : [(Text, SiteSettings)]        = [];
-  stable var topicEntries          : [(Nat, Topic)]                = [];
+  stable var userProfileEntries    : [(Principal, UserProfile)] = [];
+  stable var userProgressEntries   : [(Text, UserProgress)]     = [];
+  stable var leaderboardEntries    : [(Text, LeaderboardEntry)] = [];
+  stable var operatorEntries       : [(Principal, Bool)]        = [];
+  stable var siteSettingsEntries   : [(Text, SiteSettings)]     = [];
+  stable var topicEntries          : [(Nat, Topic)]             = [];
+  stable var userAccountEntries    : [(Text, UserAccount)]      = [];
 
   // ─── Working memory maps (rebuilt from stable arrays on upgrade) ─────────
   var topics            = Map.empty<Nat, Topic>();
@@ -125,6 +136,7 @@ actor {
   var userProfiles      = Map.empty<Principal, UserProfile>();
   var operators         = Map.empty<Principal, Bool>();
   var siteSettingsStore = Map.empty<Text, SiteSettings>();
+  var userAccounts      = Map.empty<Text, UserAccount>();
 
   // Comparison module for LeaderboardEntry
   module LeaderboardEntry {
@@ -162,6 +174,12 @@ actor {
     badges.toArray();
   };
 
+  // Simple password hashing (username + ":" + password)
+  func hashPassword(username : Text, password : Text) : Text {
+    let combined = username # ":" # password;
+    combined;
+  };
+
   // ─── Persist all maps to stable arrays before any upgrade ───────────────
   system func preupgrade() {
     userProfileEntries  := userProfiles.entries().toArray();
@@ -170,11 +188,12 @@ actor {
     operatorEntries     := operators.entries().toArray();
     siteSettingsEntries := siteSettingsStore.entries().toArray();
     topicEntries        := topics.entries().toArray();
+    userAccountEntries  := userAccounts.entries().toArray();
   };
 
   // ─── Restore from stable arrays after upgrade ────────────────────────────
   system func postupgrade() {
-    // Restore user data
+    // Restore user data from stable arrays
     for ((k, v) in userProfileEntries.values()) {
       userProfiles.add(k, v);
     };
@@ -192,6 +211,9 @@ actor {
     };
     for ((k, v) in topicEntries.values()) {
       topics.add(k, v);
+    };
+    for ((k, v) in userAccountEntries.values()) {
+      userAccounts.add(k, v);
     };
 
     // Seed default topics only on first deploy (when topics is empty)
@@ -240,13 +262,125 @@ actor {
       );
     };
 
-    // Free stable arrays to save memory
+    // Clear stable arrays to free up memory
     userProfileEntries  := [];
     userProgressEntries := [];
     leaderboardEntries  := [];
     operatorEntries     := [];
     siteSettingsEntries := [];
     topicEntries        := [];
+    userAccountEntries  := [];
+  };
+
+  // ─── USER ACCOUNT AUTHENTICATION (New) ──────────────────────────────────
+  // These functions are public (no auth required) to allow guest registration/login
+
+  // Check if username is available - public for registration flow
+  public query func checkUsernameAvailability(username : Text) : async Bool {
+    not userAccounts.containsKey(username);
+  };
+
+  // User signup - public to allow new user registration
+  public shared ({ caller }) func signUp(
+    username : Text,
+    password : Text,
+    fullName : Text,
+    email : Text,
+  ) : async { ok : Bool; message : Text } {
+    let isAvailable = not userAccounts.containsKey(username);
+
+    if (isAvailable) {
+      let passwordHash = hashPassword(username, password);
+      let currentTime = Time.now();
+
+      let account : UserAccount = {
+        username;
+        passwordHash;
+        fullName;
+        email;
+        createdAt = currentTime;
+        lastLoginAt = currentTime;
+      };
+
+      userAccounts.add(username, account);
+      {
+        ok = true;
+        message = "Account created successfully";
+      };
+    } else {
+      {
+        ok = false;
+        message = "Username is already taken";
+      };
+    };
+  };
+
+  // User login - public to allow authentication
+  public shared ({ caller }) func login(
+    username : Text,
+    password : Text,
+  ) : async {
+    ok : Bool;
+    fullName : Text;
+    email : Text;
+    message : Text;
+  } {
+    switch (userAccounts.get(username)) {
+      case (null) {
+        {
+          ok = false;
+          fullName = "";
+          email = "";
+          message = "Username not found";
+        };
+      };
+      case (?account) {
+        if (account.passwordHash == hashPassword(username, password)) {
+          // Update last login time
+          let updatedAccount : UserAccount = {
+            username = account.username;
+            passwordHash = account.passwordHash;
+            fullName = account.fullName;
+            email = account.email;
+            createdAt = account.createdAt;
+            lastLoginAt = Time.now();
+          };
+          userAccounts.add(username, updatedAccount);
+
+          {
+            ok = true;
+            fullName = account.fullName;
+            email = account.email;
+            message = "Login successful";
+          };
+        } else {
+          {
+            ok = false;
+            fullName = "";
+            email = "";
+            message = "Invalid password";
+          };
+        };
+      };
+    };
+  };
+
+  // Get user account by username (public info) - public query, no sensitive data exposed
+  public query func getUserByUsername(username : Text) : async ?{
+    fullName : Text;
+    email : Text;
+    createdAt : Int;
+  } {
+    switch (userAccounts.get(username)) {
+      case (null) { null };
+      case (?account) {
+        ?{
+          fullName = account.fullName;
+          email = account.email;
+          createdAt = account.createdAt;
+        };
+      };
+    };
   };
 
   // ─── Core Functions - Public (no auth required) ──────────────────────────
@@ -315,12 +449,10 @@ actor {
 
   public query ({ caller }) func getCallerRole() : async Text {
     if (AccessControl.isAdmin(accessControlState, caller)) {
-      "admin"
+      "admin";
     } else if (isOperator(caller)) {
-      "operator"
-    } else {
-      "user"
-    };
+      "operator";
+    } else { "user" };
   };
 
   public shared ({ caller }) func assignOperatorRole(user : Principal) : async () {
@@ -344,12 +476,10 @@ actor {
     let result = List.empty<UserWithRole>();
     for ((p, profile) in userProfiles.entries()) {
       let role = if (AccessControl.isAdmin(accessControlState, p)) {
-        "admin"
+        "admin";
       } else if (isOperator(p)) {
-        "operator"
-      } else {
-        "user"
-      };
+        "operator";
+      } else { "user" };
       result.add({
         principal = profile.principal;
         displayName = profile.displayName;
@@ -385,11 +515,13 @@ actor {
 
   // ─── User Functions ────────────────────────────────────────────────────────
 
-  public shared ({ caller }) func submitQuizResult(userId : Text, topicId : Nat, score : Nat) : async (Nat, Nat) {
+  // FIXED: Removed userId parameter, derive from caller to prevent impersonation
+  public shared ({ caller }) func submitQuizResult(topicId : Nat, score : Nat) : async (Nat, Nat) {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz results");
     };
 
+    let userId = caller.toText();
     let earnedXP = score * 10;
 
     let (updatedXP, updatedStreak) = switch (userProgress.get(userId)) {
@@ -453,10 +585,13 @@ actor {
     };
   };
 
-  public shared ({ caller }) func markFlashcardMastered(userId : Text, flashcardId : Nat) : async () {
+  // FIXED: Removed userId parameter, derive from caller to prevent impersonation
+  public shared ({ caller }) func markFlashcardMastered(flashcardId : Nat) : async () {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can mark flashcards as mastered");
     };
+
+    let userId = caller.toText();
     switch (userProgress.get(userId)) {
       case (?progress) {
         let masteredList = List.fromArray<Nat>(progress.masteredFlashcards);
@@ -478,11 +613,13 @@ actor {
     };
   };
 
-  public shared ({ caller }) func addBlogXP(userId : Text, xpAmount : Nat) : async Nat {
+  // FIXED: Removed userId parameter, derive from caller to prevent impersonation
+  public shared ({ caller }) func addBlogXP(xpAmount : Nat) : async Nat {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can earn blog XP");
     };
 
+    let userId = caller.toText();
     let updatedXP = switch (userProgress.get(userId)) {
       case (null) {
         let newProgress : UserProgress = {

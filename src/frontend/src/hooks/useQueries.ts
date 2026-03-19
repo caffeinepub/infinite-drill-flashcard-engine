@@ -4,7 +4,7 @@ import { topicsData } from "../data/demoData";
 import type { LeaderboardUser, TopicData } from "../data/demoData";
 import { useActor } from "./useActor";
 
-// ─── Topics ───────────────────────────────────────────────────────────────────
+// ─── Topics ─────────────────────────────────────────────────────────────────────────
 
 export function useTopics() {
   const { actor, isFetching } = useActor();
@@ -45,7 +45,7 @@ export function useTopic(id: string) {
   });
 }
 
-// ─── Level mapping ────────────────────────────────────────────────────────────
+// ─── Level mapping ──────────────────────────────────────────────────────────────
 
 function numericLevelToString(level: bigint): string {
   const n = Number(level);
@@ -55,7 +55,7 @@ function numericLevelToString(level: bigint): string {
   return "Beginner";
 }
 
-// ─── Leaderboard ─────────────────────────────────────────────────────────────
+// ─── Leaderboard ─────────────────────────────────────────────────────────────────
 
 export function useLeaderboard() {
   const { actor, isFetching } = useActor();
@@ -86,7 +86,7 @@ export function useLeaderboard() {
   });
 }
 
-// ─── Quiz submission ──────────────────────────────────────────────────────────
+// ─── Quiz submission ─────────────────────────────────────────────────────────
 
 export function useSubmitQuiz() {
   const { actor } = useActor();
@@ -104,11 +104,7 @@ export function useSubmitQuiz() {
       }
       if (actor) {
         try {
-          return await actor.submitQuizResult(
-            userId,
-            BigInt(topicId),
-            BigInt(score),
-          );
+          return await actor.submitQuizResult(BigInt(topicId), BigInt(score));
         } catch {
           return [BigInt(score * 10), BigInt(1)] as [bigint, bigint];
         }
@@ -121,7 +117,7 @@ export function useSubmitQuiz() {
   });
 }
 
-// ─── Blog XP ──────────────────────────────────────────────────────────────────
+// ─── Blog XP ──────────────────────────────────────────────────────────────────────────
 
 export function useAddBlogXP() {
   const { actor } = useActor();
@@ -132,16 +128,7 @@ export function useAddBlogXP() {
       const userId = profile?.displayName;
       if (!userId || !actor) return 0;
       try {
-        // biome-ignore lint/complexity/noBannedTypes: dynamic method call for new backend function not yet in generated types
-        const addBlogXPFn = (
-          actor as unknown as Record<
-            string,
-            (...args: unknown[]) => Promise<unknown>
-          >
-        ).addBlogXP;
-        const result = addBlogXPFn
-          ? await addBlogXPFn.call(actor, userId, BigInt(xpAmount))
-          : undefined;
+        const result = await actor.addBlogXP(BigInt(xpAmount));
         return Number(result);
       } catch {
         return 0;
@@ -153,17 +140,15 @@ export function useAddBlogXP() {
   });
 }
 
-// ─── Flashcard mastery ────────────────────────────────────────────────────────
+// ─── Flashcard mastery ─────────────────────────────────────────────────────────────
 
 export function useMarkFlashcardMastered() {
   const { actor } = useActor();
-  const { profile } = useUserProfileContext();
   return useMutation({
     mutationFn: async (flashcardId: number) => {
       if (actor) {
         try {
-          const userId = profile?.displayName ?? "guest";
-          await actor.markFlashcardMastered(userId, BigInt(flashcardId));
+          await actor.markFlashcardMastered(BigInt(flashcardId));
         } catch {
           // ignore
         }
@@ -172,7 +157,7 @@ export function useMarkFlashcardMastered() {
   });
 }
 
-// ─── AI Content Generation ────────────────────────────────────────────────────
+// ─── AI Content Generation ──────────────────────────────────────────────────────────
 
 export function useGenerateContent() {
   const { actor } = useActor();

@@ -25,6 +25,13 @@ export interface LeaderboardEntry {
   'rank' : bigint,
   'level' : bigint,
 }
+export interface SiteSettings {
+  'lastUpdated' : bigint,
+  'announcement' : string,
+  'updatedBy' : string,
+  'announcementEnabled' : boolean,
+  'featuredMessage' : string,
+}
 export interface Topic {
   'id' : bigint,
   'microTopic' : string,
@@ -45,24 +52,59 @@ export interface UserProfile {
 export type UserRole = { 'admin' : null } |
   { 'user' : null } |
   { 'guest' : null };
+export interface UserWithRole {
+  'principal' : string,
+  'displayName' : string,
+  'createdAt' : bigint,
+  'role' : string,
+  'studentClass' : string,
+}
 export interface _SERVICE {
   '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  'addBlogXP' : ActorMethod<[bigint], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'assignOperatorRole' : ActorMethod<[Principal], undefined>,
+  'checkUsernameAvailability' : ActorMethod<[string], boolean>,
+  'deleteUserProfile' : ActorMethod<[Principal], undefined>,
+  'dismissOperator' : ActorMethod<[Principal], undefined>,
+  'getAllOperators' : ActorMethod<[], Array<string>>,
   'getAllTopics' : ActorMethod<[], Array<Topic>>,
+  'getAllUsersWithRoles' : ActorMethod<[], Array<UserWithRole>>,
+  'getCallerRole' : ActorMethod<[], string>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getLeaderboard' : ActorMethod<[], Array<LeaderboardEntry>>,
+  'getSiteSettings' : ActorMethod<[], [] | [SiteSettings]>,
   'getTopicById' : ActorMethod<[bigint], [] | [Topic]>,
+  'getUserByUsername' : ActorMethod<
+    [string],
+    [] | [{ 'createdAt' : bigint, 'fullName' : string, 'email' : string }]
+  >,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
-  'markFlashcardMastered' : ActorMethod<[string, bigint], undefined>,
+  'isCallerOperator' : ActorMethod<[], boolean>,
+  'login' : ActorMethod<
+    [string, string],
+    {
+      'ok' : boolean,
+      'fullName' : string,
+      'email' : string,
+      'message' : string,
+    }
+  >,
+  'markFlashcardMastered' : ActorMethod<[bigint], undefined>,
   'saveCallerUserProfile' : ActorMethod<[string, string], UserProfile>,
   'saveUserProfile' : ActorMethod<[string, string], UserProfile>,
+  'signUp' : ActorMethod<
+    [string, string, string, string],
+    { 'ok' : boolean, 'message' : string }
+  >,
   'simulateAIContentGeneration' : ActorMethod<
     [bigint, string],
     GeneratedContent
   >,
-  'submitQuizResult' : ActorMethod<[string, bigint, bigint], [bigint, bigint]>,
+  'submitQuizResult' : ActorMethod<[bigint, bigint], [bigint, bigint]>,
+  'updateSiteSettings' : ActorMethod<[string, boolean, string], SiteSettings>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];
