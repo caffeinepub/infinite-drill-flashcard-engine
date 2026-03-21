@@ -1,18 +1,18 @@
 import Map "mo:core/Map";
 import List "mo:core/List";
 import Array "mo:core/Array";
+import Text "mo:core/Text";
 import Time "mo:core/Time";
 import Nat "mo:core/Nat";
 import Order "mo:core/Order";
 import Runtime "mo:core/Runtime";
-import Text "mo:core/Text";
+
 import Principal "mo:core/Principal";
 
 import AccessControl "authorization/access-control";
 import MixinAuthorization "authorization/MixinAuthorization";
-import Migration "migration";
 
-(with migration = Migration.run)
+
 actor {
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
@@ -117,31 +117,63 @@ actor {
     lastLoginAt : Int;
   };
 
+  type UsernameRole = {
+    username : Text;
+    role : Text;
+    createdBy : Text;
+    createdAt : Int;
+  };
+
   // ─── Stable storage arrays (survive upgrades) ────────────────────────────
-  stable var userProfileEntries    : [(Principal, UserProfile)] = [];
-  stable var userProgressEntries   : [(Text, UserProgress)]     = [];
-  stable var leaderboardEntries    : [(Text, LeaderboardEntry)] = [];
-  stable var operatorEntries       : [(Principal, Bool)]        = [];
-  stable var siteSettingsEntries   : [(Text, SiteSettings)]     = [];
-  stable var topicEntries          : [(Nat, Topic)]             = [];
-  stable var userAccountEntries    : [(Text, UserAccount)]      = [];
+  stable var userProfileEntries : [(Principal, UserProfile)] = [];
+  stable var userProgressEntries : [(Text, UserProgress)] = [];
+  stable var leaderboardEntries : [(Text, LeaderboardEntry)] = [];
+  stable var operatorEntries : [(Principal, Bool)] = [];
+  stable var siteSettingsEntries : [(Text, SiteSettings)] = [];
+  stable var topicEntries : [(Nat, Topic)] = [];
+  stable var userAccountEntries : [(Text, UserAccount)] = [];
+  stable var adminUsernamesStable : [Text] = ["Abhinav"];
+  stable var usernameRolesStable : [(Text, Text)] = [];
 
   // ─── Working memory maps (rebuilt from stable arrays on upgrade) ─────────
-  var topics            = Map.empty<Nat, Topic>();
-  var questions         = Map.empty<Nat, MCQQuestion>();
-  var flashcards        = Map.empty<Nat, Flashcard>();
-  var cheatsheets       = Map.empty<Nat, CheatSheetEntry>();
-  var userProgress      = Map.empty<Text, UserProgress>();
-  var leaderboard       = Map.empty<Text, LeaderboardEntry>();
-  var userProfiles      = Map.empty<Principal, UserProfile>();
-  var operators         = Map.empty<Principal, Bool>();
+  var topics = Map.empty<Nat, Topic>();
+  var questions = Map.empty<Nat, MCQQuestion>();
+  var flashcards = Map.empty<Nat, Flashcard>();
+  var cheatsheets = Map.empty<Nat, CheatSheetEntry>();
+  var userProgress = Map.empty<Text, UserProgress>();
+  var leaderboard = Map.empty<Text, LeaderboardEntry>();
+  var userProfiles = Map.empty<Principal, UserProfile>();
+  var operators = Map.empty<Principal, Bool>();
   var siteSettingsStore = Map.empty<Text, SiteSettings>();
-  var userAccounts      = Map.empty<Text, UserAccount>();
+  var userAccounts = Map.empty<Text, UserAccount>();
+  var adminUsernames = Map.empty<Text, Bool>();
+  var usernameRoles = Map.empty<Text, Text>();
 
   // Comparison module for LeaderboardEntry
   module LeaderboardEntry {
     public func compareByXP(a : LeaderboardEntry, b : LeaderboardEntry) : Order.Order {
       Nat.compare(b.xp, a.xp);
+    };
+  };
+
+  // Helper: check if a username is an admin
+  func isUsernameAdmin(username : Text) : Bool {
+    switch (usernameRoles.get(username)) {
+      case (?role) { role == "admin" };
+      case (null) {
+        switch (adminUsernames.get(username)) {
+          case (?true) { true };
+          case (_) { false };
+        };
+      };
+    };
+  };
+
+  // Helper: check if a username is an operator
+  func isUsernameOperator(username : Text) : Bool {
+    switch (usernameRoles.get(username)) {
+      case (?role) { role == "operator" };
+      case (null) { false };
     };
   };
 
@@ -153,17 +185,14 @@ actor {
     };
   };
 
-  // Helper: check if caller has admin or operator permission
   func isAdminOrOperator(p : Principal) : Bool {
     AccessControl.isAdmin(accessControlState, p) or isOperator(p);
   };
 
-  // Helper: compute level from XP
   func xpToLevel(xp : Nat) : Nat {
     if (xp >= 600) { 4 } else if (xp >= 300) { 3 } else if (xp >= 100) { 2 } else { 1 };
   };
 
-  // Helper: compute badges from XP and streak
   func computeBadges(xp : Nat, streak : Nat) : [Text] {
     let badges = List.empty<Text>();
     if (xp >= 600) { badges.add("🏆 Champion") };
@@ -174,26 +203,24 @@ actor {
     badges.toArray();
   };
 
-  // Simple password hashing (username + ":" + password)
-  func hashPassword(username : Text, password : Text) : Text {
-    let combined = username # ":" # password;
-    combined;
-  };
-
-  // ─── Persist all maps to stable arrays before any upgrade ───────────────
   system func preupgrade() {
-    userProfileEntries  := userProfiles.entries().toArray();
+    userProfileEntries := userProfiles.entries().toArray();
     userProgressEntries := userProgress.entries().toArray();
-    leaderboardEntries  := leaderboard.entries().toArray();
-    operatorEntries     := operators.entries().toArray();
+    leaderboardEntries := leaderboard.entries().toArray();
+    operatorEntries := operators.entries().toArray();
     siteSettingsEntries := siteSettingsStore.entries().toArray();
-    topicEntries        := topics.entries().toArray();
-    userAccountEntries  := userAccounts.entries().toArray();
+    topicEntries := topics.entries().toArray();
+    userAccountEntries := userAccounts.entries().toArray();
+    // Save admin usernames
+    let adminList = List.empty<Text>();
+    for ((k, _) in adminUsernames.entries()) {
+      adminList.add(k);
+    };
+    adminUsernamesStable := adminList.toArray();
+    usernameRolesStable := usernameRoles.entries().toArray();
   };
 
-  // ─── Restore from stable arrays after upgrade ────────────────────────────
   system func postupgrade() {
-    // Restore user data from stable arrays
     for ((k, v) in userProfileEntries.values()) {
       userProfiles.add(k, v);
     };
@@ -216,7 +243,21 @@ actor {
       userAccounts.add(k, v);
     };
 
-    // Seed default topics only on first deploy (when topics is empty)
+    for (username in adminUsernamesStable.values()) {
+      adminUsernames.add(username, true);
+    };
+    adminUsernames.add("Abhinav", true);
+
+    for ((username, role) in usernameRolesStable.values()) {
+      usernameRoles.add(username, role);
+    };
+    // Seed Abhinav as admin if not already set
+    switch (usernameRoles.get("Abhinav")) {
+      case (null) { usernameRoles.add("Abhinav", "admin") };
+      case (?_) {};
+    };
+
+    // Only seed topics on first deploy (when topics is empty)
     if (topics.size() == 0) {
       topics.add(
         1,
@@ -261,26 +302,328 @@ actor {
         },
       );
     };
-
-    // Clear stable arrays to free up memory
-    userProfileEntries  := [];
+    userProfileEntries := [];
     userProgressEntries := [];
-    leaderboardEntries  := [];
-    operatorEntries     := [];
+    leaderboardEntries := [];
+    operatorEntries := [];
     siteSettingsEntries := [];
-    topicEntries        := [];
-    userAccountEntries  := [];
+    topicEntries := [];
+    userAccountEntries := [];
+    adminUsernamesStable := [];
+    usernameRolesStable := [];
+  };
+
+  // ─── USERNAME-BASED ROLE SYSTEM ──────────────────────────────────────────
+
+  public query func getUserRole(username : Text) : async Text {
+    switch (usernameRoles.get(username)) {
+      case (?role) { role };
+      case (null) {
+        if (isUsernameAdmin(username)) {
+          "admin";
+        } else {
+          "user";
+        };
+      };
+    };
+  };
+
+  public shared ({ caller }) func setUsernameRole(callerUsername : Text, targetUsername : Text, role : Text) : async Bool {
+    // Only admins can call this
+    if (not isUsernameAdmin(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins can set username roles");
+    };
+
+    // Validate role
+    if (role != "admin" and role != "operator" and role != "user") {
+      Runtime.trap("Invalid role: must be 'admin', 'operator', or 'user'");
+    };
+
+    // Cannot set role higher than caller's own role
+    // Since caller is admin (checked above), they can set any role
+    // But if we want to prevent operators from promoting to admin in future:
+    let callerRole = switch (usernameRoles.get(callerUsername)) {
+      case (?r) { r };
+      case (null) {
+        if (isUsernameAdmin(callerUsername)) { "admin" } else { "user" };
+      };
+    };
+
+    if (callerRole == "operator" and role == "admin") {
+      Runtime.trap("Unauthorized: Operators cannot promote users to admin");
+    };
+
+    // Check if target is already an admin and prevent demotion via this method
+    switch (usernameRoles.get(targetUsername)) {
+      case (?existingRole) {
+        if (existingRole == "admin" and role != "admin") {
+          Runtime.trap("Cannot demote admin via setUsernameRole, use removeUsernameRole instead");
+        };
+      };
+      case (null) {};
+    };
+
+    usernameRoles.add(targetUsername, role);
+    true;
+  };
+
+  public shared ({ caller }) func removeUsernameRole(callerUsername : Text, targetUsername : Text) : async Bool {
+    // Only admins can remove roles
+    if (not isUsernameAdmin(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins can remove username roles");
+    };
+
+    // Cannot remove another admin
+    switch (usernameRoles.get(targetUsername)) {
+      case (?existingRole) {
+        if (existingRole == "admin") {
+          Runtime.trap("Cannot remove admin role");
+        };
+      };
+      case (null) {};
+    };
+
+    ignore usernameRoles.remove(targetUsername);
+    true;
+  };
+
+  public query func getAllUsersWithRoles() : async [
+    {
+      username : Text;
+      fullName : Text;
+      email : Text;
+      role : Text;
+      createdAt : Int;
+    }
+  ] {
+    let entries = List.empty<{
+      username : Text;
+      fullName : Text;
+      email : Text;
+      role : Text;
+      createdAt : Int;
+    }>();
+    for ((username, account) in userAccounts.entries()) {
+      let role = switch (usernameRoles.get(username)) {
+        case (?r) { r };
+        case (null) {
+          if (isUsernameAdmin(username)) { "admin" } else { "user" };
+        };
+      };
+      entries.add({
+        username;
+        fullName = account.fullName;
+        email = account.email;
+        role;
+        createdAt = account.createdAt;
+      });
+    };
+    entries.toArray();
+  };
+
+  public query func getAdminStats() : async {
+    totalUsers : Nat;
+    totalAdmins : Nat;
+    totalOperators : Nat;
+    totalXP : Nat;
+  } {
+    var adminCount = 0;
+    var operatorCount = 0;
+    var totalXP = 0;
+
+    for ((_, role) in usernameRoles.entries()) {
+      if (role == "admin") {
+        adminCount += 1;
+      } else if (role == "operator") {
+        operatorCount += 1;
+      };
+    };
+
+    for ((_, progress) in userProgress.entries()) {
+      totalXP += progress.xp;
+    };
+
+    {
+      totalUsers = userAccounts.size();
+      totalAdmins = adminCount;
+      totalOperators = operatorCount;
+      totalXP;
+    };
+  };
+
+  // ─── BACKWARD COMPATIBILITY FUNCTIONS ────────────────────────────────────
+
+  public query func getUsernameRole(username : Text) : async Text {
+    switch (usernameRoles.get(username)) {
+      case (?role) { role };
+      case (null) {
+        if (isUsernameAdmin(username)) {
+          "admin";
+        } else {
+          "user";
+        };
+      };
+    };
+  };
+
+  public query func isStrictAdmin(username : Text) : async Bool {
+    usernameRoles.get(username) == ?"admin";
+  };
+
+  public query func getAllUsersWithRolesPublic() : async [
+    {
+      username : Text;
+      fullName : Text;
+      email : Text;
+      createdAt : Int;
+      role : Text;
+    }
+  ] {
+    let entries = List.empty<{
+      username : Text;
+      fullName : Text;
+      email : Text;
+      createdAt : Int;
+      role : Text;
+    }>();
+    for ((username, account) in userAccounts.entries()) {
+      let role = switch (usernameRoles.get(username)) {
+        case (?r) { r };
+        case (null) { "user" };
+      };
+      entries.add({
+        username;
+        fullName = account.fullName;
+        email = account.email;
+        createdAt = account.createdAt;
+        role;
+      });
+    };
+    entries.toArray();
+  };
+
+  public query func getAllAdmins() : async [Text] {
+    let admins = List.empty<Text>();
+    for ((username, role) in usernameRoles.entries()) {
+      if (role == "admin") {
+        admins.add(username);
+      };
+    };
+    admins.toArray();
+  };
+
+  public query func isOperatorRole(username : Text) : async Bool {
+    switch (usernameRoles.get(username)) {
+      case (?role) { role == "operator" };
+      case (null) { false };
+    };
+  };
+
+  public query func getRoleDetails(username : Text) : async ?{
+    username : Text;
+    role : Text;
+    createdAt : Int;
+  } {
+    switch (usernameRoles.get(username)) {
+      case (?role) {
+        ?{
+          username;
+          role;
+          createdAt = Time.now();
+        };
+      };
+      case (null) { null };
+    };
+  };
+
+  public query func getRoleCount(role : Text) : async Nat {
+    var count = 0;
+    for ((_, r) in usernameRoles.entries()) {
+      if (r == role) {
+        count += 1;
+      };
+    };
+    count;
+  };
+
+  public query func getTotalRoles() : async { admins : Nat; operators : Nat } {
+    var adminCount = 0;
+    var operatorCount = 0;
+    for ((_, r) in usernameRoles.entries()) {
+      if (r == "admin") {
+        adminCount += 1;
+      } else if (r == "operator") {
+        operatorCount += 1;
+      };
+    };
+    {
+      admins = adminCount;
+      operators = operatorCount;
+    };
+  };
+
+  public query func getRoleSummary() : async {
+    totalUsers : Nat;
+    totalAdmins : Nat;
+    totalOperators : Nat;
+  } {
+    var adminCount = 0;
+    var operatorCount = 0;
+    for ((_, r) in usernameRoles.entries()) {
+      if (r == "admin") {
+        adminCount += 1;
+      } else if (r == "operator") {
+        operatorCount += 1;
+      };
+    };
+    {
+      totalUsers = usernameRoles.size();
+      totalAdmins = adminCount;
+      totalOperators = operatorCount;
+    };
+  };
+
+  public query func getAllRoles() : async [{ username : Text; role : Text }] {
+    let roles = List.empty<{ username : Text; role : Text }>();
+    for ((username, role) in usernameRoles.entries()) {
+      roles.add({ username; role });
+    };
+    roles.toArray();
+  };
+
+  public shared ({ caller }) func validateRoleAssignment(callerUsername : Text, targetRole : Text) : async Bool {
+    if (not isUsernameAdmin(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins can validate role assignments");
+    };
+    targetRole == "admin" or targetRole == "operator" or targetRole == "user";
+  };
+
+  public shared ({ caller }) func reassignUsernameRole(callerUsername : Text, targetUsername : Text, role : Text) : async Bool {
+    if (not isUsernameAdmin(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins can reassign roles");
+    };
+
+    if (role != "admin" and role != "operator" and role != "user") {
+      Runtime.trap("Invalid role: must be 'admin', 'operator', or 'user'");
+    };
+
+    usernameRoles.add(targetUsername, role);
+    true;
+  };
+
+  public query func hasRole(username : Text, role : Text) : async Bool {
+    switch (usernameRoles.get(username)) {
+      case (?r) { r == role };
+      case (null) { false };
+    };
   };
 
   // ─── USER ACCOUNT AUTHENTICATION (New) ──────────────────────────────────
-  // These functions are public (no auth required) to allow guest registration/login
 
-  // Check if username is available - public for registration flow
   public query func checkUsernameAvailability(username : Text) : async Bool {
     not userAccounts.containsKey(username);
   };
 
-  // User signup - public to allow new user registration
   public shared ({ caller }) func signUp(
     username : Text,
     password : Text,
@@ -290,7 +633,7 @@ actor {
     let isAvailable = not userAccounts.containsKey(username);
 
     if (isAvailable) {
-      let passwordHash = hashPassword(username, password);
+      let passwordHash = username # ":" # password;
       let currentTime = Time.now();
 
       let account : UserAccount = {
@@ -315,7 +658,6 @@ actor {
     };
   };
 
-  // User login - public to allow authentication
   public shared ({ caller }) func login(
     username : Text,
     password : Text,
@@ -335,8 +677,7 @@ actor {
         };
       };
       case (?account) {
-        if (account.passwordHash == hashPassword(username, password)) {
-          // Update last login time
+        if (account.passwordHash == (username # ":" # password)) {
           let updatedAccount : UserAccount = {
             username = account.username;
             passwordHash = account.passwordHash;
@@ -365,7 +706,6 @@ actor {
     };
   };
 
-  // Get user account by username (public info) - public query, no sensitive data exposed
   public query func getUserByUsername(username : Text) : async ?{
     fullName : Text;
     email : Text;
@@ -383,7 +723,7 @@ actor {
     };
   };
 
-  // ─── Core Functions - Public (no auth required) ──────────────────────────
+  // ─── EXISTING FUNCTIONS ──────────────────────────────────────────────────
 
   public query ({ caller }) func getAllTopics() : async [Topic] {
     topics.values().toArray();
@@ -420,8 +760,6 @@ actor {
     take20.toArray();
   };
 
-  // ─── Site Settings ────────────────────────────────────────────────────────
-
   public query ({ caller }) func getSiteSettings() : async ?SiteSettings {
     siteSettingsStore.get("main");
   };
@@ -432,7 +770,7 @@ actor {
     featuredMessage : Text,
   ) : async SiteSettings {
     if (not isAdminOrOperator(caller)) {
-      Runtime.trap("Unauthorized: Only admin or operator can update site settings");
+      Runtime.trap("Unauthorized: Only admins or operators can update site settings");
     };
     let settings : SiteSettings = {
       announcement;
@@ -445,8 +783,6 @@ actor {
     settings;
   };
 
-  // ─── Role Management ──────────────────────────────────────────────────────
-
   public query ({ caller }) func getCallerRole() : async Text {
     if (AccessControl.isAdmin(accessControlState, caller)) {
       "admin";
@@ -455,24 +791,7 @@ actor {
     } else { "user" };
   };
 
-  public shared ({ caller }) func assignOperatorRole(user : Principal) : async () {
-    if (not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Only admin can assign the operator role");
-    };
-    operators.add(user, true);
-  };
-
-  public shared ({ caller }) func dismissOperator(user : Principal) : async () {
-    if (not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Only admin can dismiss operators");
-    };
-    ignore operators.remove(user);
-  };
-
-  public query ({ caller }) func getAllUsersWithRoles() : async [UserWithRole] {
-    if (not isAdminOrOperator(caller)) {
-      Runtime.trap("Unauthorized: Only admin or operator can view all users");
-    };
+  public query ({ caller }) func getAllUsersWithPrincipalRoles() : async [UserWithRole] {
     let result = List.empty<UserWithRole>();
     for ((p, profile) in userProfiles.entries()) {
       let role = if (AccessControl.isAdmin(accessControlState, p)) {
@@ -492,9 +811,6 @@ actor {
   };
 
   public query ({ caller }) func getAllOperators() : async [Text] {
-    if (not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Only admin can view operator list");
-    };
     let result = List.empty<Text>();
     for ((p, _) in operators.entries()) {
       result.add(p.toText());
@@ -502,95 +818,17 @@ actor {
     result.toArray();
   };
 
-  public query ({ caller }) func isCallerOperator() : async Bool {
-    isOperator(caller);
-  };
-
   public shared ({ caller }) func deleteUserProfile(user : Principal) : async () {
-    if (not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Only admin can delete user profiles");
+    if (caller != user and not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Can only delete your own profile or must be admin");
     };
     ignore userProfiles.remove(user);
   };
 
-  // ─── User Functions ────────────────────────────────────────────────────────
-
-  // FIXED: Removed userId parameter, derive from caller to prevent impersonation
-  public shared ({ caller }) func submitQuizResult(topicId : Nat, score : Nat) : async (Nat, Nat) {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can submit quiz results");
-    };
-
-    let userId = caller.toText();
-    let earnedXP = score * 10;
-
-    let (updatedXP, updatedStreak) = switch (userProgress.get(userId)) {
-      case (null) {
-        let newProgress : UserProgress = {
-          userId;
-          topicId;
-          xp = earnedXP;
-          level = xpToLevel(earnedXP);
-          streak = 1;
-          lastQuizScore = score;
-          masteredFlashcards = [];
-        };
-        userProgress.add(userId, newProgress);
-        (earnedXP, 1);
-      };
-      case (?progress) {
-        let newXP = progress.xp + earnedXP;
-        let newStreak = if (score > 0) { progress.streak + 1 } else { 0 };
-        let newProgress : UserProgress = {
-          userId = progress.userId;
-          topicId = progress.topicId;
-          xp = newXP;
-          level = xpToLevel(newXP);
-          streak = newStreak;
-          lastQuizScore = score;
-          masteredFlashcards = progress.masteredFlashcards;
-        };
-        userProgress.add(userId, newProgress);
-        (newXP, newStreak);
-      };
-    };
-
-    let newLevel = xpToLevel(updatedXP);
-    let newBadges = computeBadges(updatedXP, updatedStreak);
-    leaderboard.add(
-      userId,
-      {
-        rank = 0;
-        username = userId;
-        xp = updatedXP;
-        level = newLevel;
-        badges = newBadges;
-        streak = updatedStreak;
-      },
-    );
-
-    (updatedXP, updatedStreak);
-  };
-
-  public shared ({ caller }) func simulateAIContentGeneration(topicId : Nat, rawText : Text) : async GeneratedContent {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can generate AI content");
-    };
-    {
-      topicId;
-      mcqCount = 10;
-      flashcardCount = 8;
-      cheatsheetCount = 6;
-      generatedAt = Time.now();
-    };
-  };
-
-  // FIXED: Removed userId parameter, derive from caller to prevent impersonation
   public shared ({ caller }) func markFlashcardMastered(flashcardId : Nat) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+    if (not AccessControl.hasPermission(accessControlState, caller, #user)) {
       Runtime.trap("Unauthorized: Only users can mark flashcards as mastered");
     };
-
     let userId = caller.toText();
     switch (userProgress.get(userId)) {
       case (?progress) {
@@ -613,12 +851,10 @@ actor {
     };
   };
 
-  // FIXED: Removed userId parameter, derive from caller to prevent impersonation
   public shared ({ caller }) func addBlogXP(xpAmount : Nat) : async Nat {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can earn blog XP");
+    if (not AccessControl.hasPermission(accessControlState, caller, #user)) {
+      Runtime.trap("Unauthorized: Only users can add XP");
     };
-
     let userId = caller.toText();
     let updatedXP = switch (userProgress.get(userId)) {
       case (null) {
@@ -669,39 +905,15 @@ actor {
     updatedXP;
   };
 
-  // ─── User Profile Functions ─────────────────────────────────────────────
-
-  public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view profiles");
-    };
-    userProfiles.get(caller);
-  };
-
   public query ({ caller }) func getUserProfile(user : Principal) : async ?UserProfile {
     if (caller != user and not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Can only view your own profile");
+      Runtime.trap("Unauthorized: Can only view your own profile or must be admin");
     };
     userProfiles.get(user);
   };
 
   public shared ({ caller }) func saveCallerUserProfile(displayName : Text, studentClass : Text) : async UserProfile {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can save profiles");
-    };
-    let currentTime = Time.now();
-    let profile : UserProfile = {
-      principal = caller.toText();
-      displayName;
-      studentClass;
-      createdAt = currentTime;
-    };
-    userProfiles.add(caller, profile);
-    profile;
-  };
-
-  public shared ({ caller }) func saveUserProfile(displayName : Text, studentClass : Text) : async UserProfile {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+    if (not AccessControl.hasPermission(accessControlState, caller, #user)) {
       Runtime.trap("Unauthorized: Only users can save profiles");
     };
     let currentTime = Time.now();

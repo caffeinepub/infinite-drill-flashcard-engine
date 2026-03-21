@@ -89,28 +89,6 @@ export class ExternalBlob {
         return this;
     }
 }
-export interface LeaderboardEntry {
-    xp: bigint;
-    streak: bigint;
-    username: string;
-    badges: Array<string>;
-    rank: bigint;
-    level: bigint;
-}
-export interface SiteSettings {
-    lastUpdated: bigint;
-    announcement: string;
-    updatedBy: string;
-    announcementEnabled: boolean;
-    featuredMessage: string;
-}
-export interface UserWithRole {
-    principal: string;
-    displayName: string;
-    createdAt: bigint;
-    role: string;
-    studentClass: string;
-}
 export interface Topic {
     id: bigint;
     microTopic: string;
@@ -122,12 +100,27 @@ export interface Topic {
     className: string;
     questionCount: bigint;
 }
-export interface GeneratedContent {
-    generatedAt: bigint;
-    mcqCount: bigint;
-    flashcardCount: bigint;
-    cheatsheetCount: bigint;
-    topicId: bigint;
+export interface SiteSettings {
+    lastUpdated: bigint;
+    announcement: string;
+    updatedBy: string;
+    announcementEnabled: boolean;
+    featuredMessage: string;
+}
+export interface LeaderboardEntry {
+    xp: bigint;
+    streak: bigint;
+    username: string;
+    badges: Array<string>;
+    rank: bigint;
+    level: bigint;
+}
+export interface UserWithRole {
+    principal: string;
+    displayName: string;
+    createdAt: bigint;
+    role: string;
+    studentClass: string;
 }
 export interface UserProfile {
     principal: string;
@@ -144,27 +137,68 @@ export interface backendInterface {
     _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
     addBlogXP(xpAmount: bigint): Promise<bigint>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
-    assignOperatorRole(user: Principal): Promise<void>;
     checkUsernameAvailability(username: string): Promise<boolean>;
     deleteUserProfile(user: Principal): Promise<void>;
-    dismissOperator(user: Principal): Promise<void>;
+    getAdminStats(): Promise<{
+        totalXP: bigint;
+        totalAdmins: bigint;
+        totalOperators: bigint;
+        totalUsers: bigint;
+    }>;
+    getAllAdmins(): Promise<Array<string>>;
     getAllOperators(): Promise<Array<string>>;
+    getAllRoles(): Promise<Array<{
+        username: string;
+        role: string;
+    }>>;
     getAllTopics(): Promise<Array<Topic>>;
-    getAllUsersWithRoles(): Promise<Array<UserWithRole>>;
+    getAllUsersWithPrincipalRoles(): Promise<Array<UserWithRole>>;
+    getAllUsersWithRoles(): Promise<Array<{
+        username: string;
+        createdAt: bigint;
+        role: string;
+        fullName: string;
+        email: string;
+    }>>;
+    getAllUsersWithRolesPublic(): Promise<Array<{
+        username: string;
+        createdAt: bigint;
+        role: string;
+        fullName: string;
+        email: string;
+    }>>;
     getCallerRole(): Promise<string>;
-    getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
     getLeaderboard(): Promise<Array<LeaderboardEntry>>;
+    getRoleCount(role: string): Promise<bigint>;
+    getRoleDetails(username: string): Promise<{
+        username: string;
+        createdAt: bigint;
+        role: string;
+    } | null>;
+    getRoleSummary(): Promise<{
+        totalAdmins: bigint;
+        totalOperators: bigint;
+        totalUsers: bigint;
+    }>;
     getSiteSettings(): Promise<SiteSettings | null>;
     getTopicById(id: bigint): Promise<Topic | null>;
+    getTotalRoles(): Promise<{
+        operators: bigint;
+        admins: bigint;
+    }>;
     getUserByUsername(username: string): Promise<{
         createdAt: bigint;
         fullName: string;
         email: string;
     } | null>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
+    getUserRole(username: string): Promise<string>;
+    getUsernameRole(username: string): Promise<string>;
+    hasRole(username: string, role: string): Promise<boolean>;
     isCallerAdmin(): Promise<boolean>;
-    isCallerOperator(): Promise<boolean>;
+    isOperatorRole(username: string): Promise<boolean>;
+    isStrictAdmin(username: string): Promise<boolean>;
     login(username: string, password: string): Promise<{
         ok: boolean;
         fullName: string;
@@ -172,15 +206,16 @@ export interface backendInterface {
         message: string;
     }>;
     markFlashcardMastered(flashcardId: bigint): Promise<void>;
+    reassignUsernameRole(callerUsername: string, targetUsername: string, role: string): Promise<boolean>;
+    removeUsernameRole(callerUsername: string, targetUsername: string): Promise<boolean>;
     saveCallerUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
-    saveUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
+    setUsernameRole(callerUsername: string, targetUsername: string, role: string): Promise<boolean>;
     signUp(username: string, password: string, fullName: string, email: string): Promise<{
         ok: boolean;
         message: string;
     }>;
-    simulateAIContentGeneration(topicId: bigint, rawText: string): Promise<GeneratedContent>;
-    submitQuizResult(topicId: bigint, score: bigint): Promise<[bigint, bigint]>;
     updateSiteSettings(announcement: string, announcementEnabled: boolean, featuredMessage: string): Promise<SiteSettings>;
+    validateRoleAssignment(callerUsername: string, targetRole: string): Promise<boolean>;
 }
 import type { SiteSettings as _SiteSettings, Topic as _Topic, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
@@ -227,20 +262,6 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async assignOperatorRole(arg0: Principal): Promise<void> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.assignOperatorRole(arg0);
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.assignOperatorRole(arg0);
-            return result;
-        }
-    }
     async checkUsernameAvailability(arg0: string): Promise<boolean> {
         if (this.processError) {
             try {
@@ -269,17 +290,36 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async dismissOperator(arg0: Principal): Promise<void> {
+    async getAdminStats(): Promise<{
+        totalXP: bigint;
+        totalAdmins: bigint;
+        totalOperators: bigint;
+        totalUsers: bigint;
+    }> {
         if (this.processError) {
             try {
-                const result = await this.actor.dismissOperator(arg0);
+                const result = await this.actor.getAdminStats();
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.dismissOperator(arg0);
+            const result = await this.actor.getAdminStats();
+            return result;
+        }
+    }
+    async getAllAdmins(): Promise<Array<string>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllAdmins();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllAdmins();
             return result;
         }
     }
@@ -297,6 +337,23 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async getAllRoles(): Promise<Array<{
+        username: string;
+        role: string;
+    }>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllRoles();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllRoles();
+            return result;
+        }
+    }
     async getAllTopics(): Promise<Array<Topic>> {
         if (this.processError) {
             try {
@@ -311,7 +368,27 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async getAllUsersWithRoles(): Promise<Array<UserWithRole>> {
+    async getAllUsersWithPrincipalRoles(): Promise<Array<UserWithRole>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllUsersWithPrincipalRoles();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllUsersWithPrincipalRoles();
+            return result;
+        }
+    }
+    async getAllUsersWithRoles(): Promise<Array<{
+        username: string;
+        createdAt: bigint;
+        role: string;
+        fullName: string;
+        email: string;
+    }>> {
         if (this.processError) {
             try {
                 const result = await this.actor.getAllUsersWithRoles();
@@ -322,6 +399,26 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getAllUsersWithRoles();
+            return result;
+        }
+    }
+    async getAllUsersWithRolesPublic(): Promise<Array<{
+        username: string;
+        createdAt: bigint;
+        role: string;
+        fullName: string;
+        email: string;
+    }>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllUsersWithRolesPublic();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllUsersWithRolesPublic();
             return result;
         }
     }
@@ -339,32 +436,18 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async getCallerUserProfile(): Promise<UserProfile | null> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.getCallerUserProfile();
-                return from_candid_opt_n3(this._uploadFile, this._downloadFile, result);
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.getCallerUserProfile();
-            return from_candid_opt_n3(this._uploadFile, this._downloadFile, result);
-        }
-    }
     async getCallerUserRole(): Promise<UserRole> {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserRole();
-                return from_candid_UserRole_n4(this._uploadFile, this._downloadFile, result);
+                return from_candid_UserRole_n3(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserRole();
-            return from_candid_UserRole_n4(this._uploadFile, this._downloadFile, result);
+            return from_candid_UserRole_n3(this._uploadFile, this._downloadFile, result);
         }
     }
     async getLeaderboard(): Promise<Array<LeaderboardEntry>> {
@@ -378,6 +461,56 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getLeaderboard();
+            return result;
+        }
+    }
+    async getRoleCount(arg0: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getRoleCount(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getRoleCount(arg0);
+            return result;
+        }
+    }
+    async getRoleDetails(arg0: string): Promise<{
+        username: string;
+        createdAt: bigint;
+        role: string;
+    } | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getRoleDetails(arg0);
+                return from_candid_opt_n5(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getRoleDetails(arg0);
+            return from_candid_opt_n5(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getRoleSummary(): Promise<{
+        totalAdmins: bigint;
+        totalOperators: bigint;
+        totalUsers: bigint;
+    }> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getRoleSummary();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getRoleSummary();
             return result;
         }
     }
@@ -409,6 +542,23 @@ export class Backend implements backendInterface {
             return from_candid_opt_n7(this._uploadFile, this._downloadFile, result);
         }
     }
+    async getTotalRoles(): Promise<{
+        operators: bigint;
+        admins: bigint;
+    }> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getTotalRoles();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getTotalRoles();
+            return result;
+        }
+    }
     async getUserByUsername(arg0: string): Promise<{
         createdAt: bigint;
         fullName: string;
@@ -431,14 +581,56 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getUserProfile(arg0);
-                return from_candid_opt_n3(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getUserProfile(arg0);
-            return from_candid_opt_n3(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getUserRole(arg0: string): Promise<string> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getUserRole(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getUserRole(arg0);
+            return result;
+        }
+    }
+    async getUsernameRole(arg0: string): Promise<string> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getUsernameRole(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getUsernameRole(arg0);
+            return result;
+        }
+    }
+    async hasRole(arg0: string, arg1: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.hasRole(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.hasRole(arg0, arg1);
+            return result;
         }
     }
     async isCallerAdmin(): Promise<boolean> {
@@ -455,17 +647,31 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async isCallerOperator(): Promise<boolean> {
+    async isOperatorRole(arg0: string): Promise<boolean> {
         if (this.processError) {
             try {
-                const result = await this.actor.isCallerOperator();
+                const result = await this.actor.isOperatorRole(arg0);
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.isCallerOperator();
+            const result = await this.actor.isOperatorRole(arg0);
+            return result;
+        }
+    }
+    async isStrictAdmin(arg0: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.isStrictAdmin(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.isStrictAdmin(arg0);
             return result;
         }
     }
@@ -502,6 +708,34 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async reassignUsernameRole(arg0: string, arg1: string, arg2: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.reassignUsernameRole(arg0, arg1, arg2);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.reassignUsernameRole(arg0, arg1, arg2);
+            return result;
+        }
+    }
+    async removeUsernameRole(arg0: string, arg1: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.removeUsernameRole(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.removeUsernameRole(arg0, arg1);
+            return result;
+        }
+    }
     async saveCallerUserProfile(arg0: string, arg1: string): Promise<UserProfile> {
         if (this.processError) {
             try {
@@ -516,17 +750,17 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async saveUserProfile(arg0: string, arg1: string): Promise<UserProfile> {
+    async setUsernameRole(arg0: string, arg1: string, arg2: string): Promise<boolean> {
         if (this.processError) {
             try {
-                const result = await this.actor.saveUserProfile(arg0, arg1);
+                const result = await this.actor.setUsernameRole(arg0, arg1, arg2);
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.saveUserProfile(arg0, arg1);
+            const result = await this.actor.setUsernameRole(arg0, arg1, arg2);
             return result;
         }
     }
@@ -547,40 +781,6 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async simulateAIContentGeneration(arg0: bigint, arg1: string): Promise<GeneratedContent> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.simulateAIContentGeneration(arg0, arg1);
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.simulateAIContentGeneration(arg0, arg1);
-            return result;
-        }
-    }
-    async submitQuizResult(arg0: bigint, arg1: bigint): Promise<[bigint, bigint]> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.submitQuizResult(arg0, arg1);
-                return [
-                    result[0],
-                    result[1]
-                ];
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.submitQuizResult(arg0, arg1);
-            return [
-                result[0],
-                result[1]
-            ];
-        }
-    }
     async updateSiteSettings(arg0: string, arg1: boolean, arg2: string): Promise<SiteSettings> {
         if (this.processError) {
             try {
@@ -595,11 +795,33 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async validateRoleAssignment(arg0: string, arg1: string): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.validateRoleAssignment(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.validateRoleAssignment(arg0, arg1);
+            return result;
+        }
+    }
 }
-function from_candid_UserRole_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
-    return from_candid_variant_n5(_uploadFile, _downloadFile, value);
+function from_candid_UserRole_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
+    return from_candid_variant_n4(_uploadFile, _downloadFile, value);
 }
-function from_candid_opt_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
+function from_candid_opt_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [{
+        username: string;
+        createdAt: bigint;
+        role: string;
+    }]): {
+    username: string;
+    createdAt: bigint;
+    role: string;
+} | null {
     return value.length === 0 ? null : value[0];
 }
 function from_candid_opt_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_SiteSettings]): SiteSettings | null {
@@ -619,7 +841,10 @@ function from_candid_opt_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Ar
 } | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_variant_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_opt_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_variant_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     admin: null;
 } | {
     user: null;

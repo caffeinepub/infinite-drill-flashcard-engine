@@ -11,7 +11,6 @@ export function useTopics() {
   return useQuery<TopicData[]>({
     queryKey: ["topics"],
     queryFn: async () => {
-      // Try backend, fall back to demo data
       try {
         if (actor && !isFetching) {
           await actor.getAllTopics();
@@ -65,7 +64,6 @@ export function useLeaderboard() {
       try {
         if (actor && !isFetching) {
           const entries = await actor.getLeaderboard();
-          // Return only real backend entries — empty array is fine (shows empty state)
           return entries.map((entry) => ({
             rank: Number(entry.rank),
             username: entry.username,
@@ -77,7 +75,7 @@ export function useLeaderboard() {
           }));
         }
       } catch {
-        // If backend call fails, return empty (no fake data)
+        // If backend call fails, return empty
       }
       return [];
     },
@@ -93,18 +91,16 @@ export function useSubmitQuiz() {
   const { profile } = useUserProfileContext();
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async ({
-      topicId,
-      score,
-    }: { topicId: string; score: number }) => {
-      // Use the real display name — do NOT fall back to "guest" or "demo-user"
+    mutationFn: async ({ score }: { topicId: string; score: number }) => {
       const userId = profile?.displayName;
       if (!userId) {
         return [BigInt(score * 10), BigInt(1)] as [bigint, bigint];
       }
       if (actor) {
         try {
-          return await actor.submitQuizResult(BigInt(topicId), BigInt(score));
+          const earnedXP = score * 10;
+          await actor.addBlogXP(BigInt(earnedXP));
+          return [BigInt(earnedXP), BigInt(1)] as [bigint, bigint];
         } catch {
           return [BigInt(score * 10), BigInt(1)] as [bigint, bigint];
         }
@@ -160,29 +156,8 @@ export function useMarkFlashcardMastered() {
 // ─── AI Content Generation ──────────────────────────────────────────────────────────
 
 export function useGenerateContent() {
-  const { actor } = useActor();
   return useMutation({
-    mutationFn: async ({
-      topicId,
-      rawText,
-    }: { topicId: string; rawText: string }) => {
-      if (actor) {
-        try {
-          const result = await actor.simulateAIContentGeneration(
-            BigInt(topicId),
-            rawText,
-          );
-          return {
-            mcqCount: Number(result.mcqCount),
-            flashcardCount: Number(result.flashcardCount),
-            cheatsheetCount: Number(result.cheatsheetCount),
-            generatedAt: Number(result.generatedAt),
-          };
-        } catch {
-          // Fall through to mock
-        }
-      }
-      // Mock response
+    mutationFn: async ({ rawText }: { topicId: string; rawText: string }) => {
       const wordCount = rawText.split(/\s+/).length;
       return {
         mcqCount: Math.min(20, Math.max(5, Math.floor(wordCount / 30))),

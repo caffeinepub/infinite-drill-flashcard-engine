@@ -11,6 +11,7 @@ import {
   GraduationCap,
   Loader2,
   LogIn,
+  ShieldCheck,
   Sparkles,
   Star,
   User,
@@ -354,9 +355,15 @@ export default function Auth() {
                 <h1 className="font-display text-xl font-bold text-foreground mb-1">
                   Create Your Account
                 </h1>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground mb-2">
                   It's free — start learning today!
                 </p>
+                {/* Persistence reassurance */}
+                <div className="inline-flex items-center gap-1.5 text-xs text-green-400 bg-green-500/10 border border-green-500/20 rounded-full px-3 py-1">
+                  <ShieldCheck size={12} />
+                  Your account is permanently saved — log in from any device,
+                  anytime.
+                </div>
               </div>
 
               <form onSubmit={handleSignup} className="space-y-4">

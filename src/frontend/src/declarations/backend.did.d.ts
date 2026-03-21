@@ -10,13 +10,6 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
-export interface GeneratedContent {
-  'generatedAt' : bigint,
-  'mcqCount' : bigint,
-  'flashcardCount' : bigint,
-  'cheatsheetCount' : bigint,
-  'topicId' : bigint,
-}
 export interface LeaderboardEntry {
   'xp' : bigint,
   'streak' : bigint,
@@ -63,26 +56,78 @@ export interface _SERVICE {
   '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
   'addBlogXP' : ActorMethod<[bigint], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
-  'assignOperatorRole' : ActorMethod<[Principal], undefined>,
   'checkUsernameAvailability' : ActorMethod<[string], boolean>,
   'deleteUserProfile' : ActorMethod<[Principal], undefined>,
-  'dismissOperator' : ActorMethod<[Principal], undefined>,
+  'getAdminStats' : ActorMethod<
+    [],
+    {
+      'totalXP' : bigint,
+      'totalAdmins' : bigint,
+      'totalOperators' : bigint,
+      'totalUsers' : bigint,
+    }
+  >,
+  'getAllAdmins' : ActorMethod<[], Array<string>>,
   'getAllOperators' : ActorMethod<[], Array<string>>,
+  'getAllRoles' : ActorMethod<
+    [],
+    Array<{ 'username' : string, 'role' : string }>
+  >,
   'getAllTopics' : ActorMethod<[], Array<Topic>>,
-  'getAllUsersWithRoles' : ActorMethod<[], Array<UserWithRole>>,
+  'getAllUsersWithPrincipalRoles' : ActorMethod<[], Array<UserWithRole>>,
+  'getAllUsersWithRoles' : ActorMethod<
+    [],
+    Array<
+      {
+        'username' : string,
+        'createdAt' : bigint,
+        'role' : string,
+        'fullName' : string,
+        'email' : string,
+      }
+    >
+  >,
+  'getAllUsersWithRolesPublic' : ActorMethod<
+    [],
+    Array<
+      {
+        'username' : string,
+        'createdAt' : bigint,
+        'role' : string,
+        'fullName' : string,
+        'email' : string,
+      }
+    >
+  >,
   'getCallerRole' : ActorMethod<[], string>,
-  'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getLeaderboard' : ActorMethod<[], Array<LeaderboardEntry>>,
+  'getRoleCount' : ActorMethod<[string], bigint>,
+  'getRoleDetails' : ActorMethod<
+    [string],
+    [] | [{ 'username' : string, 'createdAt' : bigint, 'role' : string }]
+  >,
+  'getRoleSummary' : ActorMethod<
+    [],
+    { 'totalAdmins' : bigint, 'totalOperators' : bigint, 'totalUsers' : bigint }
+  >,
   'getSiteSettings' : ActorMethod<[], [] | [SiteSettings]>,
   'getTopicById' : ActorMethod<[bigint], [] | [Topic]>,
+  'getTotalRoles' : ActorMethod<
+    [],
+    { 'operators' : bigint, 'admins' : bigint }
+  >,
   'getUserByUsername' : ActorMethod<
     [string],
     [] | [{ 'createdAt' : bigint, 'fullName' : string, 'email' : string }]
   >,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
+  'getUserRole' : ActorMethod<[string], string>,
+  'getUsernameRole' : ActorMethod<[string], string>,
+  'hasRole' : ActorMethod<[string, string], boolean>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
-  'isCallerOperator' : ActorMethod<[], boolean>,
+  'isOperatorRole' : ActorMethod<[string], boolean>,
+  'isStrictAdmin' : ActorMethod<[string], boolean>,
   'login' : ActorMethod<
     [string, string],
     {
@@ -93,18 +138,16 @@ export interface _SERVICE {
     }
   >,
   'markFlashcardMastered' : ActorMethod<[bigint], undefined>,
+  'reassignUsernameRole' : ActorMethod<[string, string, string], boolean>,
+  'removeUsernameRole' : ActorMethod<[string, string], boolean>,
   'saveCallerUserProfile' : ActorMethod<[string, string], UserProfile>,
-  'saveUserProfile' : ActorMethod<[string, string], UserProfile>,
+  'setUsernameRole' : ActorMethod<[string, string, string], boolean>,
   'signUp' : ActorMethod<
     [string, string, string, string],
     { 'ok' : boolean, 'message' : string }
   >,
-  'simulateAIContentGeneration' : ActorMethod<
-    [bigint, string],
-    GeneratedContent
-  >,
-  'submitQuizResult' : ActorMethod<[bigint, bigint], [bigint, bigint]>,
   'updateSiteSettings' : ActorMethod<[string, boolean, string], SiteSettings>,
+  'validateRoleAssignment' : ActorMethod<[string, string], boolean>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

@@ -1,31 +1,29 @@
 # NcertBhaiya
 
 ## Current State
-Authentication is fully removed. Site is open to all visitors. Backend has `userProfiles` with principal-based storage but no username/password system.
+- Backend uses `stable var userAccountEntries` with `preupgrade`/`postupgrade` hooks — accounts persist across deployments
+- Frontend `AuthContext` persists login session in `localStorage` under key `ncertbhaiya_user`
+- Auth page (`/auth`) has Login and Signup tabs with live username availability check
+- `AuthGuard` component currently passes children through without any route protection
+- Admin panel at `/admin` with role-based access (admin > operator > user)
 
 ## Requested Changes (Diff)
 
 ### Add
-- `UserAccount` type in backend: stores username (unique), hashedPassword, fullName, email, createdAt, lastLoginAt
-- `signUp(username, password, fullName, email)` backend function — checks uniqueness, hashes password, stores account
-- `login(username, password)` backend function — verifies credentials, updates lastLoginAt, returns session token/profile
-- `checkUsernameAvailability(username)` backend query
-- `/auth` route with Login and Signup tabs
-  - Signup: Full Name, Username (with live availability check), Gmail/Email, Password
-  - Login: Username + Password
-- Auth context to hold logged-in user state (stored in localStorage for persistence)
-- Redirect to home after login/signup
+- `AuthGuard` should redirect unauthenticated users to `/auth` for protected routes
+- Auth page should show a clear message confirming accounts are permanently saved
+- "Remember me" checkbox that stores session in localStorage vs sessionStorage
 
 ### Modify
-- `App.tsx` — add `/auth` route, wrap app with AuthContext
-- Leaderboard/Quiz XP tied to logged-in username instead of anonymous
+- `AuthGuard` — restore route protection so unauthenticated users are redirected to `/auth`
+- Auth page signup tab — add reassurance text: accounts are permanently saved and can be used to log in from any device
+- Login page — show friendly message if user arrives after being redirected (not logged in)
 
 ### Remove
-- Nothing removed — site stays open (no mandatory login gate), auth is optional/additive
+- Nothing to remove
 
 ## Implementation Plan
-1. Add `UserAccount` stable storage and auth functions to Motoko backend
-2. Add `/auth` page with Login/Signup tabs, live username check, form validation
-3. Add `AuthContext` to manage logged-in user state with localStorage persistence
-4. Wire auth context into `App.tsx`
-5. Show username in navbar when logged in, with logout option
+1. Update `AuthGuard` to check `useAuth()` and redirect to `/auth` if no user
+2. Add welcome-back messaging on the login tab when user visits `/auth` without being logged in
+3. Add reassurance copy on signup form that account is permanently saved
+4. Ensure localStorage persistence is working correctly in `AuthContext`

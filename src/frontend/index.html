@@ -273,24 +273,31 @@
     <!-- Remove any amphtml link tags — they cause Google Search Console crawl errors for SPAs -->
     <script>document.querySelectorAll('link[rel="amphtml"]').forEach(function(el){el.parentNode.removeChild(el)});</script>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- ── Google Analytics: deferred to after load to avoid blocking FCP/LCP ── -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-N06PE137X9"></script>
+    <!-- ── Google Analytics: delayed 4s after load to avoid blocking FCP/LCP/TBT ── -->
     <script>
       window.addEventListener('load', function() {
-        window.dataLayer=window.dataLayer||[];
-        function gtag(){dataLayer.push(arguments)}
-        gtag('js',new Date());
-        gtag('config','G-N06PE137X9',{send_page_view:true});
+        setTimeout(function() {
+          window.dataLayer=window.dataLayer||[];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js',new Date());
+          gtag('config','G-N06PE137X9',{send_page_view:true});
+          var s=document.createElement('script');
+          s.async=true;
+          s.src='https://www.googletagmanager.com/gtag/js?id=G-N06PE137X9';
+          document.head.appendChild(s);
+        }, 4000);
       });
     </script>
-    <!-- ── Google AdSense: loaded after window.load to avoid blocking LCP/FCP ── -->
+    <!-- ── Google AdSense: delayed 3s after load to avoid blocking LCP/FCP ── -->
     <script>
       window.addEventListener('load', function() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.crossOrigin = 'anonymous';
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1798788166591131';
-        document.body.appendChild(s);
+        setTimeout(function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.crossOrigin = 'anonymous';
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1798788166591131';
+          document.body.appendChild(s);
+        }, 3000);
       });
     </script>
   </body>

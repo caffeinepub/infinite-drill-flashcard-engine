@@ -562,7 +562,6 @@ export default function BlogPost() {
             const milestone33 = Math.floor(total * 0.33);
             const milestone66 = Math.floor(total * 0.66);
             const milestone100 = total - 1;
-            // biome-ignore lint/suspicious/noArrayIndexKey: blog sections have no stable id
             return (
               <div key={`section-${section.type}-${i}`}>
                 {renderSection(section, i)}
