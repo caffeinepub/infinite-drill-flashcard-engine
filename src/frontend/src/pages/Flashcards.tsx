@@ -118,7 +118,7 @@ function CompletionScreen({
 // ─── Flashcards Page ──────────────────────────────────────────────────────────
 
 export default function Flashcards() {
-  const { topicId } = useParams({ from: "/flashcards/$topicId" });
+  const { topicId } = useParams({ from: "/protected/flashcards/$topicId" });
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
 
   useSEO({

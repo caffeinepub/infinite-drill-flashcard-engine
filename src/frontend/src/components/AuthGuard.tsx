@@ -1,22 +1,7 @@
-import { useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
+// AuthGuard is no longer needed — auth is handled via router beforeLoad.
+// This file is kept to avoid breaking any stray imports.
 import type { ReactNode } from "react";
-import { useAuth } from "../context/AuthContext";
 
-interface AuthGuardProps {
-  children: ReactNode;
-}
-
-export function AuthGuard({ children }: AuthGuardProps) {
-  const { user } = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      navigate({ to: "/auth" });
-    }
-  }, [user, navigate]);
-
-  if (!user) return null;
+export function AuthGuard({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }

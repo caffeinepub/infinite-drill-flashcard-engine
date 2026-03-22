@@ -107,7 +107,7 @@ function EntryCard({
 // ─── Cheat Sheet Page ─────────────────────────────────────────────────────────
 
 export default function CheatSheet() {
-  const { topicId } = useParams({ from: "/cheatsheet/$topicId" });
+  const { topicId } = useParams({ from: "/protected/cheatsheet/$topicId" });
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
 
   useSEO({

@@ -99,7 +99,7 @@ function XPPopup({ xp, show }: { xp: number; show: boolean }) {
 // ─── Quiz Page ─────────────────────────────────────────────────────────────────
 
 export default function Quiz() {
-  const { topicId } = useParams({ from: "/quiz/$topicId" });
+  const { topicId } = useParams({ from: "/protected/quiz/$topicId" });
   const topic = topicsData.find((t) => t.id === topicId) ?? topicsData[0];
   const questions = topic.questions;
 

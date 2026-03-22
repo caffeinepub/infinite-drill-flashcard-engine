@@ -401,7 +401,7 @@ function useBlogXP(slug: string, isLoaded: boolean) {
 // ─── Blog Post Page ───────────────────────────────────────────────────────────
 
 export default function BlogPost() {
-  const { slug } = useParams({ from: "/blog/$slug" });
+  const { slug } = useParams({ from: "/protected/blog/$slug" });
   const { post, allPosts, isLoaded } = useBlogPost(slug);
 
   // XP reward tracking (read timer + scroll milestones)

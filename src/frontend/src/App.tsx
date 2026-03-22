@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import {
+  Outlet,
   RouterProvider,
   createRootRoute,
   createRoute,
@@ -7,7 +8,6 @@ import {
   redirect,
 } from "@tanstack/react-router";
 import { Suspense, lazy } from "react";
-import { AuthGuard } from "./components/AuthGuard";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { WebVitals } from "./components/WebVitals";
 import { AuthProvider } from "./context/AuthContext";
@@ -38,94 +38,126 @@ function PageLoader() {
   );
 }
 
-// ─── Root Route ───────────────────────────────────────────────────────────────────
+const STORAGE_KEY = "ncertbhaiya_user";
 
-const rootRoute = createRootRoute();
+function isLoggedIn(): boolean {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return !!raw;
+  } catch {
+    return false;
+  }
+}
 
-// ─── Routes ─────────────────────────────────────────────────────────────────────────
+// ─── Root Route ───────────────────────────────────────────────────────────────
 
-const indexRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/",
-  component: Home,
+const rootRoute = createRootRoute({
+  component: () => (
+    <Suspense fallback={<PageLoader />}>
+      <Outlet />
+    </Suspense>
+  ),
 });
 
-const ncertRoute = createRoute({
+// ─── Protected layout — redirects to /auth if not logged in ──────────────────
+
+const protectedLayout = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/ncert",
-  component: NCERT,
+  id: "protected",
+  beforeLoad: () => {
+    if (!isLoggedIn()) {
+      throw redirect({ to: "/auth" });
+    }
+  },
+  component: () => <Outlet />,
 });
 
-const quizRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/quiz/$topicId",
-  component: Quiz,
-});
-
-const flashcardsRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/flashcards/$topicId",
-  component: Flashcards,
-});
-
-const cheatsheetRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/cheatsheet/$topicId",
-  component: CheatSheet,
-});
-
-const generateRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/generate",
-  component: Generate,
-});
-
-const leaderboardRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/leaderboard",
-  component: Leaderboard,
-});
-
-const iitRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/iit",
-  component: IIT,
-});
-
-const blogRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/blog",
-  component: Blog,
-});
-
-const blogPostRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/blog/$slug",
-  component: BlogPost,
-});
-
-const adminRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/admin",
-  component: AdminPanel,
-});
-
-const pyqRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/pyq",
-  component: PYQ,
-});
-
-const pyqSubjectRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/pyq/$subject",
-  component: PYQSubject,
-});
+// ─── Public route (auth page) ─────────────────────────────────────────────────
 
 const authRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/auth",
   component: Auth,
+});
+
+// ─── Protected Routes ─────────────────────────────────────────────────────────
+
+const indexRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/",
+  component: Home,
+});
+
+const ncertRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/ncert",
+  component: NCERT,
+});
+
+const quizRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/quiz/$topicId",
+  component: Quiz,
+});
+
+const flashcardsRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/flashcards/$topicId",
+  component: Flashcards,
+});
+
+const cheatsheetRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/cheatsheet/$topicId",
+  component: CheatSheet,
+});
+
+const generateRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/generate",
+  component: Generate,
+});
+
+const leaderboardRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/leaderboard",
+  component: Leaderboard,
+});
+
+const iitRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/iit",
+  component: IIT,
+});
+
+const blogRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/blog",
+  component: Blog,
+});
+
+const blogPostRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/blog/$slug",
+  component: BlogPost,
+});
+
+const adminRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/admin",
+  component: AdminPanel,
+});
+
+const pyqRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/pyq",
+  component: PYQ,
+});
+
+const pyqSubjectRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/pyq/$subject",
+  component: PYQSubject,
 });
 
 // 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
@@ -138,22 +170,24 @@ const notFoundRoute = createRoute({
   component: () => null,
 });
 
-// ─── Router ────────────────────────────────────────────────────────────────────────
+// ─── Router ───────────────────────────────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
-  indexRoute,
-  ncertRoute,
-  quizRoute,
-  flashcardsRoute,
-  cheatsheetRoute,
-  generateRoute,
-  leaderboardRoute,
-  iitRoute,
-  blogRoute,
-  blogPostRoute,
-  adminRoute,
-  pyqRoute,
-  pyqSubjectRoute,
+  protectedLayout.addChildren([
+    indexRoute,
+    ncertRoute,
+    quizRoute,
+    flashcardsRoute,
+    cheatsheetRoute,
+    generateRoute,
+    leaderboardRoute,
+    iitRoute,
+    blogRoute,
+    blogPostRoute,
+    adminRoute,
+    pyqRoute,
+    pyqSubjectRoute,
+  ]),
   authRoute,
   notFoundRoute,
 ]);
@@ -166,7 +200,7 @@ declare module "@tanstack/react-router" {
   }
 }
 
-// ─── App ────────────────────────────────────────────────────────────────────────────
+// ─── App ──────────────────────────────────────────────────────────────────────
 
 export default function App() {
   return (
@@ -174,11 +208,7 @@ export default function App() {
       <WebVitals />
       <AuthProvider>
         <UserProfileProvider>
-          <AuthGuard>
-            <Suspense fallback={<PageLoader />}>
-              <RouterProvider router={router} />
-            </Suspense>
-          </AuthGuard>
+          <RouterProvider router={router} />
         </UserProfileProvider>
       </AuthProvider>
       <Toaster richColors position="top-right" />
