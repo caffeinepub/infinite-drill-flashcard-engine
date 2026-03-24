@@ -339,9 +339,6 @@ actor {
       Runtime.trap("Invalid role: must be 'admin', 'operator', or 'user'");
     };
 
-    // Cannot set role higher than caller's own role
-    // Since caller is admin (checked above), they can set any role
-    // But if we want to prevent operators from promoting to admin in future:
     let callerRole = switch (usernameRoles.get(callerUsername)) {
       case (?r) { r };
       case (null) {
@@ -353,7 +350,6 @@ actor {
       Runtime.trap("Unauthorized: Operators cannot promote users to admin");
     };
 
-    // Check if target is already an admin and prevent demotion via this method
     switch (usernameRoles.get(targetUsername)) {
       case (?existingRole) {
         if (existingRole == "admin" and role != "admin") {
@@ -368,12 +364,10 @@ actor {
   };
 
   public shared ({ caller }) func removeUsernameRole(callerUsername : Text, targetUsername : Text) : async Bool {
-    // Only admins can remove roles
     if (not isUsernameAdmin(callerUsername)) {
       Runtime.trap("Unauthorized: Only admins can remove username roles");
     };
 
-    // Cannot remove another admin
     switch (usernameRoles.get(targetUsername)) {
       case (?existingRole) {
         if (existingRole == "admin") {
@@ -618,7 +612,7 @@ actor {
     };
   };
 
-  // ─── USER ACCOUNT AUTHENTICATION (New) ──────────────────────────────────
+  // ─── USER ACCOUNT AUTHENTICATION ─────────────────────────────────────────
 
   public query func checkUsernameAvailability(username : Text) : async Bool {
     not userAccounts.containsKey(username);
@@ -719,6 +713,30 @@ actor {
           email = account.email;
           createdAt = account.createdAt;
         };
+      };
+    };
+  };
+
+  public shared ({ caller }) func updateUserProfile(
+    username : Text,
+    newFullName : Text,
+    newEmail : Text,
+  ) : async { ok : Bool; message : Text } {
+    switch (userAccounts.get(username)) {
+      case (null) {
+        { ok = false; message = "User not found" };
+      };
+      case (?account) {
+        let updated : UserAccount = {
+          username = account.username;
+          passwordHash = account.passwordHash;
+          fullName = newFullName;
+          email = newEmail;
+          createdAt = account.createdAt;
+          lastLoginAt = account.lastLoginAt;
+        };
+        userAccounts.add(username, updated);
+        { ok = true; message = "Profile updated successfully" };
       };
     };
   };

@@ -28,6 +28,7 @@ const AdminPanel = lazy(() => import("./pages/AdminPanel"));
 const PYQ = lazy(() => import("./pages/PYQ"));
 const PYQSubject = lazy(() => import("./pages/PYQSubject"));
 const Auth = lazy(() => import("./pages/Auth"));
+const Profile = lazy(() => import("./pages/Profile"));
 
 // Minimal page-level loading fallback
 function PageLoader() {
@@ -160,6 +161,12 @@ const pyqSubjectRoute = createRoute({
   component: PYQSubject,
 });
 
+const profileRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/profile",
+  component: Profile,
+});
+
 // 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -187,6 +194,7 @@ const routeTree = rootRoute.addChildren([
     adminRoute,
     pyqRoute,
     pyqSubjectRoute,
+    profileRoute,
   ]),
   authRoute,
   notFoundRoute,

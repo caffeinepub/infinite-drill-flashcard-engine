@@ -13,7 +13,7 @@ import {
   Shield,
   Sun,
   Trophy,
-  User,
+  UserCircle,
   Zap,
 } from "lucide-react";
 import logoImg from "/assets/generated/ncertbhaiya-logo-transparent.dim_512x512.png";
@@ -140,13 +140,20 @@ export function NavBar() {
 
           {/* Auth section */}
           {user ? (
-            <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
-                <User size={13} className="text-primary" />
-                <span className="text-xs font-medium text-primary max-w-[100px] truncate">
-                  {user.username}
-                </span>
-              </div>
+            <div className="flex items-center gap-1">
+              <Link
+                to="/profile"
+                data-ocid="nav.profile_link"
+                className={cn(
+                  "hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border transition-all text-xs font-medium",
+                  pathname === "/profile"
+                    ? "bg-neon-purple/15 text-neon-purple border-neon-purple/40"
+                    : "bg-primary/10 border-primary/20 text-primary hover:bg-neon-purple/15 hover:border-neon-purple/40 hover:text-neon-purple",
+                )}
+              >
+                <UserCircle size={13} />
+                <span className="max-w-[100px] truncate">{user.username}</span>
+              </Link>
               <Button
                 variant="ghost"
                 size="sm"
@@ -209,17 +216,32 @@ export function NavBar() {
             Admin
           </Link>
         )}
-        {/* Mobile auth */}
+        {/* Mobile: profile + logout */}
         {user ? (
-          <button
-            type="button"
-            onClick={handleLogout}
-            data-ocid="nav.logout_button"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-all shrink-0"
-          >
-            <LogOut size={13} />
-            Logout
-          </button>
+          <>
+            <Link
+              to="/profile"
+              data-ocid="nav.profile_link"
+              className={cn(
+                "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 shrink-0",
+                pathname === "/profile"
+                  ? "bg-neon-purple/15 text-neon-purple"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+              )}
+            >
+              <UserCircle size={13} />
+              Profile
+            </Link>
+            <button
+              type="button"
+              onClick={handleLogout}
+              data-ocid="nav.logout_button"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-all shrink-0"
+            >
+              <LogOut size={13} />
+              Logout
+            </button>
+          </>
         ) : (
           <Link
             to="/auth"
