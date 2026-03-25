@@ -29,6 +29,9 @@ const PYQ = lazy(() => import("./pages/PYQ"));
 const PYQSubject = lazy(() => import("./pages/PYQSubject"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Profile = lazy(() => import("./pages/Profile"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 
 // Minimal page-level loading fallback
 function PageLoader() {
@@ -73,12 +76,30 @@ const protectedLayout = createRoute({
   component: () => <Outlet />,
 });
 
-// ─── Public route (auth page) ─────────────────────────────────────────────────
+// ─── Public routes ─────────────────────────────────────────────────────────────
 
 const authRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/auth",
   component: Auth,
+});
+
+const aboutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/about",
+  component: About,
+});
+
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/contact",
+  component: Contact,
+});
+
+const privacyPolicyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/privacy-policy",
+  component: PrivacyPolicy,
 });
 
 // ─── Protected Routes ─────────────────────────────────────────────────────────
@@ -197,6 +218,9 @@ const routeTree = rootRoute.addChildren([
     profileRoute,
   ]),
   authRoute,
+  aboutRoute,
+  contactRoute,
+  privacyPolicyRoute,
   notFoundRoute,
 ]);
 
