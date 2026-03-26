@@ -17,22 +17,30 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
+  BookOpen,
+  Calendar,
   Crown,
+  Eye,
+  EyeOff,
+  FileText,
   KeyRound,
   LayoutDashboard,
   Lightbulb,
   Loader2,
   Lock,
   Megaphone,
+  PenSquare,
   Settings,
   Shield,
+  Sparkles,
+  Trash2,
   Users,
   Wrench,
   Zap,
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { SiteSettings } from "../backend.d";
+import type { BlogPost as BackendBlogPost, SiteSettings } from "../backend.d";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../context/AuthContext";
 import { useActor } from "../hooks/useActor";
@@ -448,66 +456,54 @@ function UsersTab({ currentUsername }: { currentUsername: string }) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {users.map((user, i) => (
+            {users.map((u, idx) => (
               <TableRow
-                key={user.username}
-                data-ocid={`users.item.${i + 1}`}
-                className="border-border/30 hover:bg-card/30 transition-colors"
+                key={u.username}
+                className="border-border/30 hover:bg-card/30"
+                data-ocid={`users.row.${idx + 1}`}
               >
-                <TableCell className="font-medium text-foreground">
-                  {user.fullName || "—"}
+                <TableCell className="font-medium text-sm">
+                  {u.fullName || "—"}
                 </TableCell>
-                <TableCell className="text-muted-foreground text-sm font-mono">
-                  @{user.username}
+                <TableCell className="font-mono text-xs text-muted-foreground">
+                  @{u.username}
                 </TableCell>
-                <TableCell className="text-muted-foreground text-sm hidden md:table-cell">
-                  {user.email || "—"}
+                <TableCell className="text-xs text-muted-foreground hidden md:table-cell">
+                  {u.email || "—"}
                 </TableCell>
                 <TableCell>
-                  <RoleBadge role={user.role} />
+                  <RoleBadge role={u.role} />
                 </TableCell>
                 <TableCell className="text-right">
-                  {user.role === "admin" ? (
+                  {u.username === currentUsername ? (
+                    <span className="text-xs text-muted-foreground italic">
+                      (you)
+                    </span>
+                  ) : u.role === "admin" ? (
                     <span className="text-xs text-muted-foreground italic">
                       Protected
                     </span>
+                  ) : u.role === "operator" ? (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      data-ocid={`users.demote_button.${idx + 1}`}
+                      className="text-xs h-7 border-red-500/30 text-red-400 hover:bg-red-500/10"
+                      onClick={() => demoteOperator.mutate(u.username)}
+                      disabled={demoteOperator.isPending}
+                    >
+                      Demote
+                    </Button>
                   ) : (
-                    <div className="flex items-center gap-2 justify-end flex-wrap">
-                      {user.role === "user" && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          data-ocid={`users.secondary_button.${i + 1}`}
-                          className="h-7 text-xs border-blue-500/40 text-blue-400 hover:bg-blue-500/15 hover:text-blue-300"
-                          disabled={makeOperator.isPending}
-                          onClick={() => makeOperator.mutate(user.username)}
-                        >
-                          {makeOperator.isPending &&
-                          makeOperator.variables === user.username ? (
-                            <Loader2 className="w-3 h-3 animate-spin" />
-                          ) : (
-                            "Make Operator"
-                          )}
-                        </Button>
-                      )}
-                      {user.role === "operator" && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          data-ocid={`users.edit_button.${i + 1}`}
-                          className="h-7 text-xs border-amber-500/40 text-amber-400 hover:bg-amber-500/15 hover:text-amber-300"
-                          disabled={demoteOperator.isPending}
-                          onClick={() => demoteOperator.mutate(user.username)}
-                        >
-                          {demoteOperator.isPending &&
-                          demoteOperator.variables === user.username ? (
-                            <Loader2 className="w-3 h-3 animate-spin" />
-                          ) : (
-                            "Demote"
-                          )}
-                        </Button>
-                      )}
-                    </div>
+                    <Button
+                      size="sm"
+                      data-ocid={`users.promote_button.${idx + 1}`}
+                      className="text-xs h-7 bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 border border-blue-500/30"
+                      onClick={() => makeOperator.mutate(u.username)}
+                      disabled={makeOperator.isPending}
+                    >
+                      Make Operator
+                    </Button>
                   )}
                 </TableCell>
               </TableRow>
@@ -519,56 +515,49 @@ function UsersTab({ currentUsername }: { currentUsername: string }) {
   );
 }
 
-// ─── Settings Tab ───────────────────────────────────────────────────────────────
+// ─── Settings Tab ──────────────────────────────────────────────────────────────
 function SettingsTab() {
   const { actor } = useActor();
+  const queryClient = useQueryClient();
 
   const { data: settings, isLoading } = useQuery<SiteSettings | null>({
     queryKey: ["siteSettings"],
     queryFn: async () => {
       if (!actor) return null;
       const result = await asAdmin(actor).getSiteSettings();
-      return (result as SiteSettings) ?? null;
+      return result as SiteSettings | null;
     },
     enabled: !!actor,
+    staleTime: 0,
   });
 
-  const [announcement, setAnnouncement] = useState("");
-  const [announcementEnabled, setAnnouncementEnabled] = useState(false);
   const [featuredMessage, setFeaturedMessage] = useState("");
-  const [initialized, setInitialized] = useState(false);
 
-  if (settings && !initialized) {
-    setAnnouncement(settings.announcement);
-    setAnnouncementEnabled(settings.announcementEnabled);
-    setFeaturedMessage(settings.featuredMessage);
-    setInitialized(true);
-  }
-
-  const saveMutation = useMutation({
-    mutationFn: async () => {
+  const updateSettings = useMutation({
+    mutationFn: async (params: {
+      announcement: string;
+      announcementEnabled: boolean;
+      featuredMessage: string;
+    }) => {
       if (!actor) throw new Error("No actor");
       return asAdmin(actor).updateSiteSettings(
-        announcement,
-        announcementEnabled,
-        featuredMessage,
+        params.announcement,
+        params.announcementEnabled,
+        params.featuredMessage,
       );
     },
-    onSuccess: () => toast.success("Site settings saved!"),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["siteSettings"] });
+      toast.success("Settings saved");
+    },
     onError: () => toast.error("Failed to save settings"),
   });
-
-  const formatDate = (ns: bigint) => {
-    const ms = Number(ns / BigInt(1_000_000));
-    return new Date(ms).toLocaleString();
-  };
 
   if (isLoading) {
     return (
       <div data-ocid="settings.loading_state" className="space-y-4">
-        {[1, 2, 3].map((i) => (
-          <Skeleton key={i} className="h-24 w-full rounded-xl" />
-        ))}
+        <Skeleton className="h-12 w-full rounded-xl" />
+        <Skeleton className="h-20 w-full rounded-xl" />
       </div>
     );
   }
@@ -576,196 +565,156 @@ function SettingsTab() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-lg font-semibold text-foreground">Site Settings</h2>
-        {settings && (
-          <p className="text-xs text-muted-foreground mt-1">
-            Last updated: {formatDate(settings.lastUpdated)}
-            {settings.updatedBy ? ` by ${settings.updatedBy}` : ""}
-          </p>
-        )}
+        <h2 className="text-lg font-semibold text-foreground mb-1">
+          Site Settings
+        </h2>
+        <p className="text-sm text-muted-foreground">
+          Manage global site configuration.
+        </p>
       </div>
 
-      <Card className="border border-border/40 bg-card/30">
+      <Card className="border border-border/30 bg-card/20">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-2">
+            <Settings size={14} className="text-blue-400" /> Featured Message
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <p className="text-xs text-muted-foreground">
+            Shown prominently on the homepage hero section.
+          </p>
+          <Textarea
+            value={featuredMessage || settings?.featuredMessage || ""}
+            onChange={(e) => setFeaturedMessage(e.target.value)}
+            placeholder="Enter a featured message for students..."
+            data-ocid="settings.textarea"
+            className="bg-background/50 border-border/50 text-sm resize-none"
+            rows={3}
+          />
+          <Button
+            size="sm"
+            data-ocid="settings.save_button"
+            className="bg-blue-600/80 hover:bg-blue-600 text-white border-0"
+            onClick={() =>
+              updateSettings.mutate({
+                announcement: settings?.announcement ?? "",
+                announcementEnabled: settings?.announcementEnabled ?? false,
+                featuredMessage:
+                  featuredMessage || settings?.featuredMessage || "",
+              })
+            }
+            disabled={updateSettings.isPending}
+          >
+            {updateSettings.isPending ? (
+              <Loader2 size={13} className="animate-spin mr-1" />
+            ) : null}
+            Save Settings
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ─── Announcements Tab ─────────────────────────────────────────────────────────
+function AnnouncementsTab() {
+  const { actor } = useActor();
+  const queryClient = useQueryClient();
+
+  const { data: settings, isLoading } = useQuery<SiteSettings | null>({
+    queryKey: ["siteSettings"],
+    queryFn: async () => {
+      if (!actor) return null;
+      return asAdmin(actor).getSiteSettings() as Promise<SiteSettings | null>;
+    },
+    enabled: !!actor,
+    staleTime: 0,
+  });
+
+  const [announcement, setAnnouncement] = useState("");
+  const [enabled, setEnabled] = useState(false);
+
+  const updateAnnouncement = useMutation({
+    mutationFn: async () => {
+      if (!actor) throw new Error("No actor");
+      return asAdmin(actor).updateSiteSettings(
+        announcement || settings?.announcement || "",
+        enabled,
+        settings?.featuredMessage || "",
+      );
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["siteSettings"] });
+      toast.success("Announcement updated");
+    },
+    onError: () => toast.error("Failed to update announcement"),
+  });
+
+  if (isLoading) {
+    return (
+      <div data-ocid="announcements.loading_state" className="space-y-4">
+        <Skeleton className="h-12 w-full rounded-xl" />
+      </div>
+    );
+  }
+
+  const currentAnnouncement = announcement || settings?.announcement || "";
+  const currentEnabled =
+    announcement !== "" ? enabled : (settings?.announcementEnabled ?? false);
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-lg font-semibold text-foreground mb-1">
+          Announcements
+        </h2>
+        <p className="text-sm text-muted-foreground">
+          Post a banner message visible to all students.
+        </p>
+      </div>
+
+      <Card className="border border-border/30 bg-card/20">
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-semibold text-foreground flex items-center gap-2">
-              <Megaphone size={15} className="text-purple-400" /> Site
+            <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-2">
+              <Megaphone size={14} className="text-amber-400" /> Active
               Announcement
             </CardTitle>
             <div className="flex items-center gap-2">
               <span className="text-xs text-muted-foreground">
-                {announcementEnabled ? "Enabled" : "Disabled"}
+                {currentEnabled ? "Live" : "Off"}
               </span>
               <Switch
-                data-ocid="settings.switch"
-                checked={announcementEnabled}
-                onCheckedChange={setAnnouncementEnabled}
+                checked={currentEnabled}
+                onCheckedChange={(v) => setEnabled(v)}
+                data-ocid="announcements.toggle"
               />
             </div>
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
           <Textarea
-            data-ocid="settings.textarea"
-            placeholder="Enter announcement text shown to all users..."
-            value={announcement}
+            value={currentAnnouncement}
             onChange={(e) => setAnnouncement(e.target.value)}
+            placeholder="Write your announcement here..."
+            data-ocid="announcements.textarea"
+            className="bg-background/50 border-border/50 text-sm resize-none"
             rows={3}
-            className="resize-none bg-background/50"
           />
-          <p className="text-xs text-muted-foreground">
-            When enabled, this message will be displayed as a banner to all
-            users across the site.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card className="border border-border/40 bg-card/30">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-base font-semibold text-foreground">
-            Featured Message
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <Input
-            data-ocid="settings.input"
-            placeholder="Short message shown on the home page..."
-            value={featuredMessage}
-            onChange={(e) => setFeaturedMessage(e.target.value)}
-            className="bg-background/50"
-          />
-          <p className="text-xs text-muted-foreground">
-            Appears as a highlighted callout on the homepage.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Button
-        data-ocid="settings.submit_button"
-        onClick={() => saveMutation.mutate()}
-        disabled={saveMutation.isPending}
-        className="bg-purple-600/80 hover:bg-purple-600 text-white border-0"
-      >
-        {saveMutation.isPending ? (
-          <>
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Saving...
-          </>
-        ) : (
-          "Save Settings"
-        )}
-      </Button>
-
-      {saveMutation.isSuccess && (
-        <div
-          data-ocid="settings.success_state"
-          className="text-sm text-green-400 flex items-center gap-2"
-        >
-          ✓ Settings saved successfully.
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─── Announcements Tab ──────────────────────────────────────────────────────────
-function AnnouncementsTab() {
-  const { actor } = useActor();
-  const queryClient = useQueryClient();
-
-  const { data: settings } = useQuery<SiteSettings | null>({
-    queryKey: ["siteSettings"],
-    queryFn: async () => {
-      if (!actor) return null;
-      const result = await asAdmin(actor).getSiteSettings();
-      return (result as SiteSettings) ?? null;
-    },
-    enabled: !!actor,
-  });
-
-  const toggleMutation = useMutation({
-    mutationFn: async (enabled: boolean) => {
-      if (!actor || !settings) throw new Error("No actor or settings");
-      return asAdmin(actor).updateSiteSettings(
-        settings.announcement,
-        enabled,
-        settings.featuredMessage,
-      );
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["siteSettings"] });
-      toast.success("Announcement updated!");
-    },
-    onError: () => toast.error("Failed to toggle announcement"),
-  });
-
-  const isEnabled = settings?.announcementEnabled ?? false;
-  const announcementText = settings?.announcement ?? "";
-
-  return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-lg font-semibold text-foreground">
-          Announcement Management
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Control what users see at the top of every page.
-        </p>
-      </div>
-
-      {/* Quick toggle */}
-      <Card className="border border-border/40 bg-card/30">
-        <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-semibold text-foreground">
-              Quick Toggle
-            </CardTitle>
-            <div className="flex items-center gap-3">
-              <span
-                className={`text-xs font-semibold ${isEnabled ? "text-green-400" : "text-muted-foreground"}`}
-              >
-                {isEnabled ? "● Live" : "○ Paused"}
-              </span>
-              <Switch
-                data-ocid="announcements.switch"
-                checked={isEnabled}
-                disabled={!settings || toggleMutation.isPending}
-                onCheckedChange={(val) => toggleMutation.mutate(val)}
-              />
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <p className="text-xs text-muted-foreground">
-            Toggle the announcement on or off instantly without editing the full
-            settings form.
-          </p>
-        </CardContent>
-      </Card>
-
-      {/* Preview */}
-      <div className="space-y-2">
-        <Label className="text-sm font-medium text-foreground">
-          Live Preview
-        </Label>
-        {announcementText ? (
-          <div
-            className={`p-4 rounded-xl border text-sm transition-all ${
-              isEnabled
-                ? "bg-purple-500/15 border-purple-500/30 text-purple-200"
-                : "bg-muted/20 border-border/30 text-muted-foreground line-through opacity-50"
-            }`}
+          <Button
+            size="sm"
+            data-ocid="announcements.save_button"
+            className="bg-amber-500/80 hover:bg-amber-500 text-background font-bold border-0"
+            onClick={() => updateAnnouncement.mutate()}
+            disabled={updateAnnouncement.isPending}
           >
-            <div className="flex items-start gap-2">
-              <Megaphone size={14} className="mt-0.5 shrink-0" />
-              <span>{announcementText}</span>
-            </div>
-          </div>
-        ) : (
-          <div className="p-4 rounded-xl border border-border/30 bg-muted/10 text-muted-foreground text-sm text-center">
-            No announcement set. Go to Site Settings to write one.
-          </div>
-        )}
-      </div>
+            {updateAnnouncement.isPending ? (
+              <Loader2 size={13} className="animate-spin mr-1" />
+            ) : null}
+            Save Announcement
+          </Button>
+        </CardContent>
+      </Card>
 
       {/* Tips */}
       <Card className="border border-amber-500/20 bg-amber-500/5">
@@ -791,6 +740,462 @@ function AnnouncementsTab() {
           </ul>
         </CardContent>
       </Card>
+    </div>
+  );
+}
+
+// ─── AI Enhancement ────────────────────────────────────────────────────────────
+function enhanceContentWithAI(
+  title: string,
+  description: string,
+  content: string,
+): { title: string; description: string; content: string } {
+  // Build structured enhanced content
+  const lines = content
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+
+  const enhanced: string[] = [];
+
+  // Add an intro paragraph if content doesn't start with one
+  if (!content.toLowerCase().includes("introduction") && lines.length > 0) {
+    enhanced.push(
+      `## Introduction\n\nIn this article, we explore **${title}** — a key topic covered in NCERT curriculum. Understanding this concept thoroughly will help you score higher in CBSE exams and build a solid academic foundation.`,
+    );
+    enhanced.push("");
+  }
+
+  // Process existing content — group lines into sections
+  let currentSection: string[] = [];
+  let sectionIdx = 0;
+
+  for (const line of lines) {
+    // If line looks like a heading (short, no period at end)
+    if (
+      line.length < 80 &&
+      !line.endsWith(".") &&
+      sectionIdx % 5 === 0 &&
+      currentSection.length >= 3
+    ) {
+      if (currentSection.length > 0) {
+        enhanced.push(currentSection.join("\n"));
+        currentSection = [];
+      }
+      enhanced.push(`## ${line}`);
+      sectionIdx++;
+    } else if (
+      line.startsWith("-") ||
+      line.startsWith("•") ||
+      line.startsWith("*")
+    ) {
+      // Already a list item
+      currentSection.push(
+        line.startsWith("-") ? line : `- ${line.slice(1).trim()}`,
+      );
+    } else {
+      currentSection.push(line);
+      sectionIdx++;
+    }
+  }
+
+  if (currentSection.length > 0) {
+    enhanced.push(currentSection.join("\n"));
+  }
+
+  // Add Key Takeaways section
+  enhanced.push("");
+  enhanced.push("## Key Takeaways");
+  enhanced.push("");
+
+  // Generate 3 key points from title/content
+  const words = title.split(" ").filter((w) => w.length > 3);
+  const kw1 = words[0] || "This concept";
+  const kw2 = words[1] || "the topic";
+  enhanced.push(
+    `- **${kw1}** is a foundational concept in NCERT curriculum that builds strong academic understanding.`,
+  );
+  enhanced.push(
+    `- Mastering **${kw2}** helps students perform better in CBSE board exams and competitive entrance tests.`,
+  );
+  enhanced.push(
+    "- Regular practice with MCQs and flashcards on NCERT Bhaiya reinforces the concepts covered in this article.",
+  );
+
+  // Enhance description to be SEO-friendly
+  const enhancedDescription = description.trim()
+    ? description.length < 100
+      ? `${description.trim()} Learn key concepts, important definitions, exam tips, and practice questions for NCERT Class students.`
+      : description.trim()
+    : `Complete guide to ${title} with detailed explanations, key concepts, important questions, and CBSE exam tips for NCERT students.`;
+
+  return {
+    title,
+    description: enhancedDescription.slice(0, 160),
+    content: enhanced.join("\n"),
+  };
+}
+
+// ─── Blog Tab ──────────────────────────────────────────────────────────────────
+function BlogTab({
+  currentUsername,
+  currentFullName,
+}: { currentUsername: string; currentFullName: string }) {
+  const { actor } = useActor();
+  const queryClient = useQueryClient();
+
+  // Form state
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [content, setContent] = useState("");
+  const [isEnhancing, setIsEnhancing] = useState(false);
+
+  // Fetch all posts (admin view)
+  const { data: posts, isLoading: postsLoading } = useQuery<BackendBlogPost[]>({
+    queryKey: ["adminBlogPosts", currentUsername],
+    queryFn: async () => {
+      if (!actor) return [];
+      const result = await asAdmin(actor).getAllBlogPostsAdmin(currentUsername);
+      return result as BackendBlogPost[];
+    },
+    enabled: !!actor,
+    staleTime: 0,
+  });
+
+  // Create + publish mutation
+  const publishMutation = useMutation({
+    mutationFn: async () => {
+      if (!actor) throw new Error("No actor");
+      const postId = (await asAdmin(actor).createBlogPost(
+        title.trim(),
+        description.trim(),
+        content.trim(),
+        currentFullName || currentUsername,
+        currentUsername,
+        "",
+      )) as bigint;
+      await asAdmin(actor).publishBlogPost(postId, currentUsername);
+      return postId;
+    },
+    onSuccess: () => {
+      toast.success("Post published successfully!", { icon: "📝" });
+      setTitle("");
+      setDescription("");
+      setContent("");
+      queryClient.invalidateQueries({ queryKey: ["adminBlogPosts"] });
+      queryClient.invalidateQueries({ queryKey: ["dynamicBlogPosts"] });
+    },
+    onError: () => toast.error("Failed to publish post. Please try again."),
+  });
+
+  // Delete mutation
+  const deleteMutation = useMutation({
+    mutationFn: async (postId: bigint) => {
+      if (!actor) throw new Error("No actor");
+      await asAdmin(actor).deleteBlogPost(postId, currentUsername);
+    },
+    onSuccess: () => {
+      toast.success("Post deleted");
+      queryClient.invalidateQueries({ queryKey: ["adminBlogPosts"] });
+      queryClient.invalidateQueries({ queryKey: ["dynamicBlogPosts"] });
+    },
+    onError: () => toast.error("Failed to delete post"),
+  });
+
+  // Toggle publish/unpublish mutation
+  const togglePublishMutation = useMutation({
+    mutationFn: async ({
+      postId,
+      published,
+    }: { postId: bigint; published: boolean }) => {
+      if (!actor) throw new Error("No actor");
+      if (published) {
+        await asAdmin(actor).unpublishBlogPost(postId, currentUsername);
+      } else {
+        await asAdmin(actor).publishBlogPost(postId, currentUsername);
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["adminBlogPosts"] });
+      queryClient.invalidateQueries({ queryKey: ["dynamicBlogPosts"] });
+    },
+    onError: () => toast.error("Failed to update post status"),
+  });
+
+  const handleEnhance = async () => {
+    if (!title.trim() || !content.trim()) {
+      toast.error("Please fill in Title and Content before enhancing.");
+      return;
+    }
+    setIsEnhancing(true);
+    // Simulate AI processing
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const enhanced = enhanceContentWithAI(title, description, content);
+    setDescription(enhanced.description);
+    setContent(enhanced.content);
+    setIsEnhancing(false);
+    toast.success("Content enhanced with AI!", { icon: "✨" });
+  };
+
+  const formatDate = (nanoseconds: bigint) => {
+    const ms = Number(nanoseconds) / 1_000_000;
+    return new Date(ms).toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  };
+
+  const canPublish = title.trim() && description.trim() && content.trim();
+
+  return (
+    <div className="space-y-8">
+      {/* Header */}
+      <div>
+        <h2 className="text-lg font-semibold text-foreground mb-1 flex items-center gap-2">
+          <PenSquare size={18} className="text-neon-purple" />
+          Blog Management
+        </h2>
+        <p className="text-sm text-muted-foreground">
+          Create, enhance, and publish blog posts. Posts appear publicly on the
+          blog page.
+        </p>
+      </div>
+
+      {/* ── Create New Post ── */}
+      <Card className="border border-border/40 bg-card/20">
+        <CardHeader className="pb-4">
+          <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-2">
+            <FileText size={14} className="text-green-400" /> Create New Blog
+            Post
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {/* Title */}
+          <div className="space-y-1.5">
+            <Label
+              htmlFor="blog-title"
+              className="text-xs font-medium text-foreground/80"
+            >
+              Post Title <span className="text-red-400">*</span>
+            </Label>
+            <Input
+              id="blog-title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="e.g. NCERT Class 10 Science Chapter 1 — Chemical Reactions"
+              data-ocid="blog.title.input"
+              className="bg-background/50 border-border/50 text-sm"
+            />
+          </div>
+
+          {/* Description */}
+          <div className="space-y-1.5">
+            <Label
+              htmlFor="blog-desc"
+              className="text-xs font-medium text-foreground/80"
+            >
+              Page Description / Excerpt <span className="text-red-400">*</span>
+            </Label>
+            <p className="text-[11px] text-muted-foreground">
+              This appears as the excerpt in the blog listing and as the SEO
+              meta description.
+            </p>
+            <Textarea
+              id="blog-desc"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="A brief, compelling summary of what this article covers..."
+              data-ocid="blog.description.textarea"
+              className="bg-background/50 border-border/50 text-sm resize-none"
+              rows={3}
+            />
+            <p className="text-[10px] text-muted-foreground text-right">
+              {description.length}/160 chars
+            </p>
+          </div>
+
+          {/* Content */}
+          <div className="space-y-1.5">
+            <Label
+              htmlFor="blog-content"
+              className="text-xs font-medium text-foreground/80"
+            >
+              Article Content <span className="text-red-400">*</span>
+            </Label>
+            <p className="text-[11px] text-muted-foreground">
+              Write your article content. Use the AI enhance button to structure
+              it with headings, bullet points, and a key takeaways section.
+            </p>
+            <Textarea
+              id="blog-content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Write your article content here. You can use simple text — the AI will format and enhance it for you..."
+              data-ocid="blog.content.textarea"
+              className="bg-background/50 border-border/50 text-sm resize-none font-mono text-xs leading-relaxed"
+              rows={12}
+            />
+          </div>
+
+          {/* Author info */}
+          <div className="flex items-center gap-2 p-3 rounded-lg bg-muted/20 border border-border/30">
+            <div className="w-7 h-7 rounded-full bg-neon-purple/20 flex items-center justify-center text-[10px] font-bold text-neon-purple">
+              {(currentFullName || currentUsername).charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <p className="text-xs font-medium text-foreground">
+                {currentFullName || currentUsername}
+              </p>
+              <p className="text-[10px] text-muted-foreground">
+                @{currentUsername} · Author
+              </p>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-2 pt-1">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={handleEnhance}
+              disabled={isEnhancing || publishMutation.isPending}
+              data-ocid="blog.enhance_button"
+              className="gap-2 border-neon-purple/40 text-neon-purple hover:bg-neon-purple/10 hover:border-neon-purple/60"
+            >
+              {isEnhancing ? (
+                <Loader2 size={14} className="animate-spin" />
+              ) : (
+                <Sparkles size={14} />
+              )}
+              {isEnhancing ? "Enhancing..." : "✨ Enhance with AI"}
+            </Button>
+
+            <Button
+              type="button"
+              onClick={() => publishMutation.mutate()}
+              disabled={!canPublish || publishMutation.isPending || isEnhancing}
+              data-ocid="blog.publish_button"
+              className="gap-2 bg-gradient-to-r from-neon-purple to-neon-blue text-white hover:opacity-90 border-0 font-semibold"
+            >
+              {publishMutation.isPending ? (
+                <Loader2 size={14} className="animate-spin" />
+              ) : (
+                <BookOpen size={14} />
+              )}
+              {publishMutation.isPending ? "Publishing..." : "Publish Post"}
+            </Button>
+          </div>
+
+          {!canPublish && (
+            <p className="text-[11px] text-muted-foreground">
+              All fields (Title, Description, Content) are required to publish.
+            </p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* ── Manage Posts ── */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
+            <FileText size={14} className="text-muted-foreground" />
+            Published Posts
+          </h3>
+          <Badge variant="secondary" className="text-xs">
+            {posts?.length ?? 0} posts
+          </Badge>
+        </div>
+
+        {postsLoading ? (
+          <div className="space-y-3" data-ocid="blog.loading_state">
+            {[1, 2, 3].map((i) => (
+              <Skeleton key={i} className="h-16 w-full rounded-xl" />
+            ))}
+          </div>
+        ) : !posts || posts.length === 0 ? (
+          <div
+            data-ocid="blog.empty_state"
+            className="flex flex-col items-center justify-center py-12 text-muted-foreground border border-dashed border-border/40 rounded-xl"
+          >
+            <BookOpen size={32} className="mb-2 opacity-30" />
+            <p className="text-sm">No blog posts yet.</p>
+            <p className="text-xs">Create your first post above!</p>
+          </div>
+        ) : (
+          <div className="space-y-2" data-ocid="blog.list">
+            {posts.map((post, idx) => (
+              <div
+                key={String(post.id)}
+                data-ocid={`blog.item.${idx + 1}`}
+                className="flex items-start gap-3 p-4 rounded-xl border border-border/30 bg-card/20 hover:bg-card/40 transition-colors"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <p className="text-sm font-semibold text-foreground truncate">
+                      {post.title}
+                    </p>
+                    <Badge
+                      className={
+                        post.published
+                          ? "bg-green-500/15 text-green-400 border-green-500/30 text-[10px]"
+                          : "bg-muted/30 text-muted-foreground border-border/30 text-[10px]"
+                      }
+                    >
+                      {post.published ? "Published" : "Draft"}
+                    </Badge>
+                  </div>
+                  <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Users size={9} />{" "}
+                      {post.authorName || post.authorUsername}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar size={9} /> {formatDate(post.createdAt)}
+                    </span>
+                  </div>
+                  {post.description && (
+                    <p className="text-[11px] text-muted-foreground mt-1 line-clamp-1">
+                      {post.description}
+                    </p>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    data-ocid={`blog.toggle_button.${idx + 1}`}
+                    className="h-7 w-7 p-0 text-muted-foreground hover:text-foreground"
+                    title={post.published ? "Unpublish" : "Publish"}
+                    onClick={() =>
+                      togglePublishMutation.mutate({
+                        postId: post.id,
+                        published: post.published,
+                      })
+                    }
+                    disabled={togglePublishMutation.isPending}
+                  >
+                    {post.published ? <EyeOff size={13} /> : <Eye size={13} />}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    data-ocid={`blog.delete_button.${idx + 1}`}
+                    className="h-7 w-7 p-0 text-muted-foreground hover:text-red-400"
+                    title="Delete post"
+                    onClick={() => deleteMutation.mutate(post.id)}
+                    disabled={deleteMutation.isPending}
+                  >
+                    <Trash2 size={13} />
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -896,8 +1301,8 @@ export default function AdminPanel() {
             </div>
             <p className="text-sm text-muted-foreground mt-1">
               {isAdmin
-                ? "Full control — manage users, roles, and site settings."
-                : "Content management — edit settings and announcements."}
+                ? "Full control — manage users, roles, settings, and blog posts."
+                : "Content management — edit settings, announcements, and blog posts."}
             </p>
             <p className="text-xs text-muted-foreground/60 mt-1">
               Logged in as{" "}
@@ -909,7 +1314,7 @@ export default function AdminPanel() {
         </div>
 
         {/* ── Tabs ── */}
-        <Tabs defaultValue={isAdmin ? "dashboard" : "settings"}>
+        <Tabs defaultValue={isAdmin ? "dashboard" : "blog"}>
           <TabsList
             data-ocid="admin.tab"
             className="mb-6 bg-card/50 border border-border/40 h-auto flex-wrap gap-1 p-1"
@@ -939,6 +1344,9 @@ export default function AdminPanel() {
             >
               <Megaphone size={13} /> Announcements
             </TabsTrigger>
+            <TabsTrigger value="blog" className="gap-1.5 text-xs sm:text-sm">
+              <PenSquare size={13} /> Blog
+            </TabsTrigger>
           </TabsList>
 
           {isAdmin && (
@@ -959,6 +1367,13 @@ export default function AdminPanel() {
 
           <TabsContent value="announcements">
             <AnnouncementsTab />
+          </TabsContent>
+
+          <TabsContent value="blog">
+            <BlogTab
+              currentUsername={user.username}
+              currentFullName={user.fullName}
+            />
           </TabsContent>
         </Tabs>
       </div>

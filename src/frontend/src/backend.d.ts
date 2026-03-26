@@ -7,6 +7,39 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
+export interface BlogPost {
+    id: bigint;
+    title: string;
+    authorUsername: string;
+    content: string;
+    published: boolean;
+    createdAt: bigint;
+    authorName: string;
+    description: string;
+    imageUrl: string;
+}
+export interface LeaderboardEntry {
+    xp: bigint;
+    streak: bigint;
+    username: string;
+    badges: Array<string>;
+    rank: bigint;
+    level: bigint;
+}
+export interface SiteSettings {
+    lastUpdated: bigint;
+    announcement: string;
+    updatedBy: string;
+    announcementEnabled: boolean;
+    featuredMessage: string;
+}
+export interface UserWithRole {
+    principal: string;
+    displayName: string;
+    createdAt: bigint;
+    role: string;
+    studentClass: string;
+}
 export interface Topic {
     id: bigint;
     microTopic: string;
@@ -17,28 +50,6 @@ export interface Topic {
     chapter: string;
     className: string;
     questionCount: bigint;
-}
-export interface SiteSettings {
-    lastUpdated: bigint;
-    announcement: string;
-    updatedBy: string;
-    announcementEnabled: boolean;
-    featuredMessage: string;
-}
-export interface LeaderboardEntry {
-    xp: bigint;
-    streak: bigint;
-    username: string;
-    badges: Array<string>;
-    rank: bigint;
-    level: bigint;
-}
-export interface UserWithRole {
-    principal: string;
-    displayName: string;
-    createdAt: bigint;
-    role: string;
-    studentClass: string;
 }
 export interface UserProfile {
     principal: string;
@@ -55,6 +66,8 @@ export interface backendInterface {
     addBlogXP(xpAmount: bigint): Promise<bigint>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     checkUsernameAvailability(username: string): Promise<boolean>;
+    createBlogPost(title: string, description: string, content: string, authorName: string, authorUsername: string, imageUrl: string): Promise<bigint>;
+    deleteBlogPost(id: bigint, callerUsername: string): Promise<void>;
     deleteUserProfile(user: Principal): Promise<void>;
     getAdminStats(): Promise<{
         totalXP: bigint;
@@ -63,6 +76,11 @@ export interface backendInterface {
         totalUsers: bigint;
     }>;
     getAllAdmins(): Promise<Array<string>>;
+    getAllBlogPosts(): Promise<Array<BlogPost>>;
+    getAllBlogPostsAdmin(callerUsername: string): Promise<Array<BlogPost>>;
+    getAllBlogPostsByAuthor(authorUsername: string): Promise<Array<BlogPost>>;
+    getAllBlogPostsPublic(): Promise<Array<BlogPost>>;
+    getAllBlogPostsPublicAdmin(): Promise<Array<BlogPost>>;
     getAllOperators(): Promise<Array<string>>;
     getAllRoles(): Promise<Array<{
         username: string;
@@ -84,6 +102,8 @@ export interface backendInterface {
         fullName: string;
         email: string;
     }>>;
+    getBlogPostById(id: bigint): Promise<BlogPost | null>;
+    getBlogPostImageById(id: bigint): Promise<string | null>;
     getCallerRole(): Promise<string>;
     getCallerUserRole(): Promise<UserRole>;
     getLeaderboard(): Promise<Array<LeaderboardEntry>>;
@@ -123,14 +143,22 @@ export interface backendInterface {
         message: string;
     }>;
     markFlashcardMastered(flashcardId: bigint): Promise<void>;
+    publishBlogPost(id: bigint, callerUsername: string): Promise<void>;
     reassignUsernameRole(callerUsername: string, targetUsername: string, role: string): Promise<boolean>;
     removeUsernameRole(callerUsername: string, targetUsername: string): Promise<boolean>;
     saveCallerUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
+    searchBlogPosts(searchQuery: string): Promise<Array<BlogPost>>;
     setUsernameRole(callerUsername: string, targetUsername: string, role: string): Promise<boolean>;
     signUp(username: string, password: string, fullName: string, email: string): Promise<{
         ok: boolean;
         message: string;
     }>;
+    unpublishBlogPost(id: bigint, callerUsername: string): Promise<void>;
+    updateBlogPost(id: bigint, title: string, description: string, content: string, imageUrl: string, published: boolean, editorUsername: string): Promise<void>;
     updateSiteSettings(announcement: string, announcementEnabled: boolean, featuredMessage: string): Promise<SiteSettings>;
+    updateUserProfile(username: string, newFullName: string, newEmail: string): Promise<{
+        ok: boolean;
+        message: string;
+    }>;
     validateRoleAssignment(callerUsername: string, targetRole: string): Promise<boolean>;
 }

@@ -10,6 +10,17 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
+export interface BlogPost {
+  'id' : bigint,
+  'title' : string,
+  'authorUsername' : string,
+  'content' : string,
+  'published' : boolean,
+  'createdAt' : bigint,
+  'authorName' : string,
+  'description' : string,
+  'imageUrl' : string,
+}
 export interface LeaderboardEntry {
   'xp' : bigint,
   'streak' : bigint,
@@ -57,6 +68,11 @@ export interface _SERVICE {
   'addBlogXP' : ActorMethod<[bigint], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
   'checkUsernameAvailability' : ActorMethod<[string], boolean>,
+  'createBlogPost' : ActorMethod<
+    [string, string, string, string, string, string],
+    bigint
+  >,
+  'deleteBlogPost' : ActorMethod<[bigint, string], undefined>,
   'deleteUserProfile' : ActorMethod<[Principal], undefined>,
   'getAdminStats' : ActorMethod<
     [],
@@ -68,6 +84,11 @@ export interface _SERVICE {
     }
   >,
   'getAllAdmins' : ActorMethod<[], Array<string>>,
+  'getAllBlogPosts' : ActorMethod<[], Array<BlogPost>>,
+  'getAllBlogPostsAdmin' : ActorMethod<[string], Array<BlogPost>>,
+  'getAllBlogPostsByAuthor' : ActorMethod<[string], Array<BlogPost>>,
+  'getAllBlogPostsPublic' : ActorMethod<[], Array<BlogPost>>,
+  'getAllBlogPostsPublicAdmin' : ActorMethod<[], Array<BlogPost>>,
   'getAllOperators' : ActorMethod<[], Array<string>>,
   'getAllRoles' : ActorMethod<
     [],
@@ -99,6 +120,8 @@ export interface _SERVICE {
       }
     >
   >,
+  'getBlogPostById' : ActorMethod<[bigint], [] | [BlogPost]>,
+  'getBlogPostImageById' : ActorMethod<[bigint], [] | [string]>,
   'getCallerRole' : ActorMethod<[], string>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getLeaderboard' : ActorMethod<[], Array<LeaderboardEntry>>,
@@ -138,15 +161,26 @@ export interface _SERVICE {
     }
   >,
   'markFlashcardMastered' : ActorMethod<[bigint], undefined>,
+  'publishBlogPost' : ActorMethod<[bigint, string], undefined>,
   'reassignUsernameRole' : ActorMethod<[string, string, string], boolean>,
   'removeUsernameRole' : ActorMethod<[string, string], boolean>,
   'saveCallerUserProfile' : ActorMethod<[string, string], UserProfile>,
+  'searchBlogPosts' : ActorMethod<[string], Array<BlogPost>>,
   'setUsernameRole' : ActorMethod<[string, string, string], boolean>,
   'signUp' : ActorMethod<
     [string, string, string, string],
     { 'ok' : boolean, 'message' : string }
   >,
+  'unpublishBlogPost' : ActorMethod<[bigint, string], undefined>,
+  'updateBlogPost' : ActorMethod<
+    [bigint, string, string, string, string, boolean, string],
+    undefined
+  >,
   'updateSiteSettings' : ActorMethod<[string, boolean, string], SiteSettings>,
+  'updateUserProfile' : ActorMethod<
+    [string, string, string],
+    { 'ok' : boolean, 'message' : string }
+  >,
   'validateRoleAssignment' : ActorMethod<[string, string], boolean>,
 }
 export declare const idlService: IDL.ServiceClass;

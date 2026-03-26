@@ -12,7 +12,6 @@ import Principal "mo:core/Principal";
 import AccessControl "authorization/access-control";
 import MixinAuthorization "authorization/MixinAuthorization";
 
-
 actor {
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
@@ -107,7 +106,6 @@ actor {
     role : Text;
   };
 
-  // User account for username/password authentication
   type UserAccount = {
     username : Text;
     passwordHash : Text;
@@ -124,7 +122,20 @@ actor {
     createdAt : Int;
   };
 
-  // ─── Stable storage arrays (survive upgrades) ────────────────────────────
+  // ─── BlogPost Types ─────────────────────────────────────────
+  type BlogPost = {
+    id : Nat;
+    title : Text;
+    description : Text;
+    content : Text;
+    authorName : Text;
+    authorUsername : Text;
+    createdAt : Int;
+    published : Bool;
+    imageUrl : Text;
+  };
+
+  // ─── Stable storage arrays (survive upgrades) ───────────────
   stable var userProfileEntries : [(Principal, UserProfile)] = [];
   stable var userProgressEntries : [(Text, UserProgress)] = [];
   stable var leaderboardEntries : [(Text, LeaderboardEntry)] = [];
@@ -134,6 +145,8 @@ actor {
   stable var userAccountEntries : [(Text, UserAccount)] = [];
   stable var adminUsernamesStable : [Text] = ["Abhinav"];
   stable var usernameRolesStable : [(Text, Text)] = [];
+  stable var blogPostsStable : [(Nat, BlogPost)] = [];
+  stable var nextBlogPostIdStable = 1;
 
   // ─── Working memory maps (rebuilt from stable arrays on upgrade) ─────────
   var topics = Map.empty<Nat, Topic>();
@@ -148,6 +161,8 @@ actor {
   var userAccounts = Map.empty<Text, UserAccount>();
   var adminUsernames = Map.empty<Text, Bool>();
   var usernameRoles = Map.empty<Text, Text>();
+  var blogPosts = Map.empty<Nat, BlogPost>();
+  var nextBlogPostId = 1;
 
   // Comparison module for LeaderboardEntry
   module LeaderboardEntry {
@@ -218,6 +233,8 @@ actor {
     };
     adminUsernamesStable := adminList.toArray();
     usernameRolesStable := usernameRoles.entries().toArray();
+    blogPostsStable := blogPosts.entries().toArray();
+    nextBlogPostIdStable := nextBlogPostId;
   };
 
   system func postupgrade() {
@@ -256,6 +273,11 @@ actor {
       case (null) { usernameRoles.add("Abhinav", "admin") };
       case (?_) {};
     };
+
+    for ((k, v) in blogPostsStable.values()) {
+      blogPosts.add(k, v);
+    };
+    nextBlogPostId := nextBlogPostIdStable;
 
     // Only seed topics on first deploy (when topics is empty)
     if (topics.size() == 0) {
@@ -311,6 +333,7 @@ actor {
     userAccountEntries := [];
     adminUsernamesStable := [];
     usernameRolesStable := [];
+    blogPostsStable := [];
   };
 
   // ─── USERNAME-BASED ROLE SYSTEM ──────────────────────────────────────────
@@ -943,5 +966,196 @@ actor {
     };
     userProfiles.add(caller, profile);
     profile;
+  };
+
+  // ─── BLOGPOST METHODS ────────────────────────────────────────────────────
+
+  public query func getAllBlogPosts() : async [BlogPost] {
+    let posts = List.empty<BlogPost>();
+    for ((_, post) in blogPosts.entries()) {
+      if (post.published) { posts.add(post) };
+    };
+    posts.toArray();
+  };
+
+  public query func getAllBlogPostsPublic() : async [BlogPost] {
+    let posts = List.empty<BlogPost>();
+    for ((_, post) in blogPosts.entries()) {
+      if (post.published) { posts.add(post) };
+    };
+    posts.toArray();
+  };
+
+  public query func getAllBlogPostsByAuthor(authorUsername : Text) : async [BlogPost] {
+    let posts = List.empty<BlogPost>();
+    for ((_, post) in blogPosts.entries()) {
+      if (post.authorUsername == authorUsername and post.published) { posts.add(post) };
+    };
+    posts.toArray();
+  };
+
+  public query func getBlogPostById(id : Nat) : async ?BlogPost {
+    switch (blogPosts.get(id)) {
+      case (?post) {
+        if (post.published) { ?post } else { null };
+      };
+      case (null) { null };
+    };
+  };
+
+  public query func getBlogPostImageById(id : Nat) : async ?Text {
+    switch (blogPosts.get(id)) {
+      case (?post) {
+        if (post.published) { ?post.imageUrl } else { null };
+      };
+      case (null) { null };
+    };
+  };
+
+  public shared ({ caller }) func createBlogPost(
+    title : Text,
+    description : Text,
+    content : Text,
+    authorName : Text,
+    authorUsername : Text,
+    imageUrl : Text,
+  ) : async Nat {
+    if (not isUsernameAdmin(authorUsername) and not isUsernameOperator(authorUsername)) {
+      Runtime.trap("Unauthorized: Only admins or operators can create blog posts");
+    };
+    let id = nextBlogPostId;
+    let post : BlogPost = {
+      id;
+      title;
+      description;
+      content;
+      authorName;
+      authorUsername;
+      createdAt = Time.now();
+      published = false;
+      imageUrl;
+    };
+    blogPosts.add(id, post);
+    nextBlogPostId += 1;
+    id;
+  };
+
+  public shared ({ caller }) func updateBlogPost(
+    id : Nat,
+    title : Text,
+    description : Text,
+    content : Text,
+    imageUrl : Text,
+    published : Bool,
+    editorUsername : Text,
+  ) : async () {
+    if (not isUsernameAdmin(editorUsername) and not isUsernameOperator(editorUsername)) {
+      Runtime.trap("Unauthorized: Only admins or operators can update blog posts");
+    };
+    switch (blogPosts.get(id)) {
+      case (null) {
+        Runtime.trap("Blog post not found");
+      };
+      case (?post) {
+        let updatedPost : BlogPost = {
+          id = post.id;
+          title;
+          description;
+          content;
+          authorName = post.authorName;
+          authorUsername = post.authorUsername;
+          createdAt = post.createdAt;
+          published;
+          imageUrl;
+        };
+        blogPosts.add(id, updatedPost);
+      };
+    };
+  };
+
+  public shared ({ caller }) func deleteBlogPost(id : Nat, callerUsername : Text) : async () {
+    if (not isUsernameAdmin(callerUsername) and not isUsernameOperator(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins or operators can delete blog posts");
+    };
+    if (not blogPosts.containsKey(id)) {
+      Runtime.trap("Blog post not found");
+    };
+    ignore blogPosts.remove(id);
+  };
+
+  public shared ({ caller }) func publishBlogPost(id : Nat, callerUsername : Text) : async () {
+    if (not isUsernameAdmin(callerUsername) and not isUsernameOperator(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins or operators can publish blog posts");
+    };
+    switch (blogPosts.get(id)) {
+      case (null) { Runtime.trap("Blog post not found") };
+      case (?post) {
+        let updatedPost : BlogPost = {
+          id = post.id;
+          title = post.title;
+          description = post.description;
+          content = post.content;
+          authorName = post.authorName;
+          authorUsername = post.authorUsername;
+          createdAt = post.createdAt;
+          published = true;
+          imageUrl = post.imageUrl;
+        };
+        blogPosts.add(id, updatedPost);
+      };
+    };
+  };
+
+  public shared ({ caller }) func unpublishBlogPost(id : Nat, callerUsername : Text) : async () {
+    if (not isUsernameAdmin(callerUsername) and not isUsernameOperator(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins or operators can unpublish blog posts");
+    };
+    switch (blogPosts.get(id)) {
+      case (null) { Runtime.trap("Blog post not found") };
+      case (?post) {
+        let updatedPost : BlogPost = {
+          id = post.id;
+          title = post.title;
+          description = post.description;
+          content = post.content;
+          authorName = post.authorName;
+          authorUsername = post.authorUsername;
+          createdAt = post.createdAt;
+          published = false;
+          imageUrl = post.imageUrl;
+        };
+        blogPosts.add(id, updatedPost);
+      };
+    };
+  };
+
+  public query func searchBlogPosts(searchQuery : Text) : async [BlogPost] {
+    let queryLower = searchQuery.toLower();
+    let posts = List.empty<BlogPost>();
+    for ((_, post) in blogPosts.entries()) {
+      if (post.published and (
+        post.title.toLower().contains(#text queryLower) or
+        post.description.toLower().contains(#text queryLower) or
+        post.content.toLower().contains(#text queryLower)
+      )) {
+        posts.add(post);
+      };
+    };
+    posts.toArray();
+  };
+
+  public query func getAllBlogPostsPublicAdmin() : async [BlogPost] {
+    let posts = List.empty<BlogPost>();
+    for ((_, post) in blogPosts.entries()) {
+      if (post.published) { posts.add(post) };
+    };
+    posts.toArray();
+  };
+
+  public query ({ caller }) func getAllBlogPostsAdmin(callerUsername : Text) : async [BlogPost] {
+    if (not isUsernameAdmin(callerUsername) and not isUsernameOperator(callerUsername)) {
+      Runtime.trap("Unauthorized: Only admins or operators can view all blog posts");
+    };
+    blogPosts.values().toArray();
   };
 };

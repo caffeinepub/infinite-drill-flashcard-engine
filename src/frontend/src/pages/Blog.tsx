@@ -1,10 +1,13 @@
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { BookOpen, Calendar, Clock, Search } from "lucide-react";
+import { BookOpen, Calendar, Clock, Search, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import type { BlogPost as BackendBlogPost } from "../backend.d";
 import { Layout } from "../components/Layout";
 import type { BlogPost as BlogPostType } from "../data/blogData";
+import { useActor } from "../hooks/useActor";
 import { useSEO } from "../hooks/useSEO";
 
 // ─── Dynamic data loader ──────────────────────────────────────────────────────
@@ -23,6 +26,25 @@ function useBlogData() {
     blogCategories: blogModule?.blogCategories ?? ["All"],
     isLoaded: blogModule !== null,
   };
+}
+
+// ─── Backend dynamic posts ────────────────────────────────────────────────────
+
+type AdminActor = Record<string, (...args: unknown[]) => Promise<unknown>>;
+
+function useDynamicBlogPosts() {
+  const { actor, isFetching } = useActor();
+
+  return useQuery<BackendBlogPost[]>({
+    queryKey: ["dynamicBlogPosts"],
+    queryFn: async () => {
+      if (!actor) return [];
+      const result = await (actor as unknown as AdminActor).getAllBlogPosts();
+      return (result as BackendBlogPost[]).filter((p) => p.published);
+    },
+    enabled: !isFetching,
+    staleTime: 1000 * 60,
+  });
 }
 
 // ─── Category colors ──────────────────────────────────────────────────────────
@@ -57,7 +79,7 @@ function BlogSkeleton() {
   );
 }
 
-// ─── Blog Post Card ───────────────────────────────────────────────────────────
+// ─── Blog Post Card (static) ──────────────────────────────────────────────────
 
 function BlogPostCard({ post, index }: { post: BlogPostType; index: number }) {
   return (
@@ -115,6 +137,68 @@ function BlogPostCard({ post, index }: { post: BlogPostType; index: number }) {
   );
 }
 
+// ─── Dynamic Blog Post Card ───────────────────────────────────────────────────
+
+function DynamicBlogPostCard({
+  post,
+  index,
+}: {
+  post: BackendBlogPost;
+  index: number;
+}) {
+  const date = new Date(Number(post.createdAt) / 1_000_000);
+  const dateStr = date.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
+  return (
+    <Link
+      to="/blog/$slug"
+      params={{ slug: `dynamic-${String(post.id)}` }}
+      data-ocid={`blog.post_card.${index + 1}`}
+      className="group glass-dark rounded-2xl p-5 border border-neon-purple/20 hover:border-neon-purple/50 hover:shadow-card-glow transition-all duration-200 flex flex-col relative overflow-hidden"
+    >
+      {/* New badge */}
+      <div className="absolute top-3 right-3">
+        <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-neon-purple/20 border border-neon-purple/40 text-neon-purple">
+          NEW
+        </span>
+      </div>
+
+      {/* Author badge */}
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-neon-purple/15 text-neon-purple border-neon-purple/30">
+          Blog Post
+        </span>
+      </div>
+
+      {/* Title */}
+      <h2 className="font-display font-bold text-sm leading-snug mb-2 group-hover:text-neon-purple transition-colors line-clamp-3 pr-8">
+        {post.title}
+      </h2>
+
+      {/* Excerpt */}
+      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 flex-1 mb-4">
+        {post.description}
+      </p>
+
+      {/* Footer meta */}
+      <div className="flex items-center gap-3 text-[10px] text-muted-foreground pt-3 border-t border-border/30">
+        <span className="flex items-center gap-1">
+          <User size={10} />
+          {post.authorName || post.authorUsername}
+        </span>
+        <span className="flex items-center gap-1">
+          <Calendar size={10} />
+          {dateStr}
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 // ─── Blog Page ────────────────────────────────────────────────────────────────
 
 export default function Blog() {
@@ -122,6 +206,7 @@ export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const { blogPosts, blogCategories, isLoaded } = useBlogData();
+  const { data: dynamicPosts = [] } = useDynamicBlogPosts();
 
   useSEO({
     title: "NCERT Blog — Free Study Notes & Chapter Summaries",
@@ -144,6 +229,18 @@ export default function Blog() {
       post.subject.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
+
+  const filteredDynamic = dynamicPosts.filter((post) => {
+    if (activeCategory !== "All") return false; // dynamic posts don't have categories
+    const q = search.toLowerCase();
+    return (
+      !q ||
+      post.title.toLowerCase().includes(q) ||
+      post.description.toLowerCase().includes(q)
+    );
+  });
+
+  const totalCount = filteredDynamic.length + filtered.length;
 
   return (
     <Layout>
@@ -209,7 +306,12 @@ export default function Blog() {
         {/* Results count */}
         {isLoaded && (
           <p className="text-xs text-muted-foreground mb-5 font-mono-custom">
-            {filtered.length} article{filtered.length !== 1 ? "s" : ""} found
+            {totalCount} article{totalCount !== 1 ? "s" : ""} found
+            {dynamicPosts.length > 0 && (
+              <span className="ml-2 text-neon-purple/70">
+                · {dynamicPosts.length} new from editors
+              </span>
+            )}
           </p>
         )}
 
@@ -217,7 +319,7 @@ export default function Blog() {
         {!isLoaded && <BlogSkeleton />}
 
         {/* Blog Grid */}
-        {isLoaded && filtered.length === 0 ? (
+        {isLoaded && totalCount === 0 ? (
           <div
             data-ocid="blog.empty_state"
             className="text-center py-16 text-muted-foreground"
@@ -227,8 +329,21 @@ export default function Blog() {
           </div>
         ) : isLoaded ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* Dynamic posts first (most recent) */}
+            {filteredDynamic.map((post, index) => (
+              <DynamicBlogPostCard
+                key={`dynamic-${String(post.id)}`}
+                post={post}
+                index={index}
+              />
+            ))}
+            {/* Static posts */}
             {filtered.map((post, index) => (
-              <BlogPostCard key={post.slug} post={post} index={index} />
+              <BlogPostCard
+                key={post.slug}
+                post={post}
+                index={filteredDynamic.length + index}
+              />
             ))}
           </div>
         ) : null}
