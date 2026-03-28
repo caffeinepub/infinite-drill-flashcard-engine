@@ -30,14 +30,14 @@ export default function Auth() {
   const { actor } = useActor();
   const navigate = useNavigate();
 
-  // ─── Login state ──────────────────────────────────────────────────────
+  // ─── Login state ─────────────────────────────────────────────────
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [showLoginPw, setShowLoginPw] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
-  // ─── Signup state ─────────────────────────────────────────────────────
+  // ─── Signup state ─────────────────────────────────────────────────
   const [fullName, setFullName] = useState("");
   const [signupUsername, setSignupUsername] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
@@ -80,7 +80,7 @@ export default function Auth() {
     };
   }, [signupUsername, actor]);
 
-  // ─── Login handler ────────────────────────────────────────────────────
+  // ─── Login handler ───────────────────────────────────────────────────
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
@@ -117,7 +117,7 @@ export default function Auth() {
     }
   };
 
-  // ─── Signup validation ────────────────────────────────────────────────
+  // ─── Signup validation ──────────────────────────────────────────────────
   const validateSignup = () => {
     const errors: Record<string, string> = {};
     if (!fullName.trim()) errors.fullName = "Full name is required.";
@@ -190,17 +190,20 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen bg-mesh-dark flex flex-col items-center justify-center px-4 relative overflow-hidden">
-      {/* Decorative blobs */}
+      {/* Decorative blobs — pure CSS, no JS needed */}
       <div className="absolute top-1/4 -left-40 w-96 h-96 rounded-full bg-neon-purple/8 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-40 w-96 h-96 rounded-full bg-neon-blue/8 blur-3xl pointer-events-none" />
       <div className="absolute top-3/4 left-1/3 w-64 h-64 rounded-full bg-neon-amber/5 blur-3xl pointer-events-none" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="w-full max-w-md relative z-10"
-      >
+      {/*
+        PERFORMANCE: Plain div instead of motion.div with initial opacity:0.
+        The original motion.div kept the entire form invisible until framer-motion
+        hydrated and ran the entrance animation, which directly delayed FCP/LCP
+        (the 'Welcome back!' heading was the LCP element but started hidden).
+        A simple CSS fade-in via Tailwind animation is used instead — it starts
+        from the CSS engine immediately, with no JS dependency.
+      */}
+      <div className="w-full max-w-md relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-300">
         {/* Brand header */}
         <div className="flex items-center gap-3 mb-7">
           <div className="relative">
@@ -242,7 +245,7 @@ export default function Auth() {
               </TabsTrigger>
             </TabsList>
 
-            {/* ─── LOGIN TAB ──────────────────────────────────────────────── */}
+            {/* ─── LOGIN TAB ────────────────────────────────────────────── */}
             <TabsContent value="login" className="p-6 space-y-5 mt-0">
               <div className="text-center">
                 <h1 className="font-display text-xl font-bold text-foreground mb-1">
@@ -586,7 +589,7 @@ export default function Auth() {
             caffeine.ai
           </a>
         </p>
-      </motion.div>
+      </div>
     </div>
   );
 }

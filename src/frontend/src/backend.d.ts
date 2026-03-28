@@ -18,6 +18,15 @@ export interface BlogPost {
     description: string;
     imageUrl: string;
 }
+export interface ChatMessage {
+    id: bigint;
+    roomId: string;
+    senderUsername: string;
+    senderName: string;
+    messageType: string;
+    content: string;
+    timestamp: bigint;
+}
 export interface LeaderboardEntry {
     xp: bigint;
     streak: bigint;
@@ -68,6 +77,7 @@ export interface backendInterface {
     checkUsernameAvailability(username: string): Promise<boolean>;
     createBlogPost(title: string, description: string, content: string, authorName: string, authorUsername: string, imageUrl: string): Promise<bigint>;
     deleteBlogPost(id: bigint, callerUsername: string): Promise<void>;
+    deleteChatMessage(id: bigint, callerUsername: string): Promise<void>;
     deleteUserProfile(user: Principal): Promise<void>;
     getAdminStats(): Promise<{
         totalXP: bigint;
@@ -106,6 +116,8 @@ export interface backendInterface {
     getBlogPostImageById(id: bigint): Promise<string | null>;
     getCallerRole(): Promise<string>;
     getCallerUserRole(): Promise<UserRole>;
+    getChatMessages(roomId: string, limit: bigint): Promise<Array<ChatMessage>>;
+    getChatRooms(): Promise<Array<string>>;
     getLeaderboard(): Promise<Array<LeaderboardEntry>>;
     getRoleCount(role: string): Promise<bigint>;
     getRoleDetails(username: string): Promise<{
@@ -148,6 +160,7 @@ export interface backendInterface {
     removeUsernameRole(callerUsername: string, targetUsername: string): Promise<boolean>;
     saveCallerUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
     searchBlogPosts(searchQuery: string): Promise<Array<BlogPost>>;
+    sendChatMessage(roomId: string, senderUsername: string, senderName: string, messageType: string, content: string): Promise<bigint>;
     setUsernameRole(callerUsername: string, targetUsername: string, role: string): Promise<boolean>;
     signUp(username: string, password: string, fullName: string, email: string): Promise<{
         ok: boolean;

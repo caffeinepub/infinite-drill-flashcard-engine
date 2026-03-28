@@ -9,6 +9,7 @@ import {
   Library,
   LogIn,
   LogOut,
+  MessageCircle,
   Moon,
   Shield,
   Sun,
@@ -50,6 +51,12 @@ export function NavBar() {
       ocid: "nav.leaderboard_link",
     },
     { href: "/blog", label: "Blog", icon: BookText, ocid: "nav.blog_link" },
+    {
+      href: "/community",
+      label: "Community",
+      icon: MessageCircle,
+      ocid: "nav.community_link",
+    },
     { href: "/pyq", label: "PYQ", icon: FileQuestion, ocid: "nav.pyq_link" },
     {
       href: "/generate",

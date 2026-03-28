@@ -12,8 +12,12 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { WebVitals } from "./components/WebVitals";
 import { AuthProvider } from "./context/AuthContext";
 import { UserProfileProvider } from "./context/UserProfileContext";
+// Auth is imported eagerly (NOT lazy) because it is the first page every
+// unauthenticated visitor sees. Lazy-loading it would add an extra network
+// round-trip before the login form appears, directly hurting FCP and LCP.
+import AuthPage from "./pages/Auth";
 
-// Lazy-load all pages to enable code splitting
+// All other pages are lazy-loaded for code splitting
 const CheatSheet = lazy(() => import("./pages/CheatSheet"));
 const Flashcards = lazy(() => import("./pages/Flashcards"));
 const Generate = lazy(() => import("./pages/Generate"));
@@ -27,11 +31,12 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminPanel = lazy(() => import("./pages/AdminPanel"));
 const PYQ = lazy(() => import("./pages/PYQ"));
 const PYQSubject = lazy(() => import("./pages/PYQSubject"));
-const Auth = lazy(() => import("./pages/Auth"));
 const Profile = lazy(() => import("./pages/Profile"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Community = lazy(() => import("./pages/Community"));
+const ClassChat = lazy(() => import("./pages/ClassChat"));
 
 // Minimal page-level loading fallback
 function PageLoader() {
@@ -81,7 +86,8 @@ const protectedLayout = createRoute({
 const authRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/auth",
-  component: Auth,
+  // Eagerly imported — no Suspense fallback delay for the login page
+  component: AuthPage,
 });
 
 const aboutRoute = createRoute({
@@ -188,6 +194,18 @@ const profileRoute = createRoute({
   component: Profile,
 });
 
+const communityRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/community",
+  component: Community,
+});
+
+const classChatRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/community/$roomId",
+  component: ClassChat,
+});
+
 // 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -216,6 +234,8 @@ const routeTree = rootRoute.addChildren([
     pyqRoute,
     pyqSubjectRoute,
     profileRoute,
+    communityRoute,
+    classChatRoute,
   ]),
   authRoute,
   aboutRoute,
