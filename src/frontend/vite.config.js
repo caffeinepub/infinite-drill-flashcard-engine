@@ -17,28 +17,7 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: false,
-    // Enable minification — this was the single biggest performance bottleneck
-    minify: "esbuild",
-    cssMinify: true,
-    target: "es2020",
-    rollupOptions: {
-      output: {
-        // Split vendor libraries into parallel chunks for faster loading
-        manualChunks: {
-          "vendor-react": ["react", "react-dom"],
-          "vendor-router": ["@tanstack/react-router"],
-          "vendor-query": ["@tanstack/react-query"],
-          "vendor-motion": ["motion"],
-          "vendor-icons": ["lucide-react"],
-          "vendor-dfinity": ["@dfinity/agent", "@dfinity/candid", "@dfinity/principal"],
-        },
-      },
-    },
-    // Strip console.log/debug calls from production build
-    esbuildOptions: {
-      drop: ["console", "debugger"],
-      pure: ["console.log", "console.debug", "console.info"],
-    },
+    minify: false,
   },
   css: {
     postcss: "./postcss.config.js",
