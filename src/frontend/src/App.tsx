@@ -6,8 +6,9 @@ import {
   createRoute,
   createRouter,
   redirect,
+  useNavigate,
 } from "@tanstack/react-router";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { WebVitals } from "./components/WebVitals";
 import { AuthProvider } from "./context/AuthContext";
@@ -47,6 +48,14 @@ function PageLoader() {
   );
 }
 
+function NotFoundRedirect() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate({ to: "/" });
+  }, [navigate]);
+  return <PageLoader />;
+}
+
 const STORAGE_KEY = "ncertbhaiya_user";
 
 function isLoggedIn(): boolean {
@@ -66,6 +75,7 @@ const rootRoute = createRootRoute({
       <Outlet />
     </Suspense>
   ),
+  notFoundComponent: NotFoundRedirect,
 });
 
 // ─── Protected layout — redirects to /auth if not logged in ──────────────────
@@ -206,16 +216,6 @@ const classChatRoute = createRoute({
   component: ClassChat,
 });
 
-// 404 catch-all — redirect unknown URLs to homepage to avoid 4XX errors
-const notFoundRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "*",
-  beforeLoad: () => {
-    throw redirect({ to: "/" });
-  },
-  component: () => null,
-});
-
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 const routeTree = rootRoute.addChildren([
@@ -241,10 +241,12 @@ const routeTree = rootRoute.addChildren([
   aboutRoute,
   contactRoute,
   privacyPolicyRoute,
-  notFoundRoute,
 ]);
 
-const router = createRouter({ routeTree });
+const router = createRouter({
+  routeTree,
+  defaultNotFoundComponent: NotFoundRedirect,
+});
 
 declare module "@tanstack/react-router" {
   interface Register {
