@@ -5603,6 +5603,1319 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+
+  // ===== BLOG 1: QUADRATIC EQUATIONS =====
+  {
+    slug: "quadratic-equations-class-10-complete-guide",
+    title: "Quadratic Equations Class 10 — Complete Guide with NCERT Solutions",
+    metaTitle: "Quadratic Equations Class 10 — NCERT Solutions & Tricks",
+    metaDescription:
+      "Master Quadratic Equations for Class 10 CBSE with step-by-step NCERT solutions, concept breakdown, common mistakes, and exam pro-tips. 1200-word guide.",
+    excerpt:
+      "A comprehensive 1200-word guide to Quadratic Equations for Class 10 — covering theory, 5 NCERT problems solved step-by-step, common mistakes, and FAQs.",
+    category: "Mathematics",
+    classTag: "Class 10",
+    subject: "Mathematics",
+    readTime: 8,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "quadratic equations class 10",
+      "NCERT solutions quadratic equations",
+      "class 10 maths chapter 4",
+      "quadratic formula",
+    ],
+    heroImage: "/assets/generated/blog-quadratic-equations.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Quadratic Equations Matter",
+        text: "Quadratic Equations is one of the most important chapters in Class 10 Mathematics and carries significant weight in CBSE board exams. Every year, 10–12 marks are directly or indirectly based on this chapter. Beyond exams, quadratic equations model real-world situations like projectile motion, areas of land, profit maximisation, and even bridge design. Understanding this chapter deeply gives you a strong foundation for Class 11 and IIT JEE as well. The good news: once you understand the logic behind the methods, solving any quadratic equation becomes systematic and fast.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — What is a Quadratic Equation?",
+        text: "A quadratic equation is a polynomial equation of degree 2. Its standard form is ax² + bx + c = 0, where a ≠ 0. The word 'quadratic' comes from 'quadratus,' the Latin word for square. The highest power of the variable is 2. Every quadratic equation has exactly two roots (solutions), which can be real and distinct, real and equal, or complex (not real).",
+      },
+      {
+        type: "h3",
+        heading: "Three Methods to Solve Quadratic Equations",
+        text: "NCERT teaches three main methods: (1) Factorisation — splitting the middle term; (2) Completing the Square — converting to a perfect square form; (3) Quadratic Formula — x = [-b ± √(b²-4ac)] / 2a. The discriminant D = b²-4ac tells you the nature of roots before you even solve: D > 0 means two distinct real roots, D = 0 means two equal real roots, D < 0 means no real roots.",
+      },
+      {
+        type: "table",
+        headers: ["Method", "Best Used When", "Difficulty"],
+        rows: [
+          {
+            cells: [
+              "Factorisation",
+              "Roots are simple integers or fractions",
+              "Easy",
+            ],
+          },
+          {
+            cells: [
+              "Completing the Square",
+              "Understanding derivation needed",
+              "Medium",
+            ],
+          },
+          {
+            cells: [
+              "Quadratic Formula",
+              "Any equation, especially irrational roots",
+              "Easy-Medium",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading: "Problem 1: Solve 2x² + x − 6 = 0 by Factorisation",
+        text: "Step 1 — Identify a=2, b=1, c=−6. Step 2 — Find two numbers whose product = a×c = 2×(−6) = −12 and sum = b = 1. Those numbers are 4 and −3 (4×−3=−12, 4+(−3)=1). Step 3 — Rewrite: 2x² + 4x − 3x − 6 = 0. Step 4 — Group: 2x(x+2) − 3(x+2) = 0. Step 5 — Factor: (2x−3)(x+2) = 0. Step 6 — Solve: x = 3/2 or x = −2. Always verify by substituting back into the original equation.",
+      },
+      {
+        type: "h3",
+        heading: "Problem 2: Solve x² − 5x + 6 = 0 using the Quadratic Formula",
+        text: "Step 1 — Here a=1, b=−5, c=6. Step 2 — Calculate D = b²−4ac = 25−24 = 1. Since D>0, two distinct real roots exist. Step 3 — Apply formula: x = [5 ± √1] / 2 = [5 ± 1] / 2. Step 4 — x₁ = (5+1)/2 = 3 and x₂ = (5−1)/2 = 2. Verification: 3²−5(3)+6 = 9−15+6 = 0 ✓ and 2²−5(2)+6 = 4−10+6 = 0 ✓.",
+      },
+      {
+        type: "h3",
+        heading: "Problem 3: Find the Nature of Roots of 3x² − 4√3x + 4 = 0",
+        text: "Step 1 — Identify a=3, b=−4√3, c=4. Step 2 — D = b²−4ac = (−4√3)² − 4(3)(4) = 48 − 48 = 0. Step 3 — Since D=0, the equation has two equal real roots. Step 4 — Find roots: x = −b/2a = 4√3/6 = 2√3/3 = 2/√3. Both roots are equal: x = 2/√3. This is a classic NCERT discriminant problem.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: A train travels 360 km at uniform speed. If speed was 5 km/h more, it would take 1 hour less. Find the speed.",
+        text: "Step 1 — Let the speed = x km/h. Time taken = 360/x hours. Step 2 — New speed = (x+5) km/h. New time = 360/(x+5). Step 3 — Equation: 360/x − 360/(x+5) = 1. Step 4 — Simplify: 360(x+5) − 360x = x(x+5). So 1800 = x²+5x. Step 5 — x²+5x−1800 = 0. Step 6 — Factorize: (x+45)(x−40) = 0. So x = 40 (rejecting negative). The speed is 40 km/h.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: The sum of squares of two consecutive odd numbers is 290. Find them.",
+        text: "Step 1 — Let the consecutive odd numbers be x and x+2. Step 2 — Equation: x² + (x+2)² = 290. Step 3 — Expand: x² + x²+4x+4 = 290. So 2x²+4x+4 = 290. Step 4 — Simplify: 2x²+4x−286 = 0, i.e., x²+2x−143 = 0. Step 5 — Factorise: (x+13)(x−11) = 0. So x = 11 (rejecting negative since we need odd positive). Step 6 — Numbers are 11 and 13. Check: 121+169 = 290 ✓.",
+      },
+      {
+        type: "h2",
+        heading: "Common Mistakes to Avoid",
+        text: "Students lose easy marks by making these avoidable errors:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Forgetting to write the equation in standard form (ax²+bx+c=0) before applying any method.",
+          "Making sign errors while calculating the discriminant — especially when b is negative, (−b)² is always positive.",
+          "Stopping after getting the factors without actually solving for x (writing factors only, not roots).",
+          "In word problems, accepting negative roots that make no physical sense (e.g., negative speed, negative length).",
+          "Not verifying roots by substituting back — this catches arithmetic mistakes and earns full marks.",
+          "Confusing 'no real roots' with 'no solution' — for CBSE Class 10, D<0 means the answer is 'no real roots exist'.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Quadratic Equations in the form ax²+bx+c=0 can be solved by factorisation, completing the square, or the quadratic formula. The discriminant D=b²−4ac determines the nature of roots. Real-life word problems require setting up the equation correctly and rejecting invalid roots. Practice all three methods to build speed and accuracy for board exams.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Can a quadratic equation have more than two roots? No. A polynomial of degree 2 can have at most 2 roots. If you get more, re-check your working.\n\nQ2: Is the Quadratic Formula always reliable? Yes — the quadratic formula works for every quadratic equation regardless of whether roots are rational, irrational, or complex. It is the safest method.\n\nQ3: How do I know which method to use in an exam? If the equation factors easily (small integer roots), use factorisation. If asked to 'use the formula' or roots are irrational (like √5), use the quadratic formula. Always check the question's instruction first.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: In CBSE boards, always state 'D = b²−4ac = ...' explicitly before writing nature of roots. This single line earns you 1 step mark even if you make an arithmetic error later.",
+      },
+    ],
+  },
+
+  // ===== BLOG 2: LIGHT — REFLECTION AND REFRACTION =====
+  {
+    slug: "light-reflection-refraction-class-10-ncert-guide",
+    title: "Light — Reflection and Refraction Class 10 NCERT Complete Guide",
+    metaTitle: "Light Reflection Refraction Class 10 — NCERT Guide & Solutions",
+    metaDescription:
+      "Complete guide to Light — Reflection and Refraction for Class 10 Science CBSE. Mirror formula, lens formula, 5 NCERT problems solved step-by-step with pro tips.",
+    excerpt:
+      "Master Light — Reflection and Refraction with step-by-step NCERT solutions, mirror and lens formulas explained, common mistakes, and exam pro-tips for Class 10.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 9,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "light reflection refraction class 10",
+      "mirror formula class 10",
+      "lens formula NCERT",
+      "class 10 science chapter 10",
+    ],
+    heroImage:
+      "/assets/generated/blog-light-reflection-refraction.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Light Matters in Exams and Real Life",
+        text: "Light — Reflection and Refraction is one of the highest-scoring chapters in Class 10 Science, contributing 8–10 marks every CBSE board exam. Beyond marks, this chapter explains how mirrors work in telescopes, how lenses in your spectacles correct vision, how a rainbow forms, and how cameras capture images. Mastering this chapter builds your foundation for optics in Class 12 and IIT JEE Physics, where optics is a major topic. The key to excelling here is understanding the sign convention and applying formulas consistently.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — Reflection of Light",
+        text: "Reflection is when light bounces back from a surface. The two laws of reflection are: (1) The angle of incidence equals the angle of reflection (∠i = ∠r). (2) The incident ray, reflected ray, and normal all lie in the same plane. Spherical mirrors — concave (converging) and convex (diverging) — follow these laws. The mirror formula is 1/v + 1/u = 1/f, where v = image distance, u = object distance, f = focal length. Magnification m = −v/u = h'/h.",
+      },
+      {
+        type: "h3",
+        heading: "Sign Convention (New Cartesian System)",
+        text: "All distances are measured from the pole. Distances in the direction of incident light are positive. Distances against the direction of incident light are negative. For a concave mirror: f is negative. For a convex mirror: f is positive. This is where most students lose marks — always apply the sign convention first.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — Refraction of Light",
+        text: "Refraction is the bending of light when it passes from one medium to another due to a change in speed. Snell's Law: n₁ sin θ₁ = n₂ sin θ₂. The refractive index n = speed of light in vacuum / speed of light in medium. The lens formula is 1/v − 1/u = 1/f. Power of a lens P = 1/f (in metres), measured in dioptre (D). Convex lens has positive power; concave lens has negative power.",
+      },
+      {
+        type: "table",
+        headers: [
+          "Property",
+          "Concave Mirror",
+          "Convex Mirror",
+          "Convex Lens",
+          "Concave Lens",
+        ],
+        rows: [
+          {
+            cells: [
+              "Focal Length",
+              "Negative (−f)",
+              "Positive (+f)",
+              "Positive (+f)",
+              "Negative (−f)",
+            ],
+          },
+          {
+            cells: [
+              "Nature of image (object at infinity)",
+              "Real, inverted, at F",
+              "Virtual, erect, behind mirror",
+              "Real, inverted, at F",
+              "Virtual, erect, at F",
+            ],
+          },
+          {
+            cells: [
+              "Uses",
+              "Torches, shaving mirrors",
+              "Rear-view mirrors",
+              "Cameras, magnifying glass",
+              "Spectacles for myopia",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading:
+          "Problem 1: Object 10 cm from concave mirror, f = −15 cm. Find image position.",
+        text: "Step 1 — u = −10 cm (object on left), f = −15 cm. Step 2 — Mirror formula: 1/v + 1/u = 1/f. So 1/v = 1/f − 1/u = 1/(−15) − 1/(−10) = −1/15 + 1/10 = (−2+3)/30 = 1/30. Step 3 — v = +30 cm. Positive v means the image is behind the mirror (virtual). Step 4 — m = −v/u = −30/(−10) = +3. Image is virtual, erect, and 3 times magnified. This is how a shaving/makeup mirror works.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: Convex mirror with f = +20 cm. Object at 30 cm. Find image.",
+        text: "Step 1 — f = +20 cm, u = −30 cm. Step 2 — 1/v = 1/f − 1/u = 1/20 − 1/(−30) = 1/20 + 1/30 = (3+2)/60 = 5/60. So v = 12 cm. Step 3 — m = −v/u = −12/(−30) = +0.4. The image is virtual (v positive for mirror means behind), erect, and diminished. This explains why convex mirrors in vehicles show a wider field of view.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: A ray of light passes from air to glass (n = 1.5). Angle of incidence = 30°. Find refraction angle.",
+        text: "Step 1 — n₁ = 1 (air), n₂ = 1.5 (glass), θ₁ = 30°. Step 2 — Snell's Law: n₁ sin θ₁ = n₂ sin θ₂. So 1 × sin 30° = 1.5 × sin θ₂. Step 3 — sin θ₂ = sin 30°/1.5 = 0.5/1.5 = 0.333. Step 4 — θ₂ = sin⁻¹(0.333) ≈ 19.47°. Light bends towards the normal when entering a denser medium.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: Convex lens, f = 20 cm, object at 30 cm. Find image, nature, and magnification.",
+        text: "Step 1 — f = +20 cm, u = −30 cm. Step 2 — Lens formula: 1/v − 1/u = 1/f. So 1/v = 1/f + 1/u = 1/20 + 1/(−30) = 1/20 − 1/30 = (3−2)/60 = 1/60. Step 3 — v = +60 cm. Real image on the other side. Step 4 — m = v/u = 60/(−30) = −2. Image is real, inverted, and 2 times magnified. This is how a projector works.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: A doctor prescribes spectacles with power −2.5 D. Find focal length and type of lens.",
+        text: "Step 1 — P = −2.5 D. Step 2 — f = 1/P = 1/(−2.5) = −0.4 m = −40 cm. Step 3 — Negative focal length → concave lens. Step 4 — Concave lenses are used for myopia (short-sightedness). The person cannot see distant objects clearly, so the lens diverges rays to form an image on the retina.",
+      },
+      {
+        type: "h2",
+        heading: "Common Mistakes to Avoid",
+        text: "These errors cost students marks in every board exam:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Forgetting sign convention — always assign negative to object distance (u) since the object is always placed on the left.",
+          "Using the mirror formula for lenses and the lens formula for mirrors — they look similar but are different (1/v+1/u=1/f for mirrors; 1/v−1/u=1/f for lenses).",
+          "Confusing Power units — Power is in dioptres only when focal length is in metres, not centimetres.",
+          "Not stating the nature of image (real/virtual, erect/inverted, magnified/diminished) in 2-mark questions.",
+          "Drawing ray diagrams without labels — always label the focal point F, pole P, centre of curvature C, object, and image.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Reflection follows ∠i=∠r. Mirror formula: 1/v+1/u=1/f. Refraction follows Snell's Law. Lens formula: 1/v−1/u=1/f. Power P=1/f. Always apply the New Cartesian Sign Convention before substituting values. State the complete nature of image for full marks.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Why does a concave mirror form different types of images at different positions? Because as the object moves from infinity to the pole, the image position (v) changes according to the mirror formula, shifting from real to virtual as the object crosses the focus.\n\nQ2: What is the difference between focal length and radius of curvature? For a spherical mirror, f = R/2. The radius of curvature (R) is twice the focal length. Both are measured from the pole.\n\nQ3: Can a concave lens form a real image? No. A concave (diverging) lens always forms a virtual, erect, and diminished image regardless of object position.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: In board exams, always write the formula, substitute values with signs, and state the final answer with units and nature of image. This 3-step structure earns maximum marks even if your arithmetic has a minor error.",
+      },
+    ],
+  },
+
+  // ===== BLOG 3: HEREDITY AND EVOLUTION =====
+  {
+    slug: "heredity-and-evolution-class-10-ncert-guide",
+    title: "Heredity and Evolution Class 10 — NCERT Complete Guide",
+    metaTitle: "Heredity and Evolution Class 10 NCERT — Notes & Solutions",
+    metaDescription:
+      "Complete guide to Heredity and Evolution for Class 10 Science CBSE. Mendel's laws, Punnett square, 5 NCERT problems solved, common mistakes, and FAQs.",
+    excerpt:
+      "Master Heredity and Evolution for Class 10 with Mendel's laws explained simply, 5 NCERT problems solved step-by-step, and exam pro-tips.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 9,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "heredity and evolution class 10",
+      "Mendel's laws NCERT",
+      "class 10 science chapter 9",
+      "Punnett square class 10",
+    ],
+    heroImage: "/assets/generated/blog-heredity-evolution.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Heredity and Evolution is Important",
+        text: "Heredity and Evolution (Chapter 9, Class 10 Science) is one of the most conceptually rich chapters in CBSE curriculum. It explains how traits pass from parents to offspring, why siblings look similar but not identical, and how life on Earth has changed over billions of years. For board exams, this chapter typically contributes 5–8 marks. For life in general, understanding heredity helps explain genetic diseases, blood types, and why some traits are dominant. This chapter also forms the base for Class 12 Biology and NEET preparation.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — What is Heredity?",
+        text: "Heredity is the transmission of traits from parents to offspring through genes. Genes are segments of DNA located on chromosomes. Each individual inherits two copies of every gene — one from each parent. These copies are called alleles. If both alleles are the same (TT or tt), the individual is homozygous. If they differ (Tt), the individual is heterozygous. The trait that appears in the offspring is the dominant trait; the one hidden is recessive.",
+      },
+      {
+        type: "h3",
+        heading: "Mendel's Laws of Inheritance",
+        text: "Gregor Mendel, the 'Father of Genetics,' conducted experiments with pea plants and discovered: (1) Law of Dominance — In a cross, the dominant allele masks the recessive allele. (2) Law of Segregation — During gamete formation, allele pairs separate so each gamete gets only one allele. (3) Law of Independent Assortment — Genes for different traits are inherited independently (when on different chromosomes).",
+      },
+      {
+        type: "table",
+        headers: ["Term", "Meaning", "Example"],
+        rows: [
+          {
+            cells: [
+              "Dominant allele",
+              "Allele that is expressed",
+              "T (tall) in pea plants",
+            ],
+          },
+          {
+            cells: [
+              "Recessive allele",
+              "Allele hidden by dominant",
+              "t (short) in pea plants",
+            ],
+          },
+          { cells: ["Genotype", "Genetic makeup", "Tt, TT, tt"] },
+          { cells: ["Phenotype", "Physical appearance", "Tall or Short"] },
+          {
+            cells: [
+              "F1 generation",
+              "First filial (offspring) generation",
+              "All Tt (tall) in Mendel's cross",
+            ],
+          },
+          {
+            cells: [
+              "F2 generation",
+              "Second generation (F1 × F1)",
+              "3 Tall : 1 Short ratio",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading: "Problem 1: Cross Tt × Tt. What is the phenotype ratio?",
+        text: "Step 1 — Set up Punnett square. Parents are Tt × Tt. Step 2 — Gametes from each parent: T and t. Step 3 — Fill the square: TT, Tt, Tt, tt. Step 4 — Genotype ratio: 1 TT : 2 Tt : 1 tt. Step 5 — Phenotype ratio: 3 Tall (TT or Tt) : 1 Short (tt) = 3:1. This is the classic Mendelian F2 ratio.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: A tall plant (TT) is crossed with a short plant (tt). What are the F1 and F2 offspring?",
+        text: "Step 1 — P generation: TT × tt. Gametes: T and t. Step 2 — F1: All Tt. All plants are tall (dominant T). Step 3 — F1 × F1: Tt × Tt. Step 4 — F2 Punnett square: TT, Tt, Tt, tt. Step 5 — F2 phenotype: 3 Tall : 1 Short. The recessive trait 'reappears' in F2, which was Mendel's key discovery.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: What is the sex ratio expected in human offspring? Explain with a diagram.",
+        text: "Step 1 — Human sex determination: females are XX, males are XY. Step 2 — Gametes: Mother produces only X gametes. Father produces X and Y gametes. Step 3 — Cross: XX × XY. Offspring: XX (girl), XY (boy), XX (girl), XY (boy). Step 4 — Expected ratio: 50% girls (XX) : 50% boys (XY) = 1:1. Step 5 — Conclusion: Sex of child is determined by the father's gamete (X or Y), not the mother's. This disproves any blame on mothers for child's sex.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: In a dihybrid cross RrYy × RrYy, find the phenotype ratio.",
+        text: "Step 1 — R = Round (dominant), r = wrinkled (recessive), Y = Yellow (dominant), y = green (recessive). Step 2 — This is a dihybrid cross. Step 3 — By the Law of Independent Assortment, the ratio is: 9 Round Yellow : 3 Round Green : 3 Wrinkled Yellow : 1 Wrinkled Green. Step 4 — Total = 16 combinations. Step 5 — The 9:3:3:1 ratio is the hallmark of a dihybrid F2 cross and directly appears in CBSE board questions.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: Why do we look similar to but not exactly like our parents?",
+        text: "Step 1 — We inherit genes from both parents — half from mother, half from father. Step 2 — Sexual reproduction involves meiosis, where chromosomes are reshuffled (recombination). Step 3 — Random assortment of chromosomes means each gamete is unique. Step 4 — The combination of two unique gametes produces a unique individual with traits from both parents but in a new combination. Step 5 — Additionally, some gene expression is influenced by environment, further creating variation. This is why no two siblings are genetically identical (except identical twins).",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Confusing genotype with phenotype — genotype is the genetic code (TT, Tt, tt); phenotype is the visible trait (tall/short).",
+          "Drawing Punnett squares incorrectly — always list gametes outside the square, then fill inside.",
+          "Forgetting that in humans, sex is determined by the father's sperm, not the mother's egg.",
+          "Stating 3:1 as the genotype ratio — it is the phenotype ratio. The genotype ratio is 1:2:1.",
+          "Confusing acquired traits with inherited traits — acquired traits (like a cut on skin) cannot be passed to offspring.",
+          "Mixing up 'variation' and 'evolution' — variation is the raw material; evolution is the change in a population over generations.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Heredity transfers traits via genes from parents to offspring. Mendel's laws govern inheritance patterns. Dominant traits mask recessive ones. Punnett squares predict offspring ratios. In humans, sex is determined by the father (X or Y chromosome). Evolution occurs through natural selection acting on genetic variation over many generations.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Why did Mendel choose pea plants for his experiments? Pea plants have clearly distinguishable traits (tall/short, round/wrinkled), reproduce quickly, have a short life cycle, and can be self-pollinated or cross-pollinated easily. These features made statistical analysis of results straightforward.\n\nQ2: What is the difference between homologous and analogous organs? Homologous organs have the same basic structure but different functions (e.g., human arm and bat wing) — evidence of common ancestry. Analogous organs have different structures but similar functions (e.g., bird wing and insect wing) — evidence of convergent evolution.\n\nQ3: Can evolution be observed in real life? Yes. Antibiotic resistance in bacteria is a real-time example of natural selection and evolution. Bacteria with resistance genes survive antibiotics and reproduce, making the population increasingly resistant over generations.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: Always draw the Punnett square neatly in board exams. A clear, labelled diagram earns full marks even if your written explanation has minor gaps.",
+      },
+    ],
+  },
+
+  // ===== BLOG 4: ACIDS, BASES AND SALTS =====
+  {
+    slug: "acids-bases-salts-class-10-ncert-complete-guide",
+    title: "Acids, Bases and Salts Class 10 — NCERT Complete Guide",
+    metaTitle: "Acids Bases and Salts Class 10 — NCERT Guide & Solutions",
+    metaDescription:
+      "Complete guide to Acids, Bases and Salts for Class 10 Science CBSE. pH scale, indicators, neutralisation reactions, 5 NCERT problems solved step-by-step.",
+    excerpt:
+      "Master Acids, Bases and Salts with pH scale explained, 5 NCERT problems solved step-by-step, common mistakes, and exam pro-tips for Class 10 Science.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 8,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "acids bases salts class 10",
+      "pH scale NCERT",
+      "class 10 science chapter 2",
+      "neutralisation reaction class 10",
+    ],
+    heroImage: "/assets/generated/blog-acids-bases-salts.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Acids, Bases and Salts Matter",
+        text: "Acids, Bases and Salts is the second chapter of Class 10 Science and one of the most practically relevant topics in chemistry. Every day, you encounter acids and bases — in the food you eat, the medicines you take, and even the soil that grows your crops. In CBSE board exams, this chapter contributes 8–10 marks. Mastering the pH scale, neutralisation reactions, and properties of salts gives you a major advantage. This chapter also forms a cornerstone for Class 12 Chemistry and NEET.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — Acids and Bases",
+        text: "Acids are substances that produce H⁺ (hydrogen ions) in water. They taste sour, turn blue litmus red, and have pH < 7. Examples: HCl (hydrochloric acid), H₂SO₄ (sulphuric acid), CH₃COOH (acetic acid). Bases are substances that produce OH⁻ (hydroxide ions) in water. They taste bitter, feel soapy, turn red litmus blue, and have pH > 7. Examples: NaOH (sodium hydroxide), Ca(OH)₂ (calcium hydroxide), NH₄OH (ammonium hydroxide). Alkalis are soluble bases.",
+      },
+      {
+        type: "h3",
+        heading: "The pH Scale",
+        text: "pH (potential of Hydrogen) measures how acidic or basic a solution is, on a scale of 0–14. pH < 7 = acidic; pH = 7 = neutral; pH > 7 = basic. The lower the pH, the stronger the acid; the higher the pH, the stronger the base. Human blood has a pH of 7.35–7.45 (slightly basic). Stomach acid has pH ≈ 2. Baking soda solution has pH ≈ 9.",
+      },
+      {
+        type: "table",
+        headers: ["Substance", "pH", "Nature"],
+        rows: [
+          { cells: ["Lemon juice", "2.0", "Strong acid"] },
+          { cells: ["Black coffee", "5.0", "Weak acid"] },
+          { cells: ["Pure water", "7.0", "Neutral"] },
+          { cells: ["Blood", "7.4", "Weak base"] },
+          { cells: ["Baking soda", "9.0", "Weak base"] },
+          { cells: ["Bleach (NaOCl)", "12.5", "Strong base"] },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading:
+          "Problem 1: Write the neutralisation reaction between NaOH and HCl.",
+        text: "Step 1 — Identify the reactants: NaOH (base) + HCl (acid). Step 2 — Neutralisation: acid + base → salt + water. Step 3 — Balanced equation: NaOH + HCl → NaCl + H₂O. Step 4 — Interpret: Sodium hydroxide and hydrochloric acid react to form sodium chloride (common salt) and water. Step 5 — pH of resulting solution: NaCl is a neutral salt, so pH = 7. The solution is neither acidic nor basic.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: Why does tooth decay occur? How does toothpaste prevent it?",
+        text: "Step 1 — Bacteria in the mouth break down sugar and produce acids. Step 2 — These acids lower the pH in the mouth below 5.5. Step 3 — At pH < 5.5, tooth enamel (calcium phosphate) starts dissolving — this is tooth decay. Step 4 — Toothpaste is basic (alkaline) in nature. Step 5 — When you brush, the basic toothpaste neutralises the acid, raising pH above 5.5 and preventing enamel damage. This is an everyday application of acid-base neutralisation.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: What happens when dilute H₂SO₄ is added to zinc? Write equation.",
+        text: "Step 1 — Zinc is a metal; H₂SO₄ is a dilute acid. Step 2 — Metals react with dilute acids to produce salt + hydrogen gas. Step 3 — Balanced equation: Zn + H₂SO₄ → ZnSO₄ + H₂↑. Step 4 — Observation: Fizzing/bubbling is seen (hydrogen gas is released). Step 5 — Test for H₂: A burning splint held near the gas makes a 'pop' sound. This is the standard test for hydrogen gas in NCERT experiments.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: What is a universal indicator? How does it differ from litmus?",
+        text: "Step 1 — Litmus is a simple indicator that shows only two states: acid (red) or base (blue). It cannot tell the strength of the acid or base. Step 2 — Universal indicator is a mixture of several indicators that shows a range of colors from red (strong acid, pH 1) to violet (strong base, pH 14). Step 3 — It gives the approximate pH value. Step 4 — Comparison: Litmus is qualitative (yes/no); Universal indicator is semi-quantitative (shows approximate pH). Step 5 — Use in NCERT: Universal indicator helps classify substances on the pH scale.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: Farmer Ramesh finds his soil is too acidic. What should he add and why?",
+        text: "Step 1 — Acidic soil has low pH (< 7), which is harmful for most crops. Step 2 — To neutralise soil acidity, add a base. Step 3 — Quicklime (CaO) or slaked lime Ca(OH)₂ is commonly added. Step 4 — Reaction: Ca(OH)₂ + 2H⁺ → Ca²⁺ + 2H₂O. The acid is neutralised, raising pH. Step 5 — Result: Soil pH becomes suitable for crop growth (6.5–7.5). This process is called liming and is standard agricultural practice.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Confusing 'alkali' with 'base' — all alkalis are bases but not all bases are alkalis. Alkalis dissolve in water.",
+          "Writing litmus as an indicator that shows colour of strong vs. weak acids — litmus only shows acid (red) or base (blue), nothing about strength.",
+          "Forgetting to balance chemical equations — unbalanced equations lose marks in every written answer.",
+          "Stating that neutral salt solutions always have pH = 7 — salts of strong acid + weak base (like NH₄Cl) are acidic; salts of weak acid + strong base (like Na₂CO₃) are basic.",
+          "Confusing dilute acid with weak acid — dilute refers to concentration (less acid per litre); weak refers to degree of ionisation.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Acids produce H⁺ ions; bases produce OH⁻ ions. pH < 7 is acidic; pH > 7 is basic; pH = 7 is neutral. Neutralisation produces salt and water. Universal indicator shows pH on a colour scale. Real-life applications include antacids, soil treatment, toothpaste, and baking.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Why does HCl not show acidic properties in the absence of water? HCl is a covalent compound. It produces H⁺ ions only when dissolved in water (ionisation). In dry form, there are no free H⁺ ions, so it shows no acidic properties.\n\nQ2: What is the difference between strong acid and concentrated acid? Strong acid ionises completely in water (e.g., HCl). Concentrated acid simply means more acid dissolved per litre — it can be strong or weak.\n\nQ3: Why does bee sting cause pain while wasp sting needs baking soda for relief? Bee sting is acidic (contains formic acid), so applying a base (baking soda) neutralises it. Wasp sting is alkaline, so applying a mild acid (like vinegar) relieves the pain. This is a classic NCERT application question.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: Memorise the pH values of 6 common substances (lemon = 2, water = 7, blood = 7.4, baking soda = 9). These appear directly in 1-mark questions every year.",
+      },
+    ],
+  },
+
+  // ===== BLOG 5: TRIANGLES GEOMETRY =====
+  {
+    slug: "triangles-class-10-ncert-complete-guide",
+    title: "Triangles Class 10 Maths — NCERT Complete Guide with Theorems",
+    metaTitle: "Triangles Class 10 Maths — NCERT Theorems & Solutions Guide",
+    metaDescription:
+      "Complete guide to Triangles for Class 10 Maths CBSE. Similar triangles, BPT, Pythagoras theorem, 5 NCERT problems solved step-by-step with pro tips.",
+    excerpt:
+      "Master Triangles for Class 10 with similar triangles, BPT, Pythagoras theorem explained, 5 NCERT problems solved step-by-step, and exam pro-tips.",
+    category: "Mathematics",
+    classTag: "Class 10",
+    subject: "Mathematics",
+    readTime: 8,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "triangles class 10 maths",
+      "similar triangles NCERT",
+      "BPT theorem class 10",
+      "Pythagoras theorem class 10",
+    ],
+    heroImage: "/assets/generated/blog-triangles-geometry.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Triangles is a High-Value Chapter",
+        text: "Triangles (Chapter 6, Class 10 Maths) is a cornerstone of geometry and one of the most theorem-heavy chapters in CBSE curriculum. It contributes 8–12 marks in board exams through theorems, proofs, and numerical problems. Beyond exams, triangle geometry is foundational in architecture, engineering, navigation (triangulation), and computer graphics. The chapter tests your logical reasoning more than any other — understanding 'why' a result is true, not just memorising 'what' the result is. Two key skills to master: similarity criteria and applying theorems in novel situations.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — Similar Triangles",
+        text: "Two triangles are similar (△ABC ~ △DEF) if their corresponding angles are equal AND corresponding sides are proportional. Similarity is NOT the same as congruency — similar triangles have the same shape but can have different sizes. The ratio of corresponding sides is called the scale factor.",
+      },
+      {
+        type: "h3",
+        heading: "Criteria for Similarity of Triangles",
+        text: "AAA (Angle-Angle-Angle): If all three angles of two triangles are equal, they are similar. In practice, since angles of a triangle sum to 180°, AA (Angle-Angle) is sufficient. SAS (Side-Angle-Side): If two sides are proportional and the included angle is equal. SSS (Side-Side-Side): If all three sides are proportional.",
+      },
+      {
+        type: "h3",
+        heading: "Basic Proportionality Theorem (BPT) / Thales Theorem",
+        text: "If a line is drawn parallel to one side of a triangle, it divides the other two sides in the same ratio. Formally: If DE ∥ BC in △ABC, then AD/DB = AE/EC. Converse BPT: If a line divides two sides of a triangle in the same ratio, it is parallel to the third side.",
+      },
+      {
+        type: "table",
+        headers: ["Theorem", "Statement", "Key Application"],
+        rows: [
+          {
+            cells: [
+              "BPT",
+              "DE ∥ BC → AD/DB = AE/EC",
+              "Proving lines parallel, finding lengths",
+            ],
+          },
+          {
+            cells: [
+              "AA Similarity",
+              "∠A = ∠D, ∠B = ∠E → △ABC ~ △DEF",
+              "Most common similarity proof",
+            ],
+          },
+          {
+            cells: [
+              "Area Ratio",
+              "Area(△ABC)/Area(△DEF) = (AB/DE)²",
+              "Ratio of areas of similar triangles",
+            ],
+          },
+          {
+            cells: [
+              "Pythagoras",
+              "AC² = AB² + BC² (right angle at B)",
+              "Finding missing sides in right triangles",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading:
+          "Problem 1: In △ABC, DE ∥ BC, AD = 3 cm, DB = 5 cm, AE = 4 cm. Find EC.",
+        text: "Step 1 — DE ∥ BC, so by BPT: AD/DB = AE/EC. Step 2 — Substitute: 3/5 = 4/EC. Step 3 — Cross multiply: 3 × EC = 5 × 4 = 20. Step 4 — EC = 20/3 = 6.67 cm. Step 5 — Verify: AD/DB = 3/5 = 0.6 and AE/EC = 4/(20/3) = 12/20 = 0.6 ✓. The ratios are equal, confirming DE ∥ BC.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: If △ABC ~ △DEF, AB = 6, BC = 8, CA = 10 and DE = 9. Find EF and FD.",
+        text: "Step 1 — △ABC ~ △DEF, so AB/DE = BC/EF = CA/FD. Step 2 — Scale factor = AB/DE = 6/9 = 2/3. Step 3 — BC/EF = 2/3 → EF = BC × 3/2 = 8 × 3/2 = 12 cm. Step 4 — CA/FD = 2/3 → FD = CA × 3/2 = 10 × 3/2 = 15 cm. Step 5 — Check: The ratio of all corresponding sides is 2:3 — confirming similarity.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: Areas of two similar triangles are 49 cm² and 64 cm². If a side of smaller is 5.6 cm, find corresponding side of larger.",
+        text: "Step 1 — Ratio of areas = square of ratio of corresponding sides. Step 2 — 49/64 = (side₁/side₂)². Step 3 — side₁/side₂ = √(49/64) = 7/8. Step 4 — 5.6/side₂ = 7/8. Step 5 — side₂ = 5.6 × 8/7 = 6.4 cm. The corresponding side of the larger triangle is 6.4 cm.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: A ladder 15 m long reaches a wall 12 m high. Find the distance of foot of ladder from wall.",
+        text: "Step 1 — Right-angled triangle: hypotenuse = ladder = 15 m, perpendicular = wall height = 12 m. Step 2 — By Pythagoras: (15)² = (12)² + base². Step 3 — 225 = 144 + base². Step 4 — base² = 225 − 144 = 81. Step 5 — base = √81 = 9 m. The foot of the ladder is 9 m from the wall.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: In right △ABC, right angled at C, prove AB² = BC² + CA².",
+        text: "Step 1 — Draw CD ⊥ AB (altitude from right angle to hypotenuse). Step 2 — In △ABC and △ACD: ∠A is common, ∠ACB = ∠ADC = 90°. So △ABC ~ △ACD (AA). Step 3 — Therefore: AC/AD = AB/AC → AC² = AB × AD ... (i). Step 4 — In △ABC and △BCD: ∠B is common, ∠BCA = ∠BDC = 90°. So △ABC ~ △BCD (AA). Step 5 — BC/BD = AB/BC → BC² = AB × BD ... (ii). Step 6 — Add (i) and (ii): AC² + BC² = AB(AD + BD) = AB × AB = AB². Hence proved.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Writing △ABC ~ △DEF and then using AB/EF instead of AB/DE — always match corresponding vertices in order.",
+          "Confusing similarity with congruency — congruent triangles have equal sides AND angles; similar triangles only have proportional sides and equal angles.",
+          "Using Pythagoras theorem in non-right-angled triangles without checking if it is a right triangle first.",
+          "In BPT problems, setting up the ratio incorrectly — AD/DB should equal AE/EC (part to other part), not AD/AB = AE/AC (part to whole). Both are valid but don't mix them up.",
+          "Not stating which theorem you're applying in proofs — examiners need to see 'By AA similarity criterion' or 'By BPT' explicitly.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Similar triangles have equal angles and proportional sides. BPT: a line parallel to one side of a triangle divides the other two sides proportionally. Area ratio of similar triangles = square of side ratio. Pythagoras theorem applies only to right-angled triangles. Always state the similarity criterion and corresponding vertices in order.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Is AA similarity the same as AAA similarity? Effectively yes. Since the sum of angles in a triangle is 180°, if two angles of one triangle equal two angles of another, the third angles must also be equal. So AA is sufficient to prove similarity.\n\nQ2: Can two triangles with equal areas be similar? Not necessarily. Two triangles can have equal areas but different shapes (different side ratios). For similarity, the side ratios must be proportional.\n\nQ3: Is the converse of Pythagoras theorem useful in exams? Yes. If a² + b² = c², then the triangle is right-angled. NCERT frequently asks 'determine if the triangle with sides x, y, z is right-angled' — apply the converse to check.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: In every proof question, write the Given, To Prove, and Construction clearly before starting. Examiners award marks for each correct step — even if you don't complete the proof, partial marks are given for correct initial steps.",
+      },
+    ],
+  },
+
+  // ===== BLOG 6: LIFE PROCESSES =====
+  {
+    slug: "life-processes-class-10-ncert-complete-guide",
+    title: "Life Processes Class 10 Science — NCERT Complete Guide",
+    metaTitle: "Life Processes Class 10 NCERT — Notes, Diagrams & Solutions",
+    metaDescription:
+      "Complete guide to Life Processes for Class 10 Science CBSE. Nutrition, respiration, transportation, excretion explained with 5 NCERT problems solved step-by-step.",
+    excerpt:
+      "Master Life Processes for Class 10 with photosynthesis, respiration, transportation, and excretion explained clearly. 5 NCERT problems solved step-by-step.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 9,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "life processes class 10",
+      "photosynthesis class 10 NCERT",
+      "class 10 science chapter 6",
+      "respiration class 10",
+    ],
+    heroImage: "/assets/generated/blog-life-processes.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Life Processes is a Must-Master Chapter",
+        text: "Life Processes (Chapter 6, Class 10 Science) is the most biology-heavy chapter in Class 10 and one of the most consistently tested topics in CBSE board exams, contributing 10–12 marks. It covers the essential processes that keep living organisms alive: nutrition, respiration, transportation, and excretion. These processes directly connect to topics like photosynthesis, blood circulation, kidney function, and plant biology. Understanding this chapter deeply also prepares you for Class 12 Biology and NEET, where each of these sub-topics becomes an entire unit.",
+      },
+      { type: "h2", heading: "Concept Breakdown — The Four Life Processes" },
+      {
+        type: "h3",
+        heading: "1. Nutrition",
+        text: "Nutrition is the process of obtaining food and converting it into energy and body components. Autotrophic nutrition: Organisms (plants, algae) make their own food using photosynthesis. Equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (in presence of sunlight and chlorophyll). Heterotrophic nutrition: Animals obtain food from other organisms (saprotrophic, parasitic, holozoic).",
+      },
+      {
+        type: "h3",
+        heading: "2. Respiration",
+        text: "Respiration converts glucose into energy (ATP). Aerobic respiration: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 38 ATP (in mitochondria). Anaerobic respiration in yeast: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ (no oxygen, less energy). In humans during vigorous exercise: glucose → lactic acid + energy (causing muscle cramps).",
+      },
+      {
+        type: "h3",
+        heading: "3. Transportation",
+        text: "In humans: blood transports oxygen, nutrients, hormones, and waste. The heart is a four-chambered pump. Double circulation: blood passes through the heart twice per complete circuit (pulmonary + systemic). Arteries carry blood away from heart; veins carry blood to the heart. In plants: xylem transports water and minerals upward (transpiration pull); phloem transports food (sugars) in both directions.",
+      },
+      {
+        type: "h3",
+        heading: "4. Excretion",
+        text: "Excretion removes metabolic waste products. In humans: kidneys filter blood, forming urine (contains urea, salts, water). Nephron is the functional unit of the kidney. Ultrafiltration → selective reabsorption → tubular secretion → urine formation. In plants: waste is stored in vacuoles, leaves, or bark, and released during leaf fall.",
+      },
+      {
+        type: "table",
+        headers: [
+          "Process",
+          "Organ in Humans",
+          "Key Product",
+          "Related Disorder",
+        ],
+        rows: [
+          {
+            cells: [
+              "Nutrition",
+              "Stomach, small intestine",
+              "Glucose, amino acids",
+              "Malnutrition",
+            ],
+          },
+          {
+            cells: [
+              "Aerobic Respiration",
+              "Mitochondria",
+              "ATP, CO₂, H₂O",
+              "Hypoxia",
+            ],
+          },
+          {
+            cells: [
+              "Transportation",
+              "Heart, blood vessels",
+              "Oxygenated blood",
+              "Hypertension",
+            ],
+          },
+          {
+            cells: [
+              "Excretion",
+              "Kidneys, skin, lungs",
+              "Urine, sweat, CO₂",
+              "Kidney failure",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading:
+          "Problem 1: What is the role of stomata in photosynthesis? What happens when they close?",
+        text: "Step 1 — Stomata are small pores on leaf surfaces (mostly lower epidermis) surrounded by guard cells. Step 2 — During photosynthesis, stomata open to allow CO₂ in and release O₂. Step 3 — They also allow water vapour to exit (transpiration). Step 4 — When stomata close (water stress, night): CO₂ entry stops, photosynthesis slows and eventually stops. Step 5 — Trade-off: Open stomata → more photosynthesis but more water loss. Closed stomata → less water loss but no photosynthesis.",
+      },
+      {
+        type: "h3",
+        heading: "Problem 2: Why does breathing rate increase during exercise?",
+        text: "Step 1 — During vigorous exercise, muscles need more energy (ATP). Step 2 — More glucose is broken down through cellular respiration. Step 3 — Aerobic respiration consumes more oxygen and produces more CO₂. Step 4 — Rising CO₂ level in blood signals the brain (medulla oblongata) to increase breathing rate. Step 5 — Deeper and faster breathing brings in more O₂ and expels CO₂ faster. If O₂ supply cannot match demand, anaerobic respiration starts, producing lactic acid and causing cramps.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: Describe the double circulation in humans. Why is it essential?",
+        text: "Step 1 — Pulmonary circulation: Right ventricle pumps deoxygenated blood to lungs via pulmonary artery → lungs oxygenate blood → returns via pulmonary vein to left atrium. Step 2 — Systemic circulation: Left ventricle pumps oxygenated blood to all body parts via aorta → body cells receive O₂ → deoxygenated blood returns via vena cava to right atrium. Step 3 — Each circuit passes through the heart, hence 'double circulation.' Step 4 — Importance: Ensures high-pressure oxygenated blood reaches all body parts efficiently. Single circulation (like in fish) mixes oxygenated and deoxygenated blood, reducing efficiency.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: What is the difference between photosynthesis and respiration?",
+        text: "Step 1 — Photosynthesis: occurs only in green plants with chlorophyll; requires sunlight and CO₂; produces glucose and O₂; stores energy. Step 2 — Respiration: occurs in all living cells; requires glucose and O₂; produces CO₂ and H₂O; releases energy (ATP). Step 3 — Key distinction: Photosynthesis = anabolic (building up); Respiration = catabolic (breaking down). Step 4 — Energy direction: Photosynthesis traps solar energy into chemical bonds; Respiration releases that energy for cellular use. Step 5 — Timing: Photosynthesis only in daylight; Respiration 24 hours continuously.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: How does the kidney clean blood? Explain the formation of urine.",
+        text: "Step 1 — Blood enters the kidney through the renal artery at high pressure. Step 2 — In the nephron's glomerulus (a tiny blood filter), blood is filtered: water, glucose, amino acids, urea, salts pass into Bowman's capsule (ultrafiltrate). Step 3 — Selective reabsorption: As filtrate passes through the renal tubule, glucose, amino acids, and most water are reabsorbed back into blood. Step 4 — Tubular secretion: Some extra waste (H⁺, K⁺) is added from blood into tubule. Step 5 — Resulting fluid (urine) contains urea, excess salts, water — collected in renal pelvis → ureter → urinary bladder → urethra → excreted.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Confusing breathing with respiration — breathing is the physical act of moving air; respiration is the biochemical process of energy release from glucose.",
+          "Writing that photosynthesis produces O₂ from CO₂ — O₂ actually comes from the splitting of water (H₂O) during the light reaction, not from CO₂.",
+          "Stating the heart pumps only oxygenated blood — the right side of the heart pumps deoxygenated blood to lungs; only the left side pumps oxygenated blood.",
+          "Forgetting that plants also respire — plants do both photosynthesis and respiration. In sunlight, photosynthesis rate > respiration rate so net O₂ is released.",
+          "Mixing up xylem and phloem — xylem: water and minerals upward; phloem: food (glucose/sucrose) in both directions.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Life processes are essential for survival. Photosynthesis: CO₂ + H₂O + light → glucose + O₂. Respiration: glucose + O₂ → CO₂ + H₂O + ATP. Double circulation in humans ensures efficient blood supply. Kidneys filter blood via nephrons — ultrafiltration, reabsorption, secretion, excretion.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Why do plants appear to 'breathe in' CO₂ during the day and O₂ at night? During the day, photosynthesis rate exceeds respiration, so the net gas exchange is CO₂ in and O₂ out. At night, only respiration occurs, so O₂ is consumed and CO₂ released.\n\nQ2: What happens if a person's kidneys fail? The kidneys cannot filter waste products (urea, creatinine). These accumulate in blood, causing uremia. Treatment: dialysis (artificial kidney) or kidney transplant.\n\nQ3: Why is the left ventricle wall thicker than the right ventricle? The left ventricle must pump blood through the entire body (systemic circulation), requiring higher pressure. The right ventricle only pumps blood to the nearby lungs, needing less pressure.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: Always draw and label the diagram of the human heart or nephron when answering long questions about transportation or excretion. A correctly labelled diagram can earn 2 marks even if your written explanation is incomplete.",
+      },
+    ],
+  },
+
+  // ===== BLOG 7: ELECTRICITY =====
+  {
+    slug: "electricity-class-10-ncert-complete-guide",
+    title: "Electricity Class 10 Science — NCERT Complete Guide & Solutions",
+    metaTitle: "Electricity Class 10 NCERT — Ohm's Law, Circuits & Solutions",
+    metaDescription:
+      "Complete guide to Electricity for Class 10 Science CBSE. Ohm's Law, series-parallel circuits, heating effect, 5 NCERT problems solved step-by-step with pro tips.",
+    excerpt:
+      "Master Electricity for Class 10 with Ohm's Law, series and parallel circuits explained, 5 NCERT problems solved step-by-step, and exam pro-tips.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 9,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "electricity class 10 NCERT",
+      "Ohm's law class 10",
+      "series parallel circuit class 10",
+      "class 10 science chapter 12",
+    ],
+    heroImage: "/assets/generated/blog-electricity-class10.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Electricity is a High-Scoring Chapter",
+        text: "Electricity (Chapter 12, Class 10 Science) is one of the most formula-intensive chapters in the curriculum, consistently contributing 10–15 marks in CBSE board exams. Every single numerical problem in this chapter follows a logical chain — understand Ohm's Law, and you can solve almost everything. Beyond exams, this chapter explains how household circuits work, why fuses blow, how electric heaters and bulbs function, and why electric bills are calculated in 'units'. Mastering the calculation-based approach here gives you a strong foundation for Physics in Class 12 and IIT JEE.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — Fundamental Quantities",
+        text: "Electric current (I) is the rate of flow of electric charge. I = Q/t (Ampere = Coulomb/second). Potential difference (V) is the work done per unit charge. V = W/Q (Volt = Joule/Coulomb). Resistance (R) opposes the flow of current. R = V/I (Ohm). Ohm's Law states: V = IR (provided temperature is constant). Resistivity (ρ): R = ρL/A, where L = length, A = cross-sectional area.",
+      },
+      {
+        type: "h3",
+        heading: "Series and Parallel Circuits",
+        text: "Series: Resistors connected end-to-end. Same current flows through all. Total resistance R = R₁ + R₂ + R₃. Voltage divides. Parallel: Resistors connected across same two points. Same voltage across all. 1/R = 1/R₁ + 1/R₂ + 1/R₃. Current divides. Household circuits are parallel so each appliance gets full voltage and can be switched independently.",
+      },
+      {
+        type: "table",
+        headers: ["Property", "Series Circuit", "Parallel Circuit"],
+        rows: [
+          {
+            cells: [
+              "Current",
+              "Same through all",
+              "Divides (more through lower R)",
+            ],
+          },
+          {
+            cells: [
+              "Voltage",
+              "Divides (more across higher R)",
+              "Same across all",
+            ],
+          },
+          {
+            cells: ["Total Resistance", "R = R₁+R₂+...", "1/R = 1/R₁+1/R₂+..."],
+          },
+          { cells: ["If one fails", "All go off", "Others still work"] },
+          { cells: ["Use case", "String lights", "Home wiring"] },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading:
+          "Problem 1: Find current through a 20Ω resistor with 100V across it.",
+        text: "Step 1 — Known: V = 100 V, R = 20 Ω. Step 2 — Apply Ohm's Law: I = V/R. Step 3 — I = 100/20 = 5 A. Step 4 — Power: P = VI = 100 × 5 = 500 W (or P = I²R = 25 × 20 = 500 W). Step 5 — Energy in 1 hour: E = P × t = 500 W × 3600 s = 1,800,000 J = 0.5 kWh = 0.5 'unit' of electricity.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: Two resistors 6Ω and 12Ω are connected in parallel. Find equivalent resistance.",
+        text: "Step 1 — For parallel: 1/R = 1/R₁ + 1/R₂. Step 2 — 1/R = 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4. Step 3 — R = 4 Ω. Note: The equivalent resistance (4Ω) is less than the smallest individual resistor (6Ω) — this is always true for parallel combinations. Step 4 — If connected to 12V: I = V/R = 12/4 = 3 A total. Current through 6Ω: I₁ = 12/6 = 2 A; through 12Ω: I₂ = 12/12 = 1 A. Check: 2+1 = 3 A ✓.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: An electric iron of resistance 25Ω draws 4A. Find heat produced in 30 seconds.",
+        text: "Step 1 — Joule's Law of Heating: H = I²Rt. Step 2 — I = 4 A, R = 25 Ω, t = 30 s. Step 3 — H = (4)² × 25 × 30 = 16 × 25 × 30 = 12,000 J. Step 4 — This is 12 kJ of heat produced. Step 5 — Practical insight: More current = disproportionately more heat (H ∝ I²). Doubling current produces 4 times more heat.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: A 60W bulb and a 100W bulb are connected in series to 220V supply. Which glows brighter?",
+        text: "Step 1 — Find resistance of each bulb: R = V²/P. R₆₀ = 220²/60 = 48400/60 ≈ 807 Ω. R₁₀₀ = 220²/100 = 484 Ω. Step 2 — In series, same current flows. Bulb with higher resistance dissipates more power: P = I²R. Step 3 — 60W bulb has higher resistance (807Ω > 484Ω). Step 4 — Therefore, the 60W bulb glows brighter in series. Step 5 — Paradox: In normal use (parallel), 100W is brighter. In series, 60W is brighter. This is a classic trick question.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: An electric motor takes 5A from 220V supply. Find power and units consumed in 2 hours.",
+        text: "Step 1 — P = VI = 220 × 5 = 1100 W = 1.1 kW. Step 2 — Energy consumed in 2 hours = P × t = 1.1 kW × 2 h = 2.2 kWh. Step 3 — 1 kWh = 1 unit of electricity (Board's billing unit). Step 4 — Units consumed = 2.2 units. Step 5 — Cost (at ₹5/unit) = 2.2 × 5 = ₹11. This is how electricity bills are calculated.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Using P = V²/R when current is given — always match your formula to the given quantities (P = VI, P = I²R, or P = V²/R).",
+          "Calculating equivalent resistance in parallel as R₁ + R₂ — that's series. Always use 1/R = 1/R₁ + 1/R₂ for parallel.",
+          "Forgetting that in a series circuit, the current is the same everywhere but voltage drops across each resistor.",
+          "Mixing up kW (power) and kWh (energy/units) — electricity is billed in kWh (energy), not kW (power).",
+          "Not converting seconds to hours (or vice versa) when calculating energy using H = I²Rt — always check units.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Ohm's Law: V = IR. Series: same current, R_total = sum of R. Parallel: same voltage, 1/R_total = sum of 1/R. Joule's heating: H = I²Rt. Power: P = VI = I²R = V²/R. Energy unit = kWh. Always match formula to given quantities.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Why are household appliances connected in parallel, not series? In parallel, each appliance gets full supply voltage and can be switched on/off independently. If one fails, others still work. In series, failure of one would cut off all appliances.\n\nQ2: Why does resistance increase with temperature in metals? As temperature increases, metal atoms vibrate more vigorously, obstructing the flow of electrons. This increases collisions and hence resistance. This is why electrical components heat up — and why a filament bulb changes resistance when hot.\n\nQ3: What is the difference between EMF and terminal voltage? EMF (electromotive force) is the total voltage a battery can provide when no current flows. Terminal voltage is the actual voltage across the battery terminals when current flows — it is less than EMF due to internal resistance of the battery.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: In every Electricity numerical, write the formula → substitute values with units → solve. Never skip the formula line — it earns 1 step mark in CBSE even if the final answer is wrong.",
+      },
+    ],
+  },
+
+  // ===== BLOG 8: ARITHMETIC PROGRESSIONS =====
+  {
+    slug: "arithmetic-progressions-class-10-ncert-guide",
+    title: "Arithmetic Progressions Class 10 — NCERT Complete Guide",
+    metaTitle: "Arithmetic Progressions Class 10 — NCERT Solutions & Tricks",
+    metaDescription:
+      "Complete guide to Arithmetic Progressions for Class 10 Maths CBSE. AP formula, nth term, sum of n terms, 5 NCERT problems solved step-by-step with pro tips.",
+    excerpt:
+      "Master Arithmetic Progressions for Class 10 with all formulas explained, 5 NCERT problems solved step-by-step, common mistakes, and exam shortcuts.",
+    category: "Mathematics",
+    classTag: "Class 10",
+    subject: "Mathematics",
+    readTime: 8,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "arithmetic progressions class 10",
+      "AP formula class 10",
+      "NCERT solutions arithmetic progressions",
+      "sum of n terms AP",
+    ],
+    heroImage:
+      "/assets/generated/blog-arithmetic-progressions.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Arithmetic Progressions is Important",
+        text: "Arithmetic Progressions (Chapter 5, Class 10 Maths) is one of the most predictable high-scoring chapters in CBSE board exams — 8–10 marks every year, very formulaic, and highly practisable. The concept of AP appears everywhere in real life: monthly savings patterns, stadium seating arrangements, salary increments, and even brick laying in construction. Beyond Class 10, AP forms the foundation for sequences and series in Class 11 and is directly tested in IIT JEE. Once you master two formulas (nth term and sum), this becomes one of the easiest chapters to score full marks in.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — What is an Arithmetic Progression?",
+        text: "An Arithmetic Progression (AP) is a sequence of numbers where the difference between any two consecutive terms is constant. This constant is called the Common Difference (d). General form: a, a+d, a+2d, a+3d, ... where a = first term, d = common difference. Example: 3, 7, 11, 15, 19 ... (a=3, d=4). If d > 0: increasing AP. If d < 0: decreasing AP. If d = 0: constant sequence.",
+      },
+      {
+        type: "h3",
+        heading: "Key Formulas",
+        text: "nth term: aₙ = a + (n−1)d. Sum of first n terms: Sₙ = n/2 × [2a + (n−1)d] OR Sₙ = n/2 × (a + l) where l = last term. Relationship: aₙ = Sₙ − Sₙ₋₁ (nth term = difference of consecutive sums). Three terms in AP: take them as (a−d), a, (a+d). Four terms in AP: take them as (a−3d), (a−d), (a+d), (a+3d).",
+      },
+      {
+        type: "table",
+        headers: ["Formula", "Use Case", "Form"],
+        rows: [
+          {
+            cells: [
+              "aₙ = a+(n−1)d",
+              "Find any specific term",
+              "nth term formula",
+            ],
+          },
+          {
+            cells: [
+              "Sₙ = n/2[2a+(n−1)d]",
+              "Sum when last term unknown",
+              "Sum formula 1",
+            ],
+          },
+          {
+            cells: [
+              "Sₙ = n/2(a+l)",
+              "Sum when last term known",
+              "Sum formula 2",
+            ],
+          },
+          { cells: ["d = aₙ − aₙ₋₁", "Find common difference", "Definition"] },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading: "Problem 1: Find the 31st term of AP: 1, 4, 7, 10, ...",
+        text: "Step 1 — a = 1, d = 4−1 = 3. Step 2 — Formula: aₙ = a + (n−1)d. Step 3 — a₃₁ = 1 + (31−1) × 3 = 1 + 90 = 91. Step 4 — The 31st term is 91. Verification: The general term is aₙ = 1 + 3(n−1) = 3n−2. For n=31: 3(31)−2 = 93−2 = 91 ✓.",
+      },
+      {
+        type: "h3",
+        heading: "Problem 2: Which term of AP 3, 8, 13, 18, ... is 78?",
+        text: "Step 1 — a = 3, d = 8−3 = 5, aₙ = 78. Step 2 — aₙ = a + (n−1)d. So 78 = 3 + (n−1) × 5. Step 3 — 78 − 3 = (n−1) × 5 → 75 = (n−1) × 5 → n−1 = 15. Step 4 — n = 16. So 78 is the 16th term. Step 5 — Always verify: a₁₆ = 3 + 15×5 = 3 + 75 = 78 ✓.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: Find the sum of first 22 terms of AP: 8, 3, −2, ...",
+        text: "Step 1 — a = 8, d = 3−8 = −5, n = 22. Step 2 — Sₙ = n/2 × [2a + (n−1)d]. Step 3 — S₂₂ = 22/2 × [2(8) + (21)(−5)] = 11 × [16 − 105] = 11 × (−89). Step 4 — S₂₂ = −979. Step 5 — Negative sum makes sense since d is negative (decreasing AP).",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: The sum of first 5 terms of AP is 55 and sum of first 10 terms is 235. Find the AP.",
+        text: "Step 1 — S₅ = 55 → 5/2 × [2a + 4d] = 55 → 5a + 10d = 55 → a + 2d = 11 ... (i). Step 2 — S₁₀ = 235 → 10/2 × [2a + 9d] = 235 → 10a + 45d = 235 → 2a + 9d = 47 ... (ii). Step 3 — From (i): a = 11 − 2d. Substitute in (ii): 2(11−2d) + 9d = 47 → 22 − 4d + 9d = 47 → 5d = 25 → d = 5. Step 4 — a = 11 − 2(5) = 1. Step 5 — AP is: 1, 6, 11, 16, 21, ... Verify: S₅ = 5/2 × [2 + 20] = 5/2 × 22 = 55 ✓.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: 200 logs are stacked in rows — 20 in bottom row, 19 in next, etc. How many rows are there?",
+        text: "Step 1 — AP: 20, 19, 18, ... a = 20, d = −1. Step 2 — Total logs = 200. Apply Sₙ = 200. Sₙ = n/2 × [2(20) + (n−1)(−1)] = 200. Step 3 — n/2 × [40 − n + 1] = 200 → n(41−n) = 400. Step 4 — 41n − n² = 400 → n² − 41n + 400 = 0. Step 5 — Discriminant: 1681 − 1600 = 81. n = (41 ± 9)/2 → n = 25 or n = 16. Step 6 — Check n=25: S₂₅ = 25/2 × [40−24] = 25/2 × 16 = 200 ✓. So 25 rows.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Using n/2 × d in the sum formula instead of (n−1)d — the formula has (n−1)d, not nd.",
+          "Forgetting to subtract 1 in the nth term formula: aₙ = a + (n−1)d. A common error is writing aₙ = a + nd.",
+          "Confusing Sₙ and aₙ — Sₙ is the SUM of first n terms; aₙ is the nth TERM. They are different.",
+          "In word problems, not defining what n, a, and d represent before writing equations.",
+          "When three numbers are in AP, assuming them as a, b, c instead of (a−d), a, (a+d). Using (a−d), a, (a+d) makes the algebra much simpler as their sum = 3a.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "AP is a sequence with constant difference d. nth term: aₙ = a+(n−1)d. Sum: Sₙ = n/2[2a+(n−1)d]. For 3 terms in AP, use (a−d), a, (a+d). Always verify your answer by substituting back. Master these two formulas and AP becomes one of the easiest chapters for full marks.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: Can a sequence be both an AP and a GP (Geometric Progression) simultaneously? Yes. A constant sequence like 2, 2, 2, 2 is an AP with d=0 and a GP with r=1. This is the only case where a sequence is both.\n\nQ2: If the nth term of an AP is known, how do you find the sum? Use the relation aₙ = Sₙ − Sₙ₋₁. Or, if you know the first and last term: Sₙ = n/2 × (a + l). The second form is faster.\n\nQ3: Is there an AP between 2 and 20 with exactly 5 terms? Yes — the terms are 2, 6.5, 11, 15.5, 20. Here a=2, l=20, n=5, d = (20−2)/(5−1) = 18/4 = 4.5.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: In AP problems with two unknowns (a and d), always set up two equations from given conditions and solve simultaneously. Never guess values — the algebraic approach always works.",
+      },
+    ],
+  },
+
+  // ===== BLOG 9: CHEMICAL REACTIONS AND EQUATIONS =====
+  {
+    slug: "chemical-reactions-equations-class-10-guide",
+    title: "Chemical Reactions and Equations Class 10 — NCERT Complete Guide",
+    metaTitle: "Chemical Reactions Equations Class 10 — NCERT Solutions Guide",
+    metaDescription:
+      "Complete guide to Chemical Reactions and Equations for Class 10 Science CBSE. Types of reactions, balancing equations, 5 NCERT problems solved step-by-step.",
+    excerpt:
+      "Master Chemical Reactions and Equations for Class 10 with all reaction types explained, balancing equations, 5 NCERT problems solved step-by-step, and pro-tips.",
+    category: "Science",
+    classTag: "Class 10",
+    subject: "Science",
+    readTime: 8,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "chemical reactions equations class 10",
+      "types of chemical reactions NCERT",
+      "class 10 science chapter 1",
+      "balancing chemical equations",
+    ],
+    heroImage: "/assets/generated/blog-chemical-reactions.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Chemical Reactions is the First Chapter",
+        text: "Chemical Reactions and Equations is the opening chapter of Class 10 Science, setting the tone for the entire year of chemistry. CBSE places it first because chemical reactions are the backbone of all chemistry — understanding them unlocks every subsequent chapter. In board exams, this chapter contributes 8–10 marks including balancing equations, identifying reaction types, and explaining observations. More importantly, this chapter trains your logical thinking: given observations (colour change, precipitate, gas), identify what type of reaction occurred. This skill transfers to real-world chemistry, industrial processes, and everyday phenomena.",
+      },
+      {
+        type: "h2",
+        heading: "Concept Breakdown — What is a Chemical Reaction?",
+        text: "A chemical reaction transforms reactants into products with new properties. Evidence of a chemical reaction: change in state, change in colour, evolution of gas, change in temperature, formation of precipitate. A chemical equation shows reactants on the left and products on the right, separated by an arrow. A balanced equation has equal atoms of each element on both sides (Law of Conservation of Mass — matter is neither created nor destroyed).",
+      },
+      {
+        type: "h3",
+        heading: "Types of Chemical Reactions",
+        text: "1. Combination Reaction: Two or more substances combine to form one product. A + B → AB. Example: 2Mg + O₂ → 2MgO. 2. Decomposition Reaction: One compound breaks down. AB → A + B. Example: 2H₂O → 2H₂ + O₂ (electrolysis). 3. Displacement Reaction: More reactive element displaces less reactive one. A + BC → AC + B. Example: Fe + CuSO₄ → FeSO₄ + Cu. 4. Double Displacement: Exchange of ions. AB + CD → AD + CB. Example: BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. 5. Oxidation-Reduction (Redox): Simultaneous oxidation and reduction. Oxidation: loss of electrons/gain of oxygen. Reduction: gain of electrons/loss of oxygen.",
+      },
+      {
+        type: "table",
+        headers: ["Reaction Type", "General Form", "Example", "Key Feature"],
+        rows: [
+          {
+            cells: [
+              "Combination",
+              "A+B → AB",
+              "2H₂+O₂ → 2H₂O",
+              "Exothermic usually",
+            ],
+          },
+          {
+            cells: [
+              "Decomposition",
+              "AB → A+B",
+              "2HgO → 2Hg+O₂",
+              "Needs energy input",
+            ],
+          },
+          {
+            cells: [
+              "Displacement",
+              "A+BC → AC+B",
+              "Zn+CuSO₄ → ZnSO₄+Cu",
+              "Reactivity series decides",
+            ],
+          },
+          {
+            cells: [
+              "Double Displacement",
+              "AB+CD → AD+CB",
+              "AgNO₃+NaCl → AgCl↓+NaNO₃",
+              "Precipitate often forms",
+            ],
+          },
+          {
+            cells: [
+              "Redox",
+              "Oxidation+Reduction",
+              "CuO+H₂ → Cu+H₂O",
+              "Always occur together",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading: "Problem 1: Balance the equation: Fe₂O₃ + CO → Fe + CO₂",
+        text: "Step 1 — Count atoms: Left: Fe=2, O=3+1=4, C=1. Right: Fe=1, C=1, O=2. Step 2 — Balance Fe: Fe₂O₃ + CO → 2Fe + CO₂. Left: Fe=2 ✓, now O=3+1=4, C=1. Right: Fe=2 ✓, O=2, C=1. Step 3 — Balance O and C: Fe₂O₃ + 3CO → 2Fe + 3CO₂. Left: C=3, O=3+3=6. Right: C=3, O=6. Step 4 — All atoms balance ✓. Balanced equation: Fe₂O₃ + 3CO → 2Fe + 3CO₂.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: What type of reaction is: 2SO₂ + O₂ → 2SO₃? Identify oxidation-reduction.",
+        text: "Step 1 — One compound (SO₂) combines with O₂ to form one product (SO₃). This is a combination reaction. Step 2 — Oxidation: S in SO₂ has oxidation state +4. In SO₃ it is +6. S is oxidised (loses electrons). Step 3 — Reduction: O₂ (0) → incorporated into SO₃ (−2). Oxygen is reduced. Step 4 — This is also a redox reaction — oxidation and reduction occur simultaneously. Step 5 — Industrial significance: This reaction is the key step in manufacturing sulphuric acid (Contact Process).",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: An iron nail placed in CuSO₄ solution. What is observed? Write equation.",
+        text: "Step 1 — Iron (Fe) is more reactive than copper (Cu) in the reactivity series. Step 2 — Iron displaces copper from CuSO₄ solution. This is a displacement reaction. Step 3 — Equation: Fe + CuSO₄ → FeSO₄ + Cu. Step 4 — Observations: The blue colour of CuSO₄ solution fades (as Cu²⁺ ions are removed). A reddish-brown deposit of copper appears on the iron nail. The solution turns pale green (FeSO₄). Step 5 — This directly appears as a 3-mark question in CBSE boards — always include both the equation AND observations.",
+      },
+      {
+        type: "h3",
+        heading: "Problem 4: Classify and balance: Pb(NO₃)₂ → PbO + NO₂ + O₂",
+        text: "Step 1 — One reactant breaks into multiple products → Decomposition reaction. Step 2 — Count atoms (unbalanced): Left: Pb=1, N=2, O=6. Right: Pb=1, N=1, O=1+2+2=5. Step 3 — Balance N: 2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂. Step 4 — Check: Left: Pb=2, N=4, O=12. Right: Pb=2 ✓, N=4 ✓, O=2+8+2=12 ✓. Step 5 — Balanced: 2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂. This is also a thermal decomposition (heat causes it).",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: Why does silver jewellery tarnish over time? What type of reaction is it?",
+        text: "Step 1 — Silver (Ag) reacts with hydrogen sulphide (H₂S) present in air. Step 2 — Reaction: 4Ag + 2H₂S + O₂ → 2Ag₂S + 2H₂O. Step 3 — Ag₂S (silver sulphide) is black — causing the tarnish. Step 4 — This is an oxidation reaction (silver is oxidised). It is also a combination reaction. Step 5 — Prevention: Store silver in airtight boxes or apply protective coating. Understanding this helps explain corrosion in general — a costly but preventable chemical reaction.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Changing the subscripts of a formula to balance an equation — NEVER do this. Only change coefficients (the numbers in front of formulas).",
+          "Forgetting to write state symbols: (s) solid, (l) liquid, (g) gas, (aq) aqueous solution. CBSE awards marks for correct state symbols.",
+          "Confusing displacement with double displacement — in displacement, one element replaces another; in double displacement, two compounds exchange ions.",
+          "Not identifying the type of reaction when asked — always answer both 'balance the equation' AND 'identify the type'.",
+          "Forgetting that all redox reactions involve simultaneous oxidation and reduction — you cannot have one without the other.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Chemical reactions transform reactants to products. Evidence: colour change, gas, precipitate, temperature change. Types: combination, decomposition, displacement, double displacement, redox. Balance equations using coefficients only — never change subscripts. State symbols are important for full marks in CBSE.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: How do I balance complex chemical equations? Start with the most complex compound. Balance metals first, then non-metals, then hydrogen, and oxygen last. Use trial and error with small coefficients.\n\nQ2: Is rusting of iron a redox reaction? Yes. Iron (Fe) is oxidised to Fe³⁺ (in Fe₂O₃), losing electrons. Oxygen is reduced. Rusting is a slow oxidation reaction: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ → 2Fe₂O₃·3H₂O (rust).\n\nQ3: Can a decomposition reaction also be a redox reaction? Yes. For example, 2HgO → 2Hg + O₂. Hg is reduced (Hg²⁺ → Hg⁰) and oxygen is oxidised (O²⁻ → O₂). It is both thermal decomposition and a redox reaction.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: For every reaction write the equation first, then identify its type, then check if it is also a redox reaction. This systematic approach ensures you don't miss any sub-part of a multi-mark question.",
+      },
+    ],
+  },
+
+  // ===== BLOG 10: COORDINATE GEOMETRY =====
+  {
+    slug: "coordinate-geometry-class-10-ncert-complete-guide",
+    title: "Coordinate Geometry Class 10 Maths — NCERT Complete Guide",
+    metaTitle: "Coordinate Geometry Class 10 — Distance, Section Formula Guide",
+    metaDescription:
+      "Complete guide to Coordinate Geometry for Class 10 Maths CBSE. Distance formula, section formula, area of triangle, 5 NCERT problems solved step-by-step.",
+    excerpt:
+      "Master Coordinate Geometry for Class 10 with distance formula, section formula, and area of triangle explained. 5 NCERT problems solved step-by-step with exam pro-tips.",
+    category: "Mathematics",
+    classTag: "Class 10",
+    subject: "Mathematics",
+    readTime: 8,
+    publishedAt: "2026-04-01",
+    keywords: [
+      "coordinate geometry class 10",
+      "distance formula class 10",
+      "section formula NCERT class 10",
+      "class 10 maths chapter 7",
+    ],
+    heroImage: "/assets/generated/blog-coordinate-geometry.dim_1200x630.webp",
+    content: [
+      {
+        type: "h2",
+        heading: "Introduction — Why Coordinate Geometry is Essential",
+        text: "Coordinate Geometry (Chapter 7, Class 10 Maths) is the chapter where algebra and geometry come together elegantly. It is consistently one of the highest-scoring chapters in CBSE board exams, contributing 8–10 marks. The formulas in this chapter — distance, section, and area — are tools that appear not just in Class 10 but throughout Class 11, 12, and IIT JEE. In the real world, coordinate geometry powers GPS navigation, computer graphics, robotics, and structural engineering. The key to mastering this chapter is understanding what each formula does geometrically, not just memorising it.",
+      },
+      { type: "h2", heading: "Concept Breakdown — The Three Core Formulas" },
+      {
+        type: "h3",
+        heading: "1. Distance Formula",
+        text: "The distance between two points A(x₁, y₁) and B(x₂, y₂) is: AB = √[(x₂−x₁)² + (y₂−y₁)²]. This is derived directly from the Pythagoras theorem. Special case: Distance from origin O(0,0) to point P(x,y): OP = √(x² + y²).",
+      },
+      {
+        type: "h3",
+        heading: "2. Section Formula",
+        text: "If point P divides the line segment joining A(x₁,y₁) and B(x₂,y₂) in ratio m:n internally, then: P = [(mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)]. Special case — Midpoint formula (m=n=1): M = [(x₁+x₂)/2, (y₁+y₂)/2].",
+      },
+      {
+        type: "h3",
+        heading: "3. Area of Triangle",
+        text: "Area of triangle with vertices A(x₁,y₁), B(x₂,y₂), C(x₃,y₃): Area = ½ |x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|. If area = 0, the three points are collinear (lie on the same line).",
+      },
+      {
+        type: "table",
+        headers: ["Formula", "Use", "Key Constraint"],
+        rows: [
+          {
+            cells: [
+              "Distance: √[(x₂−x₁)²+(y₂−y₁)²]",
+              "Length of segment, isosceles/equilateral check",
+              "Always positive",
+            ],
+          },
+          {
+            cells: [
+              "Section: [(mx₂+nx₁)/(m+n),...]",
+              "Point dividing segment in ratio m:n",
+              "Internal division",
+            ],
+          },
+          {
+            cells: [
+              "Midpoint: [(x₁+x₂)/2,(y₁+y₂)/2]",
+              "Centre of segment",
+              "Special case m=n",
+            ],
+          },
+          {
+            cells: [
+              "Area: ½|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|",
+              "Area of triangle, collinearity check",
+              "Use |...| for positive",
+            ],
+          },
+        ],
+      },
+      { type: "h2", heading: "Step-by-Step NCERT Solutions — 5 Problems" },
+      {
+        type: "h3",
+        heading: "Problem 1: Find the distance between A(2, 3) and B(5, 7).",
+        text: "Step 1 — x₁=2, y₁=3, x₂=5, y₂=7. Step 2 — AB = √[(5−2)² + (7−3)²] = √[9 + 16] = √25 = 5 units. Step 3 — The distance is 5 units. Step 4 — Quick check: (3,4,5) is a Pythagorean triplet — differences are 3 and 4, so distance is 5. Recognising common triplets speeds up calculation in exams.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 2: Point P(x,y) is equidistant from A(3,6) and B(−3,4). Find the relation between x and y.",
+        text: "Step 1 — PA = PB (equidistant). Step 2 — PA² = (x−3)² + (y−6)² and PB² = (x+3)² + (y−4)². Step 3 — Set equal: (x−3)² + (y−6)² = (x+3)² + (y−4)². Step 4 — Expand: x²−6x+9 + y²−12y+36 = x²+6x+9 + y²−8y+16. Step 5 — Simplify: −6x−12y+45 = 6x−8y+25. So −12x−4y+20 = 0 → 3x+y = 5. The locus condition is 3x + y = 5.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 3: Find the coordinates of the point that divides A(−2,1) and B(3,8) in ratio 3:2 internally.",
+        text: "Step 1 — m=3, n=2, A(x₁,y₁)=(−2,1), B(x₂,y₂)=(3,8). Step 2 — Section formula: x = (mx₂+nx₁)/(m+n) = (3×3 + 2×(−2))/(3+2) = (9−4)/5 = 1. Step 3 — y = (my₂+ny₁)/(m+n) = (3×8 + 2×1)/(5) = (24+2)/5 = 26/5. Step 4 — P = (1, 26/5). Step 5 — Verify: P should be closer to B since the ratio 3:2 means AP:PB = 3:2 (P is 3/5 of the way from A to B).",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 4: Are the points A(1,2), B(4,5), C(7,8) collinear? Use area method.",
+        text: "Step 1 — Area of triangle ABC = ½|x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|. Step 2 — = ½|1(5−8) + 4(8−2) + 7(2−5)|. Step 3 — = ½|1(−3) + 4(6) + 7(−3)| = ½|−3+24−21| = ½|0| = 0. Step 4 — Area = 0 means the three points are collinear. Step 5 — Verify: slope AB = (5−2)/(4−1) = 1 and slope BC = (8−5)/(7−4) = 1. Equal slopes confirm collinearity ✓.",
+      },
+      {
+        type: "h3",
+        heading:
+          "Problem 5: Find the area of triangle with vertices (2,3), (−1,0), (2,−4).",
+        text: "Step 1 — (x₁,y₁)=(2,3), (x₂,y₂)=(−1,0), (x₃,y₃)=(2,−4). Step 2 — Area = ½|x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|. Step 3 — = ½|2(0−(−4)) + (−1)(−4−3) + 2(3−0)|. Step 4 — = ½|2(4) + (−1)(−7) + 2(3)| = ½|8+7+6| = ½×21 = 10.5 sq units. Step 5 — Area = 10.5 square units. Always include 'square units' in the final answer.",
+      },
+      { type: "h2", heading: "Common Mistakes to Avoid" },
+      {
+        type: "ul",
+        items: [
+          "Forgetting the modulus (|...|) in the area formula — area is always positive; the formula can give a negative value without the modulus.",
+          "In the section formula, swapping m and n — remember m goes with B (the second point) and n goes with A (the first point).",
+          "Not squaring both distances before equating in equidistant problems — always work with distances squared to avoid the square root until the end.",
+          "Writing area = ½ × base × height for coordinate geometry problems — this approach requires finding the height, which is complex. Use the shoelace formula (area formula) instead.",
+          "Not verifying collinearity by checking slope as well — if area = 0, slopes must be equal. Checking both ways confirms your answer.",
+        ],
+      },
+      {
+        type: "h2",
+        heading: "Summary",
+        text: "Distance formula: AB = √[(x₂−x₁)²+(y₂−y₁)²]. Section formula for m:n ratio: P = [(mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n)]. Midpoint: M = [(x₁+x₂)/2, (y₁+y₂)/2]. Area of triangle: ½|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|. Area = 0 means collinear points.",
+      },
+      {
+        type: "h3",
+        heading: "Frequently Asked Questions",
+        text: "Q1: How do I identify what type of quadrilateral a set of 4 points form? Find all 4 sides (distance formula) and 2 diagonals. Equal sides + equal diagonals = square. Equal opposite sides + equal diagonals = rectangle. Equal sides + unequal diagonals = rhombus. Equal opposite sides + unequal diagonals = parallelogram.\n\nQ2: Can a point divide a line segment externally? Yes. The external division formula is P = [(mx₂−nx₁)/(m−n), (my₂−ny₁)/(m−n)]. NCERT Class 10 only asks for internal division, but Class 11 covers external division.\n\nQ3: Why is the area formula negative sometimes? Because the formula ½|...| uses a determinant that is positive or negative depending on the orientation of vertices (clockwise or anticlockwise). The absolute value |...| ensures the area is always positive regardless of vertex order.",
+      },
+      {
+        type: "tip",
+        text: "Pro Tip: For quadrilateral problems, always calculate ALL four sides and BOTH diagonals using the distance formula. This gives you enough data to identify whether it's a square, rectangle, rhombus, or parallelogram — and earns full marks for every property you state.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
