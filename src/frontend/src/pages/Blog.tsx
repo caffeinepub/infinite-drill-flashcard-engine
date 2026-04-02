@@ -8,6 +8,7 @@ import type { BlogPost as BackendBlogPost } from "../backend.d";
 import { Layout } from "../components/Layout";
 import type { BlogPost as BlogPostType } from "../data/blogData";
 import { useActor } from "../hooks/useActor";
+import { useMonotagAd } from "../hooks/useMonotagAd";
 import { useSEO } from "../hooks/useSEO";
 
 // ─── Dynamic data loader ──────────────────────────────────────────────────────
@@ -207,6 +208,8 @@ export default function Blog() {
 
   const { blogPosts, blogCategories, isLoaded } = useBlogData();
   const { data: dynamicPosts = [] } = useDynamicBlogPosts();
+
+  useMonotagAd();
 
   useSEO({
     title: "NCERT Blog — Free Study Notes & Chapter Summaries",

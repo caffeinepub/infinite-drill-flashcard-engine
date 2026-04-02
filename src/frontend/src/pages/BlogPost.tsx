@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { Layout } from "../components/Layout";
 import { useUserProfileContext } from "../context/UserProfileContext";
 import type { BlogPost as BlogPostType, BlogSection } from "../data/blogData";
+import { useMonotagAd } from "../hooks/useMonotagAd";
 import { useSubmitQuiz } from "../hooks/useQueries";
 import { useSEO } from "../hooks/useSEO";
 
@@ -403,6 +404,9 @@ function useBlogXP(slug: string, isLoaded: boolean) {
 export default function BlogPost() {
   const { slug } = useParams({ from: "/protected/blog/$slug" });
   const { post, allPosts, isLoaded } = useBlogPost(slug);
+
+  // XP reward tracking (read timer + scroll milestones)
+  useMonotagAd();
 
   // XP reward tracking (read timer + scroll milestones)
   useBlogXP(slug, isLoaded && !!post);
