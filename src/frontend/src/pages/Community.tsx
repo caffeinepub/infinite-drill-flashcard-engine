@@ -131,11 +131,12 @@ export default function Community() {
             Live Community Chat
           </div>
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
-            Class Chat Rooms
+            NCERT Bhaiya — Class Chat Rooms
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
             Join your class chat room, ask doubts, share notes, and connect with
-            fellow students. Upload images and audio clips too!
+            fellow CBSE students from Class 1 to Class 12. Upload images and
+            audio clips to explain your questions better!
           </p>
         </motion.div>
 
@@ -206,6 +207,128 @@ export default function Community() {
           💡 Keep chats respectful and educational. Share notes, ask questions,
           and help each other grow!
         </motion.div>
+
+        {/* SEO Content Section */}
+        <div className="mt-10 space-y-6">
+          <div className="glass-dark rounded-2xl p-6 border border-border/40">
+            <h2 className="font-display text-lg font-bold mb-3 text-foreground">
+              Free NCERT Student Community — Ask Doubts, Share Notes
+            </h2>
+            <div className="text-sm text-muted-foreground space-y-3 leading-relaxed">
+              <p>
+                NCERT Bhaiya's Community Chat is a free, live study space where
+                CBSE students from Class 1 to Class 12 can connect with each
+                other in real time. Every class has its own dedicated chat room
+                so that conversations stay focused and relevant to the topics
+                you are actually studying.
+              </p>
+              <p>
+                Students often struggle to find someone who is studying the same
+                chapter at the same time. Here, you can join the Class 9 or
+                Class 10 room and instantly find peers working through the same
+                Science, Maths, or Social Science chapters. You can type out
+                your question, upload a photo of your notebook, or even share an
+                audio note to explain what you are stuck on.
+              </p>
+              <p>
+                The IIT JEE community room is designed for Class 11 and Class 12
+                students who are preparing for JEE Main and JEE Advanced
+                alongside their board exams. Discuss difficult Physics problems,
+                share Chemistry shortcuts, and collaborate on Maths proofs with
+                fellow JEE aspirants.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="glass-dark rounded-2xl p-5 border border-border/40">
+              <h2 className="font-display text-base font-bold mb-2 text-foreground flex items-center gap-2">
+                <MessageCircle size={15} className="text-primary" />
+                How to Use the Chat Rooms
+              </h2>
+              <ul className="text-sm text-muted-foreground space-y-2 leading-relaxed">
+                <li>
+                  • Select your class from the grid above and click{" "}
+                  <strong className="text-foreground/80">Join Chat</strong>.
+                </li>
+                <li>
+                  • Type your doubt or question in the message box and press
+                  Enter to send.
+                </li>
+                <li>
+                  • Use the image icon (📷) to upload a photo of a handwritten
+                  note or textbook page.
+                </li>
+                <li>
+                  • Use the microphone icon (🎵) to record and share a short
+                  audio explanation.
+                </li>
+                <li>
+                  • Admins and moderators can delete messages that violate
+                  community guidelines.
+                </li>
+              </ul>
+            </div>
+
+            <div className="glass-dark rounded-2xl p-5 border border-border/40">
+              <h2 className="font-display text-base font-bold mb-2 text-foreground flex items-center gap-2">
+                <BookOpen size={15} className="text-primary" />
+                Community Guidelines
+              </h2>
+              <ul className="text-sm text-muted-foreground space-y-2 leading-relaxed">
+                <li>
+                  • Keep all messages educational and respectful to every
+                  student.
+                </li>
+                <li>
+                  • Do not share personal contact information or social media
+                  handles.
+                </li>
+                <li>
+                  • Share your own notes, summaries, and study tips freely —
+                  helping others helps you too.
+                </li>
+                <li>
+                  • Avoid posting the same question multiple times — be patient
+                  for a reply.
+                </li>
+                <li>
+                  • Report any inappropriate content using the delete option so
+                  moderators can review it.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="glass-dark rounded-2xl p-6 border border-border/40">
+            <h2 className="font-display text-base font-bold mb-3 text-foreground">
+              Why Peer Learning Works for CBSE Students
+            </h2>
+            <div className="text-sm text-muted-foreground space-y-3 leading-relaxed">
+              <p>
+                Research consistently shows that explaining a concept to another
+                student is one of the most effective ways to deepen your own
+                understanding. When you answer a classmate's question about the
+                Pythagorean theorem or the water cycle, you are reinforcing
+                those pathways in your own memory at the same time.
+              </p>
+              <p>
+                Peer communities are especially valuable for students in rural
+                areas who do not have access to local tuition centres or study
+                groups. NCERT Bhaiya's community chat brings the benefits of
+                collaborative learning to every student with a smartphone and an
+                internet connection — whether they are in a city or a village.
+              </p>
+              <p>
+                Combine the community chat with NCERT Bhaiya's quizzes,
+                flashcards, and cheat sheets for a complete study system. Use
+                the chat to ask about chapters you find difficult, then test
+                yourself on those same chapters in the Quiz section to confirm
+                you have understood the concept.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

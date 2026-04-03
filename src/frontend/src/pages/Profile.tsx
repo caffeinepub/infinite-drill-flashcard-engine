@@ -9,7 +9,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
-import { AtSign, CheckCircle2, Loader2, Mail, UserCircle } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import {
+  AtSign,
+  BookOpen,
+  CheckCircle2,
+  Loader2,
+  Mail,
+  Star,
+  Trophy,
+  UserCircle,
+} from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useActor } from "../hooks/useActor";
@@ -69,8 +79,8 @@ export default function Profile() {
   }
 
   return (
-    <main className="min-h-screen bg-mesh-dark flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md" data-ocid="profile.card">
+    <main className="min-h-screen bg-mesh-dark px-4 py-12">
+      <div className="max-w-2xl mx-auto">
         {/* Avatar header */}
         <div className="flex flex-col items-center mb-8">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-neon-purple/30 to-neon-blue/30 border-2 border-neon-purple/40 flex items-center justify-center mb-4 shadow-lg shadow-neon-purple/10">
@@ -82,11 +92,14 @@ export default function Profile() {
             My Profile
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Manage your account information
+            Manage your NCERT Bhaiya account information
           </p>
         </div>
 
-        <Card className="glass-dark border border-border/60 shadow-xl shadow-black/30">
+        <Card
+          className="glass-dark border border-border/60 shadow-xl shadow-black/30 mb-6"
+          data-ocid="profile.card"
+        >
           <CardHeader className="pb-4">
             <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
               <CheckCircle2 size={18} className="text-neon-purple" />
@@ -202,6 +215,84 @@ export default function Profile() {
             </form>
           </CardContent>
         </Card>
+
+        {/* SEO / Info section */}
+        <div className="space-y-4">
+          <div className="glass-dark rounded-2xl p-5 border border-border/40">
+            <h2 className="font-display text-base font-bold mb-3 text-foreground flex items-center gap-2">
+              <Trophy size={15} className="text-neon-purple" />
+              Your NCERT Bhaiya Account
+            </h2>
+            <div className="text-sm text-muted-foreground space-y-2 leading-relaxed">
+              <p>
+                Your NCERT Bhaiya account tracks your quiz scores, XP points,
+                and streak across all CBSE classes from Class 1 to Class 12, as
+                well as IIT JEE preparation content. Every quiz you complete and
+                every blog post you read adds XP to your profile, which is
+                reflected on the{" "}
+                <Link
+                  to="/leaderboard"
+                  className="text-primary hover:underline"
+                >
+                  Leaderboard
+                </Link>
+                .
+              </p>
+              <p>
+                Your account data is stored securely and permanently on the
+                Internet Computer blockchain — it will never be lost between
+                sessions or site updates.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <Link
+              to="/leaderboard"
+              className="glass-dark rounded-xl p-4 border border-border/40 hover:border-neon-purple/40 transition-all group"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <Trophy size={14} className="text-neon-purple" />
+                <span className="text-sm font-semibold text-foreground">
+                  Leaderboard
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                See how your XP ranks against other students.
+              </p>
+            </Link>
+
+            <Link
+              to="/ncert"
+              className="glass-dark rounded-xl p-4 border border-border/40 hover:border-neon-blue/40 transition-all group"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <BookOpen size={14} className="text-neon-blue" />
+                <span className="text-sm font-semibold text-foreground">
+                  NCERT Topics
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Browse all chapters, quizzes and flashcards.
+              </p>
+            </Link>
+
+            <Link
+              to="/blog"
+              className="glass-dark rounded-xl p-4 border border-border/40 hover:border-neon-amber/40 transition-all group"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <Star size={14} className="text-neon-amber" />
+                <span className="text-sm font-semibold text-foreground">
+                  Blog
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Read study guides and earn XP rewards.
+              </p>
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );

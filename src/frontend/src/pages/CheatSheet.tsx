@@ -211,6 +211,99 @@ export default function CheatSheet() {
             </Link>
           </div>
         </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-10 space-y-4 no-print">
+          <div className="glass-dark rounded-2xl p-6 border border-border/40">
+            <h2 className="font-display text-lg font-bold mb-3 text-foreground">
+              About the {topic.chapter} Cheat Sheet
+            </h2>
+            <div className="text-sm text-muted-foreground space-y-3 leading-relaxed">
+              <p>
+                This cheat sheet for{" "}
+                <strong className="text-foreground/80">{topic.chapter}</strong>{" "}
+                ({topic.className} {topic.subject}, {topic.board}) is a
+                structured quick-reference guide covering the most important
+                definitions, key formulas, solved examples, and exam tips from
+                the NCERT textbook. It is designed to help CBSE students revise
+                the entire chapter in minutes, not hours — especially useful
+                during last-minute board exam preparation.
+              </p>
+              <p>
+                Each entry in the cheat sheet is colour-coded by type: blue for
+                definitions, purple for formulas, green for worked examples, and
+                amber for exam tips and common mistakes to avoid. This colour
+                system makes it easy to scan the page and find exactly what you
+                need at a glance.
+              </p>
+              <p>
+                Use the <strong className="text-foreground/80">Print</strong>{" "}
+                button at the top right to get a clean, formatted printout of
+                this cheat sheet to keep in your physical revision folder. The
+                print version removes all navigation and UI elements so only the
+                content remains.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="glass-dark rounded-2xl p-5 border border-border/40">
+              <h2 className="font-display text-base font-bold mb-2 text-foreground">
+                How to Use This Cheat Sheet Effectively
+              </h2>
+              <ul className="text-sm text-muted-foreground space-y-2 leading-relaxed">
+                <li>
+                  • Read through all definitions first to build a conceptual map
+                  of the chapter.
+                </li>
+                <li>
+                  • Study each formula and try to write it out from memory
+                  before checking.
+                </li>
+                <li>
+                  • Work through the examples with pen and paper to verify you
+                  can reproduce the steps.
+                </li>
+                <li>
+                  • Read all tips and mark the ones that apply to common
+                  mistakes you have made before.
+                </li>
+                <li>
+                  • After revising the cheat sheet, test yourself with the
+                  Practice Quiz linked above.
+                </li>
+              </ul>
+            </div>
+
+            <div className="glass-dark rounded-2xl p-5 border border-border/40">
+              <h2 className="font-display text-base font-bold mb-2 text-foreground">
+                What CBSE Exams Test From This Chapter
+              </h2>
+              <ul className="text-sm text-muted-foreground space-y-2 leading-relaxed">
+                <li>
+                  • CBSE board exams test both conceptual understanding and
+                  application of formulas.
+                </li>
+                <li>
+                  • Definition-based 1-mark questions are common — use the
+                  Definition cards to prepare.
+                </li>
+                <li>
+                  • Formula-based 2-3 mark questions require you to substitute
+                  values correctly.
+                </li>
+                <li>
+                  • Long-answer questions test whether you can apply concepts to
+                  new situations.
+                </li>
+                <li>
+                  • Internal assessments and unit tests often draw directly from
+                  NCERT examples and exercises.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

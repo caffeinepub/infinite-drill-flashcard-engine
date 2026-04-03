@@ -58,6 +58,35 @@ const roomLabels: Record<string, string> = {
   "iit-jee": "IIT JEE",
 };
 
+const roomDescriptions: Record<string, string> = {
+  "class-1":
+    "a space for Class 1 students to discuss numbers, alphabets, shapes, and EVS topics with each other.",
+  "class-2":
+    "a community for Class 2 students to share notes on rhymes, basic maths, and general knowledge.",
+  "class-3":
+    "a chat room for Class 3 students covering Maths, EVS, and language basics from the NCERT syllabus.",
+  "class-4":
+    "a live study room for Class 4 students to discuss fractions, science experiments, and social studies.",
+  "class-5":
+    "a community room for Class 5 students working through EVS, Maths, and grammar fundamentals.",
+  "class-6":
+    "a live chat for Class 6 CBSE students covering History, Science, and Algebra basics from NCERT textbooks.",
+  "class-7":
+    "a study community for Class 7 students discussing Geography, Biology, Decimals, and NCERT exercises.",
+  "class-8":
+    "a chat room for Class 8 CBSE students covering Civics, Physics basics, Linear Equations, and more.",
+  "class-9":
+    "a live study room for Class 9 students discussing Coordinate Geometry, Laws of Motion, and board prep.",
+  "class-10":
+    "a board exam preparation community for Class 10 CBSE students covering Science, Maths, Social Science, English, and Hindi.",
+  "class-11":
+    "a community for Class 11 students diving deep into Physics, Chemistry, Mathematics, and Biology.",
+  "class-12":
+    "a board and entrance exam strategy room for Class 12 CBSE students preparing for finals and competitive exams.",
+  "iit-jee":
+    "an advanced study community for IIT JEE aspirants tackling Physics, Chemistry, and Mathematics at JEE Main and Advanced level.",
+};
+
 function formatTime(timestamp: bigint): string {
   const ms = Number(timestamp) / 1_000_000;
   const date = new Date(ms);
@@ -173,6 +202,9 @@ export default function ClassChat() {
   const params = useParams({ from: "/protected/community/$roomId" });
   const roomId = params.roomId as string;
   const roomLabel = roomLabels[roomId] ?? roomId;
+  const roomDesc =
+    roomDescriptions[roomId] ??
+    `a live study community for ${roomLabel} students.`;
 
   const { user } = useAuth();
   const { actor: rawActor } = useActor();
@@ -311,7 +343,7 @@ export default function ClassChat() {
         </div>
         <div>
           <h1 className="font-bold text-sm text-foreground">
-            {roomLabel} Community Chat
+            {roomLabel} Community Chat — NCERT Bhaiya
           </h1>
           <p className="text-[11px] text-muted-foreground">
             Live • Share notes, ask doubts
@@ -458,6 +490,26 @@ export default function ClassChat() {
         <p className="text-[10px] text-muted-foreground text-center mt-1.5">
           📷 Images &amp; 🎵 audio under 500KB. Press Enter to send.
         </p>
+      </div>
+
+      {/* SEO Content Section */}
+      <div className="max-w-3xl mx-auto w-full px-4 pb-8 mt-4">
+        <div className="glass-dark rounded-2xl p-5 border border-border/40">
+          <h2 className="font-display text-base font-bold mb-2 text-foreground">
+            {roomLabel} Chat Room — Free CBSE Study Community
+          </h2>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This is {roomDesc} Share your doubts, upload photos of textbook
+            pages, post audio notes, and get help from peers who are studying
+            the same NCERT curriculum. NCERT Bhaiya's community chat is
+            completely free and available 24/7 — just sign in and start a
+            conversation. Combine this chat with the{" "}
+            <Link to="/" className="text-primary hover:underline">
+              quizzes, flashcards, and cheat sheets
+            </Link>{" "}
+            on NCERT Bhaiya for a complete CBSE study system.
+          </p>
+        </div>
       </div>
     </div>
   );
