@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useInternetIdentity } from "@caffeineai/core-infrastructure";
 import {
   BookOpen,
   CheckCircle,
@@ -16,7 +17,6 @@ import {
   XCircle,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   isUsernameTaken,
   saveCredentials,

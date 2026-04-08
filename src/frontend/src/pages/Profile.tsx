@@ -9,6 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
+import { useActor } from "@caffeineai/core-infrastructure";
 import { Link } from "@tanstack/react-router";
 import {
   AtSign,
@@ -22,7 +23,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useActor } from "../hooks/useActor";
+import { createActor } from "../backend";
 
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -30,7 +31,7 @@ function validateEmail(email: string): boolean {
 
 export default function Profile() {
   const { user, loginUser } = useAuth();
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const [fullName, setFullName] = useState(user?.fullName ?? "");
   const [email, setEmail] = useState(user?.email ?? "");
   const [isSaving, setIsSaving] = useState(false);

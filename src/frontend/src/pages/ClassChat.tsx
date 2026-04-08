@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { useActor } from "@caffeineai/core-infrastructure";
 import { Link, useParams } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -15,9 +16,9 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { createActor } from "../backend";
 import { NavBar } from "../components/NavBar";
 import { useAuth } from "../context/AuthContext";
-import { useActor } from "../hooks/useActor";
 import { useAdminRole } from "../hooks/useAdminRole";
 
 export interface ChatMessage {
@@ -207,7 +208,7 @@ export default function ClassChat() {
     `a live study community for ${roomLabel} students.`;
 
   const { user } = useAuth();
-  const { actor: rawActor } = useActor();
+  const { actor: rawActor } = useActor(createActor);
   const actor = rawActor as unknown as ChatActor | null;
   const { isAdmin, isOperator } = useAdminRole();
 

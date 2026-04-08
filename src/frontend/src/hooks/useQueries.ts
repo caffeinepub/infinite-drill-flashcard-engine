@@ -1,19 +1,25 @@
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { createActor } from "../backend";
 import { useUserProfileContext } from "../context/UserProfileContext";
 import { topicsData } from "../data/demoData";
 import type { LeaderboardUser, TopicData } from "../data/demoData";
-import { useActor } from "./useActor";
+
+type FlexActor = Record<string, (...args: unknown[]) => Promise<unknown>>;
+function asActor(a: unknown): FlexActor {
+  return a as FlexActor;
+}
 
 // ─── Topics ─────────────────────────────────────────────────────────────────────────
 
 export function useTopics() {
-  const { actor, isFetching } = useActor();
+  const { actor, isFetching } = useActor(createActor);
   return useQuery<TopicData[]>({
     queryKey: ["topics"],
     queryFn: async () => {
       try {
         if (actor && !isFetching) {
-          await actor.getAllTopics();
+          await asActor(actor).getAllTopics();
         }
       } catch {
         // ignore
@@ -26,13 +32,13 @@ export function useTopics() {
 }
 
 export function useTopic(id: string) {
-  const { actor, isFetching } = useActor();
+  const { actor, isFetching } = useActor(createActor);
   return useQuery<TopicData | null>({
     queryKey: ["topic", id],
     queryFn: async () => {
       try {
         if (actor && !isFetching) {
-          await actor.getTopicById(BigInt(id));
+          await asActor(actor).getTopicById(BigInt(id));
         }
       } catch {
         // ignore
@@ -56,14 +62,25 @@ function numericLevelToString(level: bigint): string {
 
 // ─── Leaderboard ─────────────────────────────────────────────────────────────────
 
+type LeaderboardEntry = {
+  rank: bigint;
+  username: string;
+  xp: bigint;
+  level: bigint;
+  streak: bigint;
+  badges: string[];
+};
+
 export function useLeaderboard() {
-  const { actor, isFetching } = useActor();
+  const { actor, isFetching } = useActor(createActor);
   return useQuery<LeaderboardUser[]>({
     queryKey: ["leaderboard"],
     queryFn: async () => {
       try {
         if (actor && !isFetching) {
-          const entries = await actor.getLeaderboard();
+          const entries = (await asActor(
+            actor,
+          ).getLeaderboard()) as LeaderboardEntry[];
           return entries.map((entry) => ({
             rank: Number(entry.rank),
             username: entry.username,
@@ -87,7 +104,7 @@ export function useLeaderboard() {
 // ─── Quiz submission ─────────────────────────────────────────────────────────
 
 export function useSubmitQuiz() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const { profile } = useUserProfileContext();
   const queryClient = useQueryClient();
   return useMutation({
@@ -99,7 +116,7 @@ export function useSubmitQuiz() {
       if (actor) {
         try {
           const earnedXP = score * 10;
-          await actor.addBlogXP(BigInt(earnedXP));
+          await asActor(actor).addBlogXP(BigInt(earnedXP));
           return [BigInt(earnedXP), BigInt(1)] as [bigint, bigint];
         } catch {
           return [BigInt(score * 10), BigInt(1)] as [bigint, bigint];
@@ -116,7 +133,7 @@ export function useSubmitQuiz() {
 // ─── Blog XP ──────────────────────────────────────────────────────────────────────────
 
 export function useAddBlogXP() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const { profile } = useUserProfileContext();
   const queryClient = useQueryClient();
   return useMutation({
@@ -124,7 +141,7 @@ export function useAddBlogXP() {
       const userId = profile?.displayName;
       if (!userId || !actor) return 0;
       try {
-        const result = await actor.addBlogXP(BigInt(xpAmount));
+        const result = await asActor(actor).addBlogXP(BigInt(xpAmount));
         return Number(result);
       } catch {
         return 0;
@@ -139,12 +156,12 @@ export function useAddBlogXP() {
 // ─── Flashcard mastery ─────────────────────────────────────────────────────────────
 
 export function useMarkFlashcardMastered() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   return useMutation({
     mutationFn: async (flashcardId: number) => {
       if (actor) {
         try {
-          await actor.markFlashcardMastered(BigInt(flashcardId));
+          await asActor(actor).markFlashcardMastered(BigInt(flashcardId));
         } catch {
           // ignore
         }

@@ -1,0 +1,202 @@
+// Version: 1.0.0
+type BlogPost__543622485 =
+  {
+    authorName : Text;
+    authorUsername : Text;
+    content : Text;
+    createdAt : Int;
+    description : Text;
+    id : Nat;
+    imageUrl : Text;
+    published : Bool;
+    title : Text
+  };
+type ChatMessage__1037536196 =
+  {
+    content : Text;
+    id : Nat;
+    messageType : Text;
+    roomId : Text;
+    senderName : Text;
+    senderUsername : Text;
+    timestamp : Int
+  };
+type CheatSheetEntry__351296107 =
+  {
+    content : Text;
+    entryType : Text;
+    icon : Text;
+    id : Nat;
+    title : Text;
+    topicId : Nat
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Flashcard__1040115758 =
+  {
+    backAnswer : Text;
+    backExplanation : Text;
+    frontQuestion : Text;
+    id : Nat;
+    topicId : Nat
+  };
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type LeaderboardEntry__252692527 =
+  {
+    badges : [Text];
+    level : Nat;
+    rank : Nat;
+    streak : Nat;
+    username : Text;
+    xp : Nat
+  };
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type MCQQuestion__875173548 =
+  {
+    correctIndex : Nat;
+    explanation : Text;
+    id : Nat;
+    options : [Text];
+    question : Text;
+    topicId : Nat;
+    xpValue : Nat
+  };
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type SiteSettings__555417481 =
+  {
+    announcement : Text;
+    announcementEnabled : Bool;
+    featuredMessage : Text;
+    lastUpdated : Int;
+    updatedBy : Text
+  };
+type Topic__684784558 =
+  {
+    board : Text;
+    chapter : Text;
+    className : Text;
+    description : Text;
+    difficulty : Text;
+    id : Nat;
+    microTopic : Text;
+    questionCount : Nat;
+    subject : Text
+  };
+type UserAccount__518253964 =
+  {
+    createdAt : Int;
+    email : Text;
+    fullName : Text;
+    lastLoginAt : Int;
+    passwordHash : Text;
+    username : Text
+  };
+type UserProfile__491224006 =
+  {
+    createdAt : Int;
+    displayName : Text;
+    principal : Text;
+    studentClass : Text
+  };
+type UserProgress__827981433 =
+  {
+    lastQuizScore : Nat;
+    level : Nat;
+    masteredFlashcards : [Nat];
+    streak : Nat;
+    topicId : Nat;
+    userId : Text;
+    xp : Nat
+  };
+type UserRole__1054455867 = {#admin; #guest; #user};
+actor {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__605269027<Principal, UserRole__1054455867>
+    };
+  stable var adminUsernames :
+    {var root : Node__46230540<Text, Bool>; var size : Nat__490723111};
+  stable var adminUsernamesStable : [Text];
+  stable var blogPosts :
+    {
+      var root : Node__46230540<Nat, BlogPost__543622485>;
+      var size : Nat__490723111
+    };
+  stable var blogPostsStable : [(Nat, BlogPost__543622485)];
+  stable var chatMessages :
+    {
+      var root : Node__46230540<Nat, ChatMessage__1037536196>;
+      var size : Nat__490723111
+    };
+  stable var chatMessagesStable : [(Nat, ChatMessage__1037536196)];
+  stable var cheatsheets :
+    {
+      var root : Node__46230540<Nat, CheatSheetEntry__351296107>;
+      var size : Nat__490723111
+    };
+  stable var flashcards :
+    {
+      var root : Node__46230540<Nat, Flashcard__1040115758>;
+      var size : Nat__490723111
+    };
+  stable var leaderboard :
+    {
+      var root : Node__46230540<Text, LeaderboardEntry__252692527>;
+      var size : Nat__490723111
+    };
+  stable var leaderboardEntries : [(Text, LeaderboardEntry__252692527)];
+  stable var nextBlogPostId : Nat;
+  stable var nextBlogPostIdStable : Nat;
+  stable var nextChatMessageId : Nat;
+  stable var nextChatMessageIdStable : Nat;
+  stable var operatorEntries : [(Principal, Bool)];
+  stable var operators :
+    {var root : Node__46230540<Principal, Bool>; var size : Nat__490723111};
+  stable var questions :
+    {
+      var root : Node__46230540<Nat, MCQQuestion__875173548>;
+      var size : Nat__490723111
+    };
+  stable var siteSettingsEntries : [(Text, SiteSettings__555417481)];
+  stable var siteSettingsStore :
+    {
+      var root : Node__46230540<Text, SiteSettings__555417481>;
+      var size : Nat__490723111
+    };
+  stable var topicEntries : [(Nat, Topic__684784558)];
+  stable var topics :
+    {
+      var root : Node__46230540<Nat, Topic__684784558>;
+      var size : Nat__490723111
+    };
+  stable var userAccountEntries : [(Text, UserAccount__518253964)];
+  stable var userAccounts :
+    {
+      var root : Node__46230540<Text, UserAccount__518253964>;
+      var size : Nat__490723111
+    };
+  stable var userProfileEntries : [(Principal, UserProfile__491224006)];
+  stable var userProfiles :
+    {
+      var root : Node__46230540<Principal, UserProfile__491224006>;
+      var size : Nat__490723111
+    };
+  stable var userProgress :
+    {
+      var root : Node__46230540<Text, UserProgress__827981433>;
+      var size : Nat__490723111
+    };
+  stable var userProgressEntries : [(Text, UserProgress__827981433)];
+  stable var usernameRoles :
+    {var root : Node__46230540<Text, Text>; var size : Nat__490723111};
+  stable var usernameRolesStable : [(Text, Text)]
+};

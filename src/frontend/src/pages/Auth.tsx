@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useNavigate } from "@tanstack/react-router";
 import {
   BookOpen,
@@ -20,14 +21,34 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { createActor } from "../backend";
 import { useAuth } from "../context/AuthContext";
-import { useActor } from "../hooks/useActor";
 
 type UsernameStatus = "idle" | "checking" | "available" | "taken";
 
+type AuthActor = {
+  checkUsernameAvailability: (username: string) => Promise<boolean>;
+  login: (
+    username: string,
+    password: string,
+  ) => Promise<{
+    ok: boolean;
+    fullName: string;
+    email: string;
+    message?: string;
+  }>;
+  signUp: (
+    username: string,
+    password: string,
+    fullName: string,
+    email: string,
+  ) => Promise<{ ok: boolean; message?: string }>;
+};
+
 export default function Auth() {
   const { loginUser } = useAuth();
-  const { actor } = useActor();
+  const { actor: rawActor } = useActor(createActor);
+  const actor = rawActor as unknown as AuthActor | null;
   const navigate = useNavigate();
 
   // ─── Login state ─────────────────────────────────────────────────

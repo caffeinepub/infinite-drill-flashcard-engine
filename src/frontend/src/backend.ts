@@ -133,6 +133,15 @@ export interface Topic {
     className: string;
     questionCount: bigint;
 }
+export interface ChatMessage {
+    id: bigint;
+    content: string;
+    senderUsername: string;
+    messageType: string;
+    timestamp: bigint;
+    senderName: string;
+    roomId: string;
+}
 export interface UserProfile {
     principal: string;
     displayName: string;
@@ -145,12 +154,13 @@ export enum UserRole {
     guest = "guest"
 }
 export interface backendInterface {
-    _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
+    _initializeAccessControl(): Promise<void>;
     addBlogXP(xpAmount: bigint): Promise<bigint>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     checkUsernameAvailability(username: string): Promise<boolean>;
     createBlogPost(title: string, description: string, content: string, authorName: string, authorUsername: string, imageUrl: string): Promise<bigint>;
     deleteBlogPost(id: bigint, callerUsername: string): Promise<void>;
+    deleteChatMessage(id: bigint, callerUsername: string): Promise<void>;
     deleteUserProfile(user: Principal): Promise<void>;
     getAdminStats(): Promise<{
         totalXP: bigint;
@@ -189,6 +199,8 @@ export interface backendInterface {
     getBlogPostImageById(id: bigint): Promise<string | null>;
     getCallerRole(): Promise<string>;
     getCallerUserRole(): Promise<UserRole>;
+    getChatMessages(roomId: string, limit: bigint): Promise<Array<ChatMessage>>;
+    getChatRooms(): Promise<Array<string>>;
     getLeaderboard(): Promise<Array<LeaderboardEntry>>;
     getRoleCount(role: string): Promise<bigint>;
     getRoleDetails(username: string): Promise<{
@@ -231,6 +243,7 @@ export interface backendInterface {
     removeUsernameRole(callerUsername: string, targetUsername: string): Promise<boolean>;
     saveCallerUserProfile(displayName: string, studentClass: string): Promise<UserProfile>;
     searchBlogPosts(searchQuery: string): Promise<Array<BlogPost>>;
+    sendChatMessage(roomId: string, senderUsername: string, senderName: string, messageType: string, content: string): Promise<bigint>;
     setUsernameRole(callerUsername: string, targetUsername: string, role: string): Promise<boolean>;
     signUp(username: string, password: string, fullName: string, email: string): Promise<{
         ok: boolean;
@@ -248,17 +261,17 @@ export interface backendInterface {
 import type { BlogPost as _BlogPost, SiteSettings as _SiteSettings, Topic as _Topic, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
-    async _initializeAccessControlWithSecret(arg0: string): Promise<void> {
+    async _initializeAccessControl(): Promise<void> {
         if (this.processError) {
             try {
-                const result = await this.actor._initializeAccessControlWithSecret(arg0);
+                const result = await this.actor._initializeAccessControl();
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor._initializeAccessControlWithSecret(arg0);
+            const result = await this.actor._initializeAccessControl();
             return result;
         }
     }
@@ -329,6 +342,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.deleteBlogPost(arg0, arg1);
+            return result;
+        }
+    }
+    async deleteChatMessage(arg0: bigint, arg1: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.deleteChatMessage(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.deleteChatMessage(arg0, arg1);
             return result;
         }
     }
@@ -602,6 +629,34 @@ export class Backend implements backendInterface {
         } else {
             const result = await this.actor.getCallerUserRole();
             return from_candid_UserRole_n5(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getChatMessages(arg0: string, arg1: bigint): Promise<Array<ChatMessage>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getChatMessages(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getChatMessages(arg0, arg1);
+            return result;
+        }
+    }
+    async getChatRooms(): Promise<Array<string>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getChatRooms();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getChatRooms();
+            return result;
         }
     }
     async getLeaderboard(): Promise<Array<LeaderboardEntry>> {
@@ -929,6 +984,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.searchBlogPosts(arg0);
+            return result;
+        }
+    }
+    async sendChatMessage(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.sendChatMessage(arg0, arg1, arg2, arg3, arg4);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.sendChatMessage(arg0, arg1, arg2, arg3, arg4);
             return result;
         }
     }

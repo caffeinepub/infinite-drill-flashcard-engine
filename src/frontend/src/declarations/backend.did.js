@@ -42,6 +42,15 @@ export const UserWithRole = IDL.Record({
   'role' : IDL.Text,
   'studentClass' : IDL.Text,
 });
+export const ChatMessage = IDL.Record({
+  'id' : IDL.Nat,
+  'content' : IDL.Text,
+  'senderUsername' : IDL.Text,
+  'messageType' : IDL.Text,
+  'timestamp' : IDL.Int,
+  'senderName' : IDL.Text,
+  'roomId' : IDL.Text,
+});
 export const LeaderboardEntry = IDL.Record({
   'xp' : IDL.Nat,
   'streak' : IDL.Nat,
@@ -65,7 +74,7 @@ export const UserProfile = IDL.Record({
 });
 
 export const idlService = IDL.Service({
-  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  '_initializeAccessControl' : IDL.Func([], [], []),
   'addBlogXP' : IDL.Func([IDL.Nat], [IDL.Nat], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
   'checkUsernameAvailability' : IDL.Func([IDL.Text], [IDL.Bool], ['query']),
@@ -75,6 +84,7 @@ export const idlService = IDL.Service({
       [],
     ),
   'deleteBlogPost' : IDL.Func([IDL.Nat, IDL.Text], [], []),
+  'deleteChatMessage' : IDL.Func([IDL.Nat, IDL.Text], [], []),
   'deleteUserProfile' : IDL.Func([IDL.Principal], [], []),
   'getAdminStats' : IDL.Func(
       [],
@@ -144,6 +154,12 @@ export const idlService = IDL.Service({
   'getBlogPostImageById' : IDL.Func([IDL.Nat], [IDL.Opt(IDL.Text)], ['query']),
   'getCallerRole' : IDL.Func([], [IDL.Text], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'getChatMessages' : IDL.Func(
+      [IDL.Text, IDL.Nat],
+      [IDL.Vec(ChatMessage)],
+      ['query'],
+    ),
+  'getChatRooms' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
   'getLeaderboard' : IDL.Func([], [IDL.Vec(LeaderboardEntry)], ['query']),
   'getRoleCount' : IDL.Func([IDL.Text], [IDL.Nat], ['query']),
   'getRoleDetails' : IDL.Func(
@@ -223,6 +239,11 @@ export const idlService = IDL.Service({
   'removeUsernameRole' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
   'saveCallerUserProfile' : IDL.Func([IDL.Text, IDL.Text], [UserProfile], []),
   'searchBlogPosts' : IDL.Func([IDL.Text], [IDL.Vec(BlogPost)], ['query']),
+  'sendChatMessage' : IDL.Func(
+      [IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+      [IDL.Nat],
+      [],
+    ),
   'setUsernameRole' : IDL.Func([IDL.Text, IDL.Text, IDL.Text], [IDL.Bool], []),
   'signUp' : IDL.Func(
       [IDL.Text, IDL.Text, IDL.Text, IDL.Text],
@@ -285,6 +306,15 @@ export const idlFactory = ({ IDL }) => {
     'role' : IDL.Text,
     'studentClass' : IDL.Text,
   });
+  const ChatMessage = IDL.Record({
+    'id' : IDL.Nat,
+    'content' : IDL.Text,
+    'senderUsername' : IDL.Text,
+    'messageType' : IDL.Text,
+    'timestamp' : IDL.Int,
+    'senderName' : IDL.Text,
+    'roomId' : IDL.Text,
+  });
   const LeaderboardEntry = IDL.Record({
     'xp' : IDL.Nat,
     'streak' : IDL.Nat,
@@ -308,7 +338,7 @@ export const idlFactory = ({ IDL }) => {
   });
   
   return IDL.Service({
-    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    '_initializeAccessControl' : IDL.Func([], [], []),
     'addBlogXP' : IDL.Func([IDL.Nat], [IDL.Nat], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
     'checkUsernameAvailability' : IDL.Func([IDL.Text], [IDL.Bool], ['query']),
@@ -318,6 +348,7 @@ export const idlFactory = ({ IDL }) => {
         [],
       ),
     'deleteBlogPost' : IDL.Func([IDL.Nat, IDL.Text], [], []),
+    'deleteChatMessage' : IDL.Func([IDL.Nat, IDL.Text], [], []),
     'deleteUserProfile' : IDL.Func([IDL.Principal], [], []),
     'getAdminStats' : IDL.Func(
         [],
@@ -395,6 +426,12 @@ export const idlFactory = ({ IDL }) => {
       ),
     'getCallerRole' : IDL.Func([], [IDL.Text], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'getChatMessages' : IDL.Func(
+        [IDL.Text, IDL.Nat],
+        [IDL.Vec(ChatMessage)],
+        ['query'],
+      ),
+    'getChatRooms' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
     'getLeaderboard' : IDL.Func([], [IDL.Vec(LeaderboardEntry)], ['query']),
     'getRoleCount' : IDL.Func([IDL.Text], [IDL.Nat], ['query']),
     'getRoleDetails' : IDL.Func(
@@ -474,6 +511,11 @@ export const idlFactory = ({ IDL }) => {
     'removeUsernameRole' : IDL.Func([IDL.Text, IDL.Text], [IDL.Bool], []),
     'saveCallerUserProfile' : IDL.Func([IDL.Text, IDL.Text], [UserProfile], []),
     'searchBlogPosts' : IDL.Func([IDL.Text], [IDL.Vec(BlogPost)], ['query']),
+    'sendChatMessage' : IDL.Func(
+        [IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
+        [IDL.Nat],
+        [],
+      ),
     'setUsernameRole' : IDL.Func(
         [IDL.Text, IDL.Text, IDL.Text],
         [IDL.Bool],

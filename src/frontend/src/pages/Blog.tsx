@@ -1,15 +1,16 @@
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { BookOpen, Calendar, Clock, Search, User } from "lucide-react";
 import { useEffect, useState } from "react";
-import type { BlogPost as BackendBlogPost } from "../backend.d";
+import { createActor } from "../backend";
 import { Layout } from "../components/Layout";
 import type { BlogPost as BlogPostType } from "../data/blogData";
-import { useActor } from "../hooks/useActor";
 import { useMonotagAd } from "../hooks/useMonotagAd";
 import { useSEO } from "../hooks/useSEO";
+import type { BlogPost as BackendBlogPost } from "../types";
 
 // ─── Dynamic data loader ──────────────────────────────────────────────────────
 
@@ -34,7 +35,7 @@ function useBlogData() {
 type AdminActor = Record<string, (...args: unknown[]) => Promise<unknown>>;
 
 function useDynamicBlogPosts() {
-  const { actor, isFetching } = useActor();
+  const { actor, isFetching } = useActor(createActor);
 
   return useQuery<BackendBlogPost[]>({
     queryKey: ["dynamicBlogPosts"],
@@ -239,7 +240,7 @@ export default function Blog() {
     return (
       !q ||
       post.title.toLowerCase().includes(q) ||
-      post.description.toLowerCase().includes(q)
+      (post.description ?? "").toLowerCase().includes(q)
     );
   });
 

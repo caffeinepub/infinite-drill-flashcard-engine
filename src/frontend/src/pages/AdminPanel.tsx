@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   BookOpen,
@@ -40,12 +41,12 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { BlogPost as BackendBlogPost, SiteSettings } from "../backend.d";
+import { createActor } from "../backend";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../context/AuthContext";
-import { useActor } from "../hooks/useActor";
 import { useAdminRole } from "../hooks/useAdminRole";
 import { useSEO } from "../hooks/useSEO";
+import type { BlogPost as BackendBlogPost, SiteSettings } from "../types";
 
 type AdminActor = Record<string, (...args: unknown[]) => Promise<unknown>>;
 
@@ -78,7 +79,7 @@ function RoleBadge({ role }: { role: string }) {
 
 // ─── Claim Admin ────────────────────────────────────────────────────────────────
 function ClaimAdminSection() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const queryClient = useQueryClient();
   const [secret, setSecret] = useState("");
   const [showSecret, setShowSecret] = useState(false);
@@ -187,7 +188,7 @@ function ClaimAdminSection() {
 
 // ─── Dashboard Tab ──────────────────────────────────────────────────────────────
 function DashboardTab() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
 
   const { data: stats, isLoading } = useQuery<{
     totalUsers: bigint;
@@ -356,7 +357,7 @@ type UserEntry = {
 };
 
 function UsersTab({ currentUsername }: { currentUsername: string }) {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const queryClient = useQueryClient();
 
   const { data: users, isLoading } = useQuery<UserEntry[]>({
@@ -517,7 +518,7 @@ function UsersTab({ currentUsername }: { currentUsername: string }) {
 
 // ─── Settings Tab ──────────────────────────────────────────────────────────────
 function SettingsTab() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const queryClient = useQueryClient();
 
   const { data: settings, isLoading } = useQuery<SiteSettings | null>({
@@ -618,7 +619,7 @@ function SettingsTab() {
 
 // ─── Announcements Tab ─────────────────────────────────────────────────────────
 function AnnouncementsTab() {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const queryClient = useQueryClient();
 
   const { data: settings, isLoading } = useQuery<SiteSettings | null>({
@@ -841,7 +842,7 @@ function BlogTab({
   currentUsername,
   currentFullName,
 }: { currentUsername: string; currentFullName: string }) {
-  const { actor } = useActor();
+  const { actor } = useActor(createActor);
   const queryClient = useQueryClient();
 
   // Form state
@@ -1151,7 +1152,8 @@ function BlogTab({
                       {post.authorName || post.authorUsername}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Calendar size={9} /> {formatDate(post.createdAt)}
+                      <Calendar size={9} />{" "}
+                      {formatDate(post.createdAt ?? BigInt(0))}
                     </span>
                   </div>
                   {post.description && (
@@ -1172,7 +1174,7 @@ function BlogTab({
                     onClick={() =>
                       togglePublishMutation.mutate({
                         postId: post.id,
-                        published: post.published,
+                        published: post.published ?? false,
                       })
                     }
                     disabled={togglePublishMutation.isPending}

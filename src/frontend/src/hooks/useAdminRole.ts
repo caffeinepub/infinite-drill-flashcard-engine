@@ -1,13 +1,14 @@
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useQuery } from "@tanstack/react-query";
+import { createActor } from "../backend";
 import { useAuth } from "../context/AuthContext";
-import { useActor } from "./useActor";
 
 type ActorWithAdminMethods = {
   getUserRole: (username: string) => Promise<string>;
 };
 
 export function useAdminRole() {
-  const { actor, isFetching } = useActor();
+  const { actor, isFetching } = useActor(createActor);
   const { user } = useAuth();
 
   const { data: role, isLoading } = useQuery<string>({

@@ -21,6 +21,15 @@ export interface BlogPost {
   'description' : string,
   'imageUrl' : string,
 }
+export interface ChatMessage {
+  'id' : bigint,
+  'content' : string,
+  'senderUsername' : string,
+  'messageType' : string,
+  'timestamp' : bigint,
+  'senderName' : string,
+  'roomId' : string,
+}
 export interface LeaderboardEntry {
   'xp' : bigint,
   'streak' : bigint,
@@ -64,7 +73,7 @@ export interface UserWithRole {
   'studentClass' : string,
 }
 export interface _SERVICE {
-  '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  '_initializeAccessControl' : ActorMethod<[], undefined>,
   'addBlogXP' : ActorMethod<[bigint], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
   'checkUsernameAvailability' : ActorMethod<[string], boolean>,
@@ -73,6 +82,7 @@ export interface _SERVICE {
     bigint
   >,
   'deleteBlogPost' : ActorMethod<[bigint, string], undefined>,
+  'deleteChatMessage' : ActorMethod<[bigint, string], undefined>,
   'deleteUserProfile' : ActorMethod<[Principal], undefined>,
   'getAdminStats' : ActorMethod<
     [],
@@ -124,6 +134,8 @@ export interface _SERVICE {
   'getBlogPostImageById' : ActorMethod<[bigint], [] | [string]>,
   'getCallerRole' : ActorMethod<[], string>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
+  'getChatMessages' : ActorMethod<[string, bigint], Array<ChatMessage>>,
+  'getChatRooms' : ActorMethod<[], Array<string>>,
   'getLeaderboard' : ActorMethod<[], Array<LeaderboardEntry>>,
   'getRoleCount' : ActorMethod<[string], bigint>,
   'getRoleDetails' : ActorMethod<
@@ -166,6 +178,10 @@ export interface _SERVICE {
   'removeUsernameRole' : ActorMethod<[string, string], boolean>,
   'saveCallerUserProfile' : ActorMethod<[string, string], UserProfile>,
   'searchBlogPosts' : ActorMethod<[string], Array<BlogPost>>,
+  'sendChatMessage' : ActorMethod<
+    [string, string, string, string, string],
+    bigint
+  >,
   'setUsernameRole' : ActorMethod<[string, string, string], boolean>,
   'signUp' : ActorMethod<
     [string, string, string, string],

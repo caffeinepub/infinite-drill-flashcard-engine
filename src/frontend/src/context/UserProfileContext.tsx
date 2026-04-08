@@ -1,5 +1,5 @@
 import { type ReactNode, createContext, useContext } from "react";
-import type { UserProfile } from "../backend.d";
+import type { UserProfile } from "../types";
 
 interface UserProfileContextValue {
   profile: UserProfile | null;

@@ -9,8 +9,8 @@ import Runtime "mo:core/Runtime";
 
 import Principal "mo:core/Principal";
 
-import AccessControl "authorization/access-control";
-import MixinAuthorization "authorization/MixinAuthorization";
+import AccessControl "mo:caffeineai-authorization/access-control";
+import MixinAuthorization "mo:caffeineai-authorization/MixinAuthorization";
 
 actor {
   let accessControlState = AccessControl.initState();

@@ -18,15 +18,6 @@ export interface BlogPost {
     description: string;
     imageUrl: string;
 }
-export interface ChatMessage {
-    id: bigint;
-    roomId: string;
-    senderUsername: string;
-    senderName: string;
-    messageType: string;
-    content: string;
-    timestamp: bigint;
-}
 export interface LeaderboardEntry {
     xp: bigint;
     streak: bigint;
@@ -59,6 +50,15 @@ export interface Topic {
     chapter: string;
     className: string;
     questionCount: bigint;
+}
+export interface ChatMessage {
+    id: bigint;
+    content: string;
+    senderUsername: string;
+    messageType: string;
+    timestamp: bigint;
+    senderName: string;
+    roomId: string;
 }
 export interface UserProfile {
     principal: string;

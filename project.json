@@ -1,0 +1,25 @@
+{
+  "overview": "NCERT Bhaiya is a gamified educational platform for NCERT (Classes 1–12) and IIT JEE content, featuring quizzes, flashcards, leaderboard, blog, community chat, and admin panel. Now with Focus Mode — a camera-based identity check that ensures only the registered student earns XP during a quiz.",
+  "features": [
+    "Quiz system with XP and streaks",
+    "Focus Mode with facial recognition per quiz",
+    "Leaderboard with real logged-in users",
+    "Blog with 70+ SEO articles",
+    "Community chat per class",
+    "Admin and operator panel",
+    "Username/password authentication with persistent storage"
+  ],
+  "category": "education",
+  "tags": [
+    "ncert",
+    "education",
+    "quiz",
+    "gamification",
+    "leaderboard",
+    "focus-mode",
+    "facial-recognition",
+    "cbse",
+    "iit-jee"
+  ],
+  "last_updated": "2026-04-08T00:16:19.468Z"
+}

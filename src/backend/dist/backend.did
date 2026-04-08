@@ -1,0 +1,195 @@
+type UserWithRole = 
+ record {
+   createdAt: int;
+   displayName: text;
+   "principal": text;
+   role: text;
+   studentClass: text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserProfile = 
+ record {
+   createdAt: int;
+   displayName: text;
+   "principal": text;
+   studentClass: text;
+ };
+type Topic = 
+ record {
+   board: text;
+   chapter: text;
+   className: text;
+   description: text;
+   difficulty: text;
+   id: nat;
+   microTopic: text;
+   questionCount: nat;
+   subject: text;
+ };
+type SiteSettings = 
+ record {
+   announcement: text;
+   announcementEnabled: bool;
+   featuredMessage: text;
+   lastUpdated: int;
+   updatedBy: text;
+ };
+type LeaderboardEntry = 
+ record {
+   badges: vec text;
+   level: nat;
+   rank: nat;
+   streak: nat;
+   username: text;
+   xp: nat;
+ };
+type ChatMessage = 
+ record {
+   content: text;
+   id: nat;
+   messageType: text;
+   roomId: text;
+   senderName: text;
+   senderUsername: text;
+   timestamp: int;
+ };
+type BlogPost = 
+ record {
+   authorName: text;
+   authorUsername: text;
+   content: text;
+   createdAt: int;
+   description: text;
+   id: nat;
+   imageUrl: text;
+   published: bool;
+   title: text;
+ };
+service : {
+  _initializeAccessControl: () -> ();
+  addBlogXP: (xpAmount: nat) -> (nat);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  checkUsernameAvailability: (username: text) -> (bool) query;
+  createBlogPost: (title: text, description: text, content: text, authorName:
+   text, authorUsername: text, imageUrl: text) -> (nat);
+  deleteBlogPost: (id: nat, callerUsername: text) -> ();
+  deleteChatMessage: (id: nat, callerUsername: text) -> ();
+  deleteUserProfile: (user: principal) -> ();
+  getAdminStats: () ->
+   (record {
+      totalAdmins: nat;
+      totalOperators: nat;
+      totalUsers: nat;
+      totalXP: nat;
+    }) query;
+  getAllAdmins: () -> (vec text) query;
+  getAllBlogPosts: () -> (vec BlogPost) query;
+  getAllBlogPostsAdmin: (callerUsername: text) -> (vec BlogPost) query;
+  getAllBlogPostsByAuthor: (authorUsername: text) -> (vec BlogPost) query;
+  getAllBlogPostsPublic: () -> (vec BlogPost) query;
+  getAllBlogPostsPublicAdmin: () -> (vec BlogPost) query;
+  getAllOperators: () -> (vec text) query;
+  getAllRoles: () -> (vec record {
+                            role: text;
+                            username: text;
+                          }) query;
+  getAllTopics: () -> (vec Topic) query;
+  getAllUsersWithPrincipalRoles: () -> (vec UserWithRole) query;
+  getAllUsersWithRoles: () ->
+   (vec
+     record {
+       createdAt: int;
+       email: text;
+       fullName: text;
+       role: text;
+       username: text;
+     }) query;
+  getAllUsersWithRolesPublic: () ->
+   (vec
+     record {
+       createdAt: int;
+       email: text;
+       fullName: text;
+       role: text;
+       username: text;
+     }) query;
+  getBlogPostById: (id: nat) -> (opt BlogPost) query;
+  getBlogPostImageById: (id: nat) -> (opt text) query;
+  getCallerRole: () -> (text) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getChatMessages: (roomId: text, limit: nat) -> (vec ChatMessage) query;
+  getChatRooms: () -> (vec text) query;
+  getLeaderboard: () -> (vec LeaderboardEntry) query;
+  getRoleCount: (role: text) -> (nat) query;
+  getRoleDetails: (username: text) ->
+   (opt record {
+          createdAt: int;
+          role: text;
+          username: text;
+        }) query;
+  getRoleSummary: () ->
+   (record {
+      totalAdmins: nat;
+      totalOperators: nat;
+      totalUsers: nat;
+    }) query;
+  getSiteSettings: () -> (opt SiteSettings) query;
+  getTopicById: (id: nat) -> (opt Topic) query;
+  getTotalRoles: () -> (record {
+                          admins: nat;
+                          operators: nat;
+                        }) query;
+  getUserByUsername: (username: text) ->
+   (opt record {
+          createdAt: int;
+          email: text;
+          fullName: text;
+        }) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  getUserRole: (username: text) -> (text) query;
+  getUsernameRole: (username: text) -> (text) query;
+  hasRole: (username: text, role: text) -> (bool) query;
+  isCallerAdmin: () -> (bool) query;
+  isOperatorRole: (username: text) -> (bool) query;
+  isStrictAdmin: (username: text) -> (bool) query;
+  login: (username: text, password: text) ->
+   (record {
+      email: text;
+      fullName: text;
+      message: text;
+      ok: bool;
+    });
+  markFlashcardMastered: (flashcardId: nat) -> ();
+  publishBlogPost: (id: nat, callerUsername: text) -> ();
+  reassignUsernameRole: (callerUsername: text, targetUsername: text, role:
+   text) -> (bool);
+  removeUsernameRole: (callerUsername: text, targetUsername: text) -> (bool);
+  saveCallerUserProfile: (displayName: text, studentClass: text) ->
+   (UserProfile);
+  searchBlogPosts: (searchQuery: text) -> (vec BlogPost) query;
+  sendChatMessage: (roomId: text, senderUsername: text, senderName: text,
+   messageType: text, content: text) -> (nat);
+  setUsernameRole: (callerUsername: text, targetUsername: text, role:
+   text) -> (bool);
+  signUp: (username: text, password: text, fullName: text, email: text) ->
+   (record {
+      message: text;
+      ok: bool;
+    });
+  unpublishBlogPost: (id: nat, callerUsername: text) -> ();
+  updateBlogPost: (id: nat, title: text, description: text, content: 
+   text, imageUrl: text, published: bool, editorUsername: text) -> ();
+  updateSiteSettings: (announcement: text, announcementEnabled: bool,
+   featuredMessage: text) -> (SiteSettings);
+  updateUserProfile: (username: text, newFullName: text, newEmail: text) ->
+   (record {
+      message: text;
+      ok: bool;
+    });
+  validateRoleAssignment: (callerUsername: text, targetRole: text) -> (bool);
+}

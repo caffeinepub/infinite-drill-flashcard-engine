@@ -1,5 +1,5 @@
-import type { UserProfile } from "../backend.d";
 import { useUserProfileContext } from "../context/UserProfileContext";
+import type { UserProfile } from "../types";
 
 export interface UseUserProfileResult {
   profile: UserProfile | null;

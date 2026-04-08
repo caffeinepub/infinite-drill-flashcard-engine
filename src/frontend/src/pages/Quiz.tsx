@@ -1,23 +1,37 @@
 import { cn } from "@/lib/utils";
 import { Link, useParams } from "@tanstack/react-router";
 import {
+  AlertTriangle,
   ArrowLeft,
+  Camera,
   CheckCircle,
   Flame,
   Home,
+  LogOut,
   RotateCcw,
   Share2,
+  ShieldCheck,
   Star,
   XCircle,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  Suspense,
+  lazy,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { toast } from "sonner";
 import { AdZone } from "../components/AdZone";
 import { getLevel, getLevelProgress, topicsData } from "../data/demoData";
 import type { Question } from "../data/demoData";
+import { useFocusMode } from "../hooks/useFocusMode";
 import { useSubmitQuiz } from "../hooks/useQueries";
 import { useSEO } from "../hooks/useSEO";
+
+const FocusModeCapture = lazy(() => import("../components/FocusModeCapture"));
 
 // ─── Timer Ring ────────────────────────────────────────────────────────────────
 
@@ -96,6 +110,97 @@ function XPPopup({ xp, show }: { xp: number; show: boolean }) {
   );
 }
 
+// ─── Face Mismatch Warning Modal ───────────────────────────────────────────────
+
+function FaceMismatchWarning({
+  onResume,
+  onExit,
+}: { onResume: () => void; onExit: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.2, type: "spring" }}
+        className="w-full max-w-sm glass-dark rounded-2xl border border-amber-500/50 shadow-2xl overflow-hidden"
+        style={{ boxShadow: "0 0 32px oklch(var(--neon-amber) / 0.2)" }}
+      >
+        <div className="p-6 text-center">
+          <div className="w-14 h-14 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto mb-4">
+            <AlertTriangle size={24} className="text-amber-400" />
+          </div>
+          <h3 className="font-display text-lg font-bold mb-2">Quiz Paused</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+            A different person was detected. Focus Mode requires the same person
+            who set up the session to submit answers. Please verify it's you.
+          </p>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              data-ocid="focus-mode.exit_quiz_button"
+              onClick={onExit}
+              className="flex-1 py-2.5 rounded-xl font-display font-bold text-sm border border-border/50 bg-muted/30 hover:bg-muted/60 text-muted-foreground hover:text-foreground transition-all flex items-center justify-center gap-2"
+            >
+              <LogOut size={13} />
+              Exit Quiz
+            </button>
+            <button
+              type="button"
+              data-ocid="focus-mode.resume_button"
+              onClick={onResume}
+              className="flex-1 py-2.5 rounded-xl font-display font-bold text-sm bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:opacity-90 transition-all flex items-center justify-center gap-2"
+            >
+              <Camera size={13} />
+              Try Again
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// ─── Native verify camera hook ────────────────────────────────────────────────
+
+/**
+ * Manages a hidden video stream used only at submit time for face verification.
+ * Stream is started briefly on submit and stopped immediately after.
+ */
+function useVerifyCamera() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  const startCamera = useCallback(async (): Promise<boolean> => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "user",
+          width: { ideal: 320 },
+          height: { ideal: 240 },
+        },
+      });
+      streamRef.current = stream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        await videoRef.current.play();
+      }
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const stopCamera = useCallback(() => {
+    if (streamRef.current) {
+      for (const t of streamRef.current.getTracks()) t.stop();
+      streamRef.current = null;
+    }
+    if (videoRef.current) videoRef.current.srcObject = null;
+  }, []);
+
+  return { videoRef, startCamera, stopCamera };
+}
+
 // ─── Quiz Page ─────────────────────────────────────────────────────────────────
 
 export default function Quiz() {
@@ -120,21 +225,39 @@ export default function Quiz() {
   const [showXPPopup, setShowXPPopup] = useState(false);
   const [xpEarned, setXPEarned] = useState(0);
   const [quizComplete, setQuizComplete] = useState(false);
+  const [showMismatch, setShowMismatch] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pendingSubmitRef = useRef(false);
 
   const submitQuiz = useSubmitQuiz();
   const currentQuestion: Question = questions[currentIndex];
+
+  // Focus Mode
+  const focusMode = useFocusMode();
+
+  // Hidden camera for verification — only activated at submit time
+  const verifyCamera = useVerifyCamera();
+
+  // Cleanup on unmount / quiz end
+  useEffect(() => {
+    return () => {
+      focusMode.reset();
+      verifyCamera.stopCamera();
+    };
+  }, [focusMode.reset, verifyCamera.stopCamera]);
 
   const clearTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
   }, []);
 
-  const handleSubmit = useCallback(() => {
+  const doSubmit = useCallback(() => {
     if (submitted) return;
     clearTimer();
     setSubmitted(true);
+    verifyCamera.stopCamera();
 
-    let earned = 2; // attempting XP
+    let earned = 2;
     if (selectedOption === currentQuestion.correctIndex) {
       earned = 10;
       setCorrectCount((c) => c + 1);
@@ -147,7 +270,55 @@ export default function Quiz() {
     setXPEarned(earned);
     setShowXPPopup(true);
     setTimeout(() => setShowXPPopup(false), 1600);
-  }, [submitted, selectedOption, currentQuestion, clearTimer]);
+  }, [
+    submitted,
+    selectedOption,
+    currentQuestion,
+    clearTimer,
+    verifyCamera.stopCamera,
+  ]);
+
+  const handleSubmit = useCallback(async () => {
+    if (submitted) return;
+
+    // Focus mode verification flow
+    if (focusMode.status === "active") {
+      setIsVerifying(true);
+      pendingSubmitRef.current = true;
+
+      // Start camera briefly for verification
+      const started = await verifyCamera.startCamera();
+      if (!started) {
+        // Can't start camera — allow submission
+        setIsVerifying(false);
+        doSubmit();
+        return;
+      }
+
+      // Give camera a moment to get a frame
+      setTimeout(async () => {
+        if (verifyCamera.videoRef.current) {
+          const match = await focusMode.verifyFace(
+            verifyCamera.videoRef.current,
+          );
+          setIsVerifying(false);
+          verifyCamera.stopCamera();
+          if (match) {
+            doSubmit();
+          } else {
+            setShowMismatch(true);
+          }
+        } else {
+          setIsVerifying(false);
+          doSubmit();
+        }
+        pendingSubmitRef.current = false;
+      }, 800);
+      return;
+    }
+
+    doSubmit();
+  }, [submitted, focusMode, verifyCamera, doSubmit]);
 
   // Timer
   // biome-ignore lint/correctness/useExhaustiveDependencies: currentIndex intentionally triggers timer reset
@@ -158,14 +329,14 @@ export default function Quiz() {
       setTimeLeft((t) => {
         if (t <= 1) {
           clearInterval(timerRef.current!);
-          handleSubmit();
+          doSubmit();
           return 0;
         }
         return t - 1;
       });
     }, 1000);
     return clearTimer;
-  }, [currentIndex, submitted, quizComplete, handleSubmit, clearTimer]);
+  }, [currentIndex, submitted, quizComplete, doSubmit, clearTimer]);
 
   const handleNext = () => {
     if (currentIndex + 1 >= questions.length) {
@@ -186,6 +357,7 @@ export default function Quiz() {
     setStreak(0);
     setCorrectCount(0);
     setQuizComplete(false);
+    focusMode.reset();
   };
 
   const scorePercent = Math.round((correctCount / questions.length) * 100);
@@ -211,7 +383,6 @@ export default function Quiz() {
           className="w-full max-w-lg"
         >
           <div className="glass-dark rounded-3xl p-8 border border-border/50 shadow-card-glow">
-            {/* Score header */}
             <div className="text-center mb-6">
               <div className="text-6xl mb-2">
                 {scorePercent >= 80 ? "🎉" : scorePercent >= 60 ? "👍" : "📖"}
@@ -222,9 +393,14 @@ export default function Quiz() {
               <p className="text-muted-foreground text-sm">
                 {topic.chapter} · {topic.microTopic}
               </p>
+              {focusMode.status === "active" && (
+                <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+                  <ShieldCheck size={11} />
+                  Focus Mode Active
+                </div>
+              )}
             </div>
 
-            {/* Score ring */}
             <div className="flex items-center justify-center mb-6">
               <div className="relative w-28 h-28">
                 <svg
@@ -271,7 +447,6 @@ export default function Quiz() {
               </div>
             </div>
 
-            {/* Stats grid */}
             <div className="grid grid-cols-3 gap-3 mb-6">
               <div className="text-center p-3 rounded-xl bg-neon-purple/10 border border-neon-purple/20">
                 <div className="font-display text-xl font-bold text-neon-purple">
@@ -297,7 +472,6 @@ export default function Quiz() {
               </div>
             </div>
 
-            {/* Level progress */}
             <div className="mb-4 p-3 rounded-xl bg-muted/30 border border-border/50">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-medium">{level}</span>
@@ -318,12 +492,10 @@ export default function Quiz() {
               </div>
             </div>
 
-            {/* Ad zone */}
             <div className="mb-4">
               <AdZone variant="interstitial" />
             </div>
 
-            {/* Actions */}
             <div className="flex gap-3">
               <button
                 type="button"
@@ -365,6 +537,48 @@ export default function Quiz() {
     <div className="min-h-screen dark:bg-mesh-dark bg-mesh-light flex flex-col">
       <XPPopup xp={xpEarned} show={showXPPopup} />
 
+      {/* Focus Mode Capture Modal */}
+      <AnimatePresence>
+        {focusMode.isCapturing && (
+          <Suspense fallback={null}>
+            <FocusModeCapture
+              onConfirm={(descriptor) => {
+                focusMode.confirmReference(descriptor);
+                toast.success("🛡️ Focus Mode active — only you earn XP!", {
+                  duration: 2500,
+                });
+              }}
+              onCancel={() => {
+                focusMode.reset();
+              }}
+            />
+          </Suspense>
+        )}
+      </AnimatePresence>
+
+      {/* Face Mismatch Warning Modal */}
+      <AnimatePresence>
+        {showMismatch && (
+          <FaceMismatchWarning
+            onResume={() => setShowMismatch(false)}
+            onExit={() => {
+              setShowMismatch(false);
+              focusMode.reset();
+              doSubmit();
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Hidden verification camera (used only at submit time) */}
+      <video
+        ref={verifyCamera.videoRef}
+        autoPlay
+        playsInline
+        muted
+        className="hidden"
+      />
+
       {/* Header */}
       <header className="sticky top-0 z-40 glass-dark border-b border-border/50">
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3">
@@ -376,7 +590,6 @@ export default function Quiz() {
             <ArrowLeft size={16} />
           </Link>
 
-          {/* Progress bar */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-1 text-[10px] text-muted-foreground">
               <span className="font-mono-custom">
@@ -396,8 +609,17 @@ export default function Quiz() {
             </div>
           </div>
 
-          {/* XP & Streak */}
           <div className="flex items-center gap-3 text-xs shrink-0">
+            {/* Focus Mode badge */}
+            {focusMode.status === "active" && (
+              <div
+                data-ocid="quiz.focus_mode_badge"
+                className="flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-[10px] font-semibold"
+              >
+                <ShieldCheck size={9} />
+                Focus
+              </div>
+            )}
             <div className="flex items-center gap-1 text-neon-purple font-display font-bold">
               <Star size={12} fill="currentColor" />
               {xp}
@@ -412,6 +634,71 @@ export default function Quiz() {
 
       {/* Question */}
       <div className="flex-1 flex flex-col items-center justify-start px-4 py-8 max-w-3xl mx-auto w-full">
+        {/* Focus Mode toggle — only show before first answer */}
+        {!submitted &&
+          currentIndex === 0 &&
+          (focusMode.status === "idle" || focusMode.status === "loading") && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full mb-4"
+            >
+              <button
+                type="button"
+                data-ocid="quiz.focus_mode_button"
+                onClick={focusMode.enableFocusMode}
+                disabled={focusMode.status === "loading"}
+                className="w-full py-2.5 rounded-xl font-display font-semibold text-sm transition-all
+                border border-emerald-500/30 bg-emerald-500/8 hover:bg-emerald-500/15 hover:border-emerald-500/50
+                text-emerald-400 flex items-center justify-center gap-2"
+              >
+                {focusMode.status === "loading" ? (
+                  <>
+                    <div className="w-3.5 h-3.5 rounded-full border-2 border-emerald-400/40 border-t-emerald-400 animate-spin" />
+                    Loading face detection…
+                  </>
+                ) : (
+                  <>
+                    <Camera size={14} />
+                    Enable Focus Mode
+                    <span className="text-[10px] text-emerald-400/60 font-normal ml-1">
+                      Only you earn XP
+                    </span>
+                  </>
+                )}
+              </button>
+
+              {focusMode.errorMessage && (
+                <p className="text-xs text-destructive mt-2 text-center">
+                  {focusMode.errorMessage}
+                </p>
+              )}
+            </motion.div>
+          )}
+
+        {/* Active Focus Mode status strip */}
+        {focusMode.status === "active" && !submitted && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full mb-4"
+          >
+            <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+              <div className="flex items-center gap-2 text-emerald-400 text-xs font-semibold">
+                <ShieldCheck size={13} />
+                Focus Mode active — face verification on submit
+              </div>
+              <button
+                type="button"
+                onClick={focusMode.reset}
+                className="text-[10px] text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Disable
+              </button>
+            </div>
+          </motion.div>
+        )}
+
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -454,15 +741,12 @@ export default function Quiz() {
                     className={cn(
                       "relative w-full text-left px-4 py-3.5 rounded-xl border text-sm font-medium transition-all duration-200",
                       "flex items-center gap-3",
-                      // default
                       !submitted &&
                         !isSelected &&
                         "glass-dark border-border/50 hover:border-primary/40 hover:bg-primary/5 hover:shadow-neon-purple",
-                      // selected (not submitted)
                       !submitted &&
                         isSelected &&
                         "bg-neon-purple/15 border-neon-purple/60 text-neon-purple shadow-neon-purple",
-                      // submitted states
                       showCorrect &&
                         "bg-neon-green/15 border-neon-green/60 text-neon-green shadow-neon-green",
                       isWrong &&
@@ -473,11 +757,9 @@ export default function Quiz() {
                         "glass-dark border-border/30 opacity-50",
                     )}
                   >
-                    {/* Option letter */}
                     <span
                       className={cn(
-                        "w-7 h-7 rounded-lg flex items-center justify-center text-xs font-display font-bold shrink-0",
-                        "border",
+                        "w-7 h-7 rounded-lg flex items-center justify-center text-xs font-display font-bold shrink-0 border",
                         !submitted &&
                           !isSelected &&
                           "border-border/50 text-muted-foreground",
@@ -517,15 +799,29 @@ export default function Quiz() {
                 type="button"
                 data-ocid="quiz.submit_button"
                 onClick={handleSubmit}
-                disabled={selectedOption === null}
+                disabled={selectedOption === null || isVerifying}
                 className={cn(
-                  "w-full py-3 rounded-xl font-display font-bold text-sm transition-all",
-                  selectedOption !== null
-                    ? "bg-gradient-to-r from-neon-purple to-neon-blue text-white shadow-neon-purple hover:opacity-90"
+                  "w-full py-3 rounded-xl font-display font-bold text-sm transition-all flex items-center justify-center gap-2",
+                  selectedOption !== null && !isVerifying
+                    ? focusMode.status === "active"
+                      ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white hover:opacity-90"
+                      : "bg-gradient-to-r from-neon-purple to-neon-blue text-white shadow-neon-purple hover:opacity-90"
                     : "bg-muted/30 text-muted-foreground border border-border/50 cursor-not-allowed",
                 )}
               >
-                Submit Answer
+                {isVerifying ? (
+                  <>
+                    <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                    Verifying face…
+                  </>
+                ) : focusMode.status === "active" ? (
+                  <>
+                    <ShieldCheck size={14} />
+                    Submit & Verify
+                  </>
+                ) : (
+                  "Submit Answer"
+                )}
               </button>
             ) : (
               <motion.div
@@ -533,7 +829,6 @@ export default function Quiz() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Explanation */}
                 <div className="glass-dark rounded-xl p-4 border border-border/50 mb-3">
                   <div className="flex items-center gap-2 mb-2">
                     {selectedOption === currentQuestion.correctIndex ? (
@@ -557,7 +852,6 @@ export default function Quiz() {
                   </p>
                 </div>
 
-                {/* Ad zone between questions */}
                 <div className="mb-3">
                   <AdZone variant="leaderboard" />
                 </div>

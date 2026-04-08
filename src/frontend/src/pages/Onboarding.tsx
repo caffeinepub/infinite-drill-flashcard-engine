@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useActor } from "@caffeineai/core-infrastructure";
 import {
   BookOpen,
   ChevronRight,
@@ -20,7 +21,7 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useActor } from "../hooks/useActor";
+import { createActor } from "../backend";
 import { useUserProfile } from "../hooks/useUserProfile";
 
 const classes = [
@@ -54,7 +55,11 @@ const countries = [
 ];
 
 export default function Onboarding() {
-  const { actor } = useActor();
+  const { actor: rawActor } = useActor(createActor);
+  const actor = rawActor as unknown as Record<
+    string,
+    (...args: unknown[]) => Promise<unknown>
+  > | null;
   const { refetch, setProfile } = useUserProfile();
   const [displayName, setDisplayName] = useState("");
   const [studentClass, setStudentClass] = useState("");
